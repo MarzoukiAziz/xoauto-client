@@ -1,27 +1,61 @@
-# XoautoClient
+# XOAuto Front Office
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.5.
+Welcome to the **XOAuto Front Office** repository! This project is responsible for the user-facing part of the XOAuto platform, where users can browse, search, and interact with listings of electric vehicles in France.
 
-## Development server
+## Table of Contents
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- [Project Overview](#project-overview)
+- [Tech Stack](#tech-stack)
+- [Installation](#installation)
+- [Usage](#usage)
 
-## Code scaffolding
+## Project Overview
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+XOAuto's front office is designed to provide a seamless and responsive user experience for browsing electric vehicle listings. The website allows users to:
 
-## Build
+- Search and filter electric cars
+- View detailed car listings
+- Post and manage ads for electric vehicles (for registered users)
+- Access information about financing, subsidies, and more
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Tech Stack
 
-## Running unit tests
+This project is powered by the following technologies:
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+- **Frontend Framework**: Angular
+- **UI Framework**: Angular Material
+- **CSS Framework**: TailwindCSS
+- **Package Manager**: npm
 
-## Running end-to-end tests
+## Installation
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+To get the project running locally, follow these steps:
 
-## Further help
+1. **Clone the repository**:
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+   ```bash
+   git clone https://github.com/MarzoukiAziz/xoauto-client.git
+   cd xoauto-frontoffice
+   ```
+
+2. **Install the dependencies**:
+
+   ```bash
+   npm install
+   ```
+
+3. **Run the development server**:
+
+   ```bash
+   ng serve
+   ```
+
+4. Open your browser and navigate to `http://localhost:4200`.
+
+## Usage
+
+Once the project is set up and running, you can start interacting with the XOAuto platform by:
+
+- Searching for electric cars using filters (make, model, price, etc.)
+- Viewing individual vehicle details and contacting sellers
+- Managing user accounts and ads (login required)
