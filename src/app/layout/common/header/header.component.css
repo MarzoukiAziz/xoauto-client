@@ -1123,7 +1123,7 @@
     border-right: none;
   }
 }
-@media (max-width: 767px) {
+@media (max-width: 768px) {
   .main-menu .mobile-nav__toggler {
     display: inline-block;
     padding: 36px 0 35px;
