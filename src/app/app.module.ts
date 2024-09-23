@@ -9,9 +9,6 @@ import { FooterComponent } from './layout/common/footer/footer.component';
 import { ClassicComponent } from './layout/layouts/classic/classic.component';
 import { LayoutComponent } from './layout/layout.component';
 import { TestComponent } from './modules/test/test.component';
-import { ArticleListComponent } from './modules/blog/article-list/article-list.component';
-import { ArticleDetailComponent } from './modules/blog/article-detail/article-detail.component';
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,8 +17,6 @@ import { ArticleDetailComponent } from './modules/blog/article-detail/article-de
     ClassicComponent,
     LayoutComponent,
     TestComponent,
-    ArticleListComponent,
-    ArticleDetailComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, NgbModule, FormsModule],
   providers: [],
