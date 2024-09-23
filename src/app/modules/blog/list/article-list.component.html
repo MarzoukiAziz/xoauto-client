@@ -17,7 +17,6 @@
         <div class="blog-page-content-box">
           <!-- Loop through articles and display them -->
           @for ( article of articles; track trackByFn($index, article) ) {
-
           <div class="single-blog-style1 single-blog-style1--style3">
             <div class="image-colum">
               <!-- Article Image -->
@@ -26,23 +25,21 @@
                 <div class="inner" style="background-color: transparent">
                   <img src="{{ article.previewImg }}" alt="" />
                   <div class="overlay-icon">
-                    <a
-                      routerLink="/article/{{ article._id }}/{{
-                        article.title
-                      }}"
-                    >
-                      <span class="icon-right-arrow"></span>
+                    <a routerLink="/article/{{ article._id }}">
+                      <i class="fa-solid fa-arrow-right"></i>
                     </a>
                   </div>
                 </div>
                 <!-- Category and Date Information -->
                 <div class="category-date-box">
                   <div class="category">
-                    <span class="icon-play-button-1"></span>
-                    <h5>{{ article.categorie }}</h5>
+                    <span>
+                      <i class="fa-solid fa-play"></i>
+                    </span>
+                    <h5>{{ article.category }}</h5>
                   </div>
                   <div class="date">
-                    <h5>{{ article.createdAt }}</h5>
+                    <h5>{{ article.createdAt | date : "d MMM, y" }}</h5>
                   </div>
                 </div>
               </div>
@@ -51,26 +48,19 @@
             <div class="text-colum">
               <div class="text-holder">
                 <!-- Article Title with Link -->
-                <h3 class="blog-title">
-                  <a
-                    routerLink="/article/{{ article._id }}/{{ article.title }}"
-                  >
-                    {{ article.id }} {{ article.title }}
+                <h6 class="blog-title">
+                  <a routerLink="/article/{{ article._id }}">
+                    {{ article.title }}
                   </a>
-                </h3>
-                <!-- Article Subtitle/Text -->
-                <div class="text">
-                  <p>{{ article.subtitle }}</p>
-                </div>
+                </h6>
+
                 <!-- Additional Information and Metadata -->
                 <div class="bottom">
                   <div class="meta-box">
                     <ul class="meta-info">
                       <li>
-                        <span class="icon-clock"></span>
-                        <a href="#"
-                          >{{ article.readTime }} Minutes de lecture</a
-                        >
+                        <span><i class="fa-regular fa-clock"></i></span> &nbsp;
+                        <a href="#">{{ article.readTime }} min</a>
                       </li>
                     </ul>
                   </div>

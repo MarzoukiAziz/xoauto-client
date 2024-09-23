@@ -10,6 +10,8 @@ import { MatPaginator, PageEvent } from '@angular/material/paginator';
 import { Article } from '../blog.types';
 import { Subject, takeUntil } from 'rxjs';
 import { BreadcrumbComponent } from 'src/app/shared/components/breadcrumb/breadcrumb.component';
+import { CommonModule } from '@angular/common';
+import { RouterLink } from '@angular/router';
 @Component({
   selector: 'app-article-list',
   templateUrl: './article-list.component.html',
@@ -17,7 +19,7 @@ import { BreadcrumbComponent } from 'src/app/shared/components/breadcrumb/breadc
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
   styleUrls: ['./article-list.component.css'],
-  imports: [MatPaginator, BreadcrumbComponent],
+  imports: [MatPaginator, BreadcrumbComponent, CommonModule, RouterLink],
 })
 export class ArticleListComponent {
   articles: Article[];
@@ -35,10 +37,14 @@ export class ArticleListComponent {
 
   OnPageChange(event: PageEvent) {
     this.currentPage = event.pageIndex + 1;
+    window.scrollTo(0, 0); // Scroll to top
     this._blogService.getArticles(this.currentPage).subscribe();
   }
 
   ngOnInit(): void {
+    this.paginator._intl.itemsPerPageLabel = 'Articles par Page';
+    this.paginator._intl.nextPageLabel = 'Page Suivante';
+    this.paginator._intl.previousPageLabel = 'Page Précedente';
     this._blogService.articles$
       .pipe(takeUntil(this._unsubscribeAll))
       .subscribe((articles: Article[]) => {
