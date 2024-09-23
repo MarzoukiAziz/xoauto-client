@@ -5,7 +5,7 @@ import {
   OnInit,
   ViewEncapsulation,
 } from '@angular/core';
-import { Article } from '../blog.types';
+import { Article, Comment } from '../blog.types';
 import {
   DomSanitizer,
   SafeHtml,
@@ -27,6 +27,7 @@ import { NewAdBannerComponent } from '../../../shared/components/new-ad-banner/n
 })
 export class ArticleDetailComponent implements OnInit {
   article: Article;
+  comments: Comment[] = [];
   content!: SafeHtml;
   connected: boolean = false;
   private _unsubscribeAll: Subject<any> = new Subject<any>();
@@ -38,15 +39,21 @@ export class ArticleDetailComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    // Get the course
     this._blogService.article$
       .pipe(takeUntil(this._unsubscribeAll))
       .subscribe((article: Article) => {
-        // Get the course
         this.article = article;
         this.content = this.sanitizer.bypassSecurityTrustHtml(
           this.article.content
         );
+        this._changeDetectorRef.markForCheck();
+      });
+
+    this._blogService.comments$
+      .pipe(takeUntil(this._unsubscribeAll))
+      .subscribe((comments: Comment[]) => {
+        this.comments = comments;
+        console.log(this.comments);
         this._changeDetectorRef.markForCheck();
       });
   }
@@ -55,9 +62,5 @@ export class ArticleDetailComponent implements OnInit {
     // Unsubscribe from all subscriptions
     this._unsubscribeAll.next(null);
     this._unsubscribeAll.complete();
-  }
-
-  trackByFn(index: number, item: any): any {
-    return item.id || index;
   }
 }

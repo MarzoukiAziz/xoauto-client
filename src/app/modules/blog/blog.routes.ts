@@ -12,12 +12,6 @@ import { BlogComponent } from './blog.component';
 import { ArticleListComponent } from './list/article-list.component';
 import { ArticleDetailComponent } from './details/article-detail.component';
 
-/**
- * Blog resolver
- *
- * @param route
- * @param state
- */
 const articleResolver = (
   route: ActivatedRouteSnapshot,
   state: RouterStateSnapshot
@@ -54,6 +48,8 @@ export default [
         component: ArticleDetailComponent,
         resolve: {
           article: articleResolver,
+          comments: (route: ActivatedRouteSnapshot) =>
+            inject(BlogService).getComments(route.paramMap.get('id')),
         },
       },
     ],

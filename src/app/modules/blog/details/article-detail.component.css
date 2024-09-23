@@ -12,13 +12,10 @@
   width: -webkit-fill-available;
 }
 
-.img-reply {
-  height: 70px;
-  width: 70px;
-}
-
 .img-reply img {
   border-radius: 50%;
+  max-width: 60px;
+  height: 60px;
 }
 
 .must-connect {
@@ -511,6 +508,7 @@
 .comment-box .single-comment-box .img-holder img {
   width: 100%;
   border-radius: 50%;
+  height: 100%;
   /* mix-blend-mode: luminosity; */
 }
 
@@ -685,4 +683,7 @@
 .blog-details-img-box img {
   width: 100%;
   background-color: transparent;
+}
+.comments-reply-box {
+  padding-left: 30px;
 }
