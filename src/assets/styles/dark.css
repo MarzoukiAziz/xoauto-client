@@ -1,0 +1,206 @@
+.main-menu-style1 {
+    background-color: var(--thm-black);
+}
+
+.main-header-style1-bottom {
+    background-color: var(--thm-black);
+}
+
+.main-menu .main-menu__list>li>a,
+.stricky-header .main-menu__list>li>a {
+    color: #ffffff;
+}
+
+.header-btn-one a {
+    color: #ffffff;
+    background-color: var(--thm-base);
+}
+
+.header-btn-one a.style2:hover {
+    color: #ffffff;
+    background-color: var(--thm-base);
+}
+
+
+
+.main-slider-style1 {
+    background-color: var(--thm-black);
+}
+
+
+
+.features-style1-area {
+    background-color: var(--thm-black);
+}
+
+.features-style1-area .sec-title h2 {
+    color: #ffffff;
+}
+
+.features-style1-area .sec-title .sub-title p {
+    color: rgba(255, 255, 255, 0.50);
+}
+
+.single-features-style1-box .text-box h3 {
+    color: #ffffff;
+}
+
+.single-features-style1-box .shape-left {
+    opacity: 0.02;
+}
+
+.single-features-style1-box .shape-bottom {
+    opacity: 0.02;
+}
+
+.single-features-style1-box .text-box .btn-box a {
+    color: #ffffff;
+}
+
+.single-features-style1-box .text-box p {
+    color: rgba(255, 255, 255, 0.70);
+}
+
+
+
+.features-style2-area {
+    background-color: var(--thm-black);
+}
+
+.features-style2-area .sec-title h2 {
+    color: #ffffff;
+}
+
+.features-style2-area .sec-title .sub-title p {
+    color: #ffffff;
+}
+
+.single-features-box-style2 .icon span {
+    color: #ffffff;
+}
+
+.single-features-box-style2 .title h3 a {
+    color: #ffffff;
+}
+
+.owl-nav-style-one.owl-theme .owl-nav [class*="owl-"] span {
+    color: #ffffff;
+}
+
+.features-style2-banner-box {
+    background-color: #ffffff;
+}
+
+.features-style2-banner-box .text-box span {
+    color: var(--thm-black);
+}
+
+.features-style2-banner-box .text-box h4 {
+    color: var(--thm-black);
+}
+
+.features-style2-banner-box .text-box h3 {
+    color: var(--thm-black);
+}
+
+.owl-carousel.owl-dot-style2 .owl-dots .owl-dot {
+    background-color: transparent;
+    border: 5px solid var(--thm-black);
+}
+
+
+
+.features-style3-img-box:before {
+    background-image: none;
+    background-color: var(--thm-black);
+}
+
+
+
+.single-deals-box {
+    background-color: var(--thm-black);
+}
+
+.single-deals-box .text-box .inner-title h2 {
+    color: #ffffff;
+}
+
+.single-deals-box .text-box p {
+    color: rgba(255, 255, 255, 0.70);
+}
+
+.single-deals-box .text-box ul li .inner .text p {
+    color: #ffffff;
+}
+
+
+
+.emi-calculator-tab-content-box-outer {
+    background: rgb(26, 28, 35);
+    background: linear-gradient(180deg, rgba(26, 28, 35, 1) 0%, rgba(26, 28, 35, 1) 0%, rgba(26, 28, 35, 0.896796218487395) 83%);
+}
+
+.price-range-box h4 {
+    color: #ffffff;
+}
+
+.price-range-box .range-input .input input {
+    color: rgba(255, 255, 255, 0.70);
+}
+
+.price-range-box .right-box h5 {
+    color: #ffffff;
+}
+
+.loan-term-range-box h4 {
+    color: #ffffff;
+}
+
+.loan-term-range-box .range-input .input input {
+    color: rgba(255, 255, 255, 0.70);
+}
+
+.loan-term-range-box .right-box h5 {
+    color: #ffffff;
+}
+
+
+.interest-rate-range-box h4 {
+    color: #ffffff;
+}
+
+.interest-rate-range-box .range-input .input input {
+    color: rgba(255, 255, 255, 0.70);
+}
+
+.interest-rate-range-box .right-box h5 {
+    color: #ffffff;
+}
+
+.emi-calculator-output-box {
+    background-color: #fff;
+}
+
+
+.wealth-secure-carousel-2.owl-nav-style-one.owl-theme .owl-nav [class*="owl-"] span {
+    color: var(--thm-black);
+}
+
+
+.deals-carousel-one.owl-nav-style-one.owl-theme .owl-nav [class*="owl-"] span {
+    color: var(--thm-black);
+}
+
+
+
+.features-style2-content ul li {
+    border-left: 1px solid rgba(255, 255, 255, 0.10);
+}
+
+.features-style2-carousel.owl-carousel .owl-stage-outer {
+    border-right: 1px solid rgba(255, 255, 255, 0.10);
+}
+
+
+
+/*** End Css **/

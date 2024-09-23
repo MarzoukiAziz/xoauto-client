@@ -1,0 +1,2614 @@
+@media only screen and (min-width: 1200px) and (max-width: 1849px) {
+  .deals-carousel-one.owl-nav-style-one.owl-theme .owl-nav {
+    display: none;
+  }
+
+  .service-request-area {
+    padding-top: 100px;
+  }
+
+  .service-request-area .container {
+    max-width: 1170px;
+    width: 100%;
+    padding: 0;
+    margin: 0 auto;
+  }
+
+  .service-request-area__inner .col-xl-5.width100 {
+    width: 100%;
+  }
+
+  .service-request-area__inner .col-xl-7.width100 {
+    width: 100%;
+  }
+}
+
+@media only screen and (min-width: 1200px) and (max-width: 1400px) {
+  .individual-corporate-banking-area .row [class*="col-"] {
+    width: 100%;
+  }
+}
+
+/* Medium screen  */
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+  .overview-content-box-one {
+    margin-right: 0px;
+  }
+
+  .overview-content-box-two {
+    padding-top: 50px;
+  }
+
+  .statistics-style2-area-bg {
+    width: 40%;
+  }
+
+  .page-contains-btn li {
+    padding-right: 15px;
+    margin-right: 15px;
+  }
+
+  .eligibility-img-box .sec-title {
+    text-align: center;
+  }
+
+  .eligibility-img-box__inner {
+    margin-right: 0px;
+  }
+
+  .eligibility-content-box {
+    padding-top: 50px;
+  }
+
+  .facts-box-style2 {
+    padding-top: 50px;
+    padding-left: 0;
+  }
+
+  .faq-style1__image {
+    padding-bottom: 50px;
+  }
+
+  .features-style1-content ul li {
+    width: 100%;
+  }
+
+  .single-features-style1-box {
+    max-width: 370px;
+    margin: 0 auto;
+  }
+
+  .wealth-secure-carousel-2 {
+    width: 100%;
+  }
+
+  .wealth-secure-carousel-2 .owl-dots {
+    width: 100%;
+  }
+
+  .features-style3-img-box {
+    max-width: 700px;
+  }
+
+  .features-style3-img-box .inner-img img {
+    transform: none !important;
+  }
+
+  .features-style3-content {
+    padding-top: 80px;
+  }
+
+  .single-deals-box .text-box {
+    width: 100%;
+    float: none;
+    padding: 97px 60px 100px;
+    padding-right: 50px;
+  }
+
+  .single-deals-box .img-box {
+    display: none;
+  }
+
+  .deals-carousel-one.owl-nav-style-one.owl-theme .owl-nav {
+    right: 20px;
+  }
+
+  .emi-calculator-tab__button {
+    max-width: 100%;
+    width: 100%;
+    min-height: 610px;
+    float: none;
+  }
+
+  .emi-calculator-tab-content-box-outer {
+    max-width: 100%;
+    width: 100%;
+    float: none;
+    min-height: 610px;
+    padding: 56px 100px 0;
+    padding-right: 100px;
+  }
+
+  .emi-calculator-tab__button .tabs-button-box {
+    top: 60px;
+    right: 20px;
+  }
+
+  .footer-top-style2__left-content {
+    padding-right: 0px;
+  }
+
+  .footer-top-style2__right-content {
+    padding-top: 60px;
+  }
+
+  .find-nearest-branch-box {
+    max-width: 700px;
+  }
+
+  .service-request-area {
+    padding-top: 100px;
+  }
+
+  .service-request-area .container {
+    max-width: 1170px;
+    width: 100%;
+    padding: 0;
+    margin: 0 auto;
+  }
+
+  .service-request-area__inner .col-xl-5.width100 {
+    width: 100%;
+  }
+
+  .service-request-area__inner .col-xl-7.width100 {
+    width: 100%;
+  }
+
+  .service-request-content-two__inner > ul.row > li {
+    max-width: 570px;
+    margin: 0 auto;
+    border-right: 1px solid #363841;
+  }
+
+  .service-request-content-two__inner > ul.row > li:first-child {
+    border-left: 1px solid #363841;
+  }
+
+  .features-style4-area:before {
+    display: none;
+  }
+
+  .features-style4-title-box {
+    padding-bottom: 60px;
+  }
+
+  .features-style4-title-box .sec-title h2 br {
+    display: none;
+  }
+
+  .app-screen {
+    padding-bottom: 50px;
+  }
+
+  .app-screen img {
+    width: auto;
+  }
+
+  .subscribe-box-style1 {
+    margin-bottom: 30px;
+  }
+
+  .awards-img-box {
+    max-width: 400px;
+    margin: 0 auto 30px;
+  }
+
+  .single-account-box-style1 .text-holder h3 {
+    font-size: 20px;
+    line-height: 30px;
+  }
+
+  .banking-tab-img-box {
+    min-height: 500px;
+    margin-right: 0;
+  }
+
+  .banking-tab-text-box {
+    max-width: 100%;
+    padding-top: 70px;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-bottom: 160px;
+  }
+
+  .banking-tab__button .tabs-button-box .tab-btn-item .inner .title h3 {
+    font-size: 18px;
+  }
+
+  li.single-benefits-box-colum {
+    padding: 0 0px 43px;
+  }
+
+  li.single-benefits-box-colum:before {
+    display: none;
+  }
+
+  li.single-benefits-box-colum:after {
+    display: none;
+  }
+
+  li.single-benefits-box-colum:nth-child(4) {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  li.single-benefits-box-colum:nth-child(5) {
+    padding-top: 43px;
+    padding-bottom: 0;
+  }
+
+  li.single-benefits-box-colum:nth-child(6) {
+    padding-top: 43px;
+    padding-bottom: 0;
+  }
+
+  .service-request-style2-img-box {
+    padding-right: 0px;
+  }
+
+  .service-request-style2-content-box {
+    padding-top: 50px;
+  }
+
+  .single-account-steps-colum {
+    padding: 0 0px;
+    margin-bottom: 43px;
+  }
+
+  .single-account-steps-colum:before {
+    display: none;
+  }
+
+  .features-style3-img-box--style2 {
+    padding-top: 0px;
+    margin-right: 0px;
+    min-height: 545px;
+    max-width: 100%;
+  }
+
+  .blog-style2-area__shape1 {
+    display: none;
+  }
+
+  .blog-style2-area__shape2 {
+    display: none;
+  }
+
+  .single-account-steps-box-style2 {
+    width: 270px;
+    margin: 0 auto 40px;
+  }
+
+  .card-banner-content-bg {
+    width: 550px;
+    background-position: left center;
+    opacity: 0.2;
+  }
+
+  .sidebar-box-style1 {
+    padding-bottom: 50px;
+  }
+
+  .single-sidebar-box-style1.margintop {
+    margin-top: 0px;
+  }
+
+  .cards-deails-content-box {
+    padding-top: 60px;
+  }
+
+  .intro-style1-content-box {
+    padding-top: 60px;
+  }
+
+  .statements-area {
+    padding: 100px 0 100px;
+  }
+
+  .statistics-chart {
+    position: relative;
+    display: block;
+    padding-top: 50px;
+  }
+
+  .intro-style2-content-box {
+    padding-top: 50px;
+  }
+
+  .resume-box {
+    margin-left: 0px;
+    padding-top: 60px;
+  }
+
+  .faq-style1__content.margintop {
+    margin-top: 70px;
+  }
+
+  .single-blog-style1 .text-holder .blog-title {
+    font-size: 20px;
+    line-height: 28px;
+  }
+
+  .single-blog-style1--style3 .text-holder .blog-title {
+    font-size: 26px;
+    line-height: 34px;
+  }
+
+  .thm-sidebar-box {
+    padding-top: 80px;
+  }
+
+  .contact-info-box-style1 {
+    margin-right: 0px;
+  }
+
+  .contact-info-1 {
+    padding: 50px 40px 43px;
+    margin-right: 0;
+  }
+
+  .contact-form {
+    padding-top: 43px;
+    padding-left: 50px;
+    padding-bottom: 50px;
+    padding-right: 50px;
+  }
+
+  .intro-style1-video-gallery {
+    min-height: 600px;
+    margin-right: 0px;
+  }
+}
+
+/* Tablet Layout: 768px. */
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  .single-footer-widget.marbtm50 {
+    margin-bottom: 50px;
+  }
+
+  .footer-bottom .bottom-inner {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 25px 0px 30px;
+  }
+
+  .footer-bottom .bottom-inner .footer-social-link {
+    padding-top: 18px;
+  }
+
+  .overview-content-box-one {
+    margin-right: 0px;
+  }
+
+  .overview-content-box-two {
+    padding-top: 50px;
+  }
+
+  .statistics-style2-area-bg {
+    display: none;
+  }
+
+  .progress-block .count-box {
+    margin-left: 15px;
+  }
+
+  .page-contains-box {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 32px 0 40px;
+  }
+
+  .page-contains-btn li {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    float: none;
+    padding-right: 0px;
+    margin-right: 0px;
+    border-right: none;
+  }
+
+  .page-contains-box .right-btn {
+    padding-top: 18px;
+  }
+
+  .single-benefits-box .text h3 {
+    font-size: 20px;
+  }
+
+  .applying-process-area {
+    padding: 100px 0 0px;
+  }
+
+  .applying-process-area .sec-title {
+    padding-bottom: 155px;
+  }
+
+  .applying-process-step-box-top {
+    display: none;
+  }
+
+  .single-applying-process-box {
+    margin-bottom: 130px;
+  }
+
+  .single-applying-process-box:nth-child(3) {
+    margin-bottom: 0;
+  }
+
+  .applying-process-single-step-box {
+    top: -100px;
+  }
+
+  .single-applying-process-box:hover {
+    text-align: center;
+  }
+
+  li.single-benefits-box-colum {
+    padding: 0 30px 43px;
+  }
+
+  .benefits-style2-area li.single-benefits-box-colum:before {
+    display: none;
+  }
+
+  .benefits-style2-area li.single-benefits-box-colum:after {
+    display: none;
+  }
+
+  li.single-benefits-box-colum:nth-child(4) {
+    padding-top: 0px;
+    padding-bottom: 0;
+  }
+
+  .eligibility-img-box .sec-title {
+    text-align: center;
+  }
+
+  .eligibility-img-box__inner {
+    margin-right: 0px;
+  }
+
+  .eligibility-content-box {
+    padding-top: 50px;
+  }
+
+  .facts-box-style2 {
+    padding-top: 50px;
+    padding-left: 0;
+  }
+
+  .page-contains-area.section-fixed {
+    position: relative;
+    box-shadow: 0px 0px 30px 0px rgb(0 0 0 / 8%);
+  }
+
+  .faq-style1__image {
+    padding-bottom: 50px;
+  }
+
+  .faq-style1-title {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding-bottom: 60px;
+  }
+
+  .faq-style1-title .sec-title {
+    padding-bottom: 31px;
+  }
+
+  .faq-search-box {
+    padding-bottom: 0px;
+  }
+
+  .features-style1-content ul li {
+    width: 100%;
+  }
+
+  .single-features-style1-box {
+    max-width: 370px;
+    margin: 0 auto;
+  }
+
+  .single-service-box-style1 {
+    margin-bottom: 30px;
+  }
+
+  .service-style1-tab__button .tabs-button-box .tab-btn-item .inner .left h3 {
+    font-size: 28px;
+    line-height: 28px;
+  }
+
+  .service-style1__btns-box {
+    padding-top: 30px;
+  }
+
+  .wealth-secure-carousel-2 {
+    width: 100%;
+  }
+
+  .wealth-secure-carousel-2 .owl-dots {
+    width: 100%;
+  }
+
+  .features-style3-img-box {
+    max-width: 570px;
+  }
+
+  .features-style3-img-box .inner-img img {
+    transform: none !important;
+  }
+
+  .features-style3-content {
+    padding-top: 80px;
+  }
+
+  .money-exchange-value-tab__button .right {
+    display: none;
+  }
+
+  .single-deals-box .text-box {
+    width: 100%;
+    float: none;
+    padding: 97px 60px 100px;
+    padding-right: 50px;
+  }
+
+  .single-deals-box .img-box {
+    display: none;
+  }
+
+  .deals-carousel-one.owl-nav-style-one.owl-theme .owl-nav {
+    right: 20px;
+  }
+
+  .emi-calculator-tab__button {
+    max-width: 100%;
+    width: 100%;
+    min-height: 610px;
+    float: none;
+  }
+
+  .emi-calculator-tab-content-box-outer {
+    max-width: 100%;
+    width: 100%;
+    float: none;
+    min-height: 610px;
+    padding: 56px 100px 0;
+    padding-right: 100px;
+  }
+
+  .emi-calculator-tab__button .tabs-button-box {
+    top: 60px;
+    right: 20px;
+  }
+
+  .slogan-content-box {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 71px 0 80px;
+  }
+
+  .slogan-content-box .inner-title {
+    padding-bottom: 33px;
+  }
+
+  .wealth-secure-style2-area .sec-title {
+    text-align: center;
+  }
+
+  .wealth-secure-carousel.owl-nav-style-one.owl-theme .owl-nav {
+    display: none;
+  }
+
+  .footer-top-style2__left-content {
+    padding-right: 0px;
+  }
+
+  .footer-top-style2__right-content {
+    padding-top: 60px;
+  }
+
+  .find-nearest-branch-box {
+    max-width: 500px;
+  }
+
+  .service-request-area {
+    padding-top: 100px;
+  }
+
+  .service-request-area .container {
+    max-width: 1170px;
+    width: 100%;
+    padding: 0;
+    margin: 0 auto;
+  }
+
+  .service-request-area__inner .col-xl-5.width100 {
+    width: 100%;
+  }
+
+  .service-request-area__inner .col-xl-7.width100 {
+    width: 100%;
+  }
+
+  .service-request-content-two__inner > ul.row > li {
+    max-width: 570px;
+    margin: 0 auto;
+    border-right: 1px solid #363841;
+  }
+
+  .service-request-content-two__inner > ul.row > li:first-child {
+    border-left: 1px solid #363841;
+  }
+
+  .features-style4-area:before {
+    display: none;
+  }
+
+  .features-style4-title-box {
+    padding-bottom: 60px;
+  }
+
+  .app-screen {
+    padding-bottom: 50px;
+  }
+
+  .app-screen img {
+    width: auto;
+  }
+
+  .subscribe-box-style1 {
+    margin-bottom: 30px;
+  }
+
+  .awards-img-box {
+    max-width: 400px;
+    margin: 0 auto 30px;
+  }
+
+  .banking-tab-img-box {
+    min-height: 500px;
+    margin-right: 0;
+  }
+
+  .banking-tab-text-box {
+    max-width: 100%;
+    padding-top: 70px;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-bottom: 160px;
+  }
+
+  .banking-tab__button .tabs-button-box {
+    display: block;
+    border: 0px solid;
+    border-bottom: none;
+  }
+
+  .banking-tab__button .tabs-button-box .tab-btn-item {
+    width: 100%;
+    width: 100%;
+  }
+
+  li.single-benefits-box-colum {
+    padding: 0 0px 43px;
+  }
+
+  li.single-benefits-box-colum:before {
+    display: none;
+  }
+
+  li.single-benefits-box-colum:after {
+    display: none;
+  }
+
+  li.single-benefits-box-colum:nth-child(4) {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  li.single-benefits-box-colum:nth-child(5) {
+    padding-top: 43px;
+    padding-bottom: 0;
+  }
+
+  li.single-benefits-box-colum:nth-child(6) {
+    padding-top: 43px;
+    padding-bottom: 0;
+  }
+
+  .service-request-style2-img-box {
+    padding-right: 0px;
+  }
+
+  .service-request-style2-content-box {
+    padding-top: 50px;
+  }
+
+  .single-account-steps-colum {
+    padding: 0 0px;
+    margin-bottom: 43px;
+  }
+
+  .single-account-steps-colum:before {
+    display: none;
+  }
+
+  .features-style3-img-box--style2 {
+    padding-top: 0px;
+    margin-right: 0px;
+    min-height: 545px;
+    max-width: 100%;
+  }
+
+  .blog-style2-area__top {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding-bottom: 60px;
+  }
+
+  .blog-style2-area__top .btns-box {
+    padding-top: 25px;
+    padding-bottom: 0px;
+  }
+
+  .blog-style2-area__shape1 {
+    display: none;
+  }
+
+  .blog-style2-area__shape2 {
+    display: none;
+  }
+
+  .single-account-steps-box-style2 {
+    width: 270px;
+    margin: 0 auto 40px;
+  }
+
+  .card-banner-content-bg {
+    width: 550px;
+    background-position: left center;
+    opacity: 0.1;
+  }
+
+  .sidebar-box-style1 {
+    padding-bottom: 50px;
+  }
+
+  .single-sidebar-box-style1.margintop {
+    margin-top: 0px;
+  }
+
+  .cards-content-box-top {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 60px;
+  }
+
+  .cards-content-box-top .left-box {
+    top: 0;
+  }
+
+  .single-card-box {
+    display: block;
+  }
+
+  .cards-img-box {
+    max-width: 100%;
+    width: 100%;
+    border-right: 0px solid;
+    padding: 35px 40px 30px;
+  }
+
+  .cards-img-box .inner {
+    position: relative;
+    display: block;
+  }
+
+  .cards-img-box .inner img {
+    width: 100%;
+  }
+
+  .cards-text-box {
+    padding: 0px 40px 30px;
+  }
+
+  .cards-deails-content-box {
+    padding-top: 60px;
+  }
+
+  .cards-deails-content-2 .text-box {
+    padding-top: 50px;
+  }
+
+  .intro-style1-content-box {
+    padding-top: 60px;
+  }
+
+  .single-choose-style1-colum:before {
+    display: none;
+  }
+
+  .statements-area {
+    padding: 100px 0 100px;
+  }
+
+  .statistics-chart {
+    position: relative;
+    display: block;
+    padding-top: 50px;
+  }
+
+  .intro-style2-content-box {
+    padding-top: 50px;
+  }
+
+  .resume-box {
+    margin-left: 0px;
+    padding-top: 60px;
+  }
+
+  .faq-style1__content.margintop {
+    margin-top: 70px;
+  }
+
+  .thm-sidebar-box {
+    padding-top: 80px;
+  }
+
+  .single-blog-style1--style3 {
+    display: block;
+  }
+
+  .single-blog-style1--style3 .image-colum {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .single-blog-style1--style3 .text-colum {
+    border: 1px solid #f2ece7;
+    border-top: none;
+    padding-top: 31px;
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+
+  .blog-details-text-box .blog-details-title br {
+    display: none;
+  }
+
+  .contact-info-box-style1 {
+    margin-right: 0px;
+  }
+
+  .contact-info-1 {
+    padding: 50px 40px 43px;
+    margin-right: 0;
+  }
+
+  .contact-form {
+    padding-top: 43px;
+    padding-left: 50px;
+    padding-bottom: 50px;
+    padding-right: 50px;
+  }
+
+  .intro-style1-video-gallery {
+    min-height: 600px;
+    margin-right: 0px;
+  }
+}
+
+/* Mobile Layout: 320px. */
+@media only screen and (max-width: 767px) {
+  .sec-title h2 br {
+    display: none;
+  }
+
+  .single-footer-widget.marbtm50 {
+    margin-bottom: 50px;
+  }
+
+  .footer-bottom .bottom-inner {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 25px 0px 30px;
+  }
+
+  .footer-menu ul {
+    text-align: center;
+  }
+
+  .footer-menu ul li {
+    float: none;
+    margin-right: 0px;
+    margin: 0 10px;
+  }
+
+  .footer-menu ul li:last-child {
+    margin-right: 10px;
+  }
+
+  .footer-bottom .bottom-inner .footer-social-link {
+    padding-top: 18px;
+  }
+
+  .breadcrumb-area {
+    padding: 0px;
+    padding-top: 0;
+    padding-bottom: 100px;
+  }
+
+  .breadcrumb-area-bg {
+    /* left: 15px;
+        right: 15px; */
+    bottom: 100px;
+  }
+
+  .breadcrumb-area .inner-content {
+    padding: 250px 0 0px;
+  }
+  /* 
+    .breadcrumb-area .title {
+        position: relative;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        padding: 22px 30px 22px;
+        text-align: center;
+        margin: 0 auto;
+    } */
+
+  .breadcrumb-area .title h2 {
+    font-size: 30px;
+  }
+
+  .breadcrumb-menu {
+    left: 0;
+    bottom: -100px;
+    right: 0;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .breadcrumb-menu ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .breadcrumb-menu ul li {
+    float: none;
+    padding-right: 0;
+    margin-right: 0;
+  }
+
+  .breadcrumb-menu ul li:before {
+    display: none;
+  }
+
+  .overview-content-box-one {
+    margin-right: 0px;
+  }
+
+  .overview-content-box-two {
+    padding-top: 50px;
+  }
+
+  .overview-content-box-one ul li {
+    float: none;
+    width: 100%;
+    border-right: 0px solid;
+  }
+
+  .overview-content-box-one ul li:nth-child(3) {
+    border-bottom: 1px solid #f2ece7;
+  }
+
+  .statistics-style2-area-bg {
+    display: none;
+  }
+
+  .page-contains-box {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 33px 0 40px;
+  }
+
+  .page-contains-btn li {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    float: none;
+    padding-right: 0px;
+    margin-right: 0px;
+    border-right: none;
+  }
+
+  .page-contains-box .right-btn {
+    padding-top: 17px;
+  }
+
+  .applying-process-area {
+    padding: 100px 0 0px;
+  }
+
+  .applying-process-area .sec-title {
+    padding-bottom: 155px;
+  }
+
+  .applying-process-step-box-top {
+    display: none;
+  }
+
+  .single-applying-process-box {
+    margin-bottom: 130px;
+  }
+
+  .single-applying-process-box:nth-child(3) {
+    margin-bottom: 0;
+  }
+
+  .applying-process-single-step-box {
+    top: -100px;
+  }
+
+  .single-applying-process-box:hover {
+    text-align: center;
+  }
+
+  .apply-form-box {
+    padding: 20px;
+  }
+
+  .apply-form-box__content {
+    padding: 50px 20px 50px;
+  }
+
+  .apply-form-box__content .sec-title h2 {
+    font-size: 38px;
+  }
+
+  li.single-benefits-box-colum {
+    padding: 0 30px 43px;
+  }
+
+  .benefits-style2-area li.single-benefits-box-colum:before {
+    display: none;
+  }
+
+  .benefits-style2-area li.single-benefits-box-colum:after {
+    display: none;
+  }
+
+  li.single-benefits-box-colum:nth-child(4) {
+    padding-top: 0px;
+    padding-bottom: 0;
+  }
+
+  .eligibility-img-box .sec-title {
+    text-align: center;
+  }
+
+  .eligibility-img-box__inner {
+    margin-right: 0px;
+  }
+
+  .eligibility-content-box {
+    padding-top: 50px;
+  }
+
+  .facts-box-style2 {
+    padding-top: 50px;
+    padding-left: 0;
+  }
+
+  .facts-box-style2 .inner-title {
+    margin-left: 20px;
+  }
+
+  .facts-box-style2 .inner-title h3 br {
+    display: none;
+  }
+
+  .page-contains-area.section-fixed {
+    position: relative;
+    box-shadow: 0px 0px 30px 0px rgb(0 0 0 / 8%);
+  }
+
+  .faq-style1__image {
+    padding-bottom: 50px;
+  }
+
+  .faq-style1-title {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding-bottom: 60px;
+  }
+
+  .faq-style1-title .sec-title {
+    padding-bottom: 31px;
+  }
+
+  .faq-search-box {
+    padding-bottom: 0px;
+  }
+
+  .features-style1-content ul li {
+    width: 100%;
+    padding: 0 0px;
+  }
+
+  .single-features-style1-box {
+    max-width: 370px;
+    margin: 0 auto;
+  }
+
+  .service-style1-title {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding-bottom: 60px;
+  }
+
+  .service-style1-title .get-assistant-box {
+    padding-top: 25px;
+    padding-bottom: 0px;
+  }
+
+  .service-style1-tab__button .tabs-button-box {
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+
+  .service-style1-tab__button .tabs-button-box .tab-btn-item {
+    width: 100%;
+    padding: 0 0px;
+    float: none;
+    margin-bottom: 20px;
+  }
+
+  .service-style1-tab__button .tabs-button-box .tab-btn-item:last-child {
+    margin-bottom: 0;
+  }
+
+  .single-service-box-style1 {
+    margin-bottom: 30px;
+  }
+
+  .service-style1-tab__button .tabs-button-box .tab-btn-item .inner .left h3 {
+    font-size: 28px;
+    line-height: 28px;
+  }
+
+  .service-style1__btns-box {
+    padding-top: 30px;
+  }
+
+  .wealth-secure-carousel-2 {
+    width: 100%;
+  }
+
+  .wealth-secure-carousel-2 .owl-dots {
+    width: 100%;
+  }
+
+  .features-style3-img-box {
+    max-width: 570px;
+  }
+
+  .features-style3-img-box:before {
+    top: 0;
+    left: 0px;
+    bottom: 0;
+    right: 0px;
+  }
+
+  .features-style3-img-box .inner-img img {
+    transform: none !important;
+  }
+
+  .features-style3-content {
+    padding-top: 80px;
+  }
+
+  .money-exchange-value-tab__button .right {
+    display: none;
+  }
+
+  /* .money-exchange-value-tab__button .tabs-button-box .tab-btn-item {
+        float: none;
+    }
+
+    .money-exchange-value-tab__button .tabs-button-box .tab-btn-item {
+        padding: 14px 20px 14px;
+    } */
+
+  /* .money-exchange-value-tab__button .tabs-button-box li+li {
+        margin-top: 20px;
+        margin-left: 0px;
+    } */
+
+  .single-deals-box .text-box {
+    width: 100%;
+    float: none;
+    padding: 97px 60px 100px;
+    padding-right: 50px;
+  }
+
+  .single-deals-box .img-box {
+    display: none;
+  }
+
+  .deals-carousel-one.owl-nav-style-one.owl-theme .owl-nav {
+    right: 20px;
+  }
+
+  .single-deals-box .text-box ul li {
+    float: none;
+    width: 100%;
+    margin-bottom: 24px;
+  }
+
+  .emi-calculator-tab__button {
+    max-width: 100%;
+    width: 100%;
+    min-height: 610px;
+    float: none;
+  }
+
+  .emi-calculator-tab-content-box-outer {
+    max-width: 100%;
+    width: 100%;
+    float: none;
+    min-height: 610px;
+    padding: 56px 30px 0;
+    padding-right: 30px;
+  }
+
+  .emi-calculator-tab__button .tabs-button-box {
+    top: 60px;
+    right: 20px;
+  }
+
+  .emi-calculator-output-box .left-box {
+    width: 100%;
+    float: none;
+  }
+
+  .emi-calculator-output-box .right-box {
+    float: none;
+    width: 100%;
+    padding-left: 0px;
+    margin-top: 23px;
+  }
+
+  .emi-calculator-output-box:before {
+    display: none;
+  }
+
+  .slogan-content-box {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 71px 0 80px;
+  }
+
+  .slogan-content-box .inner-title {
+    padding-bottom: 33px;
+  }
+
+  .get-app-box ul {
+    display: flex;
+    overflow: hidden;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .get-app-box ul li {
+    margin-right: 0px;
+  }
+
+  .get-app-box ul li + li {
+    margin-top: 10px;
+  }
+
+  .features-style2-banner-box {
+    display: block;
+    width: 100%;
+    height: 100%;
+    padding: 0px 0 0px;
+  }
+
+  .features-style2-banner-box .text-box {
+    width: 100%;
+    padding: 50px 0 50px;
+  }
+
+  .features-style2-banner-box .img-box {
+    width: 100%;
+    height: 400px;
+  }
+
+  .features-style2-banner-box .img-box:before {
+    top: 0px;
+    left: 0;
+    bottom: 0px;
+    right: 0;
+  }
+
+  .features-style2-banner-box .img-box .img-box-bg {
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0px;
+  }
+
+  .individual-banking {
+    padding: 93px 0 66px;
+  }
+
+  .individual-banking__inner .sec-title {
+    text-align: center;
+  }
+
+  .individual-banking__inner {
+    max-width: 100%;
+    width: 100%;
+    float: none;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  .individual-banking__inner-content ul {
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+
+  /* .individual-banking__inner-content ul li {
+        float: none;
+        width: 100%;
+        padding: 0 0px;
+    } */
+
+  .single-features-of-banking.more-services {
+    padding: 8px 0px 0;
+  }
+
+  .single-features-of-banking .more-service-box {
+    padding: 2px 0 0px;
+  }
+
+  /* .single-features-of-banking {
+        width: 140px;
+    } */
+
+  .corporate-banking {
+    padding: 93px 0 66px;
+  }
+
+  .corporate-banking__inner {
+    max-width: 100%;
+    width: 100%;
+    float: none;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  .corporate-banking__inner .sec-title {
+    text-align: center;
+  }
+
+  .corporate-banking__inner-content ul {
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+
+  .corporate-banking__inner-content ul li {
+    float: none;
+    /* width: 100%; */
+    padding: 0 0px;
+    margin: 0 25px;
+  }
+
+  .wealth-secure-style2-area .sec-title {
+    text-align: center;
+  }
+
+  .wealth-secure-carousel.owl-nav-style-one.owl-theme .owl-nav {
+    display: none;
+  }
+
+  .footer-top-style2__left-content {
+    padding-right: 0px;
+  }
+
+  .footer-top-style2__right-content {
+    padding-top: 50px;
+  }
+
+  .find-nearest-branch-box {
+    max-width: 500px;
+  }
+
+  .footer-top-style2__left-content-inner > ul > li + li {
+    padding-left: 0px;
+    margin-top: 36px;
+  }
+
+  .footer-top-style2__left-content-inner > ul > li:before {
+    display: none;
+  }
+
+  .footer-bottom-style2 .bottom-inner {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 22px 0px 22px;
+  }
+
+  .scrool-top-btn-style2 {
+    padding-top: 12px;
+  }
+
+  .find-nearest-branch-box .top .inner-title h3 {
+    font-size: 18px;
+    line-height: 26px;
+  }
+
+  .service-request-area {
+    padding-top: 100px;
+  }
+
+  .service-request-area .container {
+    max-width: 1170px;
+    width: 100%;
+    padding: 0;
+    margin: 0 auto;
+  }
+
+  .service-request-area__inner .col-xl-5.width100 {
+    width: 100%;
+  }
+
+  .service-request-content-one__title {
+    padding: 142px 20px 85px;
+  }
+
+  .service-request-content-one__title .sec-title h2 {
+    font-size: 32px;
+  }
+
+  .single-service-request-content-box .overlay-content ul li {
+    font-size: 15px;
+  }
+
+  .service-request-area__inner .col-xl-7.width100 {
+    width: 100%;
+  }
+
+  .service-request-content-two__inner > ul.row > li {
+    max-width: 570px;
+    margin: 0 auto;
+    border-right: 1px solid #363841;
+  }
+
+  .service-request-content-two__inner > ul.row > li:first-child {
+    border-left: 1px solid #363841;
+  }
+
+  .locker-facility-highlights .img-box .icon {
+    left: 20px;
+  }
+
+  .features-style4-area:before {
+    display: none;
+  }
+
+  .features-style4-title-box {
+    padding-bottom: 60px;
+  }
+
+  .app-screen {
+    padding-bottom: 50px;
+  }
+
+  .app-screen img {
+    width: auto;
+  }
+
+  .subscribe-box-style1 {
+    margin-bottom: 30px;
+  }
+
+  .blog-style1-area .sec-title {
+    text-align: center;
+  }
+
+  .blog-style1-carousel.owl-nav-style-one.owl-theme .owl-nav {
+    display: none;
+  }
+
+  .awards-img-box {
+    max-width: 320px;
+    margin: 0 auto 30px;
+  }
+
+  .awards-img-box .round-box {
+    top: 40px;
+    width: 290px;
+    height: 290px;
+  }
+
+  .banking-tab-img-box {
+    min-height: 500px;
+    margin-right: 0;
+  }
+
+  .banking-tab-text-box {
+    max-width: 100%;
+    padding-top: 70px;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-bottom: 50px;
+  }
+
+  .banking-tab__button .tabs-button-box {
+    display: block;
+    border: 0px solid;
+    border-bottom: none;
+  }
+
+  .banking-tab__button .tabs-button-box .tab-btn-item {
+    width: 100%;
+    width: 100%;
+  }
+
+  .banking-tab__button .tabs-button-box .tab-btn-item + .tab-btn-item {
+    border-left: 0px solid;
+  }
+
+  .banking-tab__button {
+    margin: 0px auto 0;
+  }
+
+  li.single-benefits-box-colum {
+    padding: 0 0px 43px;
+  }
+
+  li.single-benefits-box-colum:before {
+    display: none;
+  }
+
+  li.single-benefits-box-colum:after {
+    display: none;
+  }
+
+  li.single-benefits-box-colum:nth-child(4) {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  li.single-benefits-box-colum:nth-child(5) {
+    padding-top: 43px;
+    padding-bottom: 0;
+  }
+
+  li.single-benefits-box-colum:nth-child(6) {
+    padding-top: 43px;
+    padding-bottom: 0;
+  }
+
+  .service-request-style2-img-box {
+    padding-right: 0px;
+  }
+
+  .service-request-style2-content-box {
+    padding-top: 50px;
+  }
+
+  .service-request-style2-content-box__inner ul li {
+    width: 100%;
+    float: none;
+    margin-bottom: 40px;
+  }
+
+  .service-request-style2-content-box__inner ul li:nth-child(2) {
+    border-left: 0px solid;
+    padding-left: 0px;
+  }
+
+  .service-request-style2-content-box__inner ul li:nth-child(4) {
+    border-left: 0px solid;
+    padding-left: 0px;
+  }
+
+  .single-account-steps-colum {
+    padding: 0 0px;
+    margin-bottom: 43px;
+  }
+
+  .single-account-steps-colum:before {
+    display: none;
+  }
+
+  .features-style3-img-box--style2 {
+    padding-top: 0px;
+    margin-right: 0px;
+    min-height: 545px;
+    max-width: 100%;
+  }
+
+  .single-testimonials-style1 {
+    padding: 50px 30px 50px;
+  }
+
+  .blog-style2-area__top {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding-bottom: 60px;
+  }
+
+  .blog-style2-area__top .btns-box {
+    padding-top: 25px;
+    padding-bottom: 0px;
+  }
+
+  .single-blog-style1 .text-holder .blog-title a br {
+    display: none;
+  }
+
+  .single-blog-style1--style2 .img-holder .category-date-box {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    left: 20%;
+  }
+
+  .single-blog-style1--style2 .img-holder .category-date-box .author {
+    margin-top: 6px;
+  }
+
+  .single-blog-style1--style2 .img-holder .category-date-box .date {
+    margin-top: 6px;
+  }
+
+  .single-blog-style1--style2 .img-holder .inner .overlay-icon {
+    display: none;
+  }
+
+  .blog-style2-area__shape1 {
+    display: none;
+  }
+
+  .blog-style2-area__shape2 {
+    display: none;
+  }
+
+  .single-account-steps-box-style2 {
+    width: 270px;
+    margin: 0 auto 40px;
+  }
+
+  .app-download-area {
+    padding: 100px 0 100px;
+    min-height: auto;
+  }
+
+  .app-download-area-bg {
+    display: none;
+  }
+
+  .app-download-content {
+    padding-top: 0px;
+  }
+
+  .card-banner-content-bg {
+    width: 350px;
+    background-position: left center;
+    opacity: 0.1;
+  }
+
+  .card-banner-content-img-box {
+    display: none;
+  }
+
+  .card-banner-content {
+    padding: 53px 30px 60px;
+  }
+
+  .card-banner-content .inner-title h2 {
+    font-size: 26px;
+    line-height: 36px;
+  }
+
+  .card-banner-content .inner-title h2 br {
+    display: none;
+  }
+
+  .sidebar-box-style1 {
+    padding-bottom: 50px;
+  }
+
+  .single-sidebar-box-style1.margintop {
+    margin-top: 0px;
+  }
+
+  .cards-content-box-top {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding-bottom: 60px;
+  }
+
+  .cards-content-box-top .left-box {
+    top: 0;
+    margin-bottom: 12px;
+  }
+
+  .single-card-box {
+    display: block;
+  }
+
+  .cards-img-box {
+    max-width: 100%;
+    width: 100%;
+    border-right: 0px solid;
+    padding: 35px 20px 30px;
+  }
+
+  .cards-img-box .inner {
+    position: relative;
+    display: block;
+  }
+
+  .cards-img-box .inner img {
+    width: 100%;
+  }
+
+  .cards-text-box {
+    padding: 0px 20px 30px;
+  }
+
+  .cards-img-box .btn-box {
+    flex-direction: column;
+  }
+
+  .sidebar-box-style2 {
+    margin-right: 0px;
+    padding: 38px 20px 40px;
+  }
+
+  .cards-deails-content-box {
+    padding-top: 60px;
+  }
+
+  .cards-deails-content-2 .text-box {
+    padding-top: 50px;
+  }
+
+  .intro-style1-content-box {
+    padding-top: 50px;
+  }
+
+  .intro-style1-content-box .text {
+    padding-bottom: 3px;
+  }
+
+  .intro-style1-single-box {
+    margin-top: 40px;
+  }
+
+  .single-choose-style1-colum {
+    padding: 0 15px;
+  }
+
+  .single-choose-style1-colum:before {
+    display: none;
+  }
+
+  .statements-area {
+    padding: 100px 0 100px;
+  }
+
+  .statements-content-box ul {
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+
+  .statements-content-box ul li {
+    float: none;
+    width: 100%;
+    padding: 0 0px 0px;
+  }
+
+  .statements-text-box .inner-title h2 {
+    font-size: 38px;
+    line-height: 48px;
+  }
+
+  .statements-text-box .inner-title h2 br {
+    display: none;
+  }
+
+  .statements-text-box {
+    padding: 40px 30px 45px;
+  }
+
+  .statistics-chart {
+    position: relative;
+    display: block;
+    padding-top: 50px;
+  }
+
+  .intro-style2-content-box {
+    padding-top: 50px;
+  }
+
+  .career-details-area {
+    padding: 100px 0 100px;
+  }
+
+  .resume-box {
+    margin-left: 0px;
+    padding-top: 60px;
+  }
+
+  .job-title-box {
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 37px 40px 40px;
+  }
+
+  .job-title-box .right {
+    padding-top: 18px;
+  }
+
+  .job-social-share-box ul li {
+    float: none;
+    width: 100%;
+  }
+
+  .requirements-content-box ul li span {
+    width: 100px;
+  }
+
+  .requirements-content-box ul li b {
+    width: 20px;
+  }
+
+  .faq-style1__content.margintop {
+    margin-top: 70px;
+  }
+
+  .thm-sidebar-box {
+    padding-top: 80px;
+  }
+
+  .single-blog-style1--style3 {
+    display: block;
+  }
+
+  .single-blog-style1--style3 .image-colum {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .single-blog-style1--style3 .text-colum {
+    border: 1px solid #f2ece7;
+    border-top: none;
+    padding-top: 31px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  /* .single-blog-style1--style3 .img-holder .category-date-box {
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    } */
+
+  .single-blog-style1--style3 .img-holder .category-date-box .date {
+    margin-top: 7px;
+  }
+
+  .single-blog-style1--style2.blog-large
+    .img-holder
+    .category-date-box
+    .share-btn {
+    display: none;
+  }
+
+  .blog-details-text-box {
+    padding: 39px 15px 50px;
+  }
+
+  .blog-details-text-box .blog-details-title {
+    font-size: 26px;
+    line-height: 36px;
+  }
+
+  .blog-details-text-box .blog-details-title br {
+    display: none;
+  }
+
+  .blog-details-page__prev-next-option {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding-top: 51px;
+  }
+
+  .blog-details-page__prev-next-option .single-box {
+    width: 100%;
+  }
+
+  .blog-details-page__prev-next-option .single-box.right {
+    text-align: center;
+    margin-top: 14px;
+  }
+
+  .author-box-holder {
+    padding: 40px 30px 40px;
+  }
+
+  .author-box-holder .inner-box {
+    padding-left: 0;
+  }
+
+  .author-box-holder .inner-box .img-box {
+    position: relative;
+    top: 0px;
+    left: 0;
+  }
+
+  .author-box-holder .inner-box .text {
+    padding-top: 27px;
+    padding-left: 0px;
+  }
+
+  .comment-box .single-comment-box {
+    padding-left: 0px;
+  }
+
+  .comment-box .single-comment-box .img-holder {
+    position: relative;
+    left: 0;
+    top: 0px;
+  }
+
+  .comment-box .single-comment-box .text-holder {
+    padding-top: 22px;
+    padding-left: 0px;
+  }
+
+  .add-comment-box {
+    padding: 48px 20px 50px;
+  }
+
+  .blog-details-quote-box {
+    display: block;
+  }
+
+  .blog-details-quote-box .text {
+    margin-left: 0px;
+    padding-top: 22px;
+  }
+
+  .contact-info-box-style1 {
+    margin-right: 0px;
+    padding: 41px 30px 1px;
+  }
+
+  .contact-info-box-style1 .title h2 br {
+    display: none;
+  }
+
+  .contact-info-1 {
+    padding: 50px 20px 43px;
+    margin-right: 0;
+  }
+
+  .contact-form {
+    padding-top: 43px;
+    padding-left: 30px;
+    padding-bottom: 50px;
+    padding-right: 30px;
+  }
+
+  .contact-info-1 li {
+    padding-left: 0px;
+  }
+
+  .contact-info-1 li .icon {
+    position: relative;
+    right: 0;
+    margin: 0 auto;
+  }
+
+  .contact-info-1 li .text {
+    padding-top: 23px;
+    text-align: center;
+  }
+
+  .contact-info-box-style1 .bottom-box .btn-box {
+    padding-bottom: 13px;
+  }
+
+  .contact-info-box-style1 .bottom-box {
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+
+  .branch-atm-tab__button {
+    padding: 20px 15px 20px;
+    margin-bottom: 100px;
+    flex-direction: column;
+  }
+
+  .branch-atm-tab__button .location-search-box {
+    margin-top: 10px;
+    width: 100%;
+  }
+
+  .intro-style1-video-gallery {
+    min-height: 600px;
+    margin-right: 0px;
+  }
+}
+
+/*--------------------------------------------------------------
+////////////////////////////////
+# Main Header All Responsice Css
+////////////////////////////////
+--------------------------------------------------------------*/
+
+@media only screen and (min-width: 1500px) and (max-width: 1770px) {
+  .main-menu-style1 .main-menu__list > li + li {
+    margin-left: 5px;
+  }
+
+  .main-menu-style1-left .main-menu-box {
+    padding-left: 50px;
+  }
+
+  .header-btn-one a {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  .main-header-style1-bottom .outer-box .slogan-box {
+    display: none;
+  }
+
+  .logo-box-style2 {
+    padding-right: 0px;
+    margin-right: 0px;
+    border-right: 0px solid;
+  }
+
+  .looking-banking-box--style2 {
+    display: none;
+  }
+
+  .main-menu-style3-right .phone-number-box-style1 {
+    display: none;
+  }
+}
+
+@media only screen and (min-width: 1200px) and (max-width: 1499px) {
+  .main-menu-style1-left {
+    padding-left: 250px;
+    width: 100%;
+  }
+
+  .main-menu-style1-left .main-menu-box {
+    float: right;
+    padding-left: 0;
+  }
+
+  .main-menu-style1-right {
+    display: none;
+  }
+
+  .remp {
+    display: flex !important;
+  }
+
+  .main-header-style1-bottom .outer-box .slogan-box {
+    display: none;
+  }
+
+  .main-menu-style1 .main-menu__list > li + li {
+    margin-left: 5px;
+  }
+
+  .logo-box-style2 {
+    padding-right: 0px;
+    margin-right: 0px;
+    border-right: 0px solid;
+  }
+
+  .looking-banking-box--style2 {
+    display: none;
+  }
+
+  .main-menu-style2-right .main-menu-box {
+    padding-right: 0px;
+  }
+
+  .main-menu-style3-right .phone-number-box-style1 {
+    display: none;
+  }
+
+  .main-menu-style3-left .header-logon-box {
+    display: none;
+  }
+
+  .logo-box-style3 {
+    padding-left: 0px;
+  }
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+  .main-menu .mobile-nav__toggler {
+    display: inline-block;
+    padding: 36px 0 35px;
+  }
+
+  .main-header-style1-top {
+    display: none;
+  }
+
+  .main-header-style1-bottom {
+    display: none;
+  }
+
+  .main-menu-style1-right {
+    display: none;
+  }
+
+  .main-menu-style1-left {
+    padding-left: 250px;
+    width: 100%;
+  }
+
+  .main-menu-style1-left .main-menu-box {
+    float: none;
+    padding-left: 0px;
+  }
+
+  .logo-box-style1 {
+    top: 0px;
+    width: 250px;
+    height: 100px;
+  }
+
+  .main-header-style2__top .outer-box {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .looking-banking-box--style2 {
+    display: none;
+  }
+
+  .logo-box-style2 {
+    padding-right: 0px;
+    margin-right: 0px;
+    border-right: none;
+  }
+
+  .main-header-style3__top {
+    display: none;
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  .main-menu .mobile-nav__toggler {
+    display: inline-block;
+    padding: 36px 0 35px;
+  }
+
+  .main-header-style1-top {
+    display: none;
+  }
+
+  .main-header-style1-bottom {
+    display: none;
+  }
+
+  .main-menu-style1-right {
+    display: none;
+  }
+
+  .main-menu-style1-left {
+    padding-left: 250px;
+    width: 100%;
+  }
+
+  .main-menu-style1-left .main-menu-box {
+    float: none;
+    padding-left: 0px;
+  }
+
+  .logo-box-style1 {
+    top: 0px;
+    width: 250px;
+    height: 100px;
+  }
+
+  .main-header-style2__top .outer-box {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .looking-banking-box--style2 {
+    display: none;
+  }
+
+  .logo-box-style2 {
+    padding-right: 0px;
+    margin-right: 0px;
+    border-right: none;
+  }
+
+  .main-header-style3__top {
+    display: none;
+  }
+
+  .main-menu-style3-left .header-logon-box {
+    display: none;
+  }
+
+  .logo-box-style3 {
+    padding-left: 0px;
+  }
+
+  .main-menu-style3-right {
+    display: none;
+  }
+}
+
+@media (max-width: 767px) {
+  .main-menu .mobile-nav__toggler {
+    display: inline-block;
+    padding: 36px 0 35px;
+  }
+
+  .main-header-style1-top {
+    display: none;
+  }
+
+  .main-header-style1-bottom {
+    display: none;
+  }
+
+  .main-menu-style1-right {
+    display: none;
+  }
+
+  .main-menu-style1-left {
+    padding-left: 250px;
+    width: 100%;
+  }
+
+  .main-menu-style1-left .main-menu-box {
+    float: none;
+    padding-left: 0px;
+  }
+
+  .logo-box-style1 {
+    top: 0px;
+    width: 250px;
+    height: 100px;
+  }
+
+  .main-menu-style1 .container {
+    max-width: 100%;
+    padding: 0 15px;
+  }
+
+  .main-header-style2__top {
+    display: none;
+  }
+
+  .logo-box-style2 {
+    padding-right: 0px;
+    margin-right: 0px;
+    border-right: 0px solid;
+  }
+
+  .looking-banking-box--style2 {
+    display: none;
+  }
+
+  .header-btn-one {
+    display: none;
+  }
+
+  .header-logon-box {
+    display: none;
+  }
+
+  .main-menu-style2-right .main-menu-box {
+    padding-right: 0px;
+  }
+
+  .main-header-style3__top {
+    display: none;
+  }
+
+  .main-menu-style3-left .header-logon-box {
+    display: none;
+  }
+
+  .logo-box-style3 {
+    padding-left: 0px;
+  }
+
+  .main-menu-style3-right {
+    display: none;
+  }
+}
+
+/*--------------------------------------------------------------
+///////////////////////////
+# Slider All Responsice Css
+///////////////////////////
+--------------------------------------------------------------*/
+
+@media only screen and (min-width: 1400px) and (max-width: 1800px) {
+  .main-slider-style2 .main-slider-content .big-title h2 {
+    font-size: 65px;
+    line-height: 1.1em;
+  }
+
+  .main-slider-style2 .main-slider-content .big-title h2 br {
+    display: none;
+  }
+}
+
+@media only screen and (min-width: 1200px) and (max-width: 1399px) {
+  .main-slider-style2 .content-layer {
+    padding: 136px 50px 146px;
+    padding-left: 50px;
+  }
+
+  .main-slider-style2 .main-slider-content .big-title h2 {
+    font-size: 45px;
+    line-height: 1.1em;
+  }
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+  .main-slider-style1__shape1 {
+    display: none;
+  }
+
+  .main-slider-style2 .content-layer {
+    width: 100%;
+    float: none;
+    padding: 90px 50px 96px;
+    padding-left: 50px;
+  }
+
+  .main-slider-style2 .main-slider-content .big-title h2 {
+    font-size: 65px;
+    line-height: 1.1em;
+  }
+
+  .main-slider-style2 .image-layer {
+    position: relative;
+    width: 100%;
+    min-height: 570px;
+  }
+
+  .slide-single-features {
+    top: 20%;
+    left: 50px;
+  }
+
+  .slide-single-features.two {
+    left: 20px;
+    bottom: 50%;
+  }
+
+  .main-slider__nav--style2 {
+    margin-left: auto;
+  }
+
+  .main-slider-style3 .container {
+    padding-top: 140px;
+    padding-bottom: 150px;
+  }
+
+  .main-slider-style3 .main-slider-content .big-title h2 {
+    font-size: 70px;
+    line-height: 1.1em;
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  .main-slider .image-layer:before {
+    width: 100%;
+  }
+
+  .main-slider .container {
+    padding-top: 128px;
+    padding-bottom: 210px;
+  }
+
+  .main-slider-style1__shape1 {
+    display: none;
+  }
+
+  .main-slider .main-slider-content .big-title h2 {
+    font-size: 40px;
+  }
+
+  .main-slider-style2 .content-layer {
+    width: 100%;
+    float: none;
+    padding: 90px 50px 96px;
+    padding-left: 50px;
+  }
+
+  .main-slider-style2 .main-slider-content .big-title h2 {
+    font-size: 65px;
+    line-height: 1.1em;
+  }
+
+  .main-slider-style2 .image-layer {
+    position: relative;
+    width: 100%;
+    min-height: 470px;
+  }
+
+  .slide-single-features {
+    top: 20%;
+    left: 50px;
+  }
+
+  .slide-single-features.two {
+    left: 20px;
+    bottom: 50%;
+  }
+
+  .main-slider__nav--style2 {
+    margin-left: auto;
+  }
+
+  .main-slider-style3 .container {
+    padding-top: 140px;
+    padding-bottom: 150px;
+  }
+
+  .main-slider-style3 .main-slider-content .big-title h2 {
+    font-size: 50px;
+    line-height: 1.1em;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .main-slider__nav {
+    display: none;
+  }
+
+  .main-slider-style1 {
+    padding: 0 15px;
+  }
+
+  .main-slider .image-layer:before {
+    width: 100%;
+  }
+
+  .main-slider .container {
+    padding-top: 128px;
+    padding-bottom: 210px;
+  }
+
+  .main-slider-style1__shape1 {
+    display: none;
+  }
+
+  .main-slider .main-slider-content .big-title h2 {
+    font-size: 40px;
+  }
+
+  .main-slider .main-slider-content .big-title h2 br {
+    display: none;
+  }
+
+  .main-slider .main-slider-content .text p br {
+    display: none;
+  }
+
+  .main-slider-style2 .content-layer {
+    width: 100%;
+    float: none;
+    padding: 90px 20px 96px;
+    padding-left: 20px;
+  }
+
+  .main-slider-style2 .main-slider-content .big-title h2 {
+    font-size: 45px;
+    line-height: 1.1em;
+  }
+
+  .main-slider-style2 .main-slider-content .big-title h2 br {
+    display: none;
+  }
+
+  .main-slider-style2 .image-layer {
+    position: relative;
+    width: 100%;
+    min-height: 400px;
+  }
+
+  .slide-single-features {
+    top: 30%;
+    left: 50px;
+  }
+
+  .slide-single-features.two {
+    left: 20px;
+    bottom: 30%;
+  }
+
+  .main-slider__nav--style2 {
+    margin-left: auto;
+  }
+
+  .main-slider-style3 .container {
+    padding-top: 142px;
+    padding-bottom: 150px;
+  }
+
+  .main-slider-style3 .main-slider-content .big-title h2 {
+    font-size: 40px;
+    line-height: 1.1em;
+  }
+}

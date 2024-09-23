@@ -1,1 +1,147 @@
-<p>header works!</p>
+<header class="main-header main-header-style1">
+  <nav class="main-menu main-menu-style1">
+    <div class="main-menu__wrapper clearfix">
+      <div class="container">
+        <div class="main-menu__wrapper-inner">
+          <div class="main-menu-style1-left">
+            <div class="logo-box-style1">
+              <a href="/">
+                <img
+                  style="height: 40px"
+                  src="assets/images/logo/logo.png"
+                  alt="Awesome Logo"
+                  title=""
+                />
+              </a>
+            </div>
+
+            <div class="main-menu-box">
+              <a href="/" class="mobile-nav__toggler">
+                <i class="icon-menu"></i>
+              </a>
+
+              <ul class="main-menu__list">
+                <li>
+                  <a href="/">Acceuil</a>
+                </li>
+
+                <li class="dropdown">
+                  <a>Neuf</a>
+
+                  <ul>
+                    <li>
+                      <a href="/n/search">Recherche</a>
+                    </li>
+                    <li>
+                      <a href="/marques">Marques</a>
+                    </li>
+
+                    <li>
+                      <a href="/n/comparateur">Comparateur</a>
+                    </li>
+                  </ul>
+                </li>
+                <li class="dropdown">
+                  <a>Occasions</a>
+                  <ul>
+                    <li>
+                      <a href="ads">Recherche</a>
+                    </li>
+                    <li>
+                      <a href="today-ads">Annonces Du Jour</a>
+                    </li>
+
+                    <li>
+                      <a href="ads-comparator">Comparateur</a>
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <a href="/magazine">Magazine</a>
+                </li>
+
+                <div class="remp">
+                  <div class="header-btn-one">
+                    <a routerLink="create-ad" style="border-radius: 10px">
+                      <i class="fa-solid fa-circle-plus"></i>
+                    </a>
+                    <a
+                      class="style2"
+                      routerLink="/compte"
+                      style="border-radius: 10px"
+                    >
+                      <i class="fa-solid fa-circle-user"></i>
+                    </a>
+                  </div>
+                </div>
+              </ul>
+            </div>
+          </div>
+
+          <div class="main-menu-style1-right">
+            <div class="header-btn-one">
+              <a routerLink="create-ad">
+                <i class="fa-solid fa-circle-plus"></i>
+                Publier une annonce
+              </a>
+              <a class="style2" routerLink="/compte">
+                <i class="fa-solid fa-circle-user"></i>
+                Mon Compte
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<div
+  class="stricky-header dark-home stricked-menu main-menu"
+  style="border-bottom: 3px solid #cf173c"
+>
+  <div class="sticky-header__content"></div>
+</div>
+
+<div class="mobile-nav__wrapper">
+  <div class="mobile-nav__overlay mobile-nav__toggler"></div>
+  <div class="mobile-nav__content">
+    <span class="mobile-nav__close mobile-nav__toggler">
+      <i class="fas fa-plus"></i>
+    </span>
+    <div class="logo-box">
+      <a routerLink="/" aria-label="logo image">
+        <img src="/assets/images/logo.png" alt="" style="height: 40px" />
+      </a>
+    </div>
+    <div class="mobile-nav__container"></div>
+    <br /><br />
+    <div>
+      <ul>
+        <li>
+          <a style="color: white" routerLink="create-ad">
+            <i class="fa-solid fa-circle-plus"></i>
+            Publier une annonce
+          </a>
+        </li>
+        <br />
+        <li>
+          <a style="color: white" class="style2" routerLink="/compte">
+            <i class="fa-solid fa-circle-plus"></i>
+            >&nbsp;
+            <span>Mon Compte</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <br />
+
+    <ul class="mobile-nav__contact list-unstyled">
+      <li>
+        <i class="fa fa-envelope"></i>
+        <a href="mailto:info@example.com">contact&#64;xoauto.tn</a>
+      </li>
+    </ul>
+  </div>
+</div>
