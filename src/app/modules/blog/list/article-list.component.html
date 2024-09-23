@@ -1,0 +1,116 @@
+<!-- HTML Document Title -->
+<title>Magazine</title>
+
+<!-- Breadcrumb Section -->
+<section class="breadcrumb-area">
+  <!-- Background Image for Breadcrumb Area -->
+  <div
+    class="breadcrumb-area-bg"
+    style="background-image: url(assets/images/backgrounds/mag.jpg)"
+  ></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-xl-12">
+        <div class="inner-content">
+          <!-- Title of the Page -->
+          <div class="title">
+            <h2>Magazine</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Articles Section -->
+<section class="blog-page-three">
+  <div class="container">
+    <div class="row">
+      <!-- Main Content Column (9/12 width) -->
+      <div class="col-xl-9">
+        <!-- Container for Blog Page Content -->
+        <div class="blog-page-content-box">
+          <!-- Loop through articles and display them -->
+          @for ( article of articles; track trackByFn($index, article) ) {
+
+          <div class="single-blog-style1 single-blog-style1--style3">
+            <div class="image-colum">
+              <!-- Article Image -->
+              <div class="img-holder">
+                <!-- Image Overlay with Link to Article -->
+                <div class="inner" style="background-color: transparent">
+                  <img src="{{ article.previewImg }}" alt="" />
+                  <div class="overlay-icon">
+                    <a
+                      routerLink="/article/{{ article._id }}/{{
+                        article.title
+                      }}"
+                    >
+                      <span class="icon-right-arrow"></span>
+                    </a>
+                  </div>
+                </div>
+                <!-- Category and Date Information -->
+                <div class="category-date-box">
+                  <div class="category">
+                    <span class="icon-play-button-1"></span>
+                    <h5>{{ article.categorie }}</h5>
+                  </div>
+                  <div class="date">
+                    <h5>{{ article.createdAt }}</h5>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Article Text Content Column -->
+            <div class="text-colum">
+              <div class="text-holder">
+                <!-- Article Title with Link -->
+                <h3 class="blog-title">
+                  <a
+                    routerLink="/article/{{ article._id }}/{{ article.title }}"
+                  >
+                    {{ article.id }} {{ article.title }}
+                  </a>
+                </h3>
+                <!-- Article Subtitle/Text -->
+                <div class="text">
+                  <p>{{ article.subtitle }}</p>
+                </div>
+                <!-- Additional Information and Metadata -->
+                <div class="bottom">
+                  <div class="meta-box">
+                    <ul class="meta-info">
+                      <li>
+                        <span class="icon-clock"></span>
+                        <a href="#"
+                          >{{ article.readTime }} Minutes de lecture</a
+                        >
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          }
+          <!-- Paginator Component for Pagination -->
+          <br />
+          <mat-paginator
+            [length]="count"
+            [pageSize]="pageSize"
+            label=""
+            (page)="OnPageChange($event)"
+          >
+          </mat-paginator>
+        </div>
+      </div>
+
+      <!-- Right Sidebar Column (3/12 width) -->
+      <div class="col-xl-3 col-lg-7">
+        <!-- Include RightBarComponent -->
+        <!-- <app-right-bar></app-right-bar> -->
+      </div>
+    </div>
+  </div>
+</section>
