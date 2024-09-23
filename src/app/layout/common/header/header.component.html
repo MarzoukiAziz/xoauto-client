@@ -5,61 +5,35 @@
         <div class="main-menu__wrapper-inner">
           <div class="main-menu-style1-left">
             <div class="logo-box-style1">
-              <a href="/">
+              <a routerLink="/">
                 <img
                   style="height: 40px"
                   src="assets/images/logo/logo.png"
                   alt="Awesome Logo"
-                  title=""
                 />
               </a>
             </div>
 
             <div class="main-menu-box">
-              <a href="/" class="mobile-nav__toggler">
+              <a class="mobile-nav__toggler" (click)="toggleMobileNav()">
                 <i class="fa-solid fa-bars"></i>
               </a>
 
               <ul class="main-menu__list">
-                <li>
-                  <a href="/">Acceuil</a>
-                </li>
-
-                <li class="dropdown">
-                  <a>Neuf</a>
-
-                  <ul>
-                    <li>
-                      <a href="/n/search">Recherche</a>
-                    </li>
-                    <li>
-                      <a href="/marques">Marques</a>
-                    </li>
-
-                    <li>
-                      <a href="/n/comparateur">Comparateur</a>
+                <li
+                  *ngFor="let item of menuItems"
+                  [ngClass]="[item.children ? 'dropdown' : '']"
+                >
+                  <a *ngIf="!item.children" [routerLink]="item.link">{{
+                    item.label
+                  }}</a>
+                  <a *ngIf="item.children">{{ item.label }}</a>
+                  <ul *ngIf="item.children">
+                    <li *ngFor="let child of item.children">
+                      <a [routerLink]="child.link">{{ child.label }}</a>
                     </li>
                   </ul>
                 </li>
-                <li class="dropdown">
-                  <a>Occasions</a>
-                  <ul>
-                    <li>
-                      <a href="ads">Recherche</a>
-                    </li>
-                    <li>
-                      <a href="today-ads">Annonces Du Jour</a>
-                    </li>
-
-                    <li>
-                      <a href="ads-comparator">Comparateur</a>
-                    </li>
-                  </ul>
-                </li>
-                <li>
-                  <a href="/magazine">Magazine</a>
-                </li>
-
                 <div class="remp">
                   <div class="header-btn-one">
                     <a routerLink="create-ad" style="border-radius: 10px">
@@ -103,19 +77,39 @@
   <div class="sticky-header__content"></div>
 </div>
 
-<div class="mobile-nav__wrapper">
-  <div class="mobile-nav__overlay mobile-nav__toggler"></div>
+<div class="mobile-nav__wrapper" [ngClass]="{ expanded: isMobileNavExpanded }">
+  <div class="mobile-nav__overlay" (click)="toggleMobileNav()"></div>
   <div class="mobile-nav__content">
-    <span class="mobile-nav__close mobile-nav__toggler">
+    <span class="mobile-nav__close" (click)="toggleMobileNav()">
       <i class="fas fa-plus"></i>
     </span>
     <div class="logo-box">
       <a routerLink="/" aria-label="logo image">
-        <img src="/assets/images/logo.png" alt="" style="height: 40px" />
+        <img src="/assets/images/logo/logo.png" alt="" style="height: 30px" />
       </a>
     </div>
-    <div class="mobile-nav__container"></div>
+    <div class="mobile-nav__container">
+      <div class="main-menu__list">
+        <li
+          *ngFor="let item of menuItems"
+          [ngClass]="[item.children ? 'dropdown' : '']"
+        >
+          <a *ngIf="!item.children" [routerLink]="item.link">{{
+            item.label
+          }}</a>
+          <a *ngIf="item.children"
+            >{{ item.label }}<i class="fa fa-angle-down"></i
+          ></a>
+          <ul *ngIf="item.children">
+            <li *ngFor="let child of item.children">
+              <a [routerLink]="child.link">{{ child.label }}</a>
+            </li>
+          </ul>
+        </li>
+      </div>
+    </div>
     <br /><br />
+
     <div>
       <ul>
         <li>
@@ -127,9 +121,8 @@
         <br />
         <li>
           <a style="color: white" class="style2" routerLink="/compte">
-            <i class="fa-solid fa-circle-plus"></i>
-            >&nbsp;
-            <span>Mon Compte</span>
+            <i class="fa-solid fa-circle-user"></i>
+            &nbsp;<span>Mon Compte</span>
           </a>
         </li>
       </ul>

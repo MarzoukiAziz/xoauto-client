@@ -139,7 +139,6 @@
 
 .mobile-nav__content .main-menu__list > li > ul,
 .mobile-nav__content .main-menu__list > li > ul > li > ul {
-  display: none;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
   margin-left: 20px;
 }
@@ -979,10 +978,6 @@
   .looking-banking-box--style2 {
     display: none;
   }
-
-  .main-menu-style3-right .phone-number-box-style1 {
-    display: none;
-  }
 }
 
 @media only screen and (min-width: 1200px) and (max-width: 1499px) {
@@ -1024,18 +1019,6 @@
 
   .main-menu-style2-right .main-menu-box {
     padding-right: 0px;
-  }
-
-  .main-menu-style3-right .phone-number-box-style1 {
-    display: none;
-  }
-
-  .main-menu-style3-left .header-logon-box {
-    display: none;
-  }
-
-  .logo-box-style3 {
-    padding-left: 0px;
   }
 }
 
@@ -1088,10 +1071,6 @@
     margin-right: 0px;
     border-right: none;
   }
-
-  .main-header-style3__top {
-    display: none;
-  }
 }
 
 @media only screen and (min-width: 768px) and (max-width: 991px) {
@@ -1143,24 +1122,7 @@
     margin-right: 0px;
     border-right: none;
   }
-
-  .main-header-style3__top {
-    display: none;
-  }
-
-  .main-menu-style3-left .header-logon-box {
-    display: none;
-  }
-
-  .logo-box-style3 {
-    padding-left: 0px;
-  }
-
-  .main-menu-style3-right {
-    display: none;
-  }
 }
-
 @media (max-width: 767px) {
   .main-menu .mobile-nav__toggler {
     display: inline-block;
@@ -1224,21 +1186,5 @@
 
   .main-menu-style2-right .main-menu-box {
     padding-right: 0px;
-  }
-
-  .main-header-style3__top {
-    display: none;
-  }
-
-  .main-menu-style3-left .header-logon-box {
-    display: none;
-  }
-
-  .logo-box-style3 {
-    padding-left: 0px;
-  }
-
-  .main-menu-style3-right {
-    display: none;
   }
 }
