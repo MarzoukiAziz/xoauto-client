@@ -26,18 +26,10 @@ const articleResolver = (
   const router = inject(Router);
 
   return blogService.getArticleById(route.paramMap.get('id')).pipe(
-    // Error here means the requested article is not available
     catchError((error) => {
-      // Log the error
       console.error(error);
-
-      // Get the parent url
       const parentUrl = state.url.split('/').slice(0, -1).join('/');
-
-      // Navigate to there
       router.navigateByUrl(parentUrl);
-
-      // Throw an error
       return throwError(error);
     })
   );
@@ -47,9 +39,6 @@ export default [
   {
     path: '',
     component: BlogComponent,
-    resolve: {
-      articles: () => inject(BlogService).getArticles(),
-    },
     children: [
       {
         path: '',
@@ -57,6 +46,7 @@ export default [
         component: ArticleListComponent,
         resolve: {
           articles: () => inject(BlogService).getArticles(),
+          categories: () => inject(BlogService).getCategories(),
         },
       },
       {

@@ -3,6 +3,9 @@
   padding: 0px 15px;
   color: white;
 }
+.activeCat a {
+  color: white !important;
+}
 
 .thm-sidebar-box {
   position: relative;

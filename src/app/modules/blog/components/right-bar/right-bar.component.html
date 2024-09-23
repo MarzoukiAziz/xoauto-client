@@ -7,13 +7,18 @@
     </div>
     <div class="sidebar-search-box">
       <!-- Search Form -->
-      <form class="search-form" action="#">
-        <input placeholder="Mot Clé" type="text" id="key" />
+      <div class="search-form">
+        <input
+          placeholder="Mots Clés"
+          type="text"
+          [(ngModel)]="keywords"
+          (keyup.enter)="updateArticlesResult()"
+        />
         <!-- Trigger search method on button click -->
-        <button>
+        <button (click)="updateArticlesResult()">
           <i class="fa-solid fa-magnifying-glass"></i>
         </button>
-      </form>
+      </div>
     </div>
   </div>
 
@@ -24,7 +29,16 @@
       <h3>Catégories</h3>
     </div>
     <!-- List of Categories -->
-    <ul class="sidebar-categories-box"></ul>
+    <ul class="sidebar-categories-box">
+      <li [ngClass]="{ activeCat: selectedCategory == '' }">
+        <a (click)="selectCategory('')">Tout</a>
+      </li>
+      @for(category of categories; track $index){
+      <li [ngClass]="{ activeCat: selectedCategory == category }">
+        <a (click)="selectCategory(category)">{{ category }}</a>
+      </li>
+      }
+    </ul>
   </div>
 
   <!-- Sidebar Banner Box -->

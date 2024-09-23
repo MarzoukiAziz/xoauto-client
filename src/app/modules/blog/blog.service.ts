@@ -17,12 +17,16 @@ import { Article } from './blog.types';
 })
 export class BlogService {
   // API URL
-  private apiUrl = environment.apiserver + '/article';
+  private apiUrl = environment.apiserver;
 
   // Private
   private _articles: BehaviorSubject<Article[]> = new BehaviorSubject([]);
   private _article: BehaviorSubject<Article | null> = new BehaviorSubject(null);
   private _count: BehaviorSubject<Number> = new BehaviorSubject<Number>(0);
+  private _categories: BehaviorSubject<string[]> = new BehaviorSubject([]);
+
+  //public
+  public loading = false;
 
   //Constructor
   constructor(private _httpClient: HttpClient) {}
@@ -31,6 +35,11 @@ export class BlogService {
   // Getter for articles
   get articles$(): Observable<Article[]> {
     return this._articles.asObservable();
+  }
+
+  // Getter for articles
+  get categories$(): Observable<string[]> {
+    return this._categories.asObservable();
   }
 
   // Getter for article
@@ -51,8 +60,10 @@ export class BlogService {
     category: string = '',
     sort: string = 'desc'
   ): Observable<Article[]> {
+    this.loading = true;
+
     return this._httpClient
-      .get<{ articles: Article[]; count: number }>(this.apiUrl, {
+      .get<{ articles: Article[]; count: number }>(this.apiUrl + '/article', {
         params: {
           category,
           keywords,
@@ -65,13 +76,14 @@ export class BlogService {
         tap((response: any) => {
           this._articles.next(response.articles);
           this._count.next(response.count);
+          this.loading = false;
         })
       );
   }
 
   // Get Article By Id
   getArticleById(id: string): Observable<Article> {
-    return this._httpClient.get<Article>(this.apiUrl + '/' + id).pipe(
+    return this._httpClient.get<Article>(this.apiUrl + '/article/' + id).pipe(
       map((article) => {
         this._article.next(article);
         return article;
@@ -84,5 +96,16 @@ export class BlogService {
         return of(article);
       })
     );
+  }
+
+  // Get Categories
+  getCategories(): Observable<string[]> {
+    return this._httpClient
+      .get<string[]>(this.apiUrl + '/settings/article-categories/names')
+      .pipe(
+        tap((response: string[]) => {
+          this._categories.next(response);
+        })
+      );
   }
 }

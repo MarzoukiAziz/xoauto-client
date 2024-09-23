@@ -13,6 +13,8 @@ import { BreadcrumbComponent } from 'src/app/shared/components/breadcrumb/breadc
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { RightBarComponent } from '../components/right-bar/right-bar.component';
+import { LoaderComponent } from 'src/app/shared/components/loader/loader.component';
+
 @Component({
   selector: 'app-article-list',
   templateUrl: './article-list.component.html',
@@ -26,6 +28,7 @@ import { RightBarComponent } from '../components/right-bar/right-bar.component';
     CommonModule,
     RouterLink,
     RightBarComponent,
+    LoaderComponent,
   ],
 })
 export class ArticleListComponent {
@@ -39,7 +42,7 @@ export class ArticleListComponent {
   @ViewChild(MatPaginator, { static: true }) public paginator!: MatPaginator;
   constructor(
     private _changeDetectorRef: ChangeDetectorRef,
-    private _blogService: BlogService
+    public _blogService: BlogService
   ) {}
 
   OnPageChange(event: PageEvent) {
