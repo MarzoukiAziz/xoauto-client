@@ -12,6 +12,7 @@ import { Subject, takeUntil } from 'rxjs';
 import { BreadcrumbComponent } from 'src/app/shared/components/breadcrumb/breadcrumb.component';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
+import { RightBarComponent } from '../components/right-bar/right-bar.component';
 @Component({
   selector: 'app-article-list',
   templateUrl: './article-list.component.html',
@@ -19,7 +20,13 @@ import { RouterLink } from '@angular/router';
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
   styleUrls: ['./article-list.component.css'],
-  imports: [MatPaginator, BreadcrumbComponent, CommonModule, RouterLink],
+  imports: [
+    MatPaginator,
+    BreadcrumbComponent,
+    CommonModule,
+    RouterLink,
+    RightBarComponent,
+  ],
 })
 export class ArticleListComponent {
   articles: Article[];
