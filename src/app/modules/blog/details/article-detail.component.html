@@ -1,0 +1,140 @@
+<title>{{ article.title }}</title>
+
+<section class="blog-details-area">
+  <div class="container">
+    <div class="row">
+      <div class="col-xl-9">
+        <div class="blog-details-box">
+          <div class="blog-details-img-box">
+            <img src="{{ article.previewImg }}" alt="Article Preview Image" />
+            <div class="share-btn">
+              <a
+                onclick="navigator.clipboard.writeText(window.location.href);this.insertAdjacentHTML('afterend', '<div class=linktooltips-container>&nbsp;&nbsp;  Lien copié</div>');setTimeout(() => { document.querySelectorAll('.linktooltips-container').forEach(el => el.remove()); }, 3000);"
+                target="_blank"
+                >Partager
+                <span>
+                  <i class="fa-solid fa-share-from-square"></i>
+                </span>
+              </a>
+            </div>
+          </div>
+          <div class="blog-details-text-box">
+            <p>Publié le {{ article.createdAt | date : "d MMM, y" }}</p>
+            <h2 class="blog-details-title">
+              {{ article.title }}
+            </h2>
+            <div class="blog-details-quote-box">
+              <div class="text">
+                <h5>{{ article.subtitle }}</h5>
+              </div>
+            </div>
+            <div class="blog-details-text-1">
+              <div [innerHTML]="content"></div>
+            </div>
+            <div class="tag-box">
+              <ul class="tag-list">
+                @for (tag of article.tags.split(','); track $index) {
+                <li>
+                  <span>{{ tag }}</span>
+                </li>
+                }
+              </ul>
+            </div>
+            <!-- Comment Section -->
+            <div class="comment-box">
+              <div class="inner-title">
+                <h3 class="sidebar-title">Commentaires</h3>
+              </div>
+              <div class="outer-box">
+                <div class="row">
+                  <div class="col-md-12">
+                    <!-- Loop through Comments -->
+                    @for (comment of comments; track $index) {
+                    <div class="single-comment">
+                      <!-- Display Main Comments -->
+                      <div *ngIf="!comment.answerTo" class="inner">
+                        <!-- Main Comment Box -->
+                        <div class="single-comment-box">
+                          <!-- User Avatar -->
+                          <div class="img-holder">
+                            <img
+                              [src]="
+                                comment.user.avatar ??
+                                'assets/images/icons/user-1.jpg'
+                              "
+                              alt="User Avatar"
+                            />
+                          </div>
+                          <!-- Comment Text Holder -->
+                          <div class="text-holder">
+                            <!-- Comment Author and Date -->
+                            <div class="top">
+                              <h3>
+                                {{ comment.user.name
+                                }}<span>
+                                  {{
+                                    comment.createdAt | date : "d MMM, y hh:mm"
+                                  }}</span
+                                >
+                              </h3>
+                            </div>
+                            <!-- Comment Text -->
+                            <div class="text">
+                              <p>
+                                {{ comment.content }}
+                              </p>
+                              <!-- Reply Button -->
+                            </div>
+                          </div>
+
+                          @for (reply of comments.reverse(); track $index) {
+                          @if(reply.answerTo==comment._id){
+                          <div class="comments-reply-box">
+                            <hr />
+                            <div class="d-flex">
+                              <div class="img-reply">
+                                <img
+                                  [src]="
+                                    reply.user.avatar ??
+                                    'assets/images/icons/user-1.jpg'
+                                  "
+                                />
+                              </div>
+                              <div class="text-holder">
+                                <div class="top">
+                                  <h3>
+                                    {{ reply.user.name
+                                    }}<span>{{
+                                      reply.createdAt | date : "d MMM, y hh:mm"
+                                    }}</span>
+                                  </h3>
+                                </div>
+                                <div class="text">
+                                  <p>
+                                    {{ reply.content }}
+                                  </p>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          } }
+                        </div>
+                      </div>
+                    </div>
+                    }
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div *ngIf="!connected" class="must-connect">
+              <p>Vous devez vous connecter pour pouvoir commenter!</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-xl-3 col-lg-7">
+        <new-ad-banner />
+      </div>
+    </div>
+  </div>
+</section>

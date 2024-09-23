@@ -10,7 +10,7 @@ import {
 } from 'rxjs';
 import { environment } from 'src/environments/environment.prod';
 import { HttpClient } from '@angular/common/http';
-import { Article } from './blog.types';
+import { Article, Comment } from './blog.types';
 
 @Injectable({
   providedIn: 'root',
@@ -24,6 +24,7 @@ export class BlogService {
   private _article: BehaviorSubject<Article | null> = new BehaviorSubject(null);
   private _count: BehaviorSubject<Number> = new BehaviorSubject<Number>(0);
   private _categories: BehaviorSubject<string[]> = new BehaviorSubject([]);
+  private _comments: BehaviorSubject<Comment[]> = new BehaviorSubject([]);
 
   //public
   public loading = false;
@@ -45,6 +46,11 @@ export class BlogService {
   // Getter for article
   get article$(): Observable<Article> {
     return this._article.asObservable();
+  }
+
+  // Getter for comments
+  get comments$(): Observable<Comment[]> {
+    return this._comments.asObservable();
   }
 
   // Getter for count
@@ -105,6 +111,17 @@ export class BlogService {
       .pipe(
         tap((response: string[]) => {
           this._categories.next(response);
+        })
+      );
+  }
+
+  // Get Comments
+  getComments(id: string): Observable<Comment[]> {
+    return this._httpClient
+      .get<Comment[]>(this.apiUrl + '/comment/article/' + id)
+      .pipe(
+        tap((response: Comment[]) => {
+          this._comments.next(response);
         })
       );
   }

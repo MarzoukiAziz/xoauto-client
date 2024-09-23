@@ -4,15 +4,15 @@ import { BlogService } from '../../blog.service';
 import { Subject, takeUntil } from 'rxjs';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { ArticleDetailComponent } from '../../details/article-detail.component';
 import { ArticleListComponent } from '../../list/article-list.component';
+import { NewAdBannerComponent } from 'src/app/shared/components/new-ad-banner/new-ad-banner.component';
 
 @Component({
   selector: 'blog-right-bar',
   templateUrl: './right-bar.component.html',
   styleUrls: ['./right-bar.component.css'],
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, NewAdBannerComponent],
 })
 export class RightBarComponent {
   categories: string[] = [];
