@@ -1,0 +1,144 @@
+.breadcrumb-area {
+  position: relative;
+  display: block;
+  background-color: #f7f1eb;
+  padding: 50px;
+  padding-top: 0;
+  z-index: 11;
+}
+
+.breadcrumb-area-bg {
+  position: absolute;
+  top: 0;
+  left: 0px;
+  bottom: 50px;
+  right: 0px;
+  background: #646464;
+  background-attachment: scroll;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: top center;
+  background-blend-mode: luminosity;
+  z-index: -1;
+}
+
+.breadcrumb-area-bg:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: #000000;
+  opacity: 0.15;
+}
+
+.breadcrumb-area .inner-content {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 360px 0 0px;
+  z-index: 10;
+}
+
+.breadcrumb-area .title {
+  position: absolute;
+  left: 0;
+  min-width: 250px;
+  text-align: center;
+  bottom: -50px;
+  background: #ffffff;
+  box-shadow: 0px 0px 35px 0px rgba(0, 0, 0, 0.12);
+  padding: 22px 30px 22px;
+}
+
+.breadcrumb-area .title:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background-image: -moz-linear-gradient(
+    0deg,
+    rgb(138, 15, 61) 0%,
+    rgb(207, 23, 60) 100%
+  );
+  background-image: -webkit-linear-gradient(
+    0deg,
+    rgb(138, 15, 61) 0%,
+    rgb(207, 23, 60) 100%
+  );
+  background-image: -ms-linear-gradient(
+    0deg,
+    rgb(138, 15, 61) 0%,
+    rgb(207, 23, 60) 100%
+  );
+}
+
+.breadcrumb-area .title h2 {
+  font-size: 40px;
+  line-height: 1.2em;
+  font-weight: 500;
+  text-transform: capitalize;
+  letter-spacing: -0.02em;
+}
+
+.breadcrumb-menu {
+  position: absolute;
+  bottom: -37px;
+  right: 0;
+}
+
+.breadcrumb-menu ul {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.breadcrumb-menu ul li {
+  position: relative;
+  display: block;
+  float: left;
+  color: #7f7873;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+  text-transform: capitalize;
+  padding-right: 24px;
+  margin-right: 13px;
+  font-family: var(--thm-font);
+}
+
+.breadcrumb-menu ul li:last-child {
+  padding-right: 0;
+  margin-right: 0;
+}
+
+.breadcrumb-menu ul li:before {
+  font-family: "icomoon" !important;
+  content: "\e909";
+  position: absolute;
+  top: 0px;
+  right: 0;
+  bottom: 0px;
+  font-size: 12px;
+}
+
+.breadcrumb-menu ul li:last-child:before {
+  display: none;
+}
+
+.breadcrumb-menu ul li a {
+  color: #7f7873;
+  transition: all 200ms linear;
+  transition-delay: 0.1s;
+}
+
+.breadcrumb-menu ul li:hover a,
+.breadcrumb-menu ul li.active {
+  color: var(--thm-black);
+}

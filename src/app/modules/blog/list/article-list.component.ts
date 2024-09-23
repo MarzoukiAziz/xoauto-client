@@ -9,6 +9,7 @@ import { BlogService } from '../blog.service';
 import { MatPaginator, PageEvent } from '@angular/material/paginator';
 import { Article } from '../blog.types';
 import { Subject, takeUntil } from 'rxjs';
+import { BreadcrumbComponent } from 'src/app/shared/components/breadcrumb/breadcrumb.component';
 @Component({
   selector: 'app-article-list',
   templateUrl: './article-list.component.html',
@@ -16,7 +17,7 @@ import { Subject, takeUntil } from 'rxjs';
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
   styleUrls: ['./article-list.component.css'],
-  imports: [MatPaginator],
+  imports: [MatPaginator, BreadcrumbComponent],
 })
 export class ArticleListComponent {
   articles: Article[];
