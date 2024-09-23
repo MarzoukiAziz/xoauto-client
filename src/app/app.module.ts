@@ -9,6 +9,8 @@ import { FooterComponent } from './layout/common/footer/footer.component';
 import { ClassicComponent } from './layout/layouts/classic/classic.component';
 import { LayoutComponent } from './layout/layout.component';
 import { TestComponent } from './modules/test/test.component';
+import { provideHttpClient } from '@angular/common/http';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,7 +21,7 @@ import { TestComponent } from './modules/test/test.component';
     TestComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, NgbModule, FormsModule],
-  providers: [],
+  providers: [provideHttpClient()],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
