@@ -7,7 +7,16 @@ const routes: Routes = [
   {
     path: '',
     component: LayoutComponent,
-    children: [{ path: '', component: TestComponent }],
+    children: [
+      {
+        path: 'blog',
+        loadChildren: () =>
+          import('./modules/blog/blog-routing.module').then(
+            (m) => m.BlogRoutingModule
+          ),
+      },
+      { path: '', component: TestComponent },
+    ],
   },
 ];
 

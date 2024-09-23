@@ -32,6 +32,6 @@ export class HeaderComponent {
         { label: 'Comparateur', link: 'ads-comparator' },
       ],
     },
-    { label: 'Magazine', link: '/magazine' },
+    { label: 'Magazine', link: '/blog' },
   ];
 }
