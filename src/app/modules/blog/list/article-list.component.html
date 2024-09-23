@@ -1,0 +1,98 @@
+<!-- HTML Document Title -->
+<title>Magazine</title>
+
+<!-- Breadcrumb Section -->
+<breadcrumb
+  title="Magazine"
+  backgroundImgPath="assets/images/backgrounds/mag.jpg"
+/>
+
+<!-- Articles Section -->
+<section class="blog-page-three">
+  <div class="container">
+    <div class="row">
+      <!-- Main Content Column (9/12 width) -->
+      <div class="col-xl-9">
+        <!-- Loading Spinner while Data is Loading -->
+        <div *ngIf="_blogService.loading">
+          <loader />
+        </div>
+        <!-- Container for Blog Page Content -->
+        <div class="blog-page-content-box">
+          <!-- Loop through articles and display them -->
+          @for ( article of articles; track trackByFn($index, article) ) {
+          <div
+            class="single-blog-style1 single-blog-style1--style3"
+            *ngIf="!_blogService.loading"
+          >
+            <div class="image-colum">
+              <!-- Article Image -->
+              <div class="img-holder">
+                <!-- Image Overlay with Link to Article -->
+                <div class="inner" style="background-color: transparent">
+                  <img src="{{ article.previewImg }}" alt="" />
+                  <div class="overlay-icon">
+                    <a routerLink="/article/{{ article._id }}">
+                      <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                  </div>
+                </div>
+                <!-- Category and Date Information -->
+                <div class="category-date-box">
+                  <div class="category">
+                    <span>
+                      <i class="fa-solid fa-play"></i>
+                    </span>
+                    <h5>{{ article.category }}</h5>
+                  </div>
+                  <div class="date">
+                    <h5>{{ article.createdAt | date : "d MMM, y" }}</h5>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Article Text Content Column -->
+            <div class="text-colum">
+              <div class="text-holder">
+                <!-- Article Title with Link -->
+                <h6 class="blog-title">
+                  <a routerLink="/article/{{ article._id }}">
+                    {{ article.title }}
+                  </a>
+                </h6>
+
+                <!-- Additional Information and Metadata -->
+                <div class="bottom">
+                  <div class="meta-box">
+                    <ul class="meta-info">
+                      <li>
+                        <span><i class="fa-regular fa-clock"></i></span> &nbsp;
+                        <a href="#">{{ article.readTime }} min</a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          }
+          <!-- Paginator Component for Pagination -->
+          <br />
+          <mat-paginator
+            [length]="count"
+            [pageSize]="pageSize"
+            label=""
+            (page)="OnPageChange($event)"
+          >
+          </mat-paginator>
+        </div>
+      </div>
+
+      <!-- Right Sidebar Column (3/12 width) -->
+      <div class="col-xl-3 col-lg-7">
+        <!-- Include RightBarComponent -->
+        <blog-right-bar />
+      </div>
+    </div>
+  </div>
+</section>
