@@ -14,6 +14,7 @@ import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { RightBarComponent } from '../components/right-bar/right-bar.component';
 import { LoaderComponent } from 'src/app/shared/components/loader/loader.component';
+import { NewAdBannerComponent } from 'src/app/shared/components/new-ad-banner/new-ad-banner.component';
 
 @Component({
   selector: 'app-article-list',
@@ -29,6 +30,7 @@ import { LoaderComponent } from 'src/app/shared/components/loader/loader.compone
     RouterLink,
     RightBarComponent,
     LoaderComponent,
+    NewAdBannerComponent,
   ],
 })
 export class ArticleListComponent {

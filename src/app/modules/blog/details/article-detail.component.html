@@ -1,0 +1,67 @@
+<title>{{ article.title }}</title>
+
+<!-- Main Content Section for Article Details Page -->
+<section class="blog-details-area">
+  <!-- Container for Blog Details -->
+  <div class="container">
+    <div class="row">
+      <div class="col-xl-9">
+        <!-- Blog Details Box - Display when not loading -->
+        <div class="blog-details-box">
+          <!-- Blog Details Image Box -->
+          <div class="blog-details-img-box">
+            <img src="{{ article.previewImg }}" alt="" />
+            <!-- Share Button -->
+            <div class="share-btn">
+              <!-- Share button with copy-to-clipboard functionality -->
+              <a
+                onclick="navigator.clipboard.writeText(window.location.href);this.insertAdjacentHTML('afterend', '<div class=linktooltips-container>&nbsp;&nbsp;  Lien copié</div>');setTimeout(() => { document.querySelectorAll('.linktooltips-container').forEach(el => el.remove()); }, 3000);"
+                target="_blank"
+                >Partager
+                <span class="icon-share"></span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Blog Details Text Box -->
+          <div class="blog-details-text-box">
+            <p>Publié le {{ article.createdAt | date : "d MMM, y" }}</p>
+            <!-- Blog Title -->
+            <h2 class="blog-details-title">
+              {{ article.title }}
+            </h2>
+            <!-- Blog Subtitle/Quote -->
+            <div class="blog-details-quote-box">
+              <div class="text">
+                <h5>{{ article.subtitle }}</h5>
+              </div>
+            </div>
+            <!-- Blog Content -->
+            <div class="blog-details-text-1">
+              <!-- Render HTML content using innerHTML -->
+              <div [innerHTML]="content"></div>
+            </div>
+            <!-- Tags for the Article -->
+            <div class="tag-box">
+              <ul class="tag-list">
+                <!-- Loop through tags and display them -->
+                @for (tag of article.tags.split(','); track $index) {
+                <li>
+                  <span>{{ tag }}</span>
+                </li>
+                }
+              </ul>
+            </div>
+            <!-- Display Message for Non-Connected Users -->
+            <div *ngIf="!connected" class="must-connect">
+              <p>Vous devez vous connecter pour pouvoir commenter!</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-xl-3 col-lg-7">
+        <new-ad-banner />
+      </div>
+    </div>
+  </div>
+</section>
