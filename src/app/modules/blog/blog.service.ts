@@ -21,7 +21,7 @@ export class BlogService {
 
   // Private
   private _articles: BehaviorSubject<Article[]> = new BehaviorSubject([]);
-  private _article: BehaviorSubject<Article | null> = new BehaviorSubject(null);
+  private _article: BehaviorSubject<Article> = new BehaviorSubject(null);
   private _count: BehaviorSubject<Number> = new BehaviorSubject<Number>(0);
   private _categories: BehaviorSubject<string[]> = new BehaviorSubject([]);
   private _comments: BehaviorSubject<Comment[]> = new BehaviorSubject([]);

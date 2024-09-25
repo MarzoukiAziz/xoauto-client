@@ -33,7 +33,7 @@
             </div>
             <div class="tag-box">
               <ul class="tag-list">
-                @for (tag of article.tags.split(','); track $index) {
+                @for (tag of article.tags?.split(','); track $index) {
                 <li>
                   <span>{{ tag }}</span>
                 </li>

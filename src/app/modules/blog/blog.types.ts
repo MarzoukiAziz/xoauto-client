@@ -16,6 +16,7 @@ export interface Article {
 export interface Comment {
   _id: string;
   uid: string;
+  user: any;
   articleId: string;
   content: string;
   answerTo: string;

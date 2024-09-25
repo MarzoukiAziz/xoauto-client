@@ -26,7 +26,7 @@ import { NewAdBannerComponent } from '../../../shared/components/new-ad-banner/n
   imports: [CommonModule, NewAdBannerComponent],
 })
 export class ArticleDetailComponent implements OnInit {
-  article: Article;
+  article!: Article;
   comments: Comment[] = [];
   content!: SafeHtml;
   connected: boolean = false;
@@ -44,7 +44,7 @@ export class ArticleDetailComponent implements OnInit {
       .subscribe((article: Article) => {
         this.article = article;
         this.content = this.sanitizer.bypassSecurityTrustHtml(
-          this.article.content
+          this.article.content ?? ''
         );
         this._changeDetectorRef.markForCheck();
       });

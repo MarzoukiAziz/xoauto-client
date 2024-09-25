@@ -34,8 +34,8 @@ import { NewAdBannerComponent } from 'src/app/shared/components/new-ad-banner/ne
   ],
 })
 export class ArticleListComponent {
-  articles: Article[];
-  count: Number;
+  articles: Article[] = [];
+  count: Number = 0;
   currentPage: number = 1;
   pageSize = 8;
 
