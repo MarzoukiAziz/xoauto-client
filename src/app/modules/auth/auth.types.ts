@@ -5,4 +5,5 @@ export interface CognitoUser {
   phone_number_verified: boolean;
   sub: string;
   username: string;
+  id: string;
 }
