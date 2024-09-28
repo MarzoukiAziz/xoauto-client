@@ -1,0 +1,90 @@
+<title>Mon Profile</title>
+
+<div class="cards-deails-content-box">
+  <div class="cards-deails-content-1">
+    <panel-title title="Mon Profile" />
+    <div class="row" *ngIf="user">
+      <div class="col-xl-12 col-lg-12 col-md-12">
+        <div class="card-details-single-features-box">
+          <div class="single-benefits-box">
+            <div class="btnrapid text-center">
+              <img
+                id="user-pic"
+                src="{{ user.avatar ?? 'assets/images/icon/user.png' }}"
+                alt=""
+              />
+            </div>
+
+            <hr />
+            <h5>Avatar</h5>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-xl-12 col-lg-12 col-md-12">
+        <div class="card-details-single-features-box">
+          <div class="single-benefits-box">
+            <div class="btnrapid">
+              <h3>{{ user.name | titlecase }}</h3>
+            </div>
+
+            <hr />
+            <h5>Nom</h5>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-xl-12 col-lg-12 col-md-12">
+        <div class="card-details-single-features-box">
+          <div class="single-benefits-box">
+            <div class="btnrapid">
+              <h3>
+                {{ user.email }}
+                <span
+                  [ngClass]="{
+                    'chip-warning': !user.email_verified,
+                    'chip-success': user.email_verified
+                  }"
+                >
+                  {{ user.email_verified ? "Vérifié" : "Non Vérifié" }}</span
+                >
+              </h3>
+            </div>
+            <hr />
+            <h5>Email</h5>
+          </div>
+        </div>
+      </div>
+      <div class="col-xl-12 col-lg-12 col-md-12">
+        <div class="card-details-single-features-box">
+          <div class="single-benefits-box">
+            <div class="btnrapid">
+              <h3 *ngIf="user.phone_number">
+                {{ user.phone_number }}
+
+                <span
+                  [ngClass]="{
+                    'chip-warning': !user.phone_number_verified,
+                    'chip-success': user.phone_number_verified
+                  }"
+                >
+                  {{
+                    user.phone_number_verified ? "Vérifié" : "Non Vérifié"
+                  }}</span
+                >
+              </h3>
+
+              <h6 *ngIf="!user.phone_number">Pas encore saisie</h6>
+            </div>
+
+            <hr />
+            <h5>Numéro de Téléphone</h5>
+          </div>
+        </div>
+      </div>
+      <br />
+      <br />
+      <br />
+    </div>
+  </div>
+</div>

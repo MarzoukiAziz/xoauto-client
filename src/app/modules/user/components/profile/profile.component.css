@@ -1,0 +1,29 @@
+h5 {
+    text-align: right;
+}
+
+li {
+    cursor: pointer;
+}
+
+.chip-success {
+    font-size: medium;
+    background-color: seagreen;
+    color: white;
+    padding: 5px 8px;
+    border-radius: 15px;
+}
+
+.chip-warning {
+    font-size: medium;
+    background-color: darkgrey;
+    color: white;
+    padding: 5px 8px;
+    border-radius: 15px;
+}
+
+
+#user-pic{
+    border-radius: 50%;
+    height: 120px;
+}
