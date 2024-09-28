@@ -13,7 +13,7 @@ const routes: Routes = [
         loadChildren: () => import('./modules/blog/blog.routes'),
       },
       {
-        path: 'dashboard',
+        path: 'user',
         loadChildren: () => import('./modules/user/user.routes'),
       },
       {
