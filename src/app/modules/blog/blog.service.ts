@@ -125,4 +125,13 @@ export class BlogService {
         })
       );
   }
+
+  // Create Comment
+  createComment(comment): Observable<any> {
+    return this._httpClient.post(this.apiUrl + '/comment', comment).pipe(
+      tap((response: Comment[]) => {
+        this._comments.next(response);
+      })
+    );
+  }
 }
