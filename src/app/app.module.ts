@@ -8,8 +8,13 @@ import { FooterComponent } from './layout/common/footer/footer.component';
 import { ClassicComponent } from './layout/layouts/classic/classic.component';
 import { LayoutComponent } from './layout/layout.component';
 import { TestComponent } from './modules/test/test.component';
-import { HTTP_INTERCEPTORS, provideHttpClient } from '@angular/common/http';
+import {
+  HTTP_INTERCEPTORS,
+  provideHttpClient,
+  withInterceptorsFromDi,
+} from '@angular/common/http';
 import { AuthInterceptor } from './modules/auth/auth.intercepter';
+import { DashboardComponent } from './modules/dashboard/dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +24,7 @@ import { AuthInterceptor } from './modules/auth/auth.intercepter';
     ClassicComponent,
     LayoutComponent,
     TestComponent,
+    DashboardComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, NgbModule],
   providers: [
@@ -27,7 +33,7 @@ import { AuthInterceptor } from './modules/auth/auth.intercepter';
       useClass: AuthInterceptor,
       multi: true,
     },
-    provideHttpClient(),
+    provideHttpClient(withInterceptorsFromDi()),
   ],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],

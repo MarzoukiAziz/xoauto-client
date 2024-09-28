@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { LoaderComponent } from 'src/app/shared/components/loader/loader.component';
 import { AuthService } from '../auth.service';

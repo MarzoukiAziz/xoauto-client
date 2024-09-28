@@ -1,5 +1,6 @@
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment.prod';
 
 @Injectable({
@@ -11,11 +12,12 @@ export class AuthService {
   private redirectUri = environment.cognitoRedirectUrl;
   private cognitoTokenUrl = environment.cognitoHostedUiUrl + '/oauth2/token';
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private router: Router) {}
 
-  storeAccessToken(token: string): void {
-    this.accessToken = token;
-    localStorage.setItem('access_token', token); // Optional: Store in local storage
+  storeTokens(response): void {
+    this.accessToken = response.access_token;
+    localStorage.setItem('access_token', response.access_token);
+    localStorage.setItem('refresh_token', response.refresh_token);
   }
 
   getAccessToken(): string | null {
@@ -40,8 +42,8 @@ export class AuthService {
     return this.http
       .post(this.cognitoTokenUrl, body, { headers })
       .subscribe((response: any) => {
-        localStorage.setItem('access_token', response.access_token);
-        localStorage.setItem('refresh_token', response.refresh_token);
+        this.storeTokens(response);
+        this.router.navigateByUrl('/dashboard');
       });
   }
 }
