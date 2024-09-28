@@ -3,12 +3,14 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment.prod';
 import { CognitoUser } from './auth.types'; // Import the User model
+import { map, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
   private accessToken: string | null = null;
+  private apiUrl = environment.apiserver;
 
   private clientId = environment.cognitoAppClientId;
   private redirectUri = environment.cognitoRedirectUrl;
@@ -64,8 +66,11 @@ export class AuthService {
 
     this.http.get<CognitoUser>(this.cognitoUserInfoUrl, { headers }).subscribe(
       (userInfo: CognitoUser) => {
-        this.saveUserInfo(userInfo);
-        this.router.navigateByUrl('/user/dashboard');
+        this.getUserIdFromCid(userInfo.sub).subscribe((id) => {
+          userInfo.id = id;
+          this.saveUserInfo(userInfo);
+          this.router.navigateByUrl('/user/dashboard');
+        });
       },
       (error) => {
         console.error('Error fetching user info:', error);
@@ -94,5 +99,13 @@ export class AuthService {
     // Redirect to Cognito logout URL and pass redirect URI
     const logoutUrl = `${this.cognitoLogoutUrl}?client_id=${this.clientId}&logout_uri=${environment.cognitoLogoutUrl}`;
     window.location.href = logoutUrl;
+  }
+
+  getUserIdFromCid(cid: string): Observable<string> {
+    return this.http.get<any>(this.apiUrl + '/user/cid/' + cid).pipe(
+      map((response) => {
+        return response.id;
+      })
+    );
   }
 }

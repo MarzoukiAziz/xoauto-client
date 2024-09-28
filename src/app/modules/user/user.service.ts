@@ -33,15 +33,15 @@ export class UserService {
 
   // Get User
   getCurrentUser(): Observable<User> {
-    const cid = this.auth.getUserInfo()?.sub;
-    return this._httpClient.get<User>(this.apiUrl + '/user/cid/' + cid).pipe(
+    const id = this.auth.getUserInfo()?.id;
+    return this._httpClient.get<User>(this.apiUrl + '/user/' + id).pipe(
       map((user) => {
         this._user.next(user);
         return user;
       }),
       switchMap((user) => {
         if (!user) {
-          return throwError('Could not found user with cid of ' + cid + '!');
+          return throwError('Could not found user with id of ' + id + '!');
         }
         return of(user);
       })
