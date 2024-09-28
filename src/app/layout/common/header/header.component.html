@@ -58,7 +58,7 @@
                 <i class="fa-solid fa-circle-plus"></i>
                 Publier une annonce
               </a>
-              <a class="style2" routerLink="/compte">
+              <a class="style2" (click)="onLoginClick()">
                 <i class="fa-solid fa-circle-user"></i>
                 Mon Compte
               </a>
@@ -120,7 +120,7 @@
         </li>
         <br />
         <li>
-          <a style="color: white" class="style2" routerLink="/compte">
+          <a style="color: white" class="style2" (click)="onLoginClick()">
             <i class="fa-solid fa-circle-user"></i>
             &nbsp;<span>Mon Compte</span>
           </a>

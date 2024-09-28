@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { environment } from 'src/environments/environment.prod';
 
 @Component({
   selector: 'app-header',
@@ -7,10 +8,15 @@ import { Component } from '@angular/core';
 })
 export class HeaderComponent {
   isMobileNavExpanded = false;
+  cognitoUrl = `${environment.cognitoHostedUiUrl}/login?client_id=${environment.cognitoAppClientId}&response_type=code&scope=email+openid+phone&redirect_uri=${environment.cognitoRedirectUrl}`;
 
   toggleMobileNav() {
     this.isMobileNavExpanded = !this.isMobileNavExpanded;
     document.body.classList.toggle('locked', this.isMobileNavExpanded);
+  }
+  public onLoginClick(): void {
+    console.log('Redirecting to Cognito Hosted UI');
+    window.location.assign(this.cognitoUrl);
   }
 
   menuItems: any[] = [
