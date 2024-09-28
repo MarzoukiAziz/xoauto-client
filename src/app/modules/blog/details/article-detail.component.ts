@@ -53,7 +53,6 @@ export class ArticleDetailComponent implements OnInit {
       .pipe(takeUntil(this._unsubscribeAll))
       .subscribe((comments: Comment[]) => {
         this.comments = comments;
-        console.log(this.comments);
         this._changeDetectorRef.markForCheck();
       });
   }
