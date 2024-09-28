@@ -1,0 +1,82 @@
+<!-- Main Section for Account Details -->
+<section class="cards-details-area">
+  <div class="container">
+    <div class="row">
+      <!-- Sidebar Section -->
+      <div class="col-xl-4">
+        <div class="sidebar-box-style2">
+          <div class="single-sidebar-box-style1">
+            <!-- Displaying User Information -->
+            <div *ngIf="user" class="sidebar-title">
+              <img
+                id="user-pic"
+                src="{{ user.avatar ?? 'assets/images/icons/user-1.jpg' }}"
+                alt=""
+              />
+              <span>&nbsp;&nbsp;</span>
+              <h4>{{ user.name | titlecase }}</h4>
+            </div>
+
+            <!-- Card Types Navigation -->
+            <div class="card-types-box">
+              <ul>
+                <li
+                  [class.active]="_userService.selectedSection == 'dashboard'"
+                >
+                  <a routerLink="/compte"> Tableau de bord</a>
+                </li>
+                <li
+                  [class.active]="
+                    _userService.selectedSection == 'mes-annonces'
+                  "
+                >
+                  <a routerLink="/compte/mes-annonces">Mes Annonces</a>
+                </li>
+                <li [class.active]="_userService.selectedSection == 'messages'">
+                  <a>Mes Messages</a>
+                </li>
+                <!-- <li [class.active]="_userService.selectedSection=='commandes'"><a>Mes Commandes</a></li> -->
+                <li [class.active]="_userService.selectedSection == 'favoris'">
+                  <a routerLink="/compte/favoris">Mes Favoris</a>
+                </li>
+                <li [class.active]="_userService.selectedSection == 'alertes'">
+                  <a>Mes Alertes</a>
+                </li>
+                <li [class.active]="_userService.selectedSection == 'profile'">
+                  <a routerLink="/compte/profile">Mon Profile</a>
+                </li>
+                <li
+                  [class.active]="
+                    _userService.selectedSection == 'reclamations'
+                  "
+                >
+                  <a>Mes Reclamations</a>
+                </li>
+
+                <li
+                  [class.active]="_userService.selectedSection == 'parametres'"
+                >
+                  <a routerLink="/compte/parametres">Paramètres</a>
+                </li>
+                <li>
+                  <a id="logout" (click)="signOut()">Déconnexion</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Border Box Section -->
+          <div class="border-box-1"></div>
+
+          <new-ad-banner />
+        </div>
+      </div>
+
+      <!-- Main Content Section -->
+      <div class="col-xl-8">
+        <!-- Router Outlet for Dynamic Component Rendering -->
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>
+</section>

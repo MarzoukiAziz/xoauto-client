@@ -14,9 +14,7 @@ export class TestComponent {
 
   ngOnInit(): void {
     this.routeSub = this.route.queryParams.subscribe((params) => {
-      console.log(params); // Logs the query params
       const paramValue = params['yourParam']; // Get a specific query param value
-      console.log(paramValue);
     });
   }
 
