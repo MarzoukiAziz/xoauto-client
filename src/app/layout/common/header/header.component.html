@@ -41,7 +41,7 @@
                     </a>
                     <a
                       class="style2"
-                      routerLink="/dashboard"
+                      routerLink="/user/dashboard"
                       style="border-radius: 10px"
                     >
                       <i class="fa-solid fa-circle-user"></i>
@@ -58,7 +58,7 @@
                 <i class="fa-solid fa-circle-plus"></i>
                 Publier une annonce
               </a>
-              <a class="style2" routerLink="/dashboard">
+              <a class="style2" routerLink="/user/dashboard">
                 <i class="fa-solid fa-circle-user"></i>&nbsp;
                 <span *ngIf="auth.isAuthenticated()">Mon Compte</span>
                 <span *ngIf="!auth.isAuthenticated()">Se Connecter</span>
@@ -121,7 +121,7 @@
         </li>
         <br />
         <li>
-          <a style="color: white" class="style2" routerLink="/dashboard">
+          <a style="color: white" class="style2" routerLink="/user/dashboard">
             <i class="fa-solid fa-circle-user"></i>
             &nbsp;
             <span *ngIf="auth.isAuthenticated()">Mon Compte</span>

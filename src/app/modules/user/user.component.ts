@@ -1,13 +1,13 @@
 import { ChangeDetectorRef, Component } from '@angular/core';
 import { UserService } from './user.service';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { User } from './user.types';
 import { Subject, takeUntil } from 'rxjs';
 import { NewAdBannerComponent } from '../../shared/components/new-ad-banner/new-ad-banner.component';
 
 @Component({
-  selector: 'app-dashboard',
+  selector: 'app-user',
   templateUrl: './user.component.html',
   styleUrl: './user.component.css',
   standalone: true,
@@ -20,17 +20,22 @@ import { NewAdBannerComponent } from '../../shared/components/new-ad-banner/new-
 })
 export class UserComponent {
   user!: User;
+  selectedSection = 'dashboard';
   private _unsubscribeAll: Subject<any> = new Subject<any>();
 
   constructor(
     public _userService: UserService,
-    private _changeDetectorRef: ChangeDetectorRef
+    private _changeDetectorRef: ChangeDetectorRef,
+    private router: Router
   ) {}
+
   signOut() {
     this._userService.signOut();
   }
 
   ngOnInit(): void {
+    const segments = this.router.url.split('/');
+    this.selectedSection = segments[2] || '';
     this._userService.user$
       .pipe(takeUntil(this._unsubscribeAll))
       .subscribe((user: User) => {
