@@ -22,9 +22,6 @@ export class UserService {
   // Private
   private _user: BehaviorSubject<User> = new BehaviorSubject(null);
 
-  // Public
-  selectedSection = '';
-
   //Constructor
   constructor(private _httpClient: HttpClient, private auth: AuthService) {}
 

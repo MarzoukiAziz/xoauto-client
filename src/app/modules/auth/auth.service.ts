@@ -65,7 +65,7 @@ export class AuthService {
     this.http.get<CognitoUser>(this.cognitoUserInfoUrl, { headers }).subscribe(
       (userInfo: CognitoUser) => {
         this.saveUserInfo(userInfo);
-        this.router.navigateByUrl('/dashboard');
+        this.router.navigateByUrl('/user/dashboard');
       },
       (error) => {
         console.error('Error fetching user info:', error);
