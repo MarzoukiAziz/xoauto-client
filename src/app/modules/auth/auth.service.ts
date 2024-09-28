@@ -17,12 +17,14 @@ export class AuthService {
   private cognitoUserInfoUrl =
     environment.cognitoHostedUiUrl + '/oauth2/userInfo';
 
+  private cognitoLogoutUrl = environment.cognitoHostedUiUrl + '/logout'; // Cognito Logout URL
+
   constructor(private http: HttpClient, private router: Router) {}
 
   getAccessToken(): string | null {
     return this.accessToken || localStorage.getItem('access_token');
   }
-  getUserInfo(): string | null {
+  getUserInfo(): CognitoUser | null {
     return JSON.parse(localStorage.getItem('user_info') || '{}');
   }
 
@@ -44,15 +46,12 @@ export class AuthService {
     return this.http
       .post(this.cognitoTokenUrl, body, { headers })
       .subscribe((response: any) => {
-        console.log(response);
         this.storeTokens(response);
-        this.fetchUserInfo();
-        this.router.navigateByUrl('/dashboard');
+        this.fetchUserInfo(response.access_token);
       });
   }
 
-  fetchUserInfo() {
-    const token = this.getAccessToken();
+  fetchUserInfo(token) {
     if (!token) {
       console.error('No access token found');
       return;
@@ -65,8 +64,8 @@ export class AuthService {
 
     this.http.get<CognitoUser>(this.cognitoUserInfoUrl, { headers }).subscribe(
       (userInfo: CognitoUser) => {
-        console.log('User Info:', userInfo);
         this.saveUserInfo(userInfo);
+        this.router.navigateByUrl('/dashboard');
       },
       (error) => {
         console.error('Error fetching user info:', error);
@@ -82,5 +81,18 @@ export class AuthService {
 
   saveUserInfo(userInfo: CognitoUser) {
     localStorage.setItem('user_info', JSON.stringify(userInfo));
+  }
+
+  // Sign out method
+  signOut() {
+    // Clear tokens and user info from local storage
+    localStorage.removeItem('access_token');
+    localStorage.removeItem('refresh_token');
+    localStorage.removeItem('user_info');
+    this.accessToken = null;
+
+    // Redirect to Cognito logout URL and pass redirect URI
+    const logoutUrl = `${this.cognitoLogoutUrl}?client_id=${this.clientId}&logout_uri=${environment.cognitoLogoutUrl}`;
+    window.location.href = logoutUrl;
   }
 }
