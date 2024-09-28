@@ -41,7 +41,7 @@
                     </a>
                     <a
                       class="style2"
-                      routerLink="/compte"
+                      routerLink="/dashboard"
                       style="border-radius: 10px"
                     >
                       <i class="fa-solid fa-circle-user"></i>
@@ -58,9 +58,10 @@
                 <i class="fa-solid fa-circle-plus"></i>
                 Publier une annonce
               </a>
-              <a class="style2" (click)="onLoginClick()">
-                <i class="fa-solid fa-circle-user"></i>
-                Mon Compte
+              <a class="style2" routerLink="/dashboard">
+                <i class="fa-solid fa-circle-user"></i>&nbsp;
+                <span *ngIf="auth.isAuthenticated()">Mon Compte</span>
+                <span *ngIf="!auth.isAuthenticated()">Se Connecter</span>
               </a>
             </div>
           </div>
@@ -120,9 +121,11 @@
         </li>
         <br />
         <li>
-          <a style="color: white" class="style2" (click)="onLoginClick()">
+          <a style="color: white" class="style2" routerLink="/dashboard">
             <i class="fa-solid fa-circle-user"></i>
-            &nbsp;<span>Mon Compte</span>
+            &nbsp;
+            <span *ngIf="auth.isAuthenticated()">Mon Compte</span>
+            <span *ngIf="!auth.isAuthenticated()">Se Connecter</span>
           </a>
         </li>
       </ul>
