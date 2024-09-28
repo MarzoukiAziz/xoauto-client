@@ -1,0 +1,14 @@
+.title-panel {
+  background: -webkit-linear-gradient(
+    0deg,
+    rgb(138, 15, 61) 0%,
+    rgb(207, 23, 60) 100%
+  );
+  text-align: center;
+  color: #fff;
+  font-size: x-large;
+  line-height: 28px;
+  font-weight: 600;
+  padding: 14px 20px 14px 40px;
+  margin-bottom: 20px;
+}

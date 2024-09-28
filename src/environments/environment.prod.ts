@@ -6,5 +6,5 @@ export const environment = {
   awsRegion: 'eu-west-3',
   cognitoHostedUiUrl: 'https://xoauto.auth.eu-west-3.amazoncognito.com',
   cognitoRedirectUrl: 'http://localhost:4200/success-login',
-  cognitoLogoutUrl: 'http://localhost:4200/',
+  cognitoLogoutUrl: 'http://localhost:4200',
 };

@@ -1,0 +1,52 @@
+li {
+  cursor: pointer;
+}
+
+li:hover {
+  color: whitesmoke;
+}
+
+#logout {
+  background-color: gray;
+  color: var(--bs-body-bg);
+}
+
+.single-benefits-box {
+  border: 2px solid #22222211;
+  padding: 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  background-color: #eeeeee22;
+}
+
+.btnrapid {
+  display: flex;
+}
+
+.btnrapid h3 {
+  margin-left: 20px;
+}
+
+.single-benefits-box h6 {
+  text-align: right;
+}
+
+@media only screen and (max-width: 1200px) {
+  .sidebar-banner-box {
+    display: none;
+  }
+
+  .border-box-1 {
+    display: none !important;
+  }
+}
+
+#user-pic {
+  border-radius: 50%;
+  height: 80px;
+}
+.sidebar-title {
+  position: relative;
+  display: flex;
+  align-items: center;
+}

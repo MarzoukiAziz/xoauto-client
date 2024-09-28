@@ -14,7 +14,6 @@ import {
   withInterceptorsFromDi,
 } from '@angular/common/http';
 import { AuthInterceptor } from './modules/auth/auth.intercepter';
-import { DashboardComponent } from './modules/dashboard/dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +23,6 @@ import { DashboardComponent } from './modules/dashboard/dashboard/dashboard.comp
     ClassicComponent,
     LayoutComponent,
     TestComponent,
-    DashboardComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, NgbModule],
   providers: [

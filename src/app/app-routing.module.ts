@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LayoutComponent } from './layout/layout.component';
 import { AuthCallbackComponent } from './modules/auth/auth-callback/auth-callback.component';
-import { DashboardComponent } from './modules/dashboard/dashboard/dashboard.component';
 
 const routes: Routes = [
   {
@@ -14,12 +13,12 @@ const routes: Routes = [
         loadChildren: () => import('./modules/blog/blog.routes'),
       },
       {
-        path: 'success-login',
-        component: AuthCallbackComponent,
+        path: 'user',
+        loadChildren: () => import('./modules/user/user.routes'),
       },
       {
-        path: 'dashboard',
-        component: DashboardComponent,
+        path: 'success-login',
+        component: AuthCallbackComponent,
       },
     ],
   },
