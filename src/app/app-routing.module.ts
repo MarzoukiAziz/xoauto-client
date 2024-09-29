@@ -17,6 +17,10 @@ const routes: Routes = [
         loadChildren: () => import('./modules/user/user.routes'),
       },
       {
+        path: 'ad',
+        loadChildren: () => import('./modules/ad/ad.routes'),
+      },
+      {
         path: 'success-login',
         component: AuthCallbackComponent,
       },
