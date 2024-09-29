@@ -30,7 +30,7 @@ export class HeaderComponent {
       label: 'Occasions',
       children: [
         { label: 'Recherche', link: 'ads' },
-        { label: 'Annonces Du Jour', link: 'today-ads' },
+        { label: 'Annonces Du Jour', link: 'ad/today' },
         { label: 'Comparateur', link: 'ads-comparator' },
       ],
     },
