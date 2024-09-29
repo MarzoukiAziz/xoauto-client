@@ -5,6 +5,8 @@ import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { register } from 'swiper/element/bundle';
 import { SwiperDirective } from 'src/app/shared/directives/swiper.directive';
+import { AdService } from '../../ad.service';
+
 register();
 
 @Component({
@@ -16,11 +18,10 @@ register();
 })
 export class AdPreviewComponent {
   @Input() ad: Ad;
-  comparateur = '';
 
-  addToCompare(id) {}
+  constructor(public _adService: AdService) {}
 
-  removeFromCompare(id) {}
+  ngOnInit() {}
 
   swiperConfig: SwiperOptions = {
     pagination: true,
