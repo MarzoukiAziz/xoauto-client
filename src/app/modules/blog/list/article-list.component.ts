@@ -15,6 +15,7 @@ import { RouterLink } from '@angular/router';
 import { RightBarComponent } from '../components/right-bar/right-bar.component';
 import { LoaderComponent } from 'src/app/shared/components/loader/loader.component';
 import { NewAdBannerComponent } from 'src/app/shared/components/new-ad-banner/new-ad-banner.component';
+import { configurePaginator } from 'src/app/shared/utils/configure-paginator';
 
 @Component({
   selector: 'app-article-list',
@@ -54,9 +55,8 @@ export class ArticleListComponent {
   }
 
   ngOnInit(): void {
-    this.paginator._intl.itemsPerPageLabel = 'Articles par Page';
-    this.paginator._intl.nextPageLabel = 'Page Suivante';
-    this.paginator._intl.previousPageLabel = 'Page Précedente';
+    this.paginator = configurePaginator(this.paginator, 'Articles');
+
     this._blogService.articles$
       .pipe(takeUntil(this._unsubscribeAll))
       .subscribe((articles: Article[]) => {

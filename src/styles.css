@@ -13,3 +13,22 @@ body {
   font-weight: normal;
   font-style: normal;
 }
+.mat-mdc-paginator-container {
+  background-color: #1d1c1c;
+  color: white;
+  border-radius: 10px;
+  border: 5px solid mat-paginator-range-actions;
+}
+
+.mat-mdc-paginator-range-actions {
+  background-color: var(--thm-base);
+  border-radius: 10px;
+  margin: 20px;
+}
+.ads {
+  position: relative;
+  display: block;
+  background: #ffffff;
+  padding: 100px 0 100px;
+  z-index: 1;
+}

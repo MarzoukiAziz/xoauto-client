@@ -1,0 +1,81 @@
+<div class="ad-box">
+  <div class="ad-imgs">
+    <div>
+      <div class="labels-down">
+        <div>
+          <span class="label-year">{{ ad.first_registration.year }}</span>
+        </div>
+      </div>
+      <div class="seen-data">
+        <img src="assets/images/icons/camera.svg" alt="Camera Icon" />
+        <span>{{ ad.photos.length }}</span>
+      </div>
+      <div class="overlay-property-box">
+        <a
+          (click)="
+            comparateur.indexOf(ad._id) === -1
+              ? addToCompare(ad._id)
+              : removeFromCompare(ad._id)
+          "
+          [class]="
+            comparateur.indexOf(ad._id) === -1
+              ? 'effect-round mb-1'
+              : 'effect-round mb-1 remove-comp'
+          "
+          data-bs-toggle="tooltip"
+          data-bs-placement="left"
+          [title]="
+            comparateur.indexOf(ad._id) === -1
+              ? 'Ajoter au comparateur'
+              : 'Retirer du comparateur'
+          "
+          data-bs-original-title="Compare"
+        >
+          <i class="fa-solid fa-code-compare"></i>
+        </a>
+      </div>
+    </div>
+    <swiper-container
+      appSwiper
+      #swiper
+      [config]="swiperConfig"
+      thumbs-swiper=".mySwiper2"
+      (slidechange)="slideChange($event)"
+    >
+      <swiper-slide
+        *ngFor="let img of ad.photos | slice : 0 : 5"
+        class="swiper2"
+      >
+        <img [src]="img" alt="Photos d'annonce" />
+      </swiper-slide>
+    </swiper-container>
+  </div>
+
+  <div class="title">
+    <h6 class="mb-1" routerLink="/ad/details/{{ ad._id }}">
+      {{ ad.brand }}
+      {{ ad.model }}
+      {{ ad.version }}
+    </h6>
+    <h5 class="mb-0 text-md-primary">{{ ad.price | number : "1.0-0" }} DT</h5>
+  </div>
+
+  <div class="ad-data product_inner">
+    <div class="gov-box">
+      <span class="gov">
+        {{ ad.region }}
+      </span>
+    </div>
+    <div class="d-flex justify-content-between px-2">
+      <div class="icon-text">
+        <img class="icon-img" src="/assets/images/icons/km.png" alt="" />
+        {{ ad.mileage | number : "1.0-0" }}
+      </div>
+
+      <div class="icon-text">
+        <img class="icon-img" src="/assets/images/icons/gauge.png" alt="" />
+        {{ ad.fuel_type }}
+      </div>
+    </div>
+  </div>
+</div>

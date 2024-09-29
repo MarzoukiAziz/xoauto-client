@@ -1,0 +1,59 @@
+export interface Ad {
+  _id: string;
+  uid: string;
+  title?: string;
+  description?: string;
+  price: number;
+  type: 'new' | 'used';
+  brand: string;
+  model: string;
+  version?: string;
+  category: string;
+  mileage: number;
+  first_registration: {
+    month?: number;
+    year: number;
+  };
+  fuel_type: string;
+  seats?: number;
+  color?: string;
+  crit_air?: string;
+  horsepower?: number;
+  power_kw?: number;
+  region?: string;
+  autonomy_wltp_km?: number;
+  options_vehicule: {
+    heads_up_display?: boolean;
+    parking_assist?: boolean;
+    tow_hitch?: boolean;
+    roof_racks?: boolean;
+    bluetooth?: boolean;
+    rear_camera?: boolean;
+    automatic_climate_control?: boolean;
+    gps?: boolean;
+    non_smoker?: boolean;
+    first_hand?: boolean;
+    rear_radar?: boolean;
+    leather_seats?: boolean;
+    heated_seats?: boolean;
+    manufacturer_warranty?: boolean;
+    sound_system?: boolean;
+    sunroof?: boolean;
+    panoramic_roof?: boolean;
+    others?: string[];
+  };
+  courant: {
+    AC?: string;
+    DC?: string;
+  };
+  photos: string[];
+  interior_video?: string;
+  exterior_video?: string;
+  address?: string;
+  phone_number?: string;
+  mask_phone: boolean;
+  active: boolean;
+  createdAt?: Date;
+  updatedAt?: Date;
+  views?: number;
+}

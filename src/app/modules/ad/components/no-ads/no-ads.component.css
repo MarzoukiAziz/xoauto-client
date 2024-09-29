@@ -1,0 +1,14 @@
+.no-result {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 300px;
+}
+.no-result img {
+  height: 250px;
+}
+
+.no-result h4 {
+  color: gray;
+  font-family: monospace;
+}
