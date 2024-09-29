@@ -13,19 +13,19 @@
       <div class="overlay-property-box">
         <a
           (click)="
-            comparator.indexOf(ad._id) === -1
-              ? addToCompare(ad._id)
-              : removeFromCompare(ad._id)
+            _adService.comparator.indexOf(ad._id) === -1
+              ? _adService.addToCompare(ad._id)
+              : _adService.removeFromCompare(ad._id)
           "
           [class]="
-            comparator.indexOf(ad._id) === -1
+            _adService.comparator.indexOf(ad._id) === -1
               ? 'effect-round mb-1'
               : 'effect-round mb-1 remove-comp'
           "
           data-bs-toggle="tooltip"
           data-bs-placement="left"
           [title]="
-            comparator.indexOf(ad._id) === -1
+            _adService.comparator.indexOf(ad._id) === -1
               ? 'Ajoter au comparateur'
               : 'Retirer du comparateur'
           "
