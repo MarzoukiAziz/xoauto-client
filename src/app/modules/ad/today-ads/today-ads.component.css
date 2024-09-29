@@ -1,0 +1,144 @@
+.breadcrumb-area {
+  background-color: #1d1d1d;
+}
+
+.breadcrumb-area-bg {
+  background-image: url(/assets/images/backgrounds/today.jpg);
+}
+.icon-row {
+  display: flex;
+  justify-content: space-around;
+}
+
+.icon-text {
+  color: black;
+  font-weight: 400;
+  margin-top: 5px;
+  font-size: 15px;
+}
+
+.icon-img {
+  height: 16px;
+  place-self: center;
+  margin-right: 5px;
+}
+
+.product_inner {
+  align-items: center;
+  padding-top: 50px;
+  /* background: #cf173c; */
+}
+
+.icon-text {
+  font-family: "Roboto" !important;
+}
+.spacer {
+  border: 0;
+  border-bottom: 1px solid white;
+}
+
+.gov {
+  font-family: Roboto, sans-serif;
+  letter-spacing: 5px;
+  color: #959595;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+.labels-left {
+  left: 15px;
+  z-index: 1;
+  position: absolute;
+  top: 20px;
+  box-sizing: border-box;
+}
+
+.ad-imgs {
+  box-sizing: border-box;
+  position: relative;
+}
+
+.label {
+  text-transform: capitalize;
+  font-size: 12px;
+  font-weight: 500;
+  background-color: var(--thm-base);
+  box-shadow: 0 0 9px 3px rgba(241, 52, 57, 0.2);
+  border-radius: 5px;
+  padding: 4px 15px 3px;
+  color: #ffffff;
+  display: inline-block;
+  font-family: Roboto, sans-serif;
+}
+.seen-data {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  padding: 1px 8px 2px;
+  border-radius: 5px;
+  background-color: #1c2d3a;
+  z-index: 1;
+  color: white;
+  font-size: 12px;
+}
+
+.seen-data svg {
+  width: 14px;
+  height: 14px;
+  vertical-align: -2px;
+  margin-right: 8px;
+  color: #ffffff;
+}
+
+.overlay-property-box {
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  margin: 0 auto;
+  display: block;
+  -webkit-transition: 0.8s;
+  transition: 0.8s;
+  z-index: 1;
+}
+
+.effect-round {
+  width: 30px;
+  height: 30px;
+  background: #ffffff;
+  border-radius: 5px;
+  position: relative;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.labels-down {
+  left: 5px;
+  z-index: 1;
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  box-sizing: border-box;
+}
+
+.label-year {
+  text-transform: capitalize;
+  font-size: 12px;
+  font-weight: 500;
+  background-color: var(--thm-base);
+  padding: 1px 13px 1px;
+  color: #ffffff;
+  display: inline-block;
+  font-family: Roboto, sans-serif;
+}
+
+.swiper2 {
+  height: auto !important;
+}
+
+swiper-container {
+  z-index: 0;
+}
