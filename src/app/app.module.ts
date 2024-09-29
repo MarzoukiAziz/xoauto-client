@@ -14,9 +14,7 @@ import {
   withInterceptorsFromDi,
 } from '@angular/common/http';
 import { AuthInterceptor } from './modules/auth/auth.intercepter';
-import { SwiperDirective } from './shared/directives/swiper.directive';
-import { register } from 'swiper/element/bundle';
-register();
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,7 +23,6 @@ register();
     ClassicComponent,
     LayoutComponent,
     TestComponent,
-    SwiperDirective,
   ],
   imports: [BrowserModule, AppRoutingModule, NgbModule],
   providers: [

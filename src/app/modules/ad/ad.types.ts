@@ -20,6 +20,7 @@ export interface Ad {
   crit_air?: string;
   horsepower?: number;
   power_kw?: number;
+  region?: string;
   autonomy_wltp_km?: number;
   options_vehicule: {
     heads_up_display?: boolean;

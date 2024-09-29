@@ -1,6 +1,5 @@
 import { inject } from '@angular/core';
-import { ActivatedRouteSnapshot, Router, Routes } from '@angular/router';
-import { catchError, throwError } from 'rxjs';
+import { Routes } from '@angular/router';
 import { AdService } from './ad.service';
 import { TodayAdsComponent } from './today-ads/today-ads.component';
 
