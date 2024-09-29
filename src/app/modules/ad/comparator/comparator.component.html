@@ -1,0 +1,314 @@
+<title>Comparateur des voitures</title>
+<breadcrumb
+  title="Comparateur"
+  backgroundImgPath="assets/images/backgrounds/comp.jpg"
+/>
+
+<no-ads
+  message="Ajouter des annonces ici pour faire la comparaison!"
+  *ngIf="ads.length == 0"
+/>
+<section>
+  <div *ngIf="ads.length > 0">
+    <div class="container pb-5 mb-2">
+      <div class="comparison-table">
+        <table id="comp-table" class="table table-bordered">
+          <thead class="bg-secondary">
+            <tr>
+              <td class="align-middle"></td>
+              <td *ngFor="let ad of ads">
+                <div
+                  class="comparison-item"
+                  [style]="
+                    'background-image:url(' +
+                    ad.photos[0] +
+                    ');background-size:cover;'
+                  "
+                >
+                  <img
+                    src="assets/images/icons/delete.png"
+                    (click)="removeFromComparator(ad._id)"
+                    class="remove-item"
+                  />
+
+                  <a
+                    routerLink="/ad/details/{{ ad._id }}"
+                    class="comparison-item-title"
+                    >{{ ad.brand }} {{ ad.model }} <br />
+                    {{ ad.version }}</a
+                  >
+                </div>
+              </td>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="price-section">
+              <th>Prix</th>
+              <td *ngFor="let ad of ads">
+                {{ ad.price | number : "1.0-0" }} DT
+              </td>
+            </tr>
+            <br />
+            <tr class="section">
+              <th>Caractéristiques</th>
+            </tr>
+            <tr>
+              <th>Carrosserie</th>
+              <td *ngFor="let ad of ads">
+                {{ ad.category }}
+              </td>
+            </tr>
+            <tr class="bg-grey">
+              <th>Mise en circulation</th>
+              <td *ngFor="let ad of ads">
+                {{ ad.first_registration.month }}/{{
+                  ad.first_registration.year
+                }}
+              </td>
+            </tr>
+
+            <tr>
+              <th>Kilométrage</th>
+              <td *ngFor="let ad of ads">
+                {{ ad.mileage | number : "1.0-0" }} km
+              </td>
+            </tr>
+            <tr class="bg-grey">
+              <th>Couleur</th>
+              <td *ngFor="let ad of ads">
+                {{ ad.color }}
+              </td>
+            </tr>
+            <tr>
+              <th>Energie</th>
+              <td *ngFor="let ad of ads">
+                {{ ad.fuel_type }}
+              </td>
+            </tr>
+
+            <tr class="bg-grey">
+              <th>Nombre de sièges</th>
+              <td *ngFor="let ad of ads">
+                {{ ad.seats || "N/A" }}
+              </td>
+            </tr>
+
+            <tr>
+              <th>Couleur</th>
+              <td *ngFor="let ad of ads">
+                {{ ad.color || "N/A" }}
+              </td>
+            </tr>
+
+            <tr class="section">
+              <th>Motorisation</th>
+            </tr>
+
+            <tr>
+              <th>Chevaux</th>
+              <td *ngFor="let ad of ads">{{ ad.horsepower || "N/A" }} ch</td>
+            </tr>
+
+            <tr class="bg-grey">
+              <th>Puissance (kW)</th>
+              <td *ngFor="let ad of ads">{{ ad.power_kw || "N/A" }} kW</td>
+            </tr>
+
+            <tr>
+              <th>Autonomie (WLTP km)</th>
+              <td *ngFor="let ad of ads">
+                {{ ad.autonomy_wltp_km || "N/A" }} km
+              </td>
+            </tr>
+            <tr class="bg-grey">
+              <th>Crit'Air</th>
+              <td *ngFor="let ad of ads">
+                {{ ad.crit_air || "N/A" }}
+              </td>
+            </tr>
+            <tr>
+              <th>Courant AC</th>
+              <td *ngFor="let ad of ads">
+                {{ ad.courant.AC || "N/A" }}
+              </td>
+            </tr>
+
+            <tr class="bg-grey">
+              <th>Courant DC</th>
+              <td *ngFor="let ad of ads">
+                {{ ad.courant.DC || "N/A" }}
+              </td>
+            </tr>
+
+            <tr class="section">
+              <th>Options</th>
+            </tr>
+            <tr>
+              <th>Affichage tête haute</th>
+              <td *ngFor="let ad of ads">
+                @if(ad.options_vehicule.heads_up_display){
+                <i class="fa-solid fa-check"></i>
+                }@else {-}
+              </td>
+            </tr>
+
+            <tr class="bg-grey">
+              <th>Assistance au stationnement</th>
+              <td *ngFor="let ad of ads">
+                @if(ad.options_vehicule.parking_assist){
+                <i class="fa-solid fa-check"></i>
+                }@else {-}
+              </td>
+            </tr>
+
+            <tr>
+              <th>Attelage</th>
+              <td *ngFor="let ad of ads">
+                @if(ad.options_vehicule.tow_hitch){
+                <i class="fa-solid fa-check"></i>
+                }@else {-}
+              </td>
+            </tr>
+
+            <tr class="bg-grey">
+              <th>Barres de toit</th>
+              <td *ngFor="let ad of ads">
+                @if(ad.options_vehicule.roof_racks){
+                <i class="fa-solid fa-check"></i>
+                }@else {-}
+              </td>
+            </tr>
+
+            <tr>
+              <th>Bluetooth</th>
+              <td *ngFor="let ad of ads">
+                @if(ad.options_vehicule.bluetooth){
+                <i class="fa-solid fa-check"></i>
+                }@else {-}
+              </td>
+            </tr>
+
+            <tr class="bg-grey">
+              <th>Caméra arrière</th>
+              <td *ngFor="let ad of ads">
+                @if(ad.options_vehicule.rear_camera){
+                <i class="fa-solid fa-check"></i>
+                }@else {-}
+              </td>
+            </tr>
+
+            <tr>
+              <th>Climatisation automatique</th>
+              <td *ngFor="let ad of ads">
+                @if(ad.options_vehicule.automatic_climate_control){
+                <i class="fa-solid fa-check"></i>
+                }@else {-}
+              </td>
+            </tr>
+
+            <tr class="bg-grey">
+              <th>GPS</th>
+              <td *ngFor="let ad of ads">
+                @if(ad.options_vehicule.gps){
+                <i class="fa-solid fa-check"></i>
+                }@else {-}
+              </td>
+            </tr>
+
+            <tr>
+              <th>Non-fumeur</th>
+              <td *ngFor="let ad of ads">
+                @if(ad.options_vehicule.non_smoker){
+                <i class="fa-solid fa-check"></i>
+                }@else {-}
+              </td>
+            </tr>
+
+            <tr class="bg-grey">
+              <th>Première main</th>
+              <td *ngFor="let ad of ads">
+                @if(ad.options_vehicule.first_hand){
+                <i class="fa-solid fa-check"></i>
+                }@else {-}
+              </td>
+            </tr>
+
+            <tr>
+              <th>Radar arrière</th>
+              <td *ngFor="let ad of ads">
+                @if(ad.options_vehicule.rear_radar){
+                <i class="fa-solid fa-check"></i>
+                }@else {-}
+              </td>
+            </tr>
+
+            <tr class="bg-grey">
+              <th>Sièges en cuir</th>
+              <td *ngFor="let ad of ads">
+                @if(ad.options_vehicule.leather_seats){
+                <i class="fa-solid fa-check"></i>
+                }@else {-}
+              </td>
+            </tr>
+
+            <tr>
+              <th>Sièges chauffants</th>
+              <td *ngFor="let ad of ads">
+                @if(ad.options_vehicule.heated_seats){
+                <i class="fa-solid fa-check"></i>
+                }@else {-}
+              </td>
+            </tr>
+
+            <tr class="bg-grey">
+              <th>Garantie</th>
+              <td *ngFor="let ad of ads">
+                @if(ad.options_vehicule.manufacturer_warranty){
+                <i class="fa-solid fa-check"></i>
+                }@else {-}
+              </td>
+            </tr>
+
+            <tr>
+              <th>Système audio</th>
+              <td *ngFor="let ad of ads">
+                @if(ad.options_vehicule.sound_system){
+                <i class="fa-solid fa-check"></i>
+                }@else {-}
+              </td>
+            </tr>
+
+            <tr class="bg-grey">
+              <th>Toit ouvrant</th>
+              <td *ngFor="let ad of ads">
+                @if(ad.options_vehicule.sunroof){
+                <i class="fa-solid fa-check"></i>
+                }@else {-}
+              </td>
+            </tr>
+
+            <tr>
+              <th>Toit panoramique</th>
+              <td *ngFor="let ad of ads">
+                @if(ad.options_vehicule.panoramic_roof){
+                <i class="fa-solid fa-check"></i>
+                }@else {-}
+              </td>
+            </tr>
+
+            <tr class="bg-grey">
+              <th>Autres</th>
+              <td *ngFor="let ad of ads">
+                @if(ad.options_vehicule.others?.length>0){
+                <div *ngFor="let option of ad.options_vehicule.others">
+                  - {{ option }}
+                </div>
+                }@else{-}
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
