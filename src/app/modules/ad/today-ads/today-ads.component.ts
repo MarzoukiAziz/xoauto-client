@@ -1,25 +1,26 @@
-import {
-  ChangeDetectionStrategy,
-  ChangeDetectorRef,
-  Component,
-  ViewChild,
-  ViewEncapsulation,
-} from '@angular/core';
+import { ChangeDetectorRef, Component, ViewChild } from '@angular/core';
 import { Ad } from '../ad.types';
 import { Subject, takeUntil } from 'rxjs';
 import { AdService } from '../ad.service';
 import { BreadcrumbComponent } from 'src/app/shared/components/breadcrumb/breadcrumb.component';
 import { CommonModule } from '@angular/common';
 import { MatPaginator, PageEvent } from '@angular/material/paginator';
-import { SwiperOptions } from 'swiper/types';
+import { AdPreviewComponent } from '../components/ad-preview/ad-preview.component';
+import { NoAdsComponent } from '../components/no-ads/no-ads.component';
+import { configurePaginator } from 'src/app/shared/utils/configure-paginator';
 
 @Component({
   selector: 'app-today-ads',
   templateUrl: './today-ads.component.html',
   styleUrl: './today-ads.component.css',
-  encapsulation: ViewEncapsulation.Emulated,
   standalone: true,
-  imports: [BreadcrumbComponent, CommonModule, MatPaginator],
+  imports: [
+    BreadcrumbComponent,
+    CommonModule,
+    MatPaginator,
+    AdPreviewComponent,
+    NoAdsComponent,
+  ],
 })
 export class TodayAdsComponent {
   ads: Ad[] = [];
@@ -41,10 +42,7 @@ export class TodayAdsComponent {
   }
 
   ngOnInit(): void {
-    this.paginator._intl.itemsPerPageLabel = 'Articles par Page';
-    this.paginator._intl.nextPageLabel = 'Page Suivante';
-    this.paginator._intl.previousPageLabel = 'Page Précedente';
-
+    this.paginator = configurePaginator(this.paginator, 'Annonces');
     this._adService.ads$
       .pipe(takeUntil(this._unsubscribeAll))
       .subscribe((ads: Ad[]) => {
@@ -66,10 +64,4 @@ export class TodayAdsComponent {
   trackByFn(index: number, item: any): any {
     return item._id || index;
   }
-
-  // Swiper configuration options
-  swiperConfig: SwiperOptions = {
-    pagination: true,
-  };
-  slideChange(swiper: any) {}
 }
