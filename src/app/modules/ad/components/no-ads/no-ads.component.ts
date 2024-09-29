@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'no-ads',
@@ -6,4 +6,7 @@ import { Component } from '@angular/core';
   styleUrl: './no-ads.component.css',
   standalone: true,
 })
-export class NoAdsComponent {}
+export class NoAdsComponent {
+  @Input() message: string =
+    "Aucune annonce de voitures d'occasion n'a été publiée aujourd'hui.";
+}
