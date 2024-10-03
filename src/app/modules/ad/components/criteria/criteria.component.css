@@ -1,0 +1,26 @@
+.iv_info_item .icon-wrapper {
+  width: 48px;
+  height: 48px;
+  color: #fc0012;
+  font-size: 24px;
+}
+
+.iv_info_item .meta {
+  font-size: 12px;
+  font-weight: 600;
+  display: block;
+}
+
+.iv_info_item .title {
+  font-weight: 600;
+  color: #111010;
+  display: block;
+}
+
+.iv_info_item {
+  gap: 12px;
+}
+
+.ad-key-icon {
+  padding: 8px;
+}
