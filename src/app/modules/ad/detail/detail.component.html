@@ -1,0 +1,391 @@
+<title>{{ adName }}</title>
+
+<section class="inventory-details-area ptb-120">
+  <div class="container">
+    <div class="row">
+      <div class="col-xl-8">
+        <div class="inventory-details">
+          <div class="product_details widget-padding bg-white rounded">
+            <h3 class="mt-2 ad-title">
+              <span *ngIf="ad.sold" class="sold-text-title">Vendu</span>
+              {{ ad.title != "" ? ad.title : adName }}
+            </h3>
+            <h6>
+              {{ ad.title == "" ? "" : adName }}
+            </h6>
+            <div class="iv-meta">
+              <span
+                ><i class="fa-solid fa-clock"></i>&nbsp;&nbsp;Publié le :{{
+                  ad.createdAt | date : "dd MMM y à hh:mm"
+                }}</span
+              >
+            </div>
+            <div class="iv_double_slider">
+              <swiper-container
+                appSwiper
+                #swiper
+                [config]="swiperConfig"
+                thumbs-swiper=".mySwiper2"
+                (slidechange)="slideChange($event)"
+              >
+                <swiper-slide *ngFor="let img of ad.photos" class="swiper2">
+                  <img [src]="img" class="bg-img" alt="ad photos" />
+                </swiper-slide>
+              </swiper-container>
+            </div>
+          </div>
+          <div class="product_info bg-white rounded widget-padding mt-30">
+            <h4 class="mb-3">Critères</h4>
+            <div class="row g-4">
+              <div
+                class="col-lg-3 col-md-4 col-sm-6"
+                *ngFor="let item of criteriaList"
+              >
+                <criteria
+                  [icon]="item.icon"
+                  [criteria]="item.criteria"
+                  [value]="item.value"
+                  [unit]="item.unit ?? ''"
+                />
+              </div>
+            </div>
+            <div *ngIf="ad.description != ''">
+              <hr class="mt-4 mb-3" />
+              <h4 class="mb-3">Description</h4>
+              <p>{{ ad.description }}</p>
+              <div class="mt-4" *ngIf="ad.courant.AC || ad.courant.DC">
+                <h6 *ngIf="ad.courant.AC">
+                  Courant Alternatif (AC) : {{ ad.courant.AC }}
+                </h6>
+                <h6 *ngIf="ad.courant.DC">
+                  Courant Continu (DC) : {{ ad.courant.DC }}
+                </h6>
+              </div>
+            </div>
+            <hr class="mt-30 mb-30" />
+            <h4 class="mb-30">Options</h4>
+            <div class="iv_feature_accordion">
+              <div
+                *ngIf="ad.options_vehicule.heads_up_display"
+                class="col-md-4 col-sm-6"
+              >
+                <span class="me-2"><i class="fa-solid fa-check"></i></span>
+                Affichage tête haute
+              </div>
+
+              <div
+                *ngIf="ad.options_vehicule.parking_assist"
+                class="col-md-4 col-sm-6"
+              >
+                <span class="me-2"><i class="fa-solid fa-check"></i></span>
+                Assistance au stationnement
+              </div>
+              <div
+                *ngIf="ad.options_vehicule.tow_hitch"
+                class="col-md-4 col-sm-6"
+              >
+                <span class="me-2"><i class="fa-solid fa-check"></i></span
+                >Attelage
+              </div>
+
+              <div
+                *ngIf="ad.options_vehicule.roof_racks"
+                class="col-md-4 col-sm-6"
+              >
+                <span class="me-2"><i class="fa-solid fa-check"></i></span
+                >Barres de toit
+              </div>
+
+              <div
+                *ngIf="ad.options_vehicule.bluetooth"
+                class="col-md-4 col-sm-6"
+              >
+                <span class="me-2"><i class="fa-solid fa-check"></i></span
+                >Bluetooth
+              </div>
+              <div
+                *ngIf="ad.options_vehicule.rear_camera"
+                class="col-md-4 col-sm-6"
+              >
+                <span class="me-2"><i class="fa-solid fa-check"></i></span
+                >Caméra arrière
+              </div>
+
+              <div
+                *ngIf="ad.options_vehicule.automatic_climate_control"
+                class="col-md-4 col-sm-6"
+              >
+                <span class="me-2"><i class="fa-solid fa-check"></i></span
+                >Climatisation automatique
+              </div>
+
+              <div *ngIf="ad.options_vehicule.gps" class="col-md-4 col-sm-6">
+                <span class="me-2"><i class="fa-solid fa-check"></i></span>GPS
+              </div>
+              <div
+                *ngIf="ad.options_vehicule.non_smoker"
+                class="col-md-4 col-sm-6"
+              >
+                <span class="me-2"><i class="fa-solid fa-check"></i></span
+                >Non-fumeur
+              </div>
+              <div
+                *ngIf="ad.options_vehicule.first_hand"
+                class="col-md-4 col-sm-6"
+              >
+                <span class="me-2"><i class="fa-solid fa-check"></i></span
+                >Première main
+              </div>
+              <div
+                *ngIf="ad.options_vehicule.rear_radar"
+                class="col-md-4 col-sm-6"
+              >
+                <span class="me-2"><i class="fa-solid fa-check"></i></span>Radar
+                arrière
+              </div>
+              <div
+                *ngIf="ad.options_vehicule.leather_seats"
+                class="col-md-4 col-sm-6"
+              >
+                <span class="me-2"><i class="fa-solid fa-check"></i></span
+                >Sièges en cuir
+              </div>
+              <div
+                *ngIf="ad.options_vehicule.heated_seats"
+                class="col-md-4 col-sm-6"
+              >
+                <span class="me-2"><i class="fa-solid fa-check"></i></span
+                >Sièges chauffants
+              </div>
+
+              <div
+                *ngIf="ad.options_vehicule.manufacturer_warranty"
+                class="col-md-4 col-sm-6"
+              >
+                <span class="me-2"><i class="fa-solid fa-check"></i></span
+                >Garantie
+              </div>
+              <div
+                *ngIf="ad.options_vehicule.sound_system"
+                class="col-md-4 col-sm-6"
+              >
+                <span class="me-2"><i class="fa-solid fa-check"></i></span
+                >Système audio
+              </div>
+
+              <div
+                *ngIf="ad.options_vehicule.sunroof"
+                class="col-md-4 col-sm-6"
+              >
+                <span class="me-2"><i class="fa-solid fa-check"></i></span>Toit
+                ouvrant
+              </div>
+              <div
+                *ngIf="ad.options_vehicule.panoramic_roof"
+                class="col-md-4 col-sm-6"
+              >
+                <span class="me-2"><i class="fa-solid fa-check"></i></span>Toit
+                panoramique
+              </div>
+              @if(ad.options_vehicule.others?.length>0){ @for (option of
+              ad.options_vehicule.others; track $index) {
+              <div class="col-md-4 col-sm-6">
+                <span class="me-2"><i class="fa-solid fa-check"></i></span
+                >{{ option }}
+              </div>
+              } }
+            </div>
+            <div *ngIf="ad.exterior_video || ad.interior_video">
+              <hr class="mt-30 mb-30" />
+              <h4 class="mb-40">Video</h4>
+              <div
+                class="iv_video_content position-relative rounded overflow-hidden"
+              >
+                <video controls width="100%" #videoPlayer>
+                  <source [src]="ad.exterior_video" type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
+                <br />
+                <hr />
+                <br />
+                <video controls width="100%" #videoPlayer>
+                  <source [src]="ad.interior_video" type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+            </div>
+            <br />
+            <!-- <hr class="mt-30 mb-30" />
+            <h4 class="mb-4">Autres annonces similaires</h4> -->
+            <!-- <app-simiarads [similars]="similars"></app-simiarads> -->
+            <br />
+          </div>
+        </div>
+      </div>
+      <div class="col-xl-4">
+        <div class="iv_sidebar mt-5 mt-xl-0">
+          <div
+            class="iv_sidebar_widget iv_pricing_widget widget-padding rounded"
+          >
+            <div class="row">
+              <div class="col-10">
+                <h3 class="mb-2 text-white">
+                  {{ ad.price | number : "1.0-0" }} TND
+                </h3>
+              </div>
+
+              <!-- <div *ngIf="authService.isLoggedIn && favorites" class="col-2">
+                <a
+                  *ngIf="!favorites.includes(ad._id)"
+                  (click)="addToFavorite(ad._id)"
+                  class="effect-round like"
+                  data-bs-toggle="tooltip"
+                  data-bs-placement="left"
+                  title=""
+                  title="Ajouter du favoris"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="feather feather-heart"
+                  >
+                    <path
+                      d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"
+                    ></path>
+                  </svg>
+                </a>
+                <a
+                  *ngIf="favorites.includes(ad._id)"
+                  (click)="removeFromFavorite(ad._id)"
+                  class="effect-round like"
+                  data-bs-toggle="tooltip"
+                  data-bs-placement="left"
+                  title=""
+                  title="Retirer du favoris"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="var(--thm-base)"
+                    class="feather feather-heart"
+                  >
+                    <path
+                      d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"
+                    ></path>
+                  </svg>
+                </a>
+              </div> -->
+            </div>
+            <div class="widget_meta d-flex align-items-center">
+              <span class="text-white"
+                ><i class="fa-solid fa-map-pin"></i>&nbsp;&nbsp;
+                {{ ad.address }}, {{ ad.region }}</span
+              >
+            </div>
+          </div>
+          <div
+            class="iv_sidebar_widget iv_seller_widget widget-padding bg-white rounded mt-4"
+          >
+            <div class="d-flex align-items-center">
+              <img
+                [src]="
+                  ad.uid.avatar?.length > 0
+                    ? ad.uid.avatar
+                    : 'assets/images/icons/user-1.jpg'
+                "
+                alt="seller"
+                class="pub-avatar flex-shrink-0 rounded-circle"
+              />
+              <div class="iv_seller_info ms-4">
+                <h5 class="mb-0">{{ ad.uid.name }}</h5>
+                @if(ad.uid.pro){
+                <span class="badge bg-success">Pro</span>
+
+                }@else {
+                <span class="badge badge-info">Particulier</span>
+                }
+                <!-- <br />
+                <a href="#">Autres annonces de ce vendeur</a> -->
+              </div>
+            </div>
+
+            <div *ngIf="!ad.sold">
+              <button
+                *ngIf="!phoneShowed"
+                (click)="phoneShowed = true"
+                type="button"
+                class="btn btn-secondary btn-phone"
+              >
+                <i class="fa-solid fa-phone"></i> Afficher le numéro
+              </button>
+              <button
+                *ngIf="phoneShowed"
+                type="button"
+                class="btn btn-secondary btn-phone"
+                (click)="copyPhoneNumber(ad.phone_number)"
+                target="_blank"
+              >
+                <i class="fa-solid fa-phone"></i>
+                {{ ad.phone_number | phoneNumber }}
+              </button>
+
+              <div class="widget_btns mt-30">
+                <!-- <a *ngIf="!owner" href="#">💬&nbsp; Chat</a> -->
+                <a *ngIf="owner" [routerLink]="'/ad/update/' + ad._id"
+                  >✏️&nbsp; Modifier</a
+                >
+
+                <a
+                  onclick="navigator.clipboard.writeText(window.location.href);this.insertAdjacentHTML('afterend', '<div class=linktooltips-container>&nbsp;&nbsp;  Lien copié</div>');setTimeout(() => { document.querySelectorAll('.linktooltips-container').forEach(el => el.remove()); }, 3000);"
+                  target="_blank"
+                >
+                  🔗&nbsp; Partager
+                </a>
+              </div>
+              <!-- <div *ngIf="!owner">
+                <h5>Proposer un offre</h5>
+                <hr />
+                <div class="form-group">
+                  <div class="input-box">
+                    <label for="Montant">Montant*:</label>
+                    <input id="Montant" type="number" name="Montant" #Montant />
+                  </div>
+                  <br />
+                  <div class="input-box">
+                    <label for="Message">Message Supplémentaire:</label>
+                    <br />
+                    <textarea
+                      class="Message"
+                      name="Message"
+                      id="Message"
+                      cols="50"
+                      #Message
+                    ></textarea>
+                  </div>
+                  <br />
+                  <button type="submit" class="btn btn-send btn-md mt-30">
+                    Envoyer l&apos;offre
+                  </button>
+                </div>
+              </div> -->
+            </div>
+
+            <div class="sold-box" *ngIf="ad.sold">
+              <h2>🤝VENDU</h2>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!--inventory details end-->
