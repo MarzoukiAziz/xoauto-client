@@ -97,22 +97,4 @@ export class ArticleDetailComponent implements OnInit {
   closeAnswer() {
     this.selectedCommentToReply = '';
   }
-
-  // Method to post a reply to a comment
-  postAnswer(id) {
-    // const myInput = document.querySelector<HTMLInputElement>(`#c${id}`);
-    // const comment = new ArticleComment();
-    // comment.user = this._auth.userData;
-    // comment.articleId = this.article._id;
-    // comment.content = myInput.value;
-    // comment.answerTo = this.selectedCommentToReply;
-    // this.selectedCommentToReply = '';
-    // this._commentservice.createComment(comment).subscribe((res) => {
-    //   myInput.value = '';
-    //   this.toastr.info('Commentaire ajouté!', "C'est fait", {
-    //     progressBar: true,
-    //   });
-    //   this.getComments();
-    // });
-  }
 }

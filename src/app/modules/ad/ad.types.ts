@@ -1,6 +1,6 @@
 export interface Ad {
   _id: string;
-  uid: string;
+  uid: any;
   title?: string;
   description?: string;
   price: number;
@@ -53,6 +53,7 @@ export interface Ad {
   phone_number?: string;
   mask_phone: boolean;
   active: boolean;
+  sold: boolean;
   createdAt?: Date;
   updatedAt?: Date;
   views?: number;

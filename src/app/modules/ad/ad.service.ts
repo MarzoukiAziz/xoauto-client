@@ -53,7 +53,15 @@ export class AdService {
   }
 
   // @ Public methods
-  // Get today's ads
+
+  getAdById(id: string): Observable<Ad[]> {
+    return this._httpClient.get<Ad>(`${this.apiUrl}/ads/${id}`).pipe(
+      tap((response: any) => {
+        this._ad.next(response);
+      })
+    );
+  }
+
   getTodayAds(page: number = 1): Observable<Ad[]> {
     const cookieValue = this.cookieService.get('comparator-used');
     return this._httpClient
