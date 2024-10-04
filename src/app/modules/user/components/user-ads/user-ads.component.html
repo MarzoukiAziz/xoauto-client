@@ -1,0 +1,70 @@
+<title>Mes Annonces</title>
+
+<div class="cards-content-box">
+  <panel-title [title]="'Mes Annonces (' + count + ')'" />
+
+  <div class="container mt-5">
+    @if(count == 0){
+    <no-ads message="Vous n'avez toujours pas publié d'annonce." />
+    }
+  </div>
+  <div class="single-card-box" *ngFor="let ad of ads">
+    <div class="category-box-online" *ngIf="ad.active">En Ligne</div>
+    <div class="category-box-sold" *ngIf="ad.sold">Vendu</div>
+
+    <div class="cards-img-box">
+      <div class="inner-title">
+        <h3>{{ ad.brand }} {{ ad.model }} {{ ad.version }}</h3>
+      </div>
+      <div class="inner image-container">
+        <img src="{{ ad.photos[0] }}" [alt]="ad.title + ' photo'" />
+        <div *ngIf="ad.sold" class="image-overlay">
+          <span class="sold-text"> Vendu </span>
+        </div>
+        <div *ngIf="!ad.active" class="image-overlay">
+          <span class="deleted-text"> Inactive </span>
+        </div>
+      </div>
+      <div class="btn-box">
+        @if(ad.active){
+        <a class="btn-one style2" routerLink="/ad/detail/{{ ad._id }}">
+          <span class="txt">Consulter</span>
+        </a>
+        <a class="btn-one" routerLink="/ad/update/{{ ad._id }}">
+          <span class="txt">Modifier</span>
+        </a>
+
+        }@else{
+        <a class="btn-one">
+          <span class="txt">Activer</span>
+        </a>
+        }
+      </div>
+    </div>
+    <div class="cards-text-box">
+      <p>{{ ad.createdAt | date : "dd MMM yyyy, hh:mm" }}</p>
+      <h3>Détails</h3>
+
+      <ul>
+        <li>Kilométrage: {{ ad.mileage | number : "1.0-0" }} km</li>
+        <li>Année: {{ ad.first_registration.year }}</li>
+        <li>Gouvernorat: {{ ad.region }}</li>
+        <li>Photos: {{ ad.photos.length }}</li>
+        <li>
+          Video: {{ ad.exterior_video || ad.interior_video ? "Oui" : "Non" }}
+        </li>
+
+        <h5 class="mb-0 text-md-primary price">
+          {{ ad.price | number : "1.0-0" }} TND
+        </h5>
+      </ul>
+    </div>
+  </div>
+  <mat-paginator
+    [length]="count"
+    [pageSize]="pageSize"
+    label=""
+    (page)="OnPageChange($event)"
+  >
+  </mat-paginator>
+</div>
