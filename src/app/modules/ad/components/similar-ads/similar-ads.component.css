@@ -1,0 +1,28 @@
+.price {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--thm-base);
+}
+
+.price span {
+  color: #b8b4b1 !important;
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Audiowide&display=swap");
+
+.starting {
+  font-size: 0.8rem;
+  color: #4b4b4b;
+}
+
+.img-box-inner img {
+  object-fit: cover;
+  height: 150px;
+}
+.title {
+  height: 50px;
+  text-align: center;
+}
+.single-wealth-secure-box {
+  cursor: pointer;
+}
