@@ -20,8 +20,9 @@ export class AdService {
   private apiUrl = environment.apiserver;
 
   // Private Subjects to hold the state
-  private _ads: BehaviorSubject<any[]> = new BehaviorSubject([]);
-  private _ad: BehaviorSubject<any> = new BehaviorSubject(null);
+  private _ads: BehaviorSubject<Ad[]> = new BehaviorSubject([]);
+  private _similarAds: BehaviorSubject<Ad[]> = new BehaviorSubject([]);
+  private _ad: BehaviorSubject<Ad> = new BehaviorSubject(null);
   private _count: BehaviorSubject<number> = new BehaviorSubject(0);
   comparator = '';
 
@@ -38,12 +39,17 @@ export class AdService {
 
   // Accessors
   // Getter for ads
-  get ads$(): Observable<any[]> {
+  get ads$(): Observable<Ad[]> {
     return this._ads.asObservable();
   }
 
+  // Getter for similar ads
+  get similarAds$(): Observable<Ad[]> {
+    return this._similarAds.asObservable();
+  }
+
   // Getter for a single ad
-  get ad$(): Observable<any> {
+  get ad$(): Observable<Ad> {
     return this._ad.asObservable();
   }
 
@@ -54,10 +60,10 @@ export class AdService {
 
   // @ Public methods
 
-  getAdById(id: string): Observable<Ad[]> {
+  getAdById(id: string): Observable<Ad> {
     return this._httpClient.get<Ad>(`${this.apiUrl}/ads/${id}`).pipe(
-      tap((response: any) => {
-        this._ad.next(response);
+      tap((ad: Ad) => {
+        this._ad.next(ad);
       })
     );
   }
@@ -102,6 +108,22 @@ export class AdService {
           this._ads.next(response);
           this._count.next(response.length);
           this.loading = false;
+        })
+      );
+  }
+
+  getSimilars(category, adId, price): Observable<Ad[]> {
+    return this._httpClient
+      .get<Ad[]>(`${this.apiUrl}/ads/similars`, {
+        params: {
+          category,
+          adId,
+          price,
+        },
+      })
+      .pipe(
+        tap((response: any) => {
+          this._similarAds.next(response);
         })
       );
   }
