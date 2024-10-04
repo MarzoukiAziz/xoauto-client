@@ -138,3 +138,24 @@ input[type="checkbox"] {
   padding-left: 10px;
   transition: background-color 0.5s ease, opacity 0.5s ease;
 }
+.carro {
+  text-align: center;
+  border: 1px solid var(--thm-gray);
+  border-radius: 14px;
+  margin: 10px auto;
+  flex: 0 0 auto;
+  width: 30% !important;
+  height: 69px;
+  padding: 10px 1px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+  white-space: nowrap;
+  background-color: #fafafa;
+}
+
+.carro-selected {
+  background-color: var(--thm-base);
+  color: white !important;
+}
