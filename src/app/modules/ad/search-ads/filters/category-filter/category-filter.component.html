@@ -7,28 +7,24 @@
   placement="bottom-left"
   popoverClass="ppp"
 >
-  Carrosseries
+  Carrosserie
 </button>
 
 <ng-template #CategoryFilter>
-  <h6>Carrosserie</h6>
-  <br />
-  <div>
-    <div class="d-flex flex-row flex-wrap">
-      @for (category of categories; track $index) {
-      <div
-        class="col-4 carro"
-        [class.carro-selected]="isSelected(category)"
-        (click)="toggleCategory(category)"
-      >
-        <img
-          [src]="'/assets/images/categories/' + category.icon"
-          [alt]="category.name_fr + ' icon'"
-        />
-        <span>{{ category.name_fr }}</span>
-      </div>
-      }
+  <div class="d-flex flex-row flex-wrap">
+    @for (category of categories; track $index) {
+    <div
+      class="col-4 carro"
+      [class.carro-selected]="isSelected(category)"
+      (click)="toggleCategory(category)"
+    >
+      <img
+        [src]="'/assets/images/categories/' + category.icon"
+        [alt]="category.name_fr + ' icon'"
+      />
+      <span>{{ category.name_fr }}</span>
     </div>
+    }
   </div>
 
   <hr />

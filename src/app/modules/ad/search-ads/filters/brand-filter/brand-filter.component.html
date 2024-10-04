@@ -7,12 +7,10 @@
   placement="bottom-left"
   popoverClass="ppp"
 >
-  Marques
+  Marque
 </button>
 
 <ng-template #BrandFilter>
-  <h6>Choisir une marque</h6>
-  <br />
   <div class="scrollable-container">
     @for (brand of brands; track $index) {
     <label class="item-title" [class.selected-item]="isSelected(brand)">

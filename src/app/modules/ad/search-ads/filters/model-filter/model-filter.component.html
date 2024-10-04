@@ -7,12 +7,10 @@
   placement="bottom-left"
   popoverClass="ppp"
 >
-  Modèles
+  Modèle
 </button>
 
 <ng-template #ModelFilter>
-  <h6>Choisir un modèle</h6>
-  <br />
   <div class="scrollable-container">
     @for (model of filterModels(models); track $index) {
     <label class="item-title" [class.selected-item]="isSelected(model)">
