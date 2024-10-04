@@ -11,6 +11,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { environment } from 'src/environments/environment.prod';
 import { Ad } from './ad.types';
 import { CookieService } from 'ngx-cookie-service';
+import { AuthService } from '../auth/auth.service';
 
 @Injectable({
   providedIn: 'root',
@@ -32,7 +33,8 @@ export class AdService {
   // Constructor with HttpClient
   constructor(
     private _httpClient: HttpClient,
-    private cookieService: CookieService
+    private cookieService: CookieService,
+    private _auth: AuthService
   ) {
     this.comparator = this.cookieService.get('comparator-used');
   }
@@ -108,6 +110,23 @@ export class AdService {
           this._ads.next(response);
           this._count.next(response.length);
           this.loading = false;
+        })
+      );
+  }
+
+  getUserAds(page: number = 1): Observable<Ad[]> {
+    const uid = this._auth.getUserInfo()?.id;
+    return this._httpClient
+      .get<Ad[]>(`${this.apiUrl}/ads`, {
+        params: {
+          page,
+          uid,
+        },
+      })
+      .pipe(
+        tap((response: any) => {
+          this._ads.next(response.ads);
+          this._count.next(response.count);
         })
       );
   }

@@ -6,6 +6,8 @@ import { UserService } from './user.service';
 import { AuthGuard } from '../auth/auth.guard';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ProfileComponent } from './components/profile/profile.component';
+import { UserAdsComponent } from './components/user-ads/user-ads.component';
+import { AdService } from '../ad/ad.service';
 
 const userResolver = () => {
   const userService = inject(UserService);
@@ -32,6 +34,13 @@ export default [
       {
         path: 'profile',
         component: ProfileComponent,
+      },
+      {
+        path: 'ads',
+        component: UserAdsComponent,
+        resolve: {
+          ads: () => inject(AdService).getUserAds(),
+        },
       },
     ],
   },
