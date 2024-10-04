@@ -7,8 +7,9 @@ import { SwiperDirective } from 'src/app/shared/directives/swiper.directive';
 import { SwiperOptions } from 'swiper/types';
 import { AuthService } from '../../auth/auth.service';
 import { CriteriaComponent } from '../components/criteria/criteria.component';
-import { PhoneNumberPipe } from 'src/app/shared/pipes/phonenumber.pipe';
+import { PhoneNumberPipe } from 'src/app/shared/pipes/phoneNumber.pipe';
 import { RouterLink } from '@angular/router';
+import { SimilarAdsComponent } from '../components/similar-ads/similar-ads.component';
 
 @Component({
   selector: 'app-detail',
@@ -21,6 +22,7 @@ import { RouterLink } from '@angular/router';
     CriteriaComponent,
     PhoneNumberPipe,
     RouterLink,
+    SimilarAdsComponent,
   ],
 })
 export class DetailComponent {
@@ -29,6 +31,7 @@ export class DetailComponent {
   owner = false;
   adName = '';
   criteriaList = [];
+  similars = [];
 
   private _unsubscribeAll: Subject<Ad> = new Subject<Ad>();
 
@@ -86,6 +89,12 @@ export class DetailComponent {
             unit: 'km',
           },
         ];
+        this._adService
+          .getSimilars(ad.category, ad._id, ad.price)
+          .subscribe((similars: Ad[]) => {
+            this.similars = similars;
+            console.log(similars);
+          });
 
         this._changeDetectorRef.markForCheck();
       });
