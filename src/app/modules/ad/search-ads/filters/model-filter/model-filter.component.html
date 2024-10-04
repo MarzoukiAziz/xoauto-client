@@ -3,35 +3,35 @@
   type="button"
   class="filter"
   [autoClose]="'outside'"
-  [ngbPopover]="BrandFilter"
+  [ngbPopover]="ModelFilter"
   placement="bottom-left"
   popoverClass="ppp"
 >
-  Marques
+  Modèles
 </button>
 
-<ng-template #BrandFilter>
-  <h6>Choisir une marque</h6>
+<ng-template #ModelFilter>
+  <h6>Choisir un modèle</h6>
   <br />
   <div class="scrollable-container">
-    @for (brand of brands; track $index) {
-    <label class="item-title" [class.selected-item]="isSelected(brand)">
+    @for (model of filterModels(models); track $index) {
+    <label class="item-title" [class.selected-item]="isSelected(model)">
       >
       <input
         type="checkbox"
-        [name]="brand.name"
-        [value]="brand"
+        [name]="model.name"
+        [value]="model"
         [hidden]="true"
-        (click)="toggleBrand(brand)"
+        (click)="toggleModel(model)"
       />
-      {{ brand.name }}
+      {{ model.name }}
     </label>
     }
   </div>
 
   <hr />
   <div class="btns2" role="group" aria-label="Button Group">
-    <a class="reset" (click)="resetBrands()">Réinitialiser</a>
+    <a class="reset" (click)="resetModels()">Réinitialiser</a>
     <a class="applay" (click)="UpdateResult()">Appliquer</a>
   </div>
 </ng-template>
