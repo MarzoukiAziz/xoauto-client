@@ -1,0 +1,137 @@
+<div class="step2" [hidden]="_adService.step != 2">
+  <div *ngIf="showAlert">
+    <div class="alert alert-danger" role="alert">{{ alertMessage }}</div>
+  </div>
+  <div class="form-group">
+    <div class="input-box">
+      <label>Nombre de Places*:</label>
+      <input
+        #seats
+        type="number"
+        name="seats"
+        placeholder="Nombre de Places"
+        required="true"
+      />
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="input-box">
+      <label>Puissance en chevaux*:</label>
+      <input
+        #horsepower
+        type="number"
+        name="horsepower"
+        placeholder="Puissance en chevaux"
+        required="true"
+      />
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="input-box">
+      <label>Puissance en kw*:</label>
+      <input
+        #power_kw
+        type="number"
+        name="power_kw"
+        placeholder="Puissance en kw"
+        required="true"
+      />
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="input-box">
+      <label>Autonomie WLTP*:</label>
+      <input
+        #autonomy_wltp_km
+        type="number"
+        name="autonomy_wltp_km"
+        placeholder="Autonomie WLTP"
+        required="true"
+      />
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="select-box clearfix">
+      <label for="Carrosserie">Carrosserie*:</label>
+      <select
+        id="Carrosserie"
+        class="nice-select wide"
+        (change)="categorySelected = true"
+        #category
+      >
+        <option data-display="Carrosserie" disabled selected>
+          Carrosserie
+        </option>
+        <option *ngFor="let category of categories" [value]="category">
+          {{ category }}
+        </option>
+      </select>
+    </div>
+  </div>
+  <div class="form-group" [hidden]="!categorySelected">
+    <div class="select-box clearfix">
+      <label for="energy">Énergie*:</label>
+      <select
+        id="energy"
+        class="nice-select wide"
+        (change)="energySelected = true"
+        #energy
+      >
+        <option data-display="Énergie" disabled selected>Énergie</option>
+        <option *ngFor="let energy of energies" [value]="energy">
+          {{ energy }}
+        </option>
+      </select>
+    </div>
+  </div>
+  <div class="form-group" [hidden]="!energySelected">
+    <div class="select-box clearfix">
+      <label for="couleur">Couleur*:</label>
+      <select
+        id="couleur"
+        class="nice-select wide"
+        (change)="coolorSelected = true"
+        #color
+      >
+        <option data-display="Couleur" disabled selected>Couleur</option>
+        <option *ngFor="let color of colors" [value]="color">
+          {{ color }}
+        </option>
+      </select>
+    </div>
+  </div>
+
+  <div class="d-flex justify-content-between">
+    <div>
+      <div class="button-box">
+        <button class="btn btn-secondary" (click)="back()">
+          <span class="txt"> Précedent </span>
+        </button>
+      </div>
+    </div>
+    <div>
+      <div class="button-box" [hidden]="!coolorSelected">
+        <button
+          class="btn-one"
+          (click)="
+            verifyStepTwo(
+              seats.value,
+              horsepower.value,
+              power_kw.value,
+              autonomy_wltp_km.value,
+              category.value,
+              energy.value,
+              color.value
+            )
+          "
+        >
+          <span class="txt"> Suivant </span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
