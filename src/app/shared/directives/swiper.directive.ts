@@ -12,8 +12,6 @@ export class SwiperDirective implements AfterViewInit {
   constructor(private el: ElementRef<SwiperContainer>) {}
 
   ngAfterViewInit(): void {
-    // console.log('SwiperDirective', this.config, this.el.nativeElement);
-
     Object.assign(this.el.nativeElement, this.config);
 
     this.el.nativeElement.initialize();

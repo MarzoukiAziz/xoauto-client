@@ -95,7 +95,6 @@ export class StepTwoComponent {
     this._adService.newAd.horsepower = parseInt(horsepower);
     this._adService.newAd.power_kw = parseInt(power_kw);
     this._adService.newAd.autonomy_wltp_km = parseInt(autonomy_wltp_km);
-    console.log(this._adService.newAd);
     this._adService.step = 3;
   }
 

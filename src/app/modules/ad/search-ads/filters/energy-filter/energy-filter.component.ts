@@ -31,7 +31,6 @@ export class EnergyFilterComponent {
     } else {
       this._adService.selectedEnergies.splice(index, 1);
     }
-    console.log(this._adService.selectedEnergies);
   }
 
   isSelected(energy) {

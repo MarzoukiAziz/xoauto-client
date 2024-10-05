@@ -25,7 +25,6 @@ export class SellerTypeFilterComponent {
     } else {
       this._adService.selectedSellerTypes.splice(index, 1);
     }
-    console.log(this._adService.selectedSellerTypes);
   }
 
   isSelected(sellerType) {

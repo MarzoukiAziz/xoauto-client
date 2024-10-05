@@ -31,7 +31,6 @@ export class BrandFilterComponent {
     } else {
       this._adService.selectedBrands.splice(index, 1);
     }
-    console.log(this._adService.selectedBrands);
   }
 
   isSelected(brand) {

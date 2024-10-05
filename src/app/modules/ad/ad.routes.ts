@@ -25,6 +25,7 @@ export default [
   {
     path: 'create',
     component: CreateAdComponent,
+    resolve: { settings: () => inject(AdService).getSettings() },
   },
   {
     path: 'search',
