@@ -22,24 +22,28 @@ export interface Ad {
   power_kw?: number;
   region?: string;
   autonomy_wltp_km?: number;
+  equipments: {
+    safety: {
+      type: string[];
+      default: [];
+    };
+    outdoor: {
+      type: string[];
+      default: [];
+    };
+    indoor: {
+      type: string[];
+      default: [];
+    };
+    functional: {
+      type: string[];
+      default: [];
+    };
+  };
   options_vehicule: {
-    heads_up_display?: boolean;
-    parking_assist?: boolean;
-    tow_hitch?: boolean;
-    roof_racks?: boolean;
-    bluetooth?: boolean;
-    rear_camera?: boolean;
-    automatic_climate_control?: boolean;
-    gps?: boolean;
     non_smoker?: boolean;
     first_hand?: boolean;
-    rear_radar?: boolean;
-    leather_seats?: boolean;
-    heated_seats?: boolean;
     manufacturer_warranty?: boolean;
-    sound_system?: boolean;
-    sunroof?: boolean;
-    panoramic_roof?: boolean;
     others?: string[];
   };
   courant: {
