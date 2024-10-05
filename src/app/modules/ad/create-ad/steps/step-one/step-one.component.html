@@ -1,0 +1,132 @@
+<div class="step1" [hidden]="_adService.step != 1">
+  <div *ngIf="showAlert">
+    <div class="alert alert-danger" role="alert">{{ alertMessage }}</div>
+  </div>
+  <div class="form-group">
+    <div class="select-box clearfix">
+      <label for="marque">Marque*:</label>
+      <select
+        id="marque"
+        class="nice-select wide"
+        (change)="brandSelected = true"
+        #brand
+      >
+        <option data-display="Marque" disabled selected>Marque</option>
+        <option *ngFor="let brand of brands" [value]="brand.name">
+          {{ brand.name }}
+        </option>
+      </select>
+    </div>
+  </div>
+
+  <div class="form-group" [hidden]="!brandSelected">
+    <div class="select-box clearfix">
+      <label for="model">Modèle*:</label>
+      <select
+        id="model"
+        class="nice-select wide"
+        name="brand"
+        (change)="modelSelected = true"
+        #model
+      >
+        <option data-display="Modèle" disabled selected>Modèle</option>
+        <option data-display="Autre">Autre</option>
+        <option
+          *ngFor="let model of filterModels(models, brand)"
+          [value]="model.name"
+        >
+          {{ model.name }}
+        </option>
+      </select>
+    </div>
+  </div>
+
+  <div class="form-group" [hidden]="!(model.value == 'Autre')">
+    <div class="input-box">
+      <input
+        type="text"
+        name="modele"
+        #otherModel
+        placeholder="si le modèle n'est pas dans la liste, précisez-le"
+      />
+    </div>
+  </div>
+
+  <div class="form-group" [hidden]="!brandSelected">
+    <div class="input-box">
+      <label for="model">Finition:</label>
+      <input type="text" name="finition" #finition placeholder="Finition" />
+    </div>
+  </div>
+  <div class="row" [hidden]="!modelSelected">
+    <div class="col-xl-6">
+      <div class="form-group">
+        <div class="select-box clearfix">
+          <label for="mois">Mois*:</label>
+          <select
+            #month
+            id="mois"
+            class="nice-select wide"
+            (change)="monthSelected = true"
+          >
+            <option data-display="Mois" disabled selected>Mois</option>
+            <option *ngFor="let m of months" [value]="m">{{ m }}</option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <div class="col-xl-6">
+      <div class="form-group">
+        <div class="select-box clearfix">
+          <label for="year">Année*:</label>
+          <select
+            #year
+            id="year"
+            class="nice-select wide"
+            (change)="yearSelected = true"
+            #brand
+          >
+            <option data-display="Année" disabled selected>Année</option>
+            <option *ngFor="let y of years" [value]="y">{{ y }}</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group" [hidden]="!yearSelected || !monthSelected">
+    <div class="input-box">
+      <label>Kilométrage*:</label>
+      <input
+        #km
+        type="number"
+        name="km"
+        placeholder="Kilométrage"
+        required=""
+      />
+    </div>
+  </div>
+
+  <div class="d-flex justify-content-between">
+    <div></div>
+    <div class="button-box" [hidden]="!yearSelected || !monthSelected">
+      <button
+        class="btn-one"
+        type="submit"
+        (click)="
+          verifyStepOne(
+            brand.value,
+            model.value,
+            otherModel.value,
+            finition.value,
+            month.value,
+            year.value,
+            km.value
+          )
+        "
+      >
+        <span class="txt"> Suivant </span>
+      </button>
+    </div>
+  </div>
+</div>
