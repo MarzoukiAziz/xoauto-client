@@ -40,7 +40,7 @@ export class RegionFilterComponent {
   resetRegions() {
     this._adService.selectedRegions = [];
   }
-  UpdateResult() {
+  updateResult() {
     this._adService.currentPage = 1;
     this._adService.getAds().subscribe();
     if (this.popover1.isOpen()) this.popover1.close();

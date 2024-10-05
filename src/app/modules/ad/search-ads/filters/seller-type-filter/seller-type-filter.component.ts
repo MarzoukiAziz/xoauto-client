@@ -35,7 +35,7 @@ export class SellerTypeFilterComponent {
   resetSellerTypes() {
     this._adService.selectedSellerTypes = [];
   }
-  UpdateResult() {
+  updateResult() {
     this._adService.currentPage = 1;
     this._adService.getAds().subscribe();
     if (this.popover1.isOpen()) this.popover1.close();

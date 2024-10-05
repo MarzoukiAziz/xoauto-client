@@ -1,7 +1,9 @@
 <section class="ads">
-  <div class="container">
+  <div class="container mb-2">
     @if(loading){
-    <div class="loadingSpinner">
+    <div
+      class="d-flex flex-column align-items-center justify-content-center p-5"
+    >
       <mat-spinner></mat-spinner>
       <br />
       <span>Chargement ...</span>
@@ -27,6 +29,5 @@
       (page)="OnPageChange($event)"
     >
     </mat-paginator>
-    <br />
   </div>
 </section>

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { AdService } from '../../ad.service';
 import { FormsModule } from '@angular/forms';
+import { Subject, takeUntil } from 'rxjs';
 @Component({
   selector: 'sort-ads',
   standalone: true,
@@ -9,8 +10,22 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './sort-ads.component.css',
 })
 export class SortAdsComponent {
-  constructor(public _adService: AdService) {}
+  count: Number = 0;
+  private _unsubscribeAll: Subject<number> = new Subject<number>();
 
+  constructor(public _adService: AdService) {}
+  ngOnInit(): void {
+    this._adService.count$
+      .pipe(takeUntil(this._unsubscribeAll))
+      .subscribe((count) => {
+        this.count = count;
+      });
+  }
+
+  ngOnDestroy(): void {
+    this._unsubscribeAll.next(null);
+    this._unsubscribeAll.complete();
+  }
   sortOptions = [
     {
       name: 'Plus récentes',

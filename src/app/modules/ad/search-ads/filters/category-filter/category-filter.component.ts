@@ -39,7 +39,7 @@ export class CategoryFilterComponent {
   resetCategories() {
     this._adService.selectedCategories = [];
   }
-  UpdateResult() {
+  updateResult() {
     this._adService.currentPage = 1;
     this._adService.getAds().subscribe();
     if (this.popover1.isOpen()) this.popover1.close();

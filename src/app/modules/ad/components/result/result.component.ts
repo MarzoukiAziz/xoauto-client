@@ -7,12 +7,19 @@ import { MatPaginator, PageEvent } from '@angular/material/paginator';
 import { AdPreviewComponent } from '../ad-preview/ad-preview.component';
 import { NoAdsComponent } from '../no-ads/no-ads.component';
 import { configurePaginator } from 'src/app/shared/utils/configure-paginator';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @Component({
   selector: 'search-result',
   templateUrl: './result.component.html',
   standalone: true,
-  imports: [CommonModule, MatPaginator, AdPreviewComponent, NoAdsComponent],
+  imports: [
+    CommonModule,
+    MatPaginator,
+    AdPreviewComponent,
+    NoAdsComponent,
+    MatProgressSpinnerModule,
+  ],
 })
 export class ResultComponent {
   @Input() loading: boolean = false;
