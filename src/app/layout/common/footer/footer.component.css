@@ -294,6 +294,7 @@
 .scrool-top-btn-style2 {
   position: relative;
   display: block;
+  cursor: pointer;
 }
 
 .scrool-top-btn-style2 a {
@@ -316,4 +317,8 @@
   padding-right: 9px;
   color: var(--thm-base);
   font-size: 12px;
+}
+
+.logo img {
+  width: 200px;
 }
