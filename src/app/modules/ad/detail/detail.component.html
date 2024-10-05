@@ -66,63 +66,6 @@
             <h4 class="mb-30">Options</h4>
             <div class="iv_feature_accordion">
               <div
-                *ngIf="ad.options_vehicule.heads_up_display"
-                class="col-md-4 col-sm-6"
-              >
-                <span class="me-2"><i class="fa-solid fa-check"></i></span>
-                Affichage tête haute
-              </div>
-
-              <div
-                *ngIf="ad.options_vehicule.parking_assist"
-                class="col-md-4 col-sm-6"
-              >
-                <span class="me-2"><i class="fa-solid fa-check"></i></span>
-                Assistance au stationnement
-              </div>
-              <div
-                *ngIf="ad.options_vehicule.tow_hitch"
-                class="col-md-4 col-sm-6"
-              >
-                <span class="me-2"><i class="fa-solid fa-check"></i></span
-                >Attelage
-              </div>
-
-              <div
-                *ngIf="ad.options_vehicule.roof_racks"
-                class="col-md-4 col-sm-6"
-              >
-                <span class="me-2"><i class="fa-solid fa-check"></i></span
-                >Barres de toit
-              </div>
-
-              <div
-                *ngIf="ad.options_vehicule.bluetooth"
-                class="col-md-4 col-sm-6"
-              >
-                <span class="me-2"><i class="fa-solid fa-check"></i></span
-                >Bluetooth
-              </div>
-              <div
-                *ngIf="ad.options_vehicule.rear_camera"
-                class="col-md-4 col-sm-6"
-              >
-                <span class="me-2"><i class="fa-solid fa-check"></i></span
-                >Caméra arrière
-              </div>
-
-              <div
-                *ngIf="ad.options_vehicule.automatic_climate_control"
-                class="col-md-4 col-sm-6"
-              >
-                <span class="me-2"><i class="fa-solid fa-check"></i></span
-                >Climatisation automatique
-              </div>
-
-              <div *ngIf="ad.options_vehicule.gps" class="col-md-4 col-sm-6">
-                <span class="me-2"><i class="fa-solid fa-check"></i></span>GPS
-              </div>
-              <div
                 *ngIf="ad.options_vehicule.non_smoker"
                 class="col-md-4 col-sm-6"
               >
@@ -137,56 +80,13 @@
                 >Première main
               </div>
               <div
-                *ngIf="ad.options_vehicule.rear_radar"
-                class="col-md-4 col-sm-6"
-              >
-                <span class="me-2"><i class="fa-solid fa-check"></i></span>Radar
-                arrière
-              </div>
-              <div
-                *ngIf="ad.options_vehicule.leather_seats"
-                class="col-md-4 col-sm-6"
-              >
-                <span class="me-2"><i class="fa-solid fa-check"></i></span
-                >Sièges en cuir
-              </div>
-              <div
-                *ngIf="ad.options_vehicule.heated_seats"
-                class="col-md-4 col-sm-6"
-              >
-                <span class="me-2"><i class="fa-solid fa-check"></i></span
-                >Sièges chauffants
-              </div>
-
-              <div
                 *ngIf="ad.options_vehicule.manufacturer_warranty"
                 class="col-md-4 col-sm-6"
               >
                 <span class="me-2"><i class="fa-solid fa-check"></i></span
                 >Garantie
               </div>
-              <div
-                *ngIf="ad.options_vehicule.sound_system"
-                class="col-md-4 col-sm-6"
-              >
-                <span class="me-2"><i class="fa-solid fa-check"></i></span
-                >Système audio
-              </div>
 
-              <div
-                *ngIf="ad.options_vehicule.sunroof"
-                class="col-md-4 col-sm-6"
-              >
-                <span class="me-2"><i class="fa-solid fa-check"></i></span>Toit
-                ouvrant
-              </div>
-              <div
-                *ngIf="ad.options_vehicule.panoramic_roof"
-                class="col-md-4 col-sm-6"
-              >
-                <span class="me-2"><i class="fa-solid fa-check"></i></span>Toit
-                panoramique
-              </div>
               @if(ad.options_vehicule.others?.length>0){ @for (option of
               ad.options_vehicule.others; track $index) {
               <div class="col-md-4 col-sm-6">

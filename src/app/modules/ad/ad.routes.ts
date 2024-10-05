@@ -6,6 +6,7 @@ import { ComparatorComponent } from './comparator/comparator.component';
 import { DetailComponent } from './detail/detail.component';
 import { catchError, throwError } from 'rxjs';
 import { SearchAdsComponent } from './search-ads/search-ads.component';
+import { CreateAdComponent } from './create-ad/create-ad.component';
 
 const adResolver = (route: ActivatedRouteSnapshot) => {
   const adService = inject(AdService);
@@ -21,6 +22,10 @@ const adResolver = (route: ActivatedRouteSnapshot) => {
 };
 
 export default [
+  {
+    path: 'create',
+    component: CreateAdComponent,
+  },
   {
     path: 'search',
     component: SearchAdsComponent,
