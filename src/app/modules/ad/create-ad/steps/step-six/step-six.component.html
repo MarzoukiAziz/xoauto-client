@@ -1,0 +1,74 @@
+<div class="step6" [hidden]="_adService.step != 6">
+  <div *ngIf="showAlert">
+    <div class="alert alert-danger" role="alert">{{ alertMessage }}</div>
+  </div>
+
+  <div class="form-group">
+    <div class="input-box">
+      <label for="price">Prix*:</label>
+      <input id="price" type="number" name="price" placeholder="Prix" #price />
+    </div>
+  </div>
+
+  <div class="form-check my-4 p-0">
+    <div class="alert alert-primary">
+      <h4>Conditions d'Utilisation</h4>
+
+      <p>
+        En publiant une annonce sur xoauto.tn, vous confirmez les points
+        suivants :
+      </p>
+
+      <ol>
+        <li>- Le prix que vous avez indiqué est le prix exact.</li>
+        <li>- Le kilométrage et l'age que vous avez fournis sont précis.</li>
+        <li>
+          - Cette annonce n'existe pas déjà sur le site (sur votre compte ou un
+          autre).
+        </li>
+        <li>
+          - Les photos que vous utilisez sont authentiques et représentent le
+          véhicule réel mis en vente.
+        </li>
+        <li>
+          - Les photos ne contiennent aucune décoration (pas de logo, pas de
+          textes ajoutés, pas de numéro de téléphone, etc.).
+        </li>
+      </ol>
+
+      <p>
+        Toute violation de ces conditions d'utilisation entraînera la
+        désactivation de votre annonce.
+      </p>
+      <br />
+    </div>
+    <input
+      type="checkbox"
+      class="form-check-input ms-3 me-1"
+      id="conditions"
+      name="conditions"
+      [(ngModel)]="conditionsSelected"
+    />
+    <label class="form-check-label" for="conditions">
+      J'accepte ces conditions et souhaite publier mon annonce sur
+      xoauto.tn.</label
+    >
+  </div>
+
+  <div class="d-flex justify-content-between">
+    <div>
+      <div class="button-box">
+        <button class="btn btn-secondary" (click)="back()">
+          <span class="txt"> Précedent </span>
+        </button>
+      </div>
+    </div>
+    <div>
+      <div class="button-box" [hidden]="!conditionsSelected">
+        <button class="btn-one" (click)="verifyStepSix(price.value)">
+          <span class="txt"> Publier </span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
