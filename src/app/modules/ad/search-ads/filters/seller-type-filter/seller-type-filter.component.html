@@ -1,0 +1,35 @@
+<button
+  #popOver1="ngbPopover"
+  type="button"
+  class="filter"
+  [autoClose]="'outside'"
+  [ngbPopover]="SellerTypeFilter"
+  placement="bottom-left"
+  popoverClass="ppp"
+>
+  Type De Vendeur
+</button>
+
+<ng-template #SellerTypeFilter>
+  <div class="scrollable-container">
+    @for (sellerType of sellerTypes; track $index) {
+    <label class="item-title" [class.selected-item]="isSelected(sellerType)">
+      >
+      <input
+        type="checkbox"
+        [name]="sellerType"
+        [value]="sellerType"
+        [hidden]="true"
+        (click)="toggleSellerType(sellerType)"
+      />
+      {{ sellerType }}
+    </label>
+    }
+  </div>
+
+  <hr />
+  <div class="btns2" role="group" aria-label="Button Group">
+    <a class="reset" (click)="resetSellerTypes()">Réinitialiser</a>
+    <a class="applay" (click)="UpdateResult()">Appliquer</a>
+  </div>
+</ng-template>
