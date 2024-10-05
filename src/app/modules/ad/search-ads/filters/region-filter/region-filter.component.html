@@ -1,0 +1,35 @@
+<button
+  #popOver1="ngbPopover"
+  type="button"
+  class="filter"
+  [autoClose]="'outside'"
+  [ngbPopover]="RegionFilter"
+  placement="bottom-left"
+  popoverClass="ppp"
+>
+  Gouvernorat
+</button>
+
+<ng-template #RegionFilter>
+  <div class="scrollable-container">
+    @for (region of regions; track $index) {
+    <label class="item-title" [class.selected-item]="isSelected(region)">
+      >
+      <input
+        type="checkbox"
+        [name]="region.name_fr"
+        [value]="region"
+        [hidden]="true"
+        (click)="toggleRegion(region)"
+      />
+      {{ region.name_fr }}
+    </label>
+    }
+  </div>
+
+  <hr />
+  <div class="btns2" role="group" aria-label="Button Group">
+    <a class="reset" (click)="resetRegions()">Réinitialiser</a>
+    <a class="applay" (click)="UpdateResult()">Appliquer</a>
+  </div>
+</ng-template>
