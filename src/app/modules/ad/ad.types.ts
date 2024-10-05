@@ -57,6 +57,7 @@ export interface Ad {
   createdAt?: Date;
   updatedAt?: Date;
   views?: number;
+  pro?: boolean;
 }
 export interface Settings {
   brands: [

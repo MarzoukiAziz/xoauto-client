@@ -6,6 +6,14 @@
           <span class="label-year">{{ ad.first_registration.year }}</span>
         </div>
       </div>
+      @if(ad.pro){
+
+      <div class="labels-left">
+        <div>
+          <span class="label">Pro</span>
+        </div>
+      </div>
+      }
       <div class="seen-data">
         <img src="assets/images/icons/camera.svg" alt="Camera Icon" />
         <span>{{ ad.photos.length }}</span>
