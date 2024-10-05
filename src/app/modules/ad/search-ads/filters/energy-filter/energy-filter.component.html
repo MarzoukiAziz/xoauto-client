@@ -1,0 +1,37 @@
+<button
+  #popOver1="ngbPopover"
+  type="button"
+  class="filter"
+  [autoClose]="'outside'"
+  [ngbPopover]="EnergyFilter"
+  placement="bottom-left"
+  popoverClass="ppp"
+>
+  Énergie
+</button>
+
+<ng-template #EnergyFilter>
+  <h6>Énergie du véhicule</h6>
+  <br />
+  <div class="scrollable-container">
+    @for (energy of energies; track $index) {
+    <label class="item-title" [class.selected-item]="isSelected(energy)">
+      >
+      <input
+        type="checkbox"
+        [name]="energy.name_fr"
+        [value]="energy"
+        [hidden]="true"
+        (click)="toggleEnergy(energy)"
+      />
+      {{ energy.name_fr }}
+    </label>
+    }
+  </div>
+
+  <hr />
+  <div class="btns2" role="group" aria-label="Button Group">
+    <a class="reset" (click)="resetEnergies()">Réinitialiser</a>
+    <a class="applay" (click)="updateResult()">Appliquer</a>
+  </div>
+</ng-template>
