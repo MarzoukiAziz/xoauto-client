@@ -1,0 +1,55 @@
+<section class="container">
+    <div class="d-flex flex-row flex-wrap">
+      @for (brand of _adService.selectedBrands; track $index) {
+      <div class="chip chip-green">
+        {{ brand.name }}
+      </div>
+      } @for (model of _adService.selectedModels; track $index) {
+      <div class="chip chip-pink">
+        {{ model.name }}
+      </div>
+      } @for (category of _adService.selectedCategories; track $index) {
+      <div class="chip chip-bleu">
+        {{ category.name_fr }}
+      </div>
+      } @for (energy of _adService.selectedEnergies; track $index) {
+      <div class="chip chip-bleu">
+        {{ energy.name_fr }}
+      </div>
+      } @for (seats of _adService.selectedSeats; track $index) {
+      <div class="chip chip-bleu">{{ seats }} places</div>
+      } @for (color of _adService.selectedColors; track $index) {
+      <div class="chip chip-bleu">
+        {{ color.name_fr }}
+      </div>
+      } @for (sellerType of _adService.selectedSellerTypes; track $index) {
+      <div class="chip chip-bleu">
+        {{ sellerType }}
+      </div>
+      } @for (region of _adService.selectedRegions; track $index) {
+      <div class="chip chip-bleu">
+        {{ region.name_fr }}
+      </div>
+      } @if(_adService.priceMin>0 || _adService.priceMax<1000000){
+      <div class="chip chip-bleu">
+        Prix: {{ _adService.priceMin | number : "1.0-0" }} -
+        {{ _adService.priceMax | number : "1.0-0" }}
+      </div>
+      }@if(_adService.autonomyMin>0 || _adService.autonomyMax<1200){
+      <div class="chip chip-bleu">
+        Autonomie: {{ _adService.autonomyMin }} -
+        {{ _adService.autonomyMax }}
+      </div>
+      }@if(_adService.mileageMin>0 || _adService.mileageMax<500000){
+      <div class="chip chip-bleu">
+        Kilométrage: {{ _adService.mileageMin | number : "1.0-0" }} -
+        {{ _adService.mileageMax | number : "1.0-0" }}
+      </div>
+      }@if(_adService.yearMin>2000 || _adService.yearMax<yearMax){
+      <div class="chip chip-bleu">
+        Année: {{ _adService.yearMin }} -
+        {{ _adService.yearMax }}
+      </div>
+      }
+    </div>
+</section>
