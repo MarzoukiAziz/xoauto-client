@@ -1,0 +1,35 @@
+<button
+  #popOver1="ngbPopover"
+  type="button"
+  class="filter"
+  [autoClose]="'outside'"
+  [ngbPopover]="ColorFilter"
+  placement="bottom-left"
+  popoverClass="ppp"
+>
+  Couleur
+</button>
+
+<ng-template #ColorFilter>
+  <div class="scrollable-container">
+    @for (color of colors; track $index) {
+    <label class="item-title" [class.selected-item]="isSelected(color)">
+      >
+      <input
+        type="checkbox"
+        [name]="color.name_fr"
+        [value]="color"
+        [hidden]="true"
+        (click)="toggleColor(color)"
+      />
+      {{ color.name_fr }}
+    </label>
+    }
+  </div>
+
+  <hr />
+  <div class="btns2" role="group" aria-label="Button Group">
+    <a class="reset" (click)="resetColors()">Réinitialiser</a>
+    <a class="applay" (click)="updateResult()">Appliquer</a>
+  </div>
+</ng-template>

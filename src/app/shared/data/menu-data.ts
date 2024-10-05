@@ -9,9 +9,9 @@ export const menuItemsData = [
     ],
   },
   {
-    label: 'Occasions',
+    label: 'Annonces',
     children: [
-      { label: 'Recherche', link: 'ads' },
+      { label: 'Recherche', link: 'ad/search' },
       { label: 'Annonces Du Jour', link: 'ad/today' },
       { label: 'Comparateur', link: 'ad/comparator' },
     ],

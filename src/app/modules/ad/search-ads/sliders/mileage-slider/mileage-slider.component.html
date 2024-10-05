@@ -1,0 +1,20 @@
+<div class="row">
+  <div class="col-l-12 col-xl-12 d-flex align-items-center">
+    <h6 class="slider-title">Kilométrage</h6>
+    <mat-slider
+      [min]="mileageMin"
+      step="500"
+      [max]="mileageMax"
+      color="accent"
+      discrete="true"
+    >
+      <input matSliderStartThumb [(ngModel)]="_adService.mileageMin" />
+      <input matSliderEndThumb [(ngModel)]="_adService.mileageMax" />
+    </mat-slider>
+
+    <span class="slider-data"
+      >{{ _adService.mileageMin | number : "1.0-0" }} -
+      {{ _adService.mileageMax | number : "1.0-0" }} km</span
+    >
+  </div>
+</div>

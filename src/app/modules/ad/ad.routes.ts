@@ -5,6 +5,7 @@ import { TodayAdsComponent } from './today-ads/today-ads.component';
 import { ComparatorComponent } from './comparator/comparator.component';
 import { DetailComponent } from './detail/detail.component';
 import { catchError, throwError } from 'rxjs';
+import { SearchAdsComponent } from './search-ads/search-ads.component';
 
 const adResolver = (route: ActivatedRouteSnapshot) => {
   const adService = inject(AdService);
@@ -20,6 +21,14 @@ const adResolver = (route: ActivatedRouteSnapshot) => {
 };
 
 export default [
+  {
+    path: 'search',
+    component: SearchAdsComponent,
+    resolve: {
+      ads: () => inject(AdService).getAds(),
+      settings: () => inject(AdService).getSettings(),
+    },
+  },
   {
     path: 'today',
     component: TodayAdsComponent,

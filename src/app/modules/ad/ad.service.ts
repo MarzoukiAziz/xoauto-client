@@ -1,15 +1,8 @@
 import { Injectable } from '@angular/core';
-import {
-  BehaviorSubject,
-  Observable,
-  of,
-  switchMap,
-  tap,
-  throwError,
-} from 'rxjs';
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { BehaviorSubject, Observable, of, tap } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment.prod';
-import { Ad } from './ad.types';
+import { Ad, Settings } from './ad.types';
 import { CookieService } from 'ngx-cookie-service';
 import { AuthService } from '../auth/auth.service';
 
@@ -17,20 +10,41 @@ import { AuthService } from '../auth/auth.service';
   providedIn: 'root',
 })
 export class AdService {
-  // API URL
   private apiUrl = environment.apiserver;
 
-  // Private Subjects to hold the state
+  // State
   private _ads: BehaviorSubject<Ad[]> = new BehaviorSubject([]);
   private _similarAds: BehaviorSubject<Ad[]> = new BehaviorSubject([]);
   private _ad: BehaviorSubject<Ad> = new BehaviorSubject(null);
   private _count: BehaviorSubject<number> = new BehaviorSubject(0);
-  comparator = '';
+  private _settings: BehaviorSubject<Settings> = new BehaviorSubject(null);
 
-  // Public flag for loading
+  comparator = '';
+  currentPage = 1;
   public loading = false;
 
-  // Constructor with HttpClient
+  // filters:
+  selectedBrands = [];
+  selectedModels = [];
+  selectedCategories = [];
+  selectedEnergies = [];
+  selectedSeats = [];
+  selectedColors = [];
+  selectedSellerTypes = [];
+  selectedRegions = [];
+  priceMin = 0;
+  priceMax = 1000000;
+  autonomyMin = 0;
+  autonomyMax = 1200;
+  mileageMin = 0;
+  mileageMax = 500000;
+  yearMin = 2000;
+  yearMax = new Date().getFullYear();
+  sort = {
+    name: 'Plus récentes',
+    code: 'desc',
+  };
+
   constructor(
     private _httpClient: HttpClient,
     private cookieService: CookieService,
@@ -40,27 +54,68 @@ export class AdService {
   }
 
   // Accessors
-  // Getter for ads
   get ads$(): Observable<Ad[]> {
     return this._ads.asObservable();
   }
 
-  // Getter for similar ads
   get similarAds$(): Observable<Ad[]> {
     return this._similarAds.asObservable();
   }
 
-  // Getter for a single ad
   get ad$(): Observable<Ad> {
     return this._ad.asObservable();
   }
 
-  // Getter for total count
   get count$(): Observable<number> {
     return this._count.asObservable();
   }
 
+  get settings$(): Observable<Settings> {
+    return this._settings.asObservable();
+  }
+
   // @ Public methods
+  getSettings(): Observable<Settings> {
+    return this._httpClient.get<Settings>(`${this.apiUrl}/settings`).pipe(
+      tap((response: Settings) => {
+        this._settings.next(response);
+      })
+    );
+  }
+
+  getAds(): Observable<Ad[]> {
+    this.loading = true;
+    return this._httpClient
+      .get<Ad[]>(`${this.apiUrl}/ads`, {
+        params: {
+          page: this.currentPage,
+          brand: this.selectedBrands.map((brand) => brand.name),
+          model: this.selectedModels.map((model) => model.name),
+          category: this.selectedCategories.map((category) => category.name_fr),
+          fuel_type: this.selectedEnergies.map((energy) => energy.name_fr),
+          seats: this.selectedSeats,
+          color: this.selectedColors.map((color) => color.name_fr),
+          sellerType: this.selectedSellerTypes,
+          region: this.selectedRegions.map((region) => region.name_fr),
+          priceMin: this.priceMin,
+          priceMax: this.priceMax,
+          autonomyMin: this.autonomyMin,
+          autonomyMax: this.autonomyMax,
+          mileageMin: this.mileageMin,
+          mileageMax: this.mileageMax,
+          yearMin: this.yearMin,
+          yearMax: this.yearMax,
+          sort: this.sort.code,
+        },
+      })
+      .pipe(
+        tap((response: any) => {
+          this._ads.next(response.ads);
+          this._count.next(response.count);
+          this.loading = false;
+        })
+      );
+  }
 
   getAdById(id: string): Observable<Ad> {
     return this._httpClient.get<Ad>(`${this.apiUrl}/ads/${id}`).pipe(
@@ -71,7 +126,6 @@ export class AdService {
   }
 
   getTodayAds(page: number = 1): Observable<Ad[]> {
-    const cookieValue = this.cookieService.get('comparator-used');
     return this._httpClient
       .get<Ad[]>(`${this.apiUrl}/ads`, {
         params: {
@@ -89,13 +143,11 @@ export class AdService {
   }
 
   getAdsForComparator(): Observable<Ad[]> {
-    // Check if this.comparator is empty
     if (!this.comparator) {
-      // Return an empty observable or handle it as needed
       this._ads.next([]);
       this._count.next(0);
       this.loading = false;
-      return of([]); // of() creates an observable of an empty array
+      return of([]);
     }
 
     return this._httpClient
@@ -106,7 +158,6 @@ export class AdService {
       })
       .pipe(
         tap((response: any) => {
-          console.log(response);
           this._ads.next(response);
           this._count.next(response.length);
           this.loading = false;
@@ -169,5 +220,24 @@ export class AdService {
     const value = arr.join(',');
     this.cookieService.set('comparator-used', value);
     this.comparator = value;
+  }
+
+  resetFilters() {
+    this.selectedBrands = [];
+    this.selectedModels = [];
+    this.selectedCategories = [];
+    this.selectedEnergies = [];
+    this.selectedSeats = [];
+    this.selectedColors = [];
+    this.selectedSellerTypes = [];
+    this.selectedRegions = [];
+    this.priceMin = 0;
+    this.priceMax = 1000000;
+    this.autonomyMin = 0;
+    this.autonomyMax = 1200;
+    this.mileageMin = 0;
+    this.mileageMax = 500000;
+    this.yearMin = 2000;
+    this.yearMax = new Date().getFullYear();
   }
 }

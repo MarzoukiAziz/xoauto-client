@@ -57,4 +57,46 @@ export interface Ad {
   createdAt?: Date;
   updatedAt?: Date;
   views?: number;
+  pro?: boolean;
+}
+export interface Settings {
+  brands: [
+    {
+      _id: string;
+      name: string;
+      icon: string;
+    }
+  ];
+  categories: [
+    {
+      _id: string;
+      name_fr: string;
+      icon: string;
+    }
+  ];
+  colors: [
+    {
+      _id: string;
+      name_fr: string;
+    }
+  ];
+  energies: [
+    {
+      _id: string;
+      name_fr: string;
+    }
+  ];
+  models: [
+    {
+      _id: string;
+      name: string;
+      brandId: string;
+    }
+  ];
+  regions: [
+    {
+      _id: string;
+      name_fr: string;
+    }
+  ];
 }

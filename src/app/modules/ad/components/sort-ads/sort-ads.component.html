@@ -1,0 +1,26 @@
+<section
+  class="container d-flex justify-content-between align-items-center pt-3"
+>
+  <h5 class="ms-4">{{ count }} Annonces</h5>
+  <div class="dropdown">
+    <button
+      class="btn btn-secondary dropdown-toggle"
+      type="button"
+      id="dropdownMenuButton1"
+      data-bs-toggle="dropdown"
+      aria-expanded="false"
+    >
+      Tri par :
+      <span>{{ _adService.sort.name }}</span>
+    </button>
+    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+      @for (sortOption of sortOptions; track $index) {
+      <li>
+        <a class="dropdown-item" (click)="updateResult(sortOption)">{{
+          sortOption.name
+        }}</a>
+      </li>
+      }
+    </ul>
+  </div>
+</section>

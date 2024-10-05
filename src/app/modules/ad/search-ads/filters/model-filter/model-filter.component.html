@@ -1,0 +1,35 @@
+<button
+  #popOver1="ngbPopover"
+  type="button"
+  class="filter"
+  [autoClose]="'outside'"
+  [ngbPopover]="ModelFilter"
+  placement="bottom-left"
+  popoverClass="ppp"
+>
+  Modèle
+</button>
+
+<ng-template #ModelFilter>
+  <div class="scrollable-container">
+    @for (model of filterModels(models); track $index) {
+    <label class="item-title" [class.selected-item]="isSelected(model)">
+      >
+      <input
+        type="checkbox"
+        [name]="model.name"
+        [value]="model"
+        [hidden]="true"
+        (click)="toggleModel(model)"
+      />
+      {{ model.name }}
+    </label>
+    }
+  </div>
+
+  <hr />
+  <div class="btns2" role="group" aria-label="Button Group">
+    <a class="reset" (click)="resetModels()">Réinitialiser</a>
+    <a class="applay" (click)="updateResult()">Appliquer</a>
+  </div>
+</ng-template>

@@ -1,0 +1,19 @@
+<div class="row">
+  <div class="col-l-12 col-xl-12 d-flex align-items-center">
+    <h6 class="slider-title">Année</h6>
+    <mat-slider
+      [min]="yearMin"
+      step="1"
+      [max]="yearMax"
+      color="accent"
+      discrete="true"
+    >
+      <input matSliderStartThumb [(ngModel)]="_adService.yearMin" />
+      <input matSliderEndThumb [(ngModel)]="_adService.yearMax" />
+    </mat-slider>
+
+    <span class="slider-data"
+      >{{ _adService.yearMin }} - {{ _adService.yearMax }}</span
+    >
+  </div>
+</div>
