@@ -1,0 +1,25 @@
+<div
+  class="congratulation-area text-center mt-5"
+  [hidden]="_adService.step != 8"
+>
+  <div class="container">
+    <div class="congratulation-wrapper">
+      <div class="congratulation-contents center-text">
+        <div class="congratulation-contents-icon">
+          <i class="fas fa-check"></i>
+        </div>
+        <h4 class="congratulation-contents-title">Félicitations!</h4>
+        <p class="congratulation-contents-para">
+          Votre annonce a été publiée avec succès.
+        </p>
+        <div class="btn-wrapper mt-4">
+          <a
+            routerLink="/ad/detail/{{ ad?._id ?? '' }}"
+            class="cmn-btn btn-bg-1"
+            >Consulter
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
