@@ -16,6 +16,10 @@ import { NoAdsComponent } from '../components/no-ads/no-ads.component';
 export class ComparatorComponent {
   ads: Ad[] = [];
   all = true;
+  indoor = new Set<string>();
+  outdoor = new Set<string>();
+  safety = new Set<string>();
+  functional = new Set<string>();
 
   private _unsubscribeAll: Subject<any> = new Subject<any>();
 
@@ -29,6 +33,12 @@ export class ComparatorComponent {
       .pipe(takeUntil(this._unsubscribeAll))
       .subscribe((ads: Ad[]) => {
         this.ads = ads;
+        this.ads.forEach((ad) => {
+          ad.equipments.indoor.forEach((eq) => this.indoor.add(eq));
+          ad.equipments.outdoor.forEach((eq) => this.outdoor.add(eq));
+          ad.equipments.safety.forEach((eq) => this.safety.add(eq));
+          ad.equipments.functional.forEach((eq) => this.functional.add(eq));
+        });
         this._changeDetectorRef.markForCheck();
       });
   }

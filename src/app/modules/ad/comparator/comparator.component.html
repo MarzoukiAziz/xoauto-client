@@ -120,13 +120,13 @@
                 {{ ad.autonomy_wltp_km || "N/A" }} km
               </td>
             </tr>
-            <tr class="bg-grey">
+            <!-- <tr class="bg-grey">
               <th>Crit'Air</th>
               <td *ngFor="let ad of ads">
                 {{ ad.crit_air || "N/A" }}
               </td>
-            </tr>
-            <tr>
+            </tr> -->
+            <!-- <tr>
               <th>Courant AC</th>
               <td *ngFor="let ad of ads">
                 {{ ad.courant.AC || "N/A" }}
@@ -138,81 +138,65 @@
               <td *ngFor="let ad of ads">
                 {{ ad.courant.DC || "N/A" }}
               </td>
-            </tr>
+            </tr> -->
 
             <tr class="section">
+              <th>Equipements Extérieurs</th>
+            </tr>
+            @for (eq of outdoor; track $index) {
+            <tr [class.bg-grey]="$index % 2 == 0">
+              <th>{{ eq }}</th>
+              <td *ngFor="let ad of ads">
+                @if(ad.equipments.outdoor.includes(eq)){
+                <i class="fa-solid fa-check"></i>
+                }@else {-}
+              </td>
+            </tr>
+            }
+
+            <tr class="section">
+              <th>Equipements Intérieurs</th>
+            </tr>
+            @for (eq of indoor; track $index) {
+            <tr [class.bg-grey]="$index % 2 == 0">
+              <th>{{ eq }}</th>
+              <td *ngFor="let ad of ads">
+                @if(ad.equipments.indoor.includes(eq)){
+                <i class="fa-solid fa-check"></i>
+                }@else {-}
+              </td>
+            </tr>
+            }
+
+            <tr class="section">
+              <th>Equipements Sécurité</th>
+            </tr>
+            @for (eq of safety; track $index) {
+            <tr [class.bg-grey]="$index % 2 == 0">
+              <th>{{ eq }}</th>
+              <td *ngFor="let ad of ads">
+                @if(ad.equipments.safety.includes(eq)){
+                <i class="fa-solid fa-check"></i>
+                }@else {-}
+              </td>
+            </tr>
+            }
+
+            <tr class="section">
+              <th>Equipements Fonctionnels</th>
+            </tr>
+            @for (eq of functional; track $index) {
+            <tr [class.bg-grey]="$index % 2 == 0">
+              <th>{{ eq }}</th>
+              <td *ngFor="let ad of ads">
+                @if(ad.equipments.functional.includes(eq)){
+                <i class="fa-solid fa-check"></i>
+                }@else {-}
+              </td>
+            </tr>
+            }
+            <tr class="section">
               <th>Options</th>
-            </tr>
-            <tr>
-              <th>Affichage tête haute</th>
-              <td *ngFor="let ad of ads">
-                @if(ad.options_vehicule.heads_up_display){
-                <i class="fa-solid fa-check"></i>
-                }@else {-}
-              </td>
-            </tr>
-
-            <tr class="bg-grey">
-              <th>Assistance au stationnement</th>
-              <td *ngFor="let ad of ads">
-                @if(ad.options_vehicule.parking_assist){
-                <i class="fa-solid fa-check"></i>
-                }@else {-}
-              </td>
-            </tr>
-
-            <tr>
-              <th>Attelage</th>
-              <td *ngFor="let ad of ads">
-                @if(ad.options_vehicule.tow_hitch){
-                <i class="fa-solid fa-check"></i>
-                }@else {-}
-              </td>
-            </tr>
-
-            <tr class="bg-grey">
-              <th>Barres de toit</th>
-              <td *ngFor="let ad of ads">
-                @if(ad.options_vehicule.roof_racks){
-                <i class="fa-solid fa-check"></i>
-                }@else {-}
-              </td>
-            </tr>
-
-            <tr>
-              <th>Bluetooth</th>
-              <td *ngFor="let ad of ads">
-                @if(ad.options_vehicule.bluetooth){
-                <i class="fa-solid fa-check"></i>
-                }@else {-}
-              </td>
-            </tr>
-
-            <tr class="bg-grey">
-              <th>Caméra arrière</th>
-              <td *ngFor="let ad of ads">
-                @if(ad.options_vehicule.rear_camera){
-                <i class="fa-solid fa-check"></i>
-                }@else {-}
-              </td>
-            </tr>
-
-            <tr>
-              <th>Climatisation automatique</th>
-              <td *ngFor="let ad of ads">
-                @if(ad.options_vehicule.automatic_climate_control){
-                <i class="fa-solid fa-check"></i>
-                }@else {-}
-              </td>
-            </tr>
-
-            <tr class="bg-grey">
-              <th>GPS</th>
-              <td *ngFor="let ad of ads">
-                @if(ad.options_vehicule.gps){
-                <i class="fa-solid fa-check"></i>
-                }@else {-}
-              </td>
             </tr>
 
             <tr>
@@ -234,63 +218,9 @@
             </tr>
 
             <tr>
-              <th>Radar arrière</th>
-              <td *ngFor="let ad of ads">
-                @if(ad.options_vehicule.rear_radar){
-                <i class="fa-solid fa-check"></i>
-                }@else {-}
-              </td>
-            </tr>
-
-            <tr class="bg-grey">
-              <th>Sièges en cuir</th>
-              <td *ngFor="let ad of ads">
-                @if(ad.options_vehicule.leather_seats){
-                <i class="fa-solid fa-check"></i>
-                }@else {-}
-              </td>
-            </tr>
-
-            <tr>
-              <th>Sièges chauffants</th>
-              <td *ngFor="let ad of ads">
-                @if(ad.options_vehicule.heated_seats){
-                <i class="fa-solid fa-check"></i>
-                }@else {-}
-              </td>
-            </tr>
-
-            <tr class="bg-grey">
               <th>Garantie</th>
               <td *ngFor="let ad of ads">
                 @if(ad.options_vehicule.manufacturer_warranty){
-                <i class="fa-solid fa-check"></i>
-                }@else {-}
-              </td>
-            </tr>
-
-            <tr>
-              <th>Système audio</th>
-              <td *ngFor="let ad of ads">
-                @if(ad.options_vehicule.sound_system){
-                <i class="fa-solid fa-check"></i>
-                }@else {-}
-              </td>
-            </tr>
-
-            <tr class="bg-grey">
-              <th>Toit ouvrant</th>
-              <td *ngFor="let ad of ads">
-                @if(ad.options_vehicule.sunroof){
-                <i class="fa-solid fa-check"></i>
-                }@else {-}
-              </td>
-            </tr>
-
-            <tr>
-              <th>Toit panoramique</th>
-              <td *ngFor="let ad of ads">
-                @if(ad.options_vehicule.panoramic_roof){
                 <i class="fa-solid fa-check"></i>
                 }@else {-}
               </td>
