@@ -304,8 +304,9 @@ export class AdService {
   };
 
   createAd() {
-    const uid = this._auth.getUserInfo()?.id;
-    this.newAd.uid = uid;
+    const user = this._auth.getUserInfo();
+    this.newAd.uid = user.id;
+    this.newAd.phone_number = user.phone_number;
     if (this.photos) {
       const imageUploads = this.photos.map((file) =>
         this.cloud.getAdPicSignature().pipe(
