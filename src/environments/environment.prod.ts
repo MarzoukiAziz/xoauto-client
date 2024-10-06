@@ -7,4 +7,6 @@ export const environment = {
   cognitoHostedUiUrl: 'https://xoauto.auth.eu-west-3.amazoncognito.com',
   cognitoRedirectUrl: 'http://localhost:4200/success-login',
   cognitoLogoutUrl: 'http://localhost:4200',
+  CLOUD_NAME: 'dnm4rbqoc',
+  API_KEY: '618589385993451',
 };

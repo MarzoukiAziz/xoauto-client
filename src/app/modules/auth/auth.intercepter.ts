@@ -16,7 +16,7 @@ export class AuthInterceptor implements HttpInterceptor {
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
     const authToken = this.authService.getAccessToken();
-    if (authToken) {
+    if (authToken && !req.url.includes('https://api.cloudinary.com')) {
       const authReq = req.clone({
         headers: req.headers.set('Authorization', `Bearer ${authToken}`),
       });
