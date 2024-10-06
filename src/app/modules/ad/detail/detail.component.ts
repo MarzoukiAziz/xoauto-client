@@ -10,6 +10,7 @@ import { CriteriaComponent } from '../components/criteria/criteria.component';
 import { PhoneNumberPipe } from 'src/app/shared/pipes/phoneNumber.pipe';
 import { RouterLink } from '@angular/router';
 import { SimilarAdsComponent } from '../components/similar-ads/similar-ads.component';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-detail',
@@ -32,6 +33,7 @@ export class DetailComponent {
   adName = '';
   criteriaList = [];
   similars = [];
+  currency = environment.CURRENCY;
 
   private _unsubscribeAll: Subject<Ad> = new Subject<Ad>();
 

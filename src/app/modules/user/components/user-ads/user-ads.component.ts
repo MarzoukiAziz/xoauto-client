@@ -8,6 +8,7 @@ import { NoAdsComponent } from 'src/app/modules/ad/components/no-ads/no-ads.comp
 import { configurePaginator } from 'src/app/shared/utils/configure-paginator';
 import { PanelTitleComponent } from 'src/app/shared/components/panel-title/panel-title.component';
 import { RouterLink } from '@angular/router';
+import { environment } from 'src/environments/environment';
 @Component({
   selector: 'app-user-ads',
   standalone: true,
@@ -26,6 +27,8 @@ export class UserAdsComponent {
   count: Number = 0;
   currentPage: number = 1;
   pageSize = 9;
+  currency = environment.CURRENCY;
+
   private _unsubscribeAll: Subject<Ad> = new Subject<Ad>();
 
   @ViewChild(MatPaginator, { static: true }) public paginator!: MatPaginator;

@@ -3,6 +3,7 @@ import { Ad } from '../../ad.types';
 import { SwiperOptions } from 'swiper/types';
 import { SwiperDirective } from 'src/app/shared/directives/swiper.directive';
 import { CommonModule } from '@angular/common';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'similar-ads',
@@ -13,6 +14,7 @@ import { CommonModule } from '@angular/common';
 })
 export class SimilarAdsComponent {
   @Input() similars: [];
+  currency = environment.CURRENCY;
 
   swiperConfig: SwiperOptions = {
     spaceBetween: 10,

@@ -65,7 +65,9 @@
       {{ ad.model }}
       {{ ad.version }}
     </h6>
-    <h5 class="mb-0 text-md-primary">{{ ad.price | number : "1.0-0" }} DT</h5>
+    <h5 class="mb-0 text-md-primary">
+      {{ ad.price | number : "1.0-0" }} {{ currency }}
+    </h5>
   </div>
 
   <div class="ad-data product_inner">
