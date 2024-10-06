@@ -88,6 +88,11 @@ export class DetailComponent {
             value: this.ad.autonomy_wltp_km,
             unit: 'km',
           },
+          {
+            icon: 'seat.png',
+            criteria: 'Nombre de Places',
+            value: this.ad.seats,
+          },
         ];
         this._adService
           .getSimilars(ad.category, ad._id, ad.price)
