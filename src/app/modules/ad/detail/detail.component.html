@@ -53,11 +53,11 @@
               <hr class="mt-4 mb-3" />
               <h4 class="mb-3">Description</h4>
               <p>{{ ad.description }}</p>
-              <div class="mt-4" *ngIf="ad.courant.AC || ad.courant.DC">
-                <h6 *ngIf="ad.courant.AC">
+              <div class="mt-4" *ngIf="ad.courant?.AC || ad.courant?.DC">
+                <h6 *ngIf="ad.courant?.AC">
                   Courant Alternatif (AC) : {{ ad.courant.AC }}
                 </h6>
-                <h6 *ngIf="ad.courant.DC">
+                <h6 *ngIf="ad.courant?.DC">
                   Courant Continu (DC) : {{ ad.courant.DC }}
                 </h6>
               </div>

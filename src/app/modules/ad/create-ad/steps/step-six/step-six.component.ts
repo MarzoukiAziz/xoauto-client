@@ -28,6 +28,7 @@ export class StepSixComponent {
     }
     this._adService.newAd.price = parseInt(price);
     this._adService.step = 7;
+    this._adService.createAd();
   }
 
   back() {
