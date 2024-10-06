@@ -38,7 +38,7 @@
             <h4 class="mb-3">Critères</h4>
             <div class="row g-4">
               <div
-                class="col-lg-3 col-md-4 col-sm-6"
+                class="col-lg-4 col-md-4 col-sm-6"
                 *ngFor="let item of criteriaList"
               >
                 <criteria
@@ -63,6 +63,122 @@
               </div>
             </div>
             <hr class="mt-30 mb-30" />
+
+            <h4 class="mb-30">Equipements</h4>
+            <div class="iv_feature_accordion">
+              <div class="accordion" id="iv_ft_accordion">
+                <div class="accordion-item">
+                  <div class="accordion-header">
+                    <a
+                      href="#Extérieurs"
+                      class="accordion-button"
+                      data-bs-toggle="collapse"
+                      >Extérieurs</a
+                    >
+                  </div>
+                  <div
+                    class="accordion-collapse collapse show"
+                    id="Extérieurs"
+                    data-bs-parent="#iv_ft_accordion"
+                  >
+                    <div class="accordion-body">
+                      <div class="row">
+                        @for (eq of ad.equipments.outdoor; track $index) {
+                        <div class="col-md-6 col-sm-6">
+                          <span class="me-2"
+                            ><i class="fa-solid fa-check"></i> {{ eq }}</span
+                          >
+                        </div>
+                        }
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-item mt-3">
+                  <div class="accordion-header">
+                    <a
+                      href="#Intérieurs"
+                      class="accordion-button collapsed"
+                      data-bs-toggle="collapse"
+                      >Intérieurs</a
+                    >
+                  </div>
+                  <div
+                    class="accordion-collapse collapse"
+                    id="Intérieurs"
+                    data-bs-parent="#iv_ft_accordion"
+                  >
+                    <div class="accordion-body">
+                      <div class="row">
+                        @for (eq of ad.equipments.indoor; track $index) {
+                        <div class="col-md-6 col-sm-6">
+                          <span class="me-2"
+                            ><i class="fa-solid fa-check"></i> {{ eq }}</span
+                          >
+                        </div>
+                        }
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-item mt-3">
+                  <div class="accordion-header">
+                    <a
+                      href="#Sécurité"
+                      class="accordion-button collapsed"
+                      data-bs-toggle="collapse"
+                      >Sécurité</a
+                    >
+                  </div>
+                  <div
+                    class="accordion-collapse collapse"
+                    id="Sécurité"
+                    data-bs-parent="#iv_ft_accordion"
+                  >
+                    <div class="accordion-body">
+                      <div class="row">
+                        @for (eq of ad.equipments.safety; track $index) {
+                        <div class="col-md-6 col-sm-6">
+                          <span class="me-2"
+                            ><i class="fa-solid fa-check"></i> {{ eq }}</span
+                          >
+                        </div>
+                        }
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-item mt-3">
+                  <div class="accordion-header">
+                    <a
+                      href="#Fonctionnels"
+                      class="accordion-button collapsed"
+                      data-bs-toggle="collapse"
+                      >Fonctionnels</a
+                    >
+                  </div>
+                  <div
+                    class="accordion-collapse collapse"
+                    id="Fonctionnels"
+                    data-bs-parent="#iv_ft_accordion"
+                  >
+                    <div class="accordion-body">
+                      <div class="row">
+                        @for (eq of ad.equipments.functional; track $index) {
+                        <div class="col-md-6 col-sm-6">
+                          <span class="me-2"
+                            ><i class="fa-solid fa-check"></i> {{ eq }}</span
+                          >
+                        </div>
+                        }
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <hr class="mt-30 mb-30" />
+
             <h4 class="mb-30">Options</h4>
             <div class="iv_feature_accordion">
               <div
@@ -95,30 +211,29 @@
               </div>
               } }
             </div>
+
             <div *ngIf="ad.exterior_video || ad.interior_video">
               <hr class="mt-30 mb-30" />
-              <h4 class="mb-40">Video</h4>
+              <h4 class="mb-40">Videos</h4>
               <div
                 class="iv_video_content position-relative rounded overflow-hidden"
               >
-                <video controls width="100%" #videoPlayer>
+                <video controls width="100%" #videoPlayer class="mb-4">
                   <source [src]="ad.exterior_video" type="video/mp4" />
                   Your browser does not support the video tag.
                 </video>
-                <br />
                 <hr />
-                <br />
-                <video controls width="100%" #videoPlayer>
+                <video controls width="100%" #videoPlayer class="mt-4">
                   <source [src]="ad.interior_video" type="video/mp4" />
                   Your browser does not support the video tag.
                 </video>
               </div>
             </div>
-            <br />
             <hr class="mt-30 mb-30" />
             <h4 class="mb-4">Autres annonces similaires</h4>
-            <similar-ads [similars]="similars"></similar-ads>
-            <br />
+            <div class="py-5">
+              <similar-ads [similars]="similars" />
+            </div>
           </div>
         </div>
       </div>

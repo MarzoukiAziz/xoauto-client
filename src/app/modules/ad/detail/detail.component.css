@@ -171,3 +171,17 @@ textarea {
   color: #ffffff;
   margin-top: 2px;
 }
+
+.iv_feature_accordion .accordion-header a:not(.collapsed) {
+  background: #111010;
+  color: #fff;
+}
+
+.iv_feature_accordion .accordion-header a {
+  font-size: 18px;
+  font-weight: 700;
+  color: #111010;
+  padding: 15px 30px;
+  background: rgba(0, 0, 0, 0);
+  position: relative;
+}
