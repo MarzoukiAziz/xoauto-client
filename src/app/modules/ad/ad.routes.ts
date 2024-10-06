@@ -7,6 +7,7 @@ import { DetailComponent } from './detail/detail.component';
 import { catchError, throwError } from 'rxjs';
 import { SearchAdsComponent } from './search-ads/search-ads.component';
 import { CreateAdComponent } from './create-ad/create-ad.component';
+import { AuthGuard } from '../auth/auth.guard';
 
 const adResolver = (route: ActivatedRouteSnapshot) => {
   const adService = inject(AdService);
@@ -24,6 +25,7 @@ const adResolver = (route: ActivatedRouteSnapshot) => {
 export default [
   {
     path: 'create',
+    canActivate: [AuthGuard],
     component: CreateAdComponent,
     resolve: { settings: () => inject(AdService).getSettings() },
   },
