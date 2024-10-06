@@ -9,4 +9,5 @@ export const environment = {
   cognitoLogoutUrl: 'http://localhost:4200',
   CLOUD_NAME: 'dnm4rbqoc',
   API_KEY: '618589385993451',
+  CURRENCY: 'TND',
 };

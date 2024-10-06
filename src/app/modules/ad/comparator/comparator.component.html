@@ -45,7 +45,7 @@
             <tr class="price-section">
               <th>Prix</th>
               <td *ngFor="let ad of ads">
-                {{ ad.price | number : "1.0-0" }} DT
+                {{ ad.price | number : "1.0-0" }} {{ currency }}
               </td>
             </tr>
             <br />

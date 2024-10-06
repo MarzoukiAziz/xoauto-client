@@ -5,6 +5,7 @@ import { Ad } from '../ad.types';
 import { Subject, takeUntil } from 'rxjs';
 import { CommonModule } from '@angular/common';
 import { NoAdsComponent } from '../components/no-ads/no-ads.component';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-comparator',
@@ -20,6 +21,7 @@ export class ComparatorComponent {
   outdoor = new Set<string>();
   safety = new Set<string>();
   functional = new Set<string>();
+  currency = environment.CURRENCY;
 
   private _unsubscribeAll: Subject<any> = new Subject<any>();
 

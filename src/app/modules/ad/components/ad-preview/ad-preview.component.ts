@@ -6,6 +6,7 @@ import { RouterLink } from '@angular/router';
 import { register } from 'swiper/element/bundle';
 import { SwiperDirective } from 'src/app/shared/directives/swiper.directive';
 import { AdService } from '../../ad.service';
+import { environment } from 'src/environments/environment';
 
 register();
 
@@ -18,6 +19,7 @@ register();
 })
 export class AdPreviewComponent {
   @Input() ad: Ad;
+  currency = environment.CURRENCY;
 
   constructor(public _adService: AdService) {}
 
