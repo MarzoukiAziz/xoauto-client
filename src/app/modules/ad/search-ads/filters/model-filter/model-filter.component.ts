@@ -31,7 +31,6 @@ export class ModelFilterComponent {
     } else {
       this._adService.selectedModels.splice(index, 1);
     }
-    console.log(this._adService.selectedModels);
   }
 
   isSelected(model) {

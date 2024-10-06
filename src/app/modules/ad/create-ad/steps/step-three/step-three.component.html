@@ -1,0 +1,152 @@
+<div class="step3" [hidden]="_adService.step != 3">
+  <div class="step3">
+    <div class="equipement">
+      <h6>Équipements Extérieurs</h6>
+      <div class="row">
+        @for (eq of outdoor; track $index) {
+        <div class="form-check col-md-4 col-sm-6 d-flex align-items-center">
+          <input
+            class="form-check-input"
+            type="checkbox"
+            id="{{ eq }}"
+            name="{{ eq }}"
+            (change)="onOutdoorSelect($event, eq)"
+          />
+          <label class="form-check-label" for="{{ eq }}">
+            {{ eq }}
+          </label>
+        </div>
+        }
+      </div>
+    </div>
+    <div class="equipement">
+      <h6>Équipements Intérieurs</h6>
+      <div class="row">
+        @for (eq of indoor; track $index) {
+        <div class="form-check col-md-4 col-sm-6 d-flex align-items-center">
+          <input
+            class="form-check-input"
+            type="checkbox"
+            id="{{ eq }}"
+            name="{{ eq }}"
+            (change)="onIndoorSelect($event, eq)"
+          />
+          <label class="form-check-label" for="{{ eq }}">
+            {{ eq }}
+          </label>
+        </div>
+        }
+      </div>
+    </div>
+
+    <div class="equipement">
+      <h6>Équipements de sécurité</h6>
+      <div class="row">
+        @for (eq of safety; track $index) {
+        <div class="form-check col-md-4 col-sm-6 d-flex align-items-center">
+          <input
+            class="form-check-input"
+            type="checkbox"
+            id="{{ eq }}"
+            name="{{ eq }}"
+            (change)="onSafetySelect($event, eq)"
+          />
+          <label class="form-check-label" for="{{ eq }}">
+            {{ eq }}
+          </label>
+        </div>
+        }
+      </div>
+    </div>
+
+    <div class="equipement">
+      <h6>Équipements fonctionnels</h6>
+      <div class="row">
+        @for (eq of functional; track $index) {
+        <div class="form-check col-md-4 col-sm-6 d-flex align-items-center">
+          <input
+            class="form-check-input"
+            type="checkbox"
+            id="{{ eq }}"
+            name="{{ eq }}"
+            (change)="onFunctionalSelect($event, eq)"
+          />
+          <label class="form-check-label" for="{{ eq }}">
+            {{ eq }}
+          </label>
+        </div>
+        }
+      </div>
+    </div>
+
+    <div class="equipement">
+      <h6>Options</h6>
+      <div class="row">
+        <div class="form-check col-md-4 col-sm-6 d-flex align-items-center">
+          <input
+            class="form-check-input"
+            type="checkbox"
+            id="non_smoker"
+            name="non_smoker"
+            [(ngModel)]="non_smoker"
+          />
+          <label class="form-check-label" for="non_smoker"> Non-fumeur </label>
+        </div>
+        <div class="form-check col-md-4 col-sm-6 d-flex align-items-center">
+          <input
+            class="form-check-input"
+            type="checkbox"
+            id="first_hand"
+            name="first_hand"
+            [(ngModel)]="first_hand"
+          />
+          <label class="form-check-label" for="first_hand">Première main</label>
+        </div>
+        <div class="form-check col-md-4 col-sm-6 d-flex align-items-center">
+          <input
+            class="form-check-input"
+            type="checkbox"
+            id="manufacturer_warranty"
+            name="manufacturer_warranty"
+            [(ngModel)]="manufacturer_warranty"
+          />
+          <label class="form-check-label" for="manufacturer_warranty">
+            Garantie
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <div class="equipement">
+      <h6>Plus d'options ? Ajoutez-les en les séparant par des virgules.</h6>
+      <div class="form-group">
+        <div class="input-box">
+          <input
+            #others
+            type="text"
+            name="others"
+            placeholder="Autres Options"
+            required="false"
+          />
+        </div>
+      </div>
+    </div>
+
+    <div class="d-flex justify-content-between mt-3">
+      <div>
+        <div class="button-box">
+          <button class="btn btn-secondary" (click)="back()">
+            <span class="txt"> Précedent </span>
+          </button>
+        </div>
+      </div>
+      <div>
+        <div class="button-box">
+          <button class="btn-one" (click)="verifyStepThree(others.value)">
+            <span class="txt"> Suivant </span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,10 +1,18 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable, of, tap } from 'rxjs';
+import {
+  BehaviorSubject,
+  forkJoin,
+  Observable,
+  of,
+  switchMap,
+  tap,
+} from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment.prod';
 import { Ad, Settings } from './ad.types';
 import { CookieService } from 'ngx-cookie-service';
 import { AuthService } from '../auth/auth.service';
+import { CloudinaryUploadService } from 'src/app/shared/services/cloudinary-upload.service';
 
 @Injectable({
   providedIn: 'root',
@@ -48,7 +56,8 @@ export class AdService {
   constructor(
     private _httpClient: HttpClient,
     private cookieService: CookieService,
-    private _auth: AuthService
+    private _auth: AuthService,
+    private cloud: CloudinaryUploadService
   ) {
     this.comparator = this.cookieService.get('comparator-used');
   }
@@ -239,5 +248,132 @@ export class AdService {
     this.mileageMax = 500000;
     this.yearMin = 2000;
     this.yearMax = new Date().getFullYear();
+  }
+
+  /*************************
+   ******* New Ad  **********
+   **************************/
+  step = 1;
+  photos = [];
+  video1 = undefined;
+  video2 = undefined;
+  newAd: Ad = {
+    uid: null,
+    title: '',
+    description: '',
+    price: 0,
+    type: 'used',
+    brand: '',
+    model: '',
+    version: '',
+    category: '',
+    mileage: 0,
+    first_registration: {
+      year: 0,
+      month: 0,
+    },
+    fuel_type: '',
+    seats: undefined,
+    color: '',
+    crit_air: '',
+    horsepower: undefined,
+    power_kw: undefined,
+    region: '',
+    autonomy_wltp_km: undefined,
+    equipments: {
+      safety: [],
+      outdoor: [],
+      indoor: [],
+      functional: [],
+    },
+    options_vehicule: {
+      non_smoker: false,
+      first_hand: false,
+      manufacturer_warranty: false,
+      others: [],
+    },
+    photos: [],
+    interior_video: '',
+    exterior_video: '',
+    address: '',
+    phone_number: '',
+    mask_phone: false,
+    active: true,
+    sold: false,
+    pro: false,
+  };
+
+  createAd() {
+    const uid = this._auth.getUserInfo()?.id;
+    this.newAd.uid = uid;
+    if (this.photos) {
+      const imageUploads = this.photos.map((file) =>
+        this.cloud.getAdPicSignature().pipe(
+          switchMap((res) => {
+            return this.cloud.uploadAdPic(res.timestamp, res.signature, file);
+          })
+        )
+      );
+
+      // First upload all photos
+      forkJoin(imageUploads).subscribe((imageResults) => {
+        imageResults.forEach((res: any) => {
+          this.newAd.photos.push(res['secure_url']);
+        });
+
+        const videoUploads: Observable<any>[] = [];
+
+        // If video1 exists, queue its upload
+        if (this.video1) {
+          videoUploads.push(
+            this.cloud.getVideoSignature().pipe(
+              switchMap((res) =>
+                this.cloud.uploadAdVideo(
+                  res.timestamp,
+                  res.signature,
+                  this.video1
+                )
+              ),
+              tap((res: any) => {
+                this.newAd.interior_video = res['secure_url'];
+              })
+            )
+          );
+        }
+
+        // If video2 exists, queue its upload
+        if (this.video2) {
+          videoUploads.push(
+            this.cloud.getVideoSignature().pipe(
+              switchMap((res) =>
+                this.cloud.uploadAdVideo(
+                  res.timestamp,
+                  res.signature,
+                  this.video2
+                )
+              ),
+              tap((res: any) => {
+                this.newAd.exterior_video = res['secure_url'];
+              })
+            )
+          );
+        }
+
+        // Once videos (if any) are uploaded, post the ad
+        forkJoin(videoUploads.length > 0 ? videoUploads : [of(null)]).subscribe(
+          () => {
+            this._httpClient
+              .post<Ad>(`${this.apiUrl}/ads`, this.newAd)
+              .pipe(
+                tap((ad: Ad) => {
+                  this._ad.next(ad);
+                  this.step = 8;
+                })
+              )
+              .subscribe();
+          }
+        );
+      });
+    }
   }
 }

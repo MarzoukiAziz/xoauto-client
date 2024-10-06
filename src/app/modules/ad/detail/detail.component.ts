@@ -93,7 +93,6 @@ export class DetailComponent {
           .getSimilars(ad.category, ad._id, ad.price)
           .subscribe((similars: Ad[]) => {
             this.similars = similars;
-            console.log(similars);
           });
 
         this._changeDetectorRef.markForCheck();

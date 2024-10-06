@@ -31,7 +31,6 @@ export class ColorFilterComponent {
     } else {
       this._adService.selectedColors.splice(index, 1);
     }
-    console.log(this._adService.selectedColors);
   }
 
   isSelected(color) {

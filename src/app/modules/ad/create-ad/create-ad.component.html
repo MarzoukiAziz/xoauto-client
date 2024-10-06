@@ -1,0 +1,52 @@
+<title>Créer une annonce</title>
+<section class="apply-form-area">
+  <div class="container">
+    <div class="row">
+      <div class="col-xl-12">
+        <div class="apply-form-box clearfix">
+          <div class="apply-form-box__content">
+            @if(_adService.step<8){
+            <div class="sec-title">
+              <h2>Créer une annonce</h2>
+              <div class="sub-title d-flex">
+                @for (item of [].constructor(_adService.step); track $index) {
+                <div class="progress progress-done"></div>
+                } @for (item of [].constructor(7-_adService.step); track $index)
+                {
+                <div class="progress"></div>
+                }
+              </div>
+              <br />
+              <h5 class="text-center">
+                {{ steps[_adService.step - 1] }}
+              </h5>
+            </div>
+            }
+            <div id="apply-form" name="apply_form" class="default-form2">
+              <step-one />
+              <step-two />
+              <step-three />
+              <step-four />
+              <step-five />
+              <step-six />
+              @if(_adService.step==7){
+              <div
+                class="d-flex flex-column align-items-center justify-content-center p-5"
+              >
+                <mat-spinner></mat-spinner>
+                <br />
+                <span>Chargement ...</span>
+              </div>
+              }
+              <app-done />
+            </div>
+            <br />
+            <div [hidden]="_adService.step >= 7">
+              <p>* Requis</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,5 +1,5 @@
 export interface Ad {
-  _id: string;
+  _id?: string;
   uid: any;
   title?: string;
   description?: string;
@@ -23,22 +23,10 @@ export interface Ad {
   region?: string;
   autonomy_wltp_km?: number;
   equipments: {
-    safety: {
-      type: string[];
-      default: [];
-    };
-    outdoor: {
-      type: string[];
-      default: [];
-    };
-    indoor: {
-      type: string[];
-      default: [];
-    };
-    functional: {
-      type: string[];
-      default: [];
-    };
+    safety: string[];
+    outdoor: string[];
+    indoor: string[];
+    functional: string[];
   };
   options_vehicule: {
     non_smoker?: boolean;
@@ -46,7 +34,7 @@ export interface Ad {
     manufacturer_warranty?: boolean;
     others?: string[];
   };
-  courant: {
+  courant?: {
     AC?: string;
     DC?: string;
   };
@@ -103,4 +91,10 @@ export interface Settings {
       name_fr: string;
     }
   ];
+  equipment: {
+    indoor: string[];
+    outdoor: string[];
+    safety: string[];
+    functional: string[];
+  };
 }

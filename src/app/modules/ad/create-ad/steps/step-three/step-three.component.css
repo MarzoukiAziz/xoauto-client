@@ -1,0 +1,25 @@
+.form-check-input {
+  height: 15px;
+  margin-right: 10px;
+  width: 15px;
+}
+
+h6 {
+  color: var(--thm-base);
+  padding-bottom: 10px;
+}
+
+.form-check-label {
+  font-weight: 600;
+  color: var(--bs-dark-text-emphasis);
+}
+
+.step3 {
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+.equipement {
+  margin: 20px 20px;
+}

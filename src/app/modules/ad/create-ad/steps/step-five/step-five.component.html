@@ -1,0 +1,72 @@
+<div class="step5" [hidden]="_adService.step != 5">
+  <div *ngIf="showAlert">
+    <div class="alert alert-danger" role="alert">{{ alertMessage }}</div>
+  </div>
+  <div class="form-group">
+    <div class="select-box clearfix">
+      <label for="region">Gouvernorat*:</label>
+      <select
+        id="region"
+        class="nice-select wide"
+        (change)="regionSelected = true"
+        #region
+      >
+        <option data-display="Gouvernorat" disabled selected>
+          Gouvernorat
+        </option>
+        <option *ngFor="let region of regions" [value]="region">
+          {{ region }}
+        </option>
+      </select>
+    </div>
+  </div>
+
+  <div class="form-group" [hidden]="!regionSelected">
+    <div class="input-box">
+      <label for="adress">Adresse*:</label>
+      <input
+        id="adress"
+        type="text"
+        name="adress"
+        #adress
+        placeholder="Adresse"
+      />
+    </div>
+  </div>
+
+  <div class="form-group" [hidden]="!regionSelected">
+    <div class="input-box">
+      <label for="description">Description Supplémentaire:</label>
+      <br />
+      <textarea
+        class="w-100 my-2"
+        name="description"
+        id="description"
+        cols="50"
+        #description
+      ></textarea>
+    </div>
+  </div>
+
+  <div class="d-flex justify-content-between">
+    <div>
+      <div class="button-box">
+        <button class="btn btn-secondary" (click)="back()">
+          <span class="txt"> Précedent </span>
+        </button>
+      </div>
+    </div>
+    <div>
+      <div class="button-box" [hidden]="!regionSelected">
+        <button
+          class="btn-one"
+          (click)="
+            verifyStepFive(region.value, adress.value, description.value)
+          "
+        >
+          <span class="txt"> Suivant </span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
