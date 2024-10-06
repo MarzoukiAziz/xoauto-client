@@ -1,0 +1,39 @@
+section {
+  padding: 30px 0px;
+  background-image: url(/assets/images/backgrounds/ad.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.sec-title h2 {
+  font-family: "Roboto";
+  color: var(--bs-dark-text-emphasis);
+  letter-spacing: 4.5px;
+  text-align: center;
+}
+
+.progress-done {
+  background-color: var(--thm-base) !important;
+}
+
+.progress {
+  background-color: var(--bs-dark-bg-subtle);
+  height: 15px;
+  width: 20%;
+  margin: 0.5%;
+}
+
+.apply-form-area {
+  position: static;
+}
+
+.sec-title {
+  padding-bottom: 0px !important;
+}
+.apply-form-box__content {
+  max-width: none;
+}
+
+.container {
+  max-width: 1200px !important;
+}
