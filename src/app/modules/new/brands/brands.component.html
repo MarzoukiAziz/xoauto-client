@@ -1,0 +1,37 @@
+<title>Marques</title>
+
+<breadcrumb
+  title="Les Marques"
+  backgroundImgPath="assets/images/backgrounds/showroom.jpg"
+/>
+
+<div *ngIf="_newService.loading">
+  <loader />
+</div>
+
+<section class="brands-section" *ngIf="!_newService.loading">
+  <div class="brands-content">
+    <ul>
+      <li *ngFor="let brand of brands">
+        <a routerLink="/new/models/{{ brand.name }}">
+          <div class="brand-item">
+            <div class="icon-holder">
+              <a
+                ><img
+                  src="assets/images/brands/{{ brand.icon }}"
+                  [alt]="brand.name + ' logo'"
+              /></a>
+            </div>
+
+            <h3>
+              <a>{{ brand.name | titlecase }}</a>
+            </h3>
+
+            <div class="btn-box">
+              <a><i class="fa-solid fa-arrow-right"></i></a>
+            </div></div
+        ></a>
+      </li>
+    </ul>
+  </div>
+</section>

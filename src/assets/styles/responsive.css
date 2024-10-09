@@ -1393,26 +1393,26 @@
     padding-right: 15px;
   }
 
-  .individual-banking__inner-content ul {
+  .brands-content ul {
     margin-left: 0px;
     margin-right: 0px;
   }
 
-  /* .individual-banking__inner-content ul li {
+  /* .brands-content ul li {
         float: none;
         width: 100%;
         padding: 0 0px;
     } */
 
-  .single-features-of-banking.more-services {
+  .brand-item.more-services {
     padding: 8px 0px 0;
   }
 
-  .single-features-of-banking .more-service-box {
+  .brand-item .more-service-box {
     padding: 2px 0 0px;
   }
 
-  /* .single-features-of-banking {
+  /* .brand-item {
         width: 140px;
     } */
 
