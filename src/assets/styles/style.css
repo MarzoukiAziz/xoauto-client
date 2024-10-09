@@ -4721,13 +4721,13 @@ animation: spinner 1s infinite linear;
   color: #a5a6aa;
 }
 
-.individual-banking__inner-content {
+.brands-content {
   position: relative;
   display: block;
   overflow: hidden;
 }
 
-.individual-banking__inner-content ul {
+.brands-content ul {
   position: relative;
   display: block;
   overflow: hidden;
@@ -4735,7 +4735,7 @@ animation: spinner 1s infinite linear;
   margin-right: -15px;
 }
 
-.individual-banking__inner-content ul li {
+.brands-content ul li {
   position: relative;
   display: block;
   float: left;
@@ -4743,7 +4743,7 @@ animation: spinner 1s infinite linear;
   padding: 0 15px;
 }
 
-.single-features-of-banking {
+.brand-item {
   position: relative;
   display: block;
   background-color: #272a32;
@@ -4755,7 +4755,7 @@ animation: spinner 1s infinite linear;
   z-index: 1;
 }
 
-.single-features-of-banking:before {
+.brand-item:before {
   content: "";
   position: absolute;
   top: 0;
@@ -4767,7 +4767,7 @@ animation: spinner 1s infinite linear;
   border-bottom: 102px solid transparent;
 }
 
-.single-features-of-banking::after {
+.brand-item::after {
   content: "";
   position: absolute;
   top: -1px;
@@ -4782,28 +4782,28 @@ animation: spinner 1s infinite linear;
   border-top-left-radius: 20px;
 }
 
-.single-features-of-banking:hover::after {
+.brand-item:hover::after {
   opacity: 1;
   transform: perspective(400px) scaleX(1);
   transition: all 300ms linear;
   transition-delay: 0.1s;
 }
 
-.single-features-of-banking .icon-holder {
+.brand-item .icon-holder {
   font-size: 40px;
 }
 
-.single-features-of-banking h3 {
+.brand-item h3 {
   font-size: 20px;
   line-height: 28px;
   margin: 12px 0 11px;
 }
 
-.single-features-of-banking h3 a {
+.brand-item h3 a {
   color: #ffffff;
 }
 
-.single-features-of-banking .btn-box {
+.brand-item .btn-box {
   position: relative;
   display: flex;
   align-items: center;
@@ -4813,7 +4813,7 @@ animation: spinner 1s infinite linear;
   z-index: 1;
 }
 /* 
-.single-features-of-banking .btn-box:before {
+.brand-item .btn-box:before {
   content: "";
   position: absolute;
   top: 0;
@@ -4826,13 +4826,13 @@ animation: spinner 1s infinite linear;
   border-right: 85px solid transparent;
 } */
 
-.single-features-of-banking:hover .btn-box:before {
+.brand-item:hover .btn-box:before {
   border-bottom-color: var(--thm-base);
   transition: all 200ms linear;
   transition-delay: 0.1s;
 }
 
-.single-features-of-banking .btn-box a {
+.brand-item .btn-box a {
   position: relative;
   display: inline-block;
   color: #a5a6aa;
@@ -4841,11 +4841,11 @@ animation: spinner 1s infinite linear;
   transition-delay: 0.1s;
 }
 
-.single-features-of-banking:hover .btn-box a {
+.brand-item:hover .btn-box a {
   color: #ffffff;
 }
 
-.single-features-of-banking.more-services {
+.brand-item.more-services {
   background-color: transparent;
   border: none;
   padding: 34px 0px 0;
@@ -4853,21 +4853,21 @@ animation: spinner 1s infinite linear;
   margin-top: 1px;
 }
 
-.single-features-of-banking.more-services:before {
+.brand-item.more-services:before {
   display: none;
 }
 
-.single-features-of-banking.more-services:after {
+.brand-item.more-services:after {
   display: none;
 }
 
-.single-features-of-banking .more-service-box {
+.brand-item .more-service-box {
   position: relative;
   display: block;
   padding: 2px 0 32px;
 }
 
-.single-features-of-banking .more-service-box a {
+.brand-item .more-service-box a {
   position: relative;
   display: flex;
   align-items: center;
@@ -4883,12 +4883,12 @@ animation: spinner 1s infinite linear;
   transition-delay: 0.1s;
 }
 
-.single-features-of-banking .more-service-box a:hover {
+.brand-item .more-service-box a:hover {
   color: #ffffff;
   background-color: var(--thm-base);
 }
 
-.single-features-of-banking .more-service-box h3 {
+.brand-item .more-service-box h3 {
   color: #ffffff;
   font-size: 18px;
   line-height: 20px;
@@ -4994,25 +4994,25 @@ animation: spinner 1s infinite linear;
   padding: 0 15px;
 }
 
-.single-features-of-banking--style2 {
+.brand-item--style2 {
   border-color: #e1e6e4;
   background-color: #ffffff;
   box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.08);
 }
 
-.single-features-of-banking--style2 h3 a {
+.brand-item--style2 h3 a {
   color: var(--thm-black);
 }
 
-.single-features-of-banking--style2:before {
+.brand-item--style2:before {
   border-right: 55px solid #f5f8f7;
 }
 
-.single-features-of-banking--style2 .btn-box:before {
+.brand-item--style2 .btn-box:before {
   border-bottom: 55px solid #f5f8f7;
 }
 
-.single-features-of-banking--style2 .more-service-box h3 {
+.brand-item--style2 .more-service-box h3 {
   color: var(--thm-black);
 }
 

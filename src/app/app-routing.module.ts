@@ -21,6 +21,10 @@ const routes: Routes = [
         loadChildren: () => import('./modules/ad/ad.routes'),
       },
       {
+        path: 'new',
+        loadChildren: () => import('./modules/new/new.routes'),
+      },
+      {
         path: 'success-login',
         component: AuthCallbackComponent,
       },
