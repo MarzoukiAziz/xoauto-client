@@ -1,9 +1,7 @@
-import { ChangeDetectorRef, Component } from '@angular/core';
+import { Component } from '@angular/core';
 import { Brand, Model } from '../new.types';
-import { NewService } from '../new.service';
-import { Subject, takeUntil } from 'rxjs';
 import { CommonModule } from '@angular/common';
-import { RouterLink } from '@angular/router';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 import { BreadcrumbComponent } from '../../../shared/components/breadcrumb/breadcrumb.component';
 import { environment } from 'src/environments/environment';
 import { formatModelToPreview } from 'src/app/shared/utils/format-model-versions';
@@ -21,31 +19,13 @@ export class ModelsComponent {
   brand: Brand;
   currency = environment.CURRENCY;
 
-  private _unsubscribeAll: Subject<any> = new Subject<any>();
-
-  constructor(
-    public _newService: NewService,
-    private _changeDetectorRef: ChangeDetectorRef
-  ) {}
+  constructor(private route: ActivatedRoute) {}
 
   ngOnInit(): void {
-    this._newService.brand$
-      .pipe(takeUntil(this._unsubscribeAll))
-      .subscribe((brand: Brand) => {
-        this.brand = brand;
-        this._changeDetectorRef.markForCheck();
-      });
-    this._newService.models$
-      .pipe(takeUntil(this._unsubscribeAll))
-      .subscribe((models: Model[]) => {
-        this.models = models.map((model) => formatModelToPreview(model));
-        this._changeDetectorRef.markForCheck();
-      });
-  }
-
-  ngOnDestroy(): void {
-    this._unsubscribeAll.next(null);
-    this._unsubscribeAll.complete();
+    this.route.data.subscribe((data) => {
+      this.brand = data['brand'];
+      this.models = data['models'].ads.map((ad) => formatModelToPreview(ad));
+    });
   }
 
   trackByFn(index: number, item: any): any {

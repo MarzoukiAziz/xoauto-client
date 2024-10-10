@@ -13,18 +13,11 @@
     <div class="row">
       <!-- Main Content Column (9/12 width) -->
       <div class="col-xl-9">
-        <!-- Loading Spinner while Data is Loading -->
-        <div *ngIf="_blogService.loading">
-          <loader />
-        </div>
         <!-- Container for Blog Page Content -->
         <div class="blog-page-content-box">
           <!-- Loop through articles and display them -->
           @for ( article of articles; track trackByFn($index, article) ) {
-          <div
-            class="single-blog-style1 single-blog-style1--style3"
-            *ngIf="!_blogService.loading"
-          >
+          <div class="single-blog-style1 single-blog-style1--style3">
             <div class="image-colum">
               <!-- Article Image -->
               <div class="img-holder">

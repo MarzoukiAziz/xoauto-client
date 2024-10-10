@@ -5,11 +5,7 @@
   backgroundImgPath="assets/images/backgrounds/showroom.jpg"
 />
 
-<div *ngIf="_newService.loading">
-  <loader />
-</div>
-
-<section class="brands-section" *ngIf="!_newService.loading">
+<section class="brands-section">
   <div class="brands-content">
     <ul>
       <li *ngFor="let brand of brands">
