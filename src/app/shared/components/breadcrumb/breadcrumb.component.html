@@ -7,12 +7,20 @@
   <div class="container">
     <div class="row">
       <div class="col-xl-12">
+        @if(title){
         <div class="inner-content">
-          <!-- Title of the Page -->
           <div class="title">
             <h2>{{ title }}</h2>
           </div>
         </div>
+        }@else if(brandName){
+        <div class="resume-box__two">
+          <div class="img-logo">
+            <img src="assets/images/brands/{{ brandIcon }}" alt="" />
+            <h4>{{ brandName }}</h4>
+          </div>
+        </div>
+        }
       </div>
     </div>
   </div>
