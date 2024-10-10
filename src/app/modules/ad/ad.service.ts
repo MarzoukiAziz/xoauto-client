@@ -29,7 +29,6 @@ export class AdService {
 
   comparator = '';
   currentPage = 1;
-  public loading = false;
 
   // filters:
   selectedBrands = [];
@@ -93,7 +92,6 @@ export class AdService {
   }
 
   getAds(): Observable<Ad[]> {
-    this.loading = true;
     return this._httpClient
       .get<Ad[]>(`${this.apiUrl}/ads`, {
         params: {
@@ -121,7 +119,6 @@ export class AdService {
         tap((response: any) => {
           this._ads.next(response.ads);
           this._count.next(response.count);
-          this.loading = false;
         })
       );
   }
@@ -146,7 +143,6 @@ export class AdService {
         tap((response: any) => {
           this._ads.next(response.ads);
           this._count.next(response.count);
-          this.loading = false;
         })
       );
   }
@@ -155,7 +151,6 @@ export class AdService {
     if (!this.comparator) {
       this._ads.next([]);
       this._count.next(0);
-      this.loading = false;
       return of([]);
     }
 
@@ -169,7 +164,6 @@ export class AdService {
         tap((response: any) => {
           this._ads.next(response);
           this._count.next(response.length);
-          this.loading = false;
         })
       );
   }

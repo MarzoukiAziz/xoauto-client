@@ -26,9 +26,6 @@ export class BlogService {
   private _categories: BehaviorSubject<string[]> = new BehaviorSubject([]);
   private _comments: BehaviorSubject<Comment[]> = new BehaviorSubject([]);
 
-  //public
-  public loading = false;
-
   //Constructor
   constructor(private _httpClient: HttpClient) {}
 
@@ -66,8 +63,6 @@ export class BlogService {
     category: string = '',
     sort: string = 'desc'
   ): Observable<Article[]> {
-    this.loading = true;
-
     return this._httpClient
       .get<{ articles: Article[]; count: number }>(this.apiUrl + '/article', {
         params: {
@@ -82,7 +77,6 @@ export class BlogService {
         tap((response: any) => {
           this._articles.next(response.articles);
           this._count.next(response.count);
-          this.loading = false;
         })
       );
   }
