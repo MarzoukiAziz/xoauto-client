@@ -9,20 +9,20 @@
         alt="brand icon"
       />
     </a>
-    <div class="product-image">
+    <div class="model-image">
       <div class="row">
         <img
           [src]="selected_version.preview"
           [alt]="model.brand + ' ' + model.model + ' preview'"
         />
-        <h1 class="product-name title">
+        <h1 class="model-name title">
           {{ model.brand | uppercase }} {{ model.model | uppercase }}
         </h1>
       </div>
     </div>
-    <div class="product-info" class="versions">
-      <h3 *ngIf="versions.length > 1" class="product-slogan">Versions:</h3>
-      <h3 *ngIf="versions.length == 1" class="product-slogan">
+    <div class="model-info" class="versions">
+      <h3 *ngIf="versions.length > 1" class="model-slogan">Versions:</h3>
+      <h3 *ngIf="versions.length == 1" class="model-slogan">
         Une Seule Version :
       </h3>
 
@@ -54,7 +54,7 @@
       </ul>
     </div>
   </div>
-  <div class="row btns-nav d-flex justify-content-center mt-4">
+  <div class="row d-flex justify-content-center my-4 mx-1">
     <div
       class="btn-details col-xl-3 col-l-3 col-md-6 col-sm-6 col-xs-6"
       [ngClass]="{ opt: selected_nav == 'details' }"
@@ -89,4 +89,8 @@
       <p>MODÈLES SIMILAIRES</p>
     </div>
   </div>
+  <new-technical-sheet
+    [technical_sheet]="selected_version.technical_sheet"
+    *ngIf="selected_nav == 'details'"
+  />
 </section>

@@ -3,11 +3,12 @@ import { Brand, Model, Version } from '../new.types';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { environment } from 'src/environments/environment';
+import { TechnicalSheetComponent } from '../components/technical-sheet/technical-sheet.component';
 
 @Component({
   selector: 'app-model-detail',
   standalone: true,
-  imports: [CommonModule, RouterLink],
+  imports: [CommonModule, RouterLink, TechnicalSheetComponent],
   templateUrl: './model-detail.component.html',
   styleUrl: './model-detail.component.css',
 })
