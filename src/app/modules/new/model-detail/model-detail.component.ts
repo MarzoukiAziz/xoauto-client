@@ -17,6 +17,8 @@ export class ModelDetailComponent {
   versions: Version[];
   selected_version: Version;
   currency = environment.CURRENCY;
+  selected_nav = 'details';
+
   constructor(private route: ActivatedRoute) {}
 
   ngOnInit(): void {
@@ -30,5 +32,8 @@ export class ModelDetailComponent {
 
   changeVersion(newVersion) {
     this.selected_version = newVersion;
+  }
+  changeNav(newNav) {
+    this.selected_nav = newNav;
   }
 }

@@ -239,6 +239,7 @@
   display: flex;
   border: 3px solid var(--bs-light);
   cursor: pointer;
+  background-color: var(--bs-dark);
 }
 
 .btn-details-img {
