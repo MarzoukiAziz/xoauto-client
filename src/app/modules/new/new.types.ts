@@ -38,7 +38,7 @@ export interface Version {
 
 export interface TechnicalSheet {
   features: { [key: string]: any };
-  engine: { [key: string]: any };
+  motor: { [key: string]: any };
   transmission: { [key: string]: any };
   dimensions: { [key: string]: any };
   performance: { [key: string]: any };
