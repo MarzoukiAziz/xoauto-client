@@ -5,6 +5,7 @@ import { AuthGuard } from '../auth/auth.guard';
 import { BrandsComponent } from './brands/brands.component';
 import { NewService } from './new.service';
 import { ModelsComponent } from './models/models.component';
+import { ModelDetailComponent } from './model-detail/model-detail.component';
 
 const modelsResolver = (route: ActivatedRouteSnapshot) => {
   const newService = inject(NewService);
@@ -32,6 +33,20 @@ const brandResolver = (route: ActivatedRouteSnapshot) => {
   );
 };
 
+const modelResolver = (route: ActivatedRouteSnapshot) => {
+  const newService = inject(NewService);
+  const router = inject(Router);
+
+  return newService
+    .getModel(route.paramMap.get('brand'), route.paramMap.get('model'))
+    .pipe(
+      catchError((error) => {
+        console.error(error);
+        router.navigateByUrl('/new/brands');
+        return throwError(error);
+      })
+    );
+};
 export default [
   {
     path: 'brands',
@@ -42,5 +57,10 @@ export default [
     path: 'models/:brand',
     component: ModelsComponent,
     resolve: { models: modelsResolver, brand: brandResolver },
+  },
+  {
+    path: ':brand/:model',
+    component: ModelDetailComponent,
+    resolve: { model: modelResolver, brand: brandResolver },
   },
 ] as Routes;
