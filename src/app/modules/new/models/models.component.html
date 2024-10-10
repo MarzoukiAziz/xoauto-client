@@ -6,16 +6,16 @@
   backgroundImgPath="assets/images/backgrounds/showroom.jpg"
 />
 
-<section class="career-details-area">
+<section class="models-details-area">
   <div class="container">
     <sort-new-ads [brand]="brand.name" />
     <div class="row models">
       @for (model of models; track trackByFn($index,model)) {
       <div class="product col-xl-4 col-l-4 col-md-4">
         @if(model.promo){
-        <div *ngIf="model.promo" class="ribbon-promo">Promo</div>
+        <div *ngIf="model.promo" class="ribbon ribbon-promo">Promo</div>
         }@else if(model.new){
-        <div *ngIf="model.new" class="ribbon-new">Nouveau</div>
+        <div *ngIf="model.new" class="ribbon ribbon-new">Nouveau</div>
         }
         <a routerLink="/new/{{ model.brand }}/{{ model.model }}">
           <div class="model-name">
