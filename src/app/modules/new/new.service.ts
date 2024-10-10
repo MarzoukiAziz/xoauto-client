@@ -72,7 +72,7 @@ export class NewService {
 
   getModel(brand: string, model: string): Observable<Model> {
     return this._httpClient
-      .get<Model>(`${this.apiUrl}/new-ads/model`, {
+      .get<Model>(`${this.apiUrl}/new-ads/brand`, {
         params: {
           brand,
           model,
