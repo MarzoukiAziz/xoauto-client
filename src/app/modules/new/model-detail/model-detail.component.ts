@@ -4,11 +4,19 @@ import { CommonModule } from '@angular/common';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { environment } from 'src/environments/environment';
 import { TechnicalSheetComponent } from '../components/technical-sheet/technical-sheet.component';
+import { GallerieComponent } from '../components/gallerie/gallerie.component';
+import { register } from 'swiper/element/bundle';
+register();
 
 @Component({
   selector: 'app-model-detail',
   standalone: true,
-  imports: [CommonModule, RouterLink, TechnicalSheetComponent],
+  imports: [
+    CommonModule,
+    RouterLink,
+    TechnicalSheetComponent,
+    GallerieComponent,
+  ],
   templateUrl: './model-detail.component.html',
   styleUrl: './model-detail.component.css',
 })

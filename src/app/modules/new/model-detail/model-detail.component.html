@@ -93,4 +93,8 @@
     [technical_sheet]="selected_version.technical_sheet"
     *ngIf="selected_nav == 'details'"
   />
+  <new-gallerie
+    [gallerie]="selected_version.photos"
+    *ngIf="selected_nav == 'gallerie'"
+  />
 </section>

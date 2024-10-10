@@ -1,5 +1,4 @@
 import { Component, Input } from '@angular/core';
-import { Ad } from '../../ad.types';
 import { SwiperOptions } from 'swiper/types';
 import { SwiperDirective } from 'src/app/shared/directives/swiper.directive';
 import { CommonModule } from '@angular/common';
