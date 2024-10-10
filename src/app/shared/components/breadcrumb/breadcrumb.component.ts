@@ -9,4 +9,6 @@ import { Component, Input } from '@angular/core';
 export class BreadcrumbComponent {
   @Input() title: string = '';
   @Input() backgroundImgPath: string = '';
+  @Input() brandName: string = '';
+  @Input() brandIcon: string = '';
 }

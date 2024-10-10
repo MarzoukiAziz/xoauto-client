@@ -37,7 +37,7 @@
   position: relative;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
   flex-wrap: wrap;
   padding: 360px 0 0px;
@@ -141,4 +141,18 @@
 .breadcrumb-menu ul li:hover a,
 .breadcrumb-menu ul li.active {
   color: var(--thm-black);
+}
+h4 {
+  color: white;
+  text-align: center;
+  margin-top: 10px;
+  font-size: 30px;
+  font-weight: 600;
+}
+
+.resume-box__two {
+  width: fit-content;
+  left: 0;
+  text-align: center;
+  bottom: -50px;
 }
