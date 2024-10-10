@@ -1,5 +1,6 @@
 <div class="page-wrapper" style="position: relative">
   <app-header />
-  <router-outlet />
+  <loader *ngIf="this.loader.loading | async" />
+  <router-outlet *ngIf="!(this.loader.loading | async)" />
   <app-footer />
 </div>
