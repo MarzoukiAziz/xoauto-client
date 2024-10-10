@@ -1,0 +1,57 @@
+<title>Prix {{ model.brand }} {{ model.model }}</title>
+
+<section class="container mt-3">
+  <div class="card">
+    <a routerLink="/new/models/{{ brand.name }}"
+      ><img
+        class="brand-logo"
+        src="assets/images/brands/{{ brand.icon }}"
+        alt="brand icon"
+      />
+    </a>
+    <div class="product-image">
+      <div class="row">
+        <img
+          [src]="selected_version.preview"
+          [alt]="model.brand + ' ' + model.model + ' preview'"
+        />
+        <h1 class="product-name title">
+          {{ model.brand | uppercase }} {{ model.model | uppercase }}
+        </h1>
+      </div>
+    </div>
+    <div class="product-info" class="versions">
+      <h3 *ngIf="versions.length > 1" class="product-slogan">Versions:</h3>
+      <h3 *ngIf="versions.length == 1" class="product-slogan">
+        Une Seule Version :
+      </h3>
+
+      <ul class="preferences">
+        <li
+          *ngFor="let version of versions"
+          [ngClass]="{ selected: selected_version.version == version.version }"
+          (click)="changeVersion(version)"
+        >
+          {{ version.version }}
+          <span class="finition-price">
+            {{ version.price | number : "1.0-0" }} {{ currency }}</span
+          >
+        </li>
+        <!-- <button
+            *ngIf="comparateur.indexOf(fin['_id']) === -1"
+            class="add-comp"
+            (click)="addToCompare()"
+          >
+            <img src="/assets/images/icon/compare.png" /> Ajouter Au Comparateur
+          </button> -->
+        <!-- <button
+            *ngIf="comparateur.indexOf(fin['_id']) != -1"
+            class="ret-comp"
+            (click)="removeFromCompare()"
+          >
+            <img src="/assets/images/icon/retirer.png" /> Retirer Du Comparateur
+          </button> -->
+      </ul>
+    </div>
+  </div>
+</section>

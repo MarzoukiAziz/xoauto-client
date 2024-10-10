@@ -1,0 +1,423 @@
+.card {
+  height: 500px;
+  display: block;
+  margin: auto;
+  background: linear-gradient(247deg, #cf173c 300px, #fff 300px, #fff);
+  box-shadow: 0 0 30px 0 #999;
+  border-radius: 15px;
+  position: relative;
+  border: 0px !important;
+}
+
+.brand-logo {
+  height: 100px;
+  position: absolute;
+  right: 18px;
+  top: 7px;
+}
+
+.product-image {
+  width: 68%;
+  display: block;
+  height: 100%;
+  position: relative;
+  float: left;
+}
+
+.product-image img {
+  width: 90%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-55%, -60%);
+}
+
+.product-info {
+  padding: 30px 10px;
+}
+
+.product-name,
+.product-price {
+  font-family: "Exo", sans-serif;
+}
+
+.product-name {
+  font-size: 2em;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.product-price {
+  font-size: 4em;
+  font-weight: 900;
+  color: #0f7a94;
+}
+
+.product-price:before {
+  content: "$ ";
+}
+
+.product-slogan {
+  font-size: 15px;
+  margin-top: 50px;
+  margin-bottom: 10px;
+  font-weight: 400;
+  color: black;
+}
+
+.preferences {
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
+  margin-bottom: 2em;
+}
+
+.preferences > li {
+  background-color: white;
+  padding: 6px;
+  color: var(--bs-dark);
+  font-weight: 800;
+  border: 1px solid var(--bs-dark);
+  border-radius: 4px;
+  margin: 3px;
+}
+
+.preferences > li:hover {
+  cursor: pointer;
+}
+
+.selected {
+  background-color: var(--bs-gray-dark) !important;
+  color: white !important;
+}
+
+.selected > span {
+  color: white;
+}
+
+.colors {
+  list-style: none;
+  padding-top: 10px;
+}
+
+.colors > li {
+  float: left;
+  margin-right: 20px;
+  cursor: pointer;
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+}
+
+.blue {
+  background: #0f7a94;
+}
+
+.red {
+  background: #9b062a;
+}
+
+.yellow {
+  background: #dbfd20;
+}
+
+.active {
+  box-shadow: inset 0 0 0 2px #0f7a94, inset 0 0 0 4px #fff;
+}
+
+.list-name {
+  color: #999;
+  text-transform: uppercase;
+  font-size: 0.8em;
+  letter-spacing: 0.2em;
+  margin-bottom: 0.5em;
+  display: block;
+}
+
+.size,
+.qty {
+  font-family: "Exo", sans-serif;
+  display: block;
+  width: 70px;
+  text-align: right;
+  padding: 5px 0 5px 10px;
+  border-radius: 7px;
+  font-size: 1em;
+  font-weight: 700;
+  border: 2px solid #999;
+  cursor: pointer;
+}
+
+.size option,
+.qty option {
+  text-align: right;
+}
+
+.size:outline,
+.size:active,
+.size:focus,
+.qty:outline,
+.qty:active,
+.qty:focus {
+  outline: none;
+  border: 0;
+}
+
+.button {
+  font-family: "Montserrat", sans-serif;
+  background: #333;
+  font-size: 1em;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  text-decoration: none;
+  color: #fff;
+  padding: 15px 30px;
+  border-radius: 7px;
+  transition: 0.25s;
+}
+
+.button:hover {
+  background: #555;
+}
+
+.finition-price {
+  float: right;
+  color: red;
+}
+
+.add-comp {
+  background-color: #436e1d;
+  margin-top: 20px;
+  color: var(--bs-light);
+  padding: 4px;
+  border: 1px solid var(--bs-dark);
+  border-radius: 5px;
+  font-weight: 800;
+}
+
+.add-comp img {
+  height: 20px;
+}
+
+.ret-comp {
+  background-color: #6e1d25;
+  margin-top: 20px;
+  color: var(--bs-light);
+  padding: 4px;
+  border: 1px solid var(--bs-dark);
+  border-radius: 5px;
+  font-weight: 800;
+}
+
+.ret-comp img {
+  height: 20px;
+}
+
+.title {
+  color: var(--thm-base);
+  position: absolute;
+  bottom: 28px;
+  left: 77px;
+  border-bottom: 3px solid #dc354577;
+  font-family: "Exo", sans-serif;
+  font-weight: 800;
+  font-size: 35px;
+}
+
+.versions {
+  position: absolute;
+  bottom: 30px;
+  right: 20px;
+  width: 30%;
+}
+
+.btn-details {
+  color: var(--bs-light);
+  font-weight: 800;
+  padding: 14px 10px;
+  display: flex;
+  border: 3px solid var(--bs-light);
+  cursor: pointer;
+}
+
+.btn-details-img {
+  margin-right: 10px;
+  height: 45px;
+}
+
+.btn-details > p {
+  margin: auto;
+}
+
+.career-details-area {
+  padding: 50px 0px 80px;
+}
+
+.opt {
+  background-color: #6e1d25 !important;
+}
+
+.titleFiche {
+  background-color: #6e1d25;
+  color: white;
+  padding: 8px 15px;
+  font-size: 1.3rem;
+  border-radius: 5px;
+  margin: 10px 0px;
+}
+
+#fiche th {
+  float: left;
+}
+
+#fiche td {
+  float: right;
+}
+
+#fiche tr {
+  width: 100%;
+  border-bottom: 1px solid var(--bs-gray-dark);
+}
+
+#fiche table {
+  width: -webkit-fill-available;
+}
+
+.ictf {
+  height: 22px;
+}
+
+/* Responsive adjustments */
+
+@media (max-width: 768px) {
+  .card {
+    height: auto;
+    background: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .btns-nav {
+    margin: 10px;
+  }
+
+  .brand-logo {
+    height: 50px;
+    position: inherit;
+    background-color: var(--bs-gray-dark);
+    padding: 3px;
+    border-radius: 5px;
+    margin-top: 5px;
+  }
+
+  .product-image {
+    width: 100%;
+    float: none;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .product-image img {
+    position: static;
+    transform: none;
+    width: 100%;
+  }
+
+  .product-info {
+    text-align: center;
+  }
+
+  .product-name {
+    font-size: 1.5em;
+    position: inherit;
+    width: 80%;
+    margin: auto;
+  }
+
+  .product-price {
+    font-size: 2.5em;
+  }
+
+  .versions {
+    position: static;
+    width: 100%;
+    margin-top: 0px;
+    padding: 0px 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .product-price {
+    font-size: 2em;
+  }
+
+  .product-slogan {
+    font-size: 12px;
+  }
+
+  .preferences > li {
+    font-size: 0.8em;
+    padding: 4px;
+  }
+
+  .add-comp {
+    font-size: 0.8em;
+    padding: 2px;
+  }
+  .ret-comp {
+    font-size: 0.8em;
+    padding: 2px;
+  }
+}
+
+/* carroseel */
+
+swiper-container {
+  width: 100%;
+  height: 100%;
+}
+
+swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+body {
+  background: #000;
+  color: #000;
+}
+
+#gallerie {
+  background-color: var(--bs-gray-dark);
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.loadinggif {
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.loadinggif img {
+  width: 100%;
+  padding: 0 20%;
+}
+.loadinggif span {
+  margin: auto;
+  padding-bottom: 100px;
+  font-size: 28px;
+}
