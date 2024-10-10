@@ -1,12 +1,15 @@
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import {
   HttpInterceptor,
   HttpRequest,
   HttpHandler,
   HttpEvent,
 } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { finalize, Observable } from 'rxjs';
 import { AuthService } from './auth.service';
+import { LoadingService } from 'src/app/shared/services/loading.service';
+
+let totalRequests = 0;
 
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
@@ -15,6 +18,9 @@ export class AuthInterceptor implements HttpInterceptor {
     req: HttpRequest<any>,
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
+    const loadingService = inject(LoadingService);
+    totalRequests++;
+    loadingService.setLoading(true);
     const authToken = this.authService.getAccessToken();
     const notCloudinary = !req.url.includes('https://api.cloudinary.com');
     if (authToken && notCloudinary) {
@@ -22,8 +28,22 @@ export class AuthInterceptor implements HttpInterceptor {
         headers: req.headers.set('Authorization', `Bearer ${authToken}`),
       });
 
-      return next.handle(authReq);
+      return next.handle(authReq).pipe(
+        finalize(() => {
+          totalRequests--;
+          if (totalRequests == 0) {
+            loadingService.setLoading(false);
+          }
+        })
+      );
     }
-    return next.handle(req);
+    return next.handle(req).pipe(
+      finalize(() => {
+        totalRequests--;
+        if (totalRequests == 0) {
+          loadingService.setLoading(false);
+        }
+      })
+    );
   }
 }
