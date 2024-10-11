@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable, tap } from 'rxjs';
-import { AdComment, Brand, Model, NewSettings } from './new.types';
+import { BehaviorSubject, Observable, of, tap } from 'rxjs';
+import { AdComment, Brand, Model, Version, NewSettings } from './new.types';
 import { HttpClient } from '@angular/common/http';
-import { CookieService } from 'ngx-cookie-service';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -13,22 +12,21 @@ export class NewService {
 
   private _settings: BehaviorSubject<NewSettings> = new BehaviorSubject(null);
   private _models: BehaviorSubject<Model[]> = new BehaviorSubject([]);
+  private _versions: BehaviorSubject<Version[]> = new BehaviorSubject([]);
   private _model: BehaviorSubject<Model> = new BehaviorSubject(null);
   private _brand: BehaviorSubject<Brand> = new BehaviorSubject(null);
   private _adComments: BehaviorSubject<AdComment[]> = new BehaviorSubject([]);
   private _similarAds: BehaviorSubject<Model[]> = new BehaviorSubject([]);
 
-  comparator = '';
   sort = {
     name: 'Prix Ascendant',
     code: 'price-asc',
   };
 
-  constructor(
-    private _httpClient: HttpClient,
-    private cookieService: CookieService
-  ) {
-    this.comparator = this.cookieService.get('comparator-new');
+  constructor(private _httpClient: HttpClient) {}
+
+  get comparator(): string {
+    return localStorage.getItem('comparator-new') || '';
   }
 
   get settings$(): Observable<NewSettings> {
@@ -37,6 +35,10 @@ export class NewService {
 
   get models$(): Observable<Model[]> {
     return this._models.asObservable();
+  }
+
+  get versions$(): Observable<Version[]> {
+    return this._versions.asObservable();
   }
 
   get model$(): Observable<Model> {
@@ -50,6 +52,7 @@ export class NewService {
   get adComments$(): Observable<AdComment[]> {
     return this._adComments.asObservable();
   }
+
   get similarAds$(): Observable<Model[]> {
     return this._similarAds.asObservable();
   }
@@ -148,5 +151,46 @@ export class NewService {
           this._similarAds.next(response.ads);
         })
       );
+  }
+
+  getVersionsForComparator(): Observable<Version[]> {
+    if (!this.comparator) {
+      this._versions.next([]);
+      return of([]);
+    }
+    return this._httpClient
+      .get<Version[]>(`${this.apiUrl}/new-ads/selected`, {
+        params: {
+          versionsIds: this.comparator,
+        },
+      })
+      .pipe(
+        tap((response: any) => {
+          this._versions.next(response);
+        })
+      );
+  }
+
+  addToCompare(id: string) {
+    let comparatorArray = this.comparator ? this.comparator.split(',') : [];
+
+    if (!comparatorArray.includes(id)) {
+      comparatorArray.push(id);
+      localStorage.setItem('comparator-new', comparatorArray.join(','));
+    }
+  }
+
+  removeFromCompare(id: string) {
+    let comparatorArray = this.comparator ? this.comparator.split(',') : [];
+
+    // Filter out the id
+    comparatorArray = comparatorArray.filter((item) => item !== id);
+    localStorage.setItem('comparator-new', comparatorArray.join(','));
+
+    // Update _versions subject after filtering
+    const filteredVersions = this._versions
+      .getValue()
+      .filter((version) => version._id !== id);
+    this._versions.next(filteredVersions);
   }
 }
