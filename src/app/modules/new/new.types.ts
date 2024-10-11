@@ -21,6 +21,7 @@ export interface Model {
 }
 
 export interface Version {
+  _id?: string;
   price: number;
   version: string;
   category: string;
@@ -49,4 +50,16 @@ export interface TechnicalSheet {
   multimedia: { [key: string]: any };
   indoor_equipment: { [key: string]: any };
   functional_equipment: { [key: string]: any };
+}
+
+export interface AdComment {
+  _id: string;
+  uid: string;
+  user: any;
+  adId: string;
+  content: string;
+  answerTo: string;
+  createdAt?: Date;
+  updatedAt?: Date;
+  replies: Comment[];
 }
