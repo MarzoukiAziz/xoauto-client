@@ -1,0 +1,53 @@
+<section class="news-area">
+  <div class="container">
+    <div class="sec-title">
+      <h2>Dernières actualités</h2>
+      <div class="sub-title">
+        <p>Notre blog vous fournit toutes les mises à jour et les guides.</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xl-12">
+        <swiper-container
+          appSwiper
+          #swiper
+          [config]="swiperConfig"
+          thumbs-swiper=".mySwiper2"
+          (slidechange)="slideChange($event)"
+        >
+          <swiper-slide *ngFor="let art of articles">
+            <a routerLink="/blog/{{ art._id }}">
+              <div class="single-news-item fadeInUp">
+                <div class="img-holder">
+                  <div class="inner">
+                    <img src="{{ art.previewImg }}" alt="" />
+                  </div>
+
+                  <div class="category-date-box">
+                    <div class="category">
+                      <span>
+                        <i class="fa-solid fa-play"></i>
+                      </span>
+                      <h5>{{ art.category }}</h5>
+                    </div>
+                    <div class="date">
+                      <h5>{{ art.createdAt | date : "d MMM, y" }}</h5>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="text-holder">
+                  <h3 class="news-title">
+                    <a>
+                      {{ art.title }}
+                    </a>
+                  </h3>
+                </div>
+              </div>
+            </a>
+          </swiper-slide>
+        </swiper-container>
+      </div>
+    </div>
+  </div>
+</section>
