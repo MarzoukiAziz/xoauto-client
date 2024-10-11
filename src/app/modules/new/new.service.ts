@@ -16,6 +16,7 @@ export class NewService {
   private _model: BehaviorSubject<Model> = new BehaviorSubject(null);
   private _brand: BehaviorSubject<Brand> = new BehaviorSubject(null);
   private _adComments: BehaviorSubject<AdComment[]> = new BehaviorSubject([]);
+  private _similarAds: BehaviorSubject<Model[]> = new BehaviorSubject([]);
 
   comparator = '';
   sort = {
@@ -48,6 +49,9 @@ export class NewService {
 
   get adComments$(): Observable<AdComment[]> {
     return this._adComments.asObservable();
+  }
+  get similarAds$(): Observable<Model[]> {
+    return this._similarAds.asObservable();
   }
 
   getSettings(): Observable<NewSettings> {
@@ -126,6 +130,22 @@ export class NewService {
       .pipe(
         tap((response: AdComment[]) => {
           this._adComments.next(response);
+        })
+      );
+  }
+
+  getSimilars(category, model, price): Observable<Model[]> {
+    return this._httpClient
+      .get<Model[]>(`${this.apiUrl}/new-ads/similars`, {
+        params: {
+          category,
+          model,
+          price,
+        },
+      })
+      .pipe(
+        tap((response: any) => {
+          this._similarAds.next(response.ads);
         })
       );
   }
