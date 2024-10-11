@@ -28,6 +28,10 @@ const routes: Routes = [
         path: 'success-login',
         component: AuthCallbackComponent,
       },
+      {
+        path: '',
+        loadChildren: () => import('./modules/home/home.routes'),
+      },
     ],
   },
 ];
