@@ -19,8 +19,9 @@ export class AuthInterceptor implements HttpInterceptor {
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
     const loadingService = inject(LoadingService);
-    const notComment = !req.url.includes('comment');
-    if (notComment) {
+    const showLoader =
+      !req.url.includes('comment') && !req.url.includes('similars');
+    if (showLoader) {
       totalRequests++;
       loadingService.setLoading(true);
     }
@@ -33,7 +34,7 @@ export class AuthInterceptor implements HttpInterceptor {
 
       return next.handle(authReq).pipe(
         finalize(() => {
-          if (notComment) {
+          if (showLoader) {
             totalRequests--;
             if (totalRequests == 0) {
               loadingService.setLoading(false);
@@ -44,7 +45,7 @@ export class AuthInterceptor implements HttpInterceptor {
     }
     return next.handle(req).pipe(
       finalize(() => {
-        if (notComment) {
+        if (showLoader) {
           totalRequests--;
           if (totalRequests == 0) {
             loadingService.setLoading(false);
