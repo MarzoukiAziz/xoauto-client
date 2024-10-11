@@ -6,6 +6,7 @@ import { environment } from 'src/environments/environment';
 import { TechnicalSheetComponent } from '../components/technical-sheet/technical-sheet.component';
 import { GallerieComponent } from '../components/gallerie/gallerie.component';
 import { register } from 'swiper/element/bundle';
+import { ModelCommentsComponent } from '../components/model-comments/model-comments.component';
 register();
 
 @Component({
@@ -16,6 +17,7 @@ register();
     RouterLink,
     TechnicalSheetComponent,
     GallerieComponent,
+    ModelCommentsComponent,
   ],
   templateUrl: './model-detail.component.html',
   styleUrl: './model-detail.component.css',

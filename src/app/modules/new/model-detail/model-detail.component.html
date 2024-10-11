@@ -97,4 +97,9 @@
     [gallerie]="selected_version.photos"
     *ngIf="selected_nav == 'gallerie'"
   />
+
+  <new-model-comments
+    [versions]="versions"
+    *ngIf="selected_nav == 'comments'"
+  />
 </section>
