@@ -3,7 +3,7 @@ import { Brand } from '../../new/new.types';
 import { ActivatedRoute } from '@angular/router';
 import { BrandLogosComponent } from '../components/brand-logos/brand-logos.component';
 import { register } from 'swiper/element/bundle';
-import { LeatestNewsComponent } from '../components/leatest-news/leatest-news.component';
+import { LatestNewsComponent } from '../components/latest-news/latest-news.component';
 import { Article } from '../../blog/blog.types';
 import { MobileAppAdComponent } from '../components/mobile-app-ad/mobile-app-ad.component';
 import { Ad } from '../../ad/ad.types';
@@ -15,7 +15,7 @@ register();
   standalone: true,
   imports: [
     BrandLogosComponent,
-    LeatestNewsComponent,
+    LatestNewsComponent,
     MobileAppAdComponent,
     LatestAdsComponent,
   ],

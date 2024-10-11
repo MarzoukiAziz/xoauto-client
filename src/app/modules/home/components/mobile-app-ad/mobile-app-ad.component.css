@@ -1,0 +1,165 @@
+.slogan-area {
+  position: relative;
+  display: block;
+  background-color: rgb(26, 28, 35);
+}
+
+.slogan-content-box {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 75px 0;
+  z-index: 1;
+}
+
+.slogan-content-box-bg {
+  position: absolute;
+  top: 0;
+  left: 300px;
+  bottom: 0;
+  right: 100px;
+  background-attachment: scroll;
+  background-repeat: no-repeat;
+  background-position: top right;
+  background-size: cover;
+  background-color: #1a1c23;
+  background-image: url("/assets/images/icons/draw.png");
+  background-blend-mode: luminosity;
+  z-index: -1;
+}
+
+.slogan-content-box-bg:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: rgb(26, 28, 35);
+  background: linear-gradient(
+    270deg,
+    rgba(26, 28, 35, 1) 0%,
+    rgba(26, 28, 35, 1) 5%,
+    rgba(26, 28, 35, 0.4990371148459384) 40%,
+    rgba(26, 28, 35, 1) 95%,
+    rgba(26, 28, 35, 1) 100%
+  );
+}
+
+.slogan-content-box .inner-title {
+  position: relative;
+  display: block;
+}
+
+.slogan-content-box .inner-title h2 {
+  color: #ffffff;
+  font-size: 36px;
+  line-height: 46px;
+  font-weight: 500;
+  margin: 0 0 7px;
+}
+
+.slogan-content-box .inner-title p {
+  color: #b8b4b1;
+}
+
+.get-app-box {
+  position: relative;
+  display: block;
+}
+
+.get-app-box ul {
+  position: relative;
+  display: block;
+}
+
+.get-app-box ul li {
+  position: relative;
+  display: block;
+  float: left;
+  margin-right: 20px;
+}
+
+.get-app-box ul li:last-child {
+  margin-right: 0;
+}
+
+.get-app-box ul li a {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background-color: #f8f6f3;
+  padding: 16px 30px 17px;
+  transition: all 200ms linear;
+  transition-delay: 0.1s;
+  box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.05);
+}
+
+.get-app-box ul li a:hover {
+  background-color: var(--thm-base);
+}
+
+.get-app-box ul li a .icon {
+  width: 30px;
+  line-height: 0;
+}
+
+.get-app-box ul li a .icon i {
+  position: relative;
+  display: inline-block;
+  color: var(--thm-base);
+  font-size: 20px;
+  line-height: 20px;
+  transition: all 200ms linear;
+  transition-delay: 0.1s;
+}
+
+.get-app-box ul li a:hover .icon i {
+  color: #ffffff;
+}
+
+.get-app-box ul li a .text {
+  position: relative;
+  flex: 1;
+}
+
+.get-app-box ul li a .text h4 {
+  color: var(--thm-black);
+  font-size: 18px;
+  line-height: 22px;
+  font-weight: 500;
+  text-transform: capitalize;
+  transition: all 200ms linear;
+  transition-delay: 0.1s;
+}
+
+.get-app-box ul li a:hover .text h4 {
+  color: #ffffff;
+}
+
+.get-app-box ul li a.style2 {
+  background-color: var(--thm-base);
+}
+
+.get-app-box ul li a.style2 .icon i {
+  color: #ffffff;
+}
+
+.get-app-box ul li a.style2 .text h4 {
+  color: #ffffff;
+}
+
+.get-app-box ul li a.style2:hover {
+  background-color: #f8f6f3;
+}
+
+.get-app-box ul li a.style2:hover .icon i {
+  color: var(--thm-base);
+}
+
+.get-app-box ul li a.style2:hover .text h4 {
+  color: var(--thm-base);
+}
