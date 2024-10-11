@@ -3,18 +3,37 @@ import { SwiperOptions } from 'swiper/types';
 import { SwiperDirective } from 'src/app/shared/directives/swiper.directive';
 import { CommonModule } from '@angular/common';
 import { environment } from 'src/environments/environment';
-
+import { NewService } from '../../new.service';
+import { Model } from '../../new.types';
 @Component({
-  selector: 'similar-ads',
-  templateUrl: './similar-ads.component.html',
-  styleUrl: './similar-ads.component.css',
+  selector: 'new-similar-models',
   standalone: true,
   imports: [SwiperDirective, CommonModule],
+  templateUrl: './similar-models.component.html',
+  styleUrl: './similar-models.component.css',
 })
-export class SimilarAdsComponent {
-  @Input() similars: [];
+export class SimilarModelsComponent {
   currency = environment.CURRENCY;
+  @Input() price = 0;
+  @Input() model = '';
+  @Input() category = '';
 
+  similars = [];
+  loading = false;
+
+  constructor(private _newService: NewService) {}
+
+  ngOnInit(): void {
+    this.loading = true;
+    this._newService
+      .getSimilars(this.category, this.model, this.price)
+      .subscribe(() => {
+        this._newService.similarAds$.subscribe((similars: Model[]) => {
+          this.similars = similars;
+          this.loading = false;
+        });
+      });
+  }
   swiperConfig: SwiperOptions = {
     spaceBetween: 10,
     autoplay: {

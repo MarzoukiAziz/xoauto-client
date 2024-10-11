@@ -19,8 +19,12 @@ export class AuthInterceptor implements HttpInterceptor {
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
     const loadingService = inject(LoadingService);
-    totalRequests++;
-    loadingService.setLoading(true);
+    const showLoader =
+      !req.url.includes('comment') && !req.url.includes('similars');
+    if (showLoader) {
+      totalRequests++;
+      loadingService.setLoading(true);
+    }
     const authToken = this.authService.getAccessToken();
     const notCloudinary = !req.url.includes('https://api.cloudinary.com');
     if (authToken && notCloudinary) {
@@ -30,18 +34,22 @@ export class AuthInterceptor implements HttpInterceptor {
 
       return next.handle(authReq).pipe(
         finalize(() => {
-          totalRequests--;
-          if (totalRequests == 0) {
-            loadingService.setLoading(false);
+          if (showLoader) {
+            totalRequests--;
+            if (totalRequests == 0) {
+              loadingService.setLoading(false);
+            }
           }
         })
       );
     }
     return next.handle(req).pipe(
       finalize(() => {
-        totalRequests--;
-        if (totalRequests == 0) {
-          loadingService.setLoading(false);
+        if (showLoader) {
+          totalRequests--;
+          if (totalRequests == 0) {
+            loadingService.setLoading(false);
+          }
         }
       })
     );

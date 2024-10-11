@@ -1,0 +1,29 @@
+<div class="mx-2">
+  <swiper-container
+    #swiper
+    appSwiper
+    class="mySwiper"
+    thumbs-swiper=".mySwiper2"
+    space-between="10"
+    pagination="true"
+    navigation="true"
+  >
+    <swiper-slide *ngFor="let im of gallerie">
+      <img class="big-img" [src]="im" />
+    </swiper-slide>
+  </swiper-container>
+
+  <swiper-container
+    #swiper
+    appSwiper
+    class="mySwiper2"
+    space-between="10"
+    slides-per-view="4"
+    free-mode="true"
+    watch-slides-progress="true"
+  >
+    <swiper-slide *ngFor="let im of gallerie">
+      <img [src]="im" />
+    </swiper-slide>
+  </swiper-container>
+</div>

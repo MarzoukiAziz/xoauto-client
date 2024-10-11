@@ -1,0 +1,167 @@
+@if(loading){
+<div class="d-flex flex-column align-items-center justify-content-center p-5">
+  <mat-spinner></mat-spinner>
+  <br />
+  <span>Chargement ...</span>
+</div>
+}@else{
+<div class="comment-box">
+  <div class="outer-box">
+    <div class="row">
+      <div class="col-md-12">
+        <!-- Loop through Comments -->
+        @for (comment of comments; track $index) {
+        <div class="single-comment">
+          <!-- Display Main Comments -->
+          <div *ngIf="!comment.answerTo" class="inner">
+            <!-- Main Comment Box -->
+            <div class="single-comment-box">
+              <!-- User Avatar -->
+              <div class="img-holder">
+                <img
+                  [src]="
+                    comment.user.avatar ?? 'assets/images/icons/user-1.jpg'
+                  "
+                  alt="User Avatar"
+                />
+              </div>
+              <!-- Comment Text Holder -->
+              <div class="text-holder">
+                <!-- Comment Author and Date -->
+                <div class="top">
+                  <h3>
+                    {{ comment.user.name
+                    }}<span>
+                      {{ comment.createdAt | date : "d MMM, y hh:mm" }}</span
+                    >
+                  </h3>
+                </div>
+                <!-- Comment Text -->
+                <div class="text">
+                  <p>
+                    {{ comment.content }}
+                  </p>
+                  <!-- Reply Button -->
+                  <div
+                    class="reply"
+                    *ngIf="selectedCommentToReply != comment._id && connected"
+                  >
+                    <a (click)="answerSelectedComment(comment._id)"
+                      ><span class="icon-reply"></span> Répondre</a
+                    >
+                  </div>
+                </div>
+              </div>
+
+              @for (reply of comments; track $index) {
+              @if(reply.answerTo==comment._id){
+              <div class="comments-reply-box">
+                <hr />
+                <div class="d-flex">
+                  <div class="img-reply">
+                    <img
+                      [src]="
+                        reply.user.avatar ?? 'assets/images/icons/user-1.jpg'
+                      "
+                    />
+                  </div>
+                  <div class="text-holder">
+                    <div class="top">
+                      <h3>
+                        {{ reply.user.name
+                        }}<span>{{
+                          reply.createdAt | date : "d MMM, y hh:mm"
+                        }}</span>
+                      </h3>
+                    </div>
+                    <div class="text">
+                      <p>
+                        {{ reply.content }}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              } }
+              <!-- Reply Input Box -->
+              <div style="padding-left: 30px">
+                <div
+                  class="reply-box"
+                  *ngIf="selectedCommentToReply == comment._id"
+                >
+                  <a (click)="closeAnswer()">
+                    <img
+                      style="height: 18px; width: 18px"
+                      src="assets/images/icons/close.png"
+                      alt=""
+                    />
+                  </a>
+                  <textarea
+                    id="c{{ comment._id }}"
+                    class="comment-reply"
+                    name="fcomments"
+                    placeholder=""
+                    required=""
+                  ></textarea>
+                  <!-- Post Reply Button -->
+                  <button (click)="postComment()">
+                    <span class="txt">Postuler</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        }
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Add Comment Box -->
+<div
+  class="add-comment-box mb-3"
+  *ngIf="connected && selectedCommentToReply == ''"
+>
+  <div class="inner-title">
+    <h5>Laisser un commentaire</h5>
+  </div>
+  <!-- Comment Input Form -->
+  <div id="add-comment-form" class="row">
+    <div class="col-xl-12">
+      <div class="row">
+        <div class="col-xl-12">
+          <div class="input-box">
+            <textarea
+              id="comment-box"
+              rows="10"
+              name="fcomments"
+              placeholder=""
+              required=""
+            ></textarea>
+          </div>
+        </div>
+      </div>
+      <!-- Comment Submit Button -->
+      <div class="row">
+        <div class="col-md-12">
+          <div class="button-box">
+            <button
+              id="postuler"
+              class="btn-one"
+              type="submit"
+              (click)="postComment()"
+            >
+              <span class="txt">Postuler</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Display Message for Non-Connected Users -->
+<div *ngIf="!connected" class="must-connect">
+  <p>Vous devez vous connecter pour pouvoir commenter!</p>
+</div>
+}

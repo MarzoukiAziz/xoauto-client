@@ -1,0 +1,111 @@
+<title>Prix {{ model.brand }} {{ model.model }}</title>
+
+<section class="container my-3">
+  <div class="card">
+    <a routerLink="/new/models/{{ brand.name }}"
+      ><img
+        class="brand-logo"
+        src="assets/images/brands/{{ brand.icon }}"
+        alt="brand icon"
+      />
+    </a>
+    <div class="model-image">
+      <div class="row">
+        <img
+          [src]="selected_version.preview"
+          [alt]="model.brand + ' ' + model.model + ' preview'"
+        />
+        <h1 class="model-name title">
+          {{ model.brand | uppercase }} {{ model.model | uppercase }}
+        </h1>
+      </div>
+    </div>
+    <div class="model-info" class="versions">
+      <h3 *ngIf="versions.length > 1" class="model-slogan">Versions:</h3>
+      <h3 *ngIf="versions.length == 1" class="model-slogan">
+        Une Seule Version :
+      </h3>
+
+      <ul class="preferences">
+        <li
+          *ngFor="let version of versions"
+          [ngClass]="{ selected: selected_version.version == version.version }"
+          (click)="changeVersion(version)"
+        >
+          {{ version.version }}
+          <span class="finition-price">
+            {{ version.price | number : "1.0-0" }} {{ currency }}</span
+          >
+        </li>
+        <!-- <button
+            *ngIf="comparateur.indexOf(fin['_id']) === -1"
+            class="add-comp"
+            (click)="addToCompare()"
+          >
+            <img src="/assets/images/icon/compare.png" /> Ajouter Au Comparateur
+          </button> -->
+        <!-- <button
+            *ngIf="comparateur.indexOf(fin['_id']) != -1"
+            class="ret-comp"
+            (click)="removeFromCompare()"
+          >
+            <img src="/assets/images/icon/retirer.png" /> Retirer Du Comparateur
+          </button> -->
+      </ul>
+    </div>
+  </div>
+  <div class="row d-flex justify-content-center my-4 mx-1">
+    <div
+      class="btn-details col-xl-3 col-l-3 col-md-6 col-sm-6 col-xs-6"
+      [ngClass]="{ opt: selected_nav == 'details' }"
+      (click)="changeNav('details')"
+    >
+      <img class="btn-details-img" src="/assets/images/icons/details.png" />
+      <p>FICHE TECHNIQUE</p>
+    </div>
+    <div
+      class="btn-details col-xl-3 col-l-3 col-md-6 col-sm-6 col-xs-6"
+      [ngClass]="{ opt: selected_nav == 'gallerie' }"
+      (click)="changeNav('gallerie')"
+    >
+      <img class="btn-details-img" src="/assets/images/icons/gallerie.png" />
+      <p>GALLERIE</p>
+    </div>
+    <div
+      class="btn-details col-xl-3 col-l-3 col-md-6 col-sm-6 col-xs-6"
+      [ngClass]="{ opt: selected_nav == 'comments' }"
+      (click)="changeNav('comments')"
+    >
+      <img class="btn-details-img" src="/assets/images/icons/chat.png" />
+      <p>Commentaires</p>
+    </div>
+
+    <div
+      class="btn-details col-xl-3 col-l-3 col-md-6 col-sm-6 col-xs-6"
+      [ngClass]="{ opt: selected_nav == 'similar_models' }"
+      (click)="changeNav('similar_models')"
+    >
+      <img class="btn-details-img" src="/assets/images/icons/others.png" />
+      <p>MODÈLES SIMILAIRES</p>
+    </div>
+  </div>
+  <new-technical-sheet
+    [technical_sheet]="selected_version.technical_sheet"
+    *ngIf="selected_nav == 'details'"
+  />
+  <new-gallerie
+    [gallerie]="selected_version.photos"
+    *ngIf="selected_nav == 'gallerie'"
+  />
+
+  <new-model-comments
+    [versions]="versions"
+    *ngIf="selected_nav == 'comments'"
+  />
+  <new-similar-models
+    [price]="selected_version.price"
+    [category]="selected_version.category"
+    [model]="model.model"
+    *ngIf="selected_nav == 'similar_models'"
+  />
+</section>

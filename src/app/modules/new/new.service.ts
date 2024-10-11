@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, tap } from 'rxjs';
-import { Brand, Model, NewSettings } from './new.types';
+import { AdComment, Brand, Model, NewSettings } from './new.types';
 import { HttpClient } from '@angular/common/http';
 import { CookieService } from 'ngx-cookie-service';
 import { environment } from 'src/environments/environment';
@@ -15,6 +15,8 @@ export class NewService {
   private _models: BehaviorSubject<Model[]> = new BehaviorSubject([]);
   private _model: BehaviorSubject<Model> = new BehaviorSubject(null);
   private _brand: BehaviorSubject<Brand> = new BehaviorSubject(null);
+  private _adComments: BehaviorSubject<AdComment[]> = new BehaviorSubject([]);
+  private _similarAds: BehaviorSubject<Model[]> = new BehaviorSubject([]);
 
   comparator = '';
   sort = {
@@ -45,6 +47,13 @@ export class NewService {
     return this._brand.asObservable();
   }
 
+  get adComments$(): Observable<AdComment[]> {
+    return this._adComments.asObservable();
+  }
+  get similarAds$(): Observable<Model[]> {
+    return this._similarAds.asObservable();
+  }
+
   getSettings(): Observable<NewSettings> {
     return this._httpClient
       .get<NewSettings>(`${this.apiUrl}/settings/new-details`)
@@ -72,7 +81,7 @@ export class NewService {
 
   getModel(brand: string, model: string): Observable<Model> {
     return this._httpClient
-      .get<Model>(`${this.apiUrl}/new-ads/model`, {
+      .get<Model>(`${this.apiUrl}/new-ads/brand`, {
         params: {
           brand,
           model,
@@ -91,6 +100,52 @@ export class NewService {
       .pipe(
         tap((response: Brand) => {
           this._brand.next(response);
+        })
+      );
+  }
+
+  // Get Comments
+  getAdComments(versions: string[]): Observable<AdComment[]> {
+    return this._httpClient
+      .get<AdComment[]>(this.apiUrl + '/ad-comment/model/', {
+        params: {
+          versions,
+        },
+      })
+      .pipe(
+        tap((response: AdComment[]) => {
+          this._adComments.next(response);
+        })
+      );
+  }
+
+  // Create Comment
+  createComment(AdComment, versions: string[]): Observable<any> {
+    return this._httpClient
+      .post(this.apiUrl + '/ad-comment', AdComment, {
+        params: {
+          versions,
+        },
+      })
+      .pipe(
+        tap((response: AdComment[]) => {
+          this._adComments.next(response);
+        })
+      );
+  }
+
+  getSimilars(category, model, price): Observable<Model[]> {
+    return this._httpClient
+      .get<Model[]>(`${this.apiUrl}/new-ads/similars`, {
+        params: {
+          category,
+          model,
+          price,
+        },
+      })
+      .pipe(
+        tap((response: any) => {
+          this._similarAds.next(response.ads);
         })
       );
   }

@@ -1,3 +1,10 @@
+@if(loading){
+<div class="d-flex flex-column align-items-center justify-content-center p-5">
+  <mat-spinner></mat-spinner>
+  <br />
+  <span>Chargement ...</span>
+</div>
+}@else{
 <swiper-container
   appSwiper
   #swiper
@@ -7,20 +14,21 @@
   @for (s of similars; track $index) {
   <swiper-slide>
     <div class="similar-item similar-item--style2">
-      <a href="/ad/detail/{{ s._id }}">
+      <a href="/new/{{ s.brand }}/{{ s.model }}">
         <div class="img-box">
           <div class="img-box-inner">
-            <img src="{{ s.photos[0] }}" alt="" />
+            <img src="{{ s.versions[0].preview }}" alt="" />
           </div>
         </div>
         <div class="d-flex flex-column align-items-center">
           <div class="title d-flex flex-column justify-content-center">
             <h6>
-              <a>{{ s.brand }} {{ s.model }} {{ s.version }}</a>
+              <a>{{ s.brand }} {{ s.model }} {{ s.versions[0].version }}</a>
             </h6>
           </div>
           <p class="price">
-            <span class="starting"></span> {{ s.price | number : "1.0-0" }}
+            <span class="starting"></span>
+            {{ s.versions[0].price | number : "1.0-0" }}
             {{ currency }}
           </p>
         </div>
@@ -28,3 +36,4 @@
     </div> </swiper-slide
   >}
 </swiper-container>
+}

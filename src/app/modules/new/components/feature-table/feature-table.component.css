@@ -1,0 +1,30 @@
+.title {
+  background-color: #6e1d25;
+  color: white;
+  padding: 8px 15px;
+  font-size: 1.3rem;
+  border-radius: 5px;
+  margin: 10px 0px;
+}
+.ictf {
+  height: 22px;
+}
+.green {
+  color: rgb(6, 56, 6);
+}
+th {
+  float: left;
+}
+
+td {
+  float: right;
+}
+
+tr {
+  width: 100%;
+  border-bottom: 1px solid var(--bs-gray-dark);
+}
+
+table {
+  width: -webkit-fill-available;
+}

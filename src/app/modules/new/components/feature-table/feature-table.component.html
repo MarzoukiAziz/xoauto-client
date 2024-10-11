@@ -1,0 +1,14 @@
+<div>
+  <h2 class="title">
+    <img class="ictf" [src]="'/assets/images/icons/' + iconPath" /> {{ title }}
+  </h2>
+  <table>
+    <tr *ngFor="let feature of features | keyvalue">
+      <th>{{ feature.key }}</th>
+      <td *ngIf="feature.value !== true">{{ feature.value }}</td>
+      <td *ngIf="feature.value === true" class="green">
+        <i class="fa-solid fa-check"></i>
+      </td>
+    </tr>
+  </table>
+</div>

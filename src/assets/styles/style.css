@@ -1885,34 +1885,34 @@ animation: spinner 1s infinite linear;
   z-index: 10;
 }
 
-.single-wealth-secure-box {
+.similar-item {
   position: relative;
   display: block;
   padding-right: 10px;
   margin-left: 10px;
 }
 
-.single-wealth-secure-box .img-box {
+.similar-item .img-box {
   position: relative;
   display: block;
 }
 
-.single-wealth-secure-box .img-box-inner {
+.similar-item .img-box-inner {
   position: relative;
   display: block;
   overflow: hidden;
 }
 
-.single-wealth-secure-box .img-box img {
+.similar-item .img-box img {
   width: 100%;
   mix-blend-mode: luminosity;
 }
 
-.single-wealth-secure-box:hover .img-box img {
+.similar-item:hover .img-box img {
   mix-blend-mode: normal;
 }
 
-.single-wealth-secure-box .inner-title {
+.similar-item .inner-title {
   position: absolute;
   left: 30px;
   bottom: 30px;
@@ -1939,13 +1939,13 @@ animation: spinner 1s infinite linear;
   );
 }
 
-.single-wealth-secure-box:hover .inner-title {
+.similar-item:hover .inner-title {
   justify-content: flex-start;
   transition: all 200ms linear;
   transition-delay: 0.1s;
 }
 
-.single-wealth-secure-box.style2 .inner-title {
+.similar-item.style2 .inner-title {
   background-image: -moz-linear-gradient(
     180deg,
     rgb(19, 159, 206) 0%,
@@ -1963,7 +1963,7 @@ animation: spinner 1s infinite linear;
   );
 }
 
-.single-wealth-secure-box.style3 .inner-title {
+.similar-item.style3 .inner-title {
   background-image: -moz-linear-gradient(
     180deg,
     rgb(51, 127, 201) 20%,
@@ -1981,7 +1981,7 @@ animation: spinner 1s infinite linear;
   );
 }
 
-.single-wealth-secure-box.style4 .inner-title {
+.similar-item.style4 .inner-title {
   background-image: -moz-linear-gradient(
     180deg,
     rgb(82, 93, 191) 20%,
@@ -1999,7 +1999,7 @@ animation: spinner 1s infinite linear;
   );
 }
 
-.single-wealth-secure-box .inner-title h3 {
+.similar-item .inner-title h3 {
   position: relative;
   font-size: 22px;
   line-height: 26px;
@@ -2007,11 +2007,11 @@ animation: spinner 1s infinite linear;
   z-index: 1;
 }
 
-.single-wealth-secure-box .inner-title h3 a {
+.similar-item .inner-title h3 a {
   color: #ffffff;
 }
 
-.single-wealth-secure-box .inner-title .arrow-top {
+.similar-item .inner-title .arrow-top {
   position: absolute;
   top: 0;
   right: 60px;
@@ -2026,11 +2026,11 @@ animation: spinner 1s infinite linear;
   transform-origin: top;
 }
 
-.single-wealth-secure-box:hover .inner-title .arrow-top {
+.similar-item:hover .inner-title .arrow-top {
   transform: scale(0);
 }
 
-.single-wealth-secure-box .inner-title .arrow-bottom {
+.similar-item .inner-title .arrow-bottom {
   position: absolute;
   right: 90px;
   bottom: 0;
@@ -2045,11 +2045,11 @@ animation: spinner 1s infinite linear;
   transform-origin: bottom;
 }
 
-.single-wealth-secure-box:hover .inner-title .arrow-bottom {
+.similar-item:hover .inner-title .arrow-bottom {
   transform: scale(0);
 }
 
-.single-wealth-secure-box .inner-title .right-arrow-btn {
+.similar-item .inner-title .right-arrow-btn {
   position: relative;
   display: block;
   line-height: 0;
@@ -2057,11 +2057,11 @@ animation: spinner 1s infinite linear;
   transition-delay: 0.1s;
 }
 
-.single-wealth-secure-box:hover .inner-title .right-arrow-btn {
+.similar-item:hover .inner-title .right-arrow-btn {
   padding-left: 10px;
 }
 
-.single-wealth-secure-box .inner-title .right-arrow-btn a {
+.similar-item .inner-title .right-arrow-btn a {
   position: relative;
   display: inline-block;
   color: #ffffff;
@@ -2069,7 +2069,7 @@ animation: spinner 1s infinite linear;
   line-height: 20px;
 }
 
-.single-wealth-secure-box .text-box {
+.similar-item .text-box {
   position: relative;
   display: block;
   background-color: #ffffff;
@@ -2165,10 +2165,10 @@ animation: spinner 1s infinite linear;
   z-index: 10;
 }
 
-.single-wealth-secure-box--style2 {
+.similar-item--style2 {
 }
 
-.single-wealth-secure-box--style2 .inner-title {
+.similar-item--style2 .inner-title {
   background-color: #ffffff;
   background-image: none;
   left: 20px;
@@ -2177,26 +2177,26 @@ animation: spinner 1s infinite linear;
   padding: 17px 20px 17px;
 }
 
-.single-wealth-secure-box--style2 .inner-title h3 a {
+.similar-item--style2 .inner-title h3 a {
   color: var(--thm-black);
 }
 
-.single-wealth-secure-box--style2 .text-box {
+.similar-item--style2 .text-box {
   position: relative;
   padding: 28px 20px 27px;
 }
 
-.single-wealth-secure-box--style2 .text-box p {
+.similar-item--style2 .text-box p {
   color: #797c7f;
 }
 
-.single-wealth-secure-box--style2 .text-box ul {
+.similar-item--style2 .text-box ul {
   position: relative;
   display: block;
   padding-top: 14px;
 }
 
-.single-wealth-secure-box--style2 .text-box ul li {
+.similar-item--style2 .text-box ul li {
   position: relative;
   display: block;
   padding-left: 25px;
@@ -2205,11 +2205,11 @@ animation: spinner 1s infinite linear;
   margin-bottom: 2px;
 }
 
-.single-wealth-secure-box--style2 .text-box ul li:last-child {
+.similar-item--style2 .text-box ul li:last-child {
   margin-bottom: 0;
 }
 
-.single-wealth-secure-box--style2 .text-box ul li:before {
+.similar-item--style2 .text-box ul li:before {
   font-family: "icomoon" !important;
   position: absolute;
   top: 10px;
