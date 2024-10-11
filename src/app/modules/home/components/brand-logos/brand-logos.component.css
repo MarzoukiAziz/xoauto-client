@@ -1,0 +1,75 @@
+.brand-area__sec-title h3 {
+  color: white;
+}
+
+.brand-area {
+  background-color: var(--bs-body-color);
+  position: relative;
+  display: block;
+  padding: 80px 0 80px;
+  border-top: 1px solid #ffffff;
+  z-index: 10;
+}
+
+.brand-area__sec-title {
+  position: relative;
+  display: block;
+  text-align: center;
+  padding-bottom: 42px;
+}
+
+.brand-area__sec-title h3 {
+  font-size: 22px;
+  line-height: 30px;
+}
+
+.brand-content {
+  position: relative;
+  display: block;
+}
+
+.single-brand-logo-box {
+  position: relative;
+  display: block;
+  text-align: center;
+  z-index: 1;
+}
+
+.single-brand-logo-box a {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 15px 0;
+}
+
+.single-brand-logo-box a img {
+  position: relative;
+  display: inline-block !important;
+  opacity: 1;
+  width: auto !important;
+  transition: all 0.2s ease-in-out 0.1s;
+}
+
+.single-brand-logo-box:hover a img {
+  opacity: 1;
+  transition: all 0.8s ease-in-out 0.1s;
+}
+
+.brand-style2-area {
+  position: relative;
+  display: block;
+  background: #ffffff;
+  padding: 100px 0 100px;
+  border-top: 1px solid #e6eced;
+  z-index: 10;
+}
+
+.brand-style2-area .single-brand-logo-box {
+  border: 1px solid rgba(var(--thm-black-rgb), 0.05);
+}
+
+.brand-style2-area .single-brand-logo-box:before {
+  background: var(--thm-black);
+}

@@ -1,0 +1,30 @@
+<section class="brand-area">
+  <div class="container">
+    <div class="brand-area__sec-title">
+      <h3>
+        Découvrez la variété de modèles offerts par les marques de véhicules
+        neufs.
+      </h3>
+    </div>
+
+    <div class="brand-content">
+      <swiper-container
+        appSwiper
+        #swiper
+        [config]="swiperConfig"
+        thumbs-swiper=".mySwiper2"
+        (slidechange)="slideChange($event)"
+      >
+        <swiper-slide *ngFor="let brand of brands">
+          <div class="single-brand-logo-box">
+            <a routerLink="/new/models/{{ brand.name }}"
+              ><img
+                src="assets/images/brands/{{ brand.icon }}"
+                alt="{{ brand.name }} logo"
+            /></a>
+          </div>
+        </swiper-slide>
+      </swiper-container>
+    </div>
+  </div>
+</section>

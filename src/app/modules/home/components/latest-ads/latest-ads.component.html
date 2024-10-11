@@ -1,0 +1,57 @@
+<section class="latest-ads-area">
+  <div class="container">
+    <div class="sec-title">
+      <h2>Découvrez nos annonces du jour</h2>
+      <div class="sub-title">
+        <p>
+          Ne manquez pas l'occasion de trouver la voiture de vos rêves à des
+          prix convenables.
+        </p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-xl-12">
+        <swiper-container
+          appSwiper
+          #swiper
+          [config]="swiperConfig"
+          thumbs-swiper=".mySwiper2"
+          (slidechange)="slideChange($event)"
+        >
+          <swiper-slide *ngFor="let ad of ads">
+            <div class="single-latest-ad-box">
+              <div class="img-box">
+                <div class="img-box-inner">
+                  <img src="{{ ad.photos[0] }}" alt="" />
+                </div>
+
+                <div class="inner-title">
+                  <h3>
+                    <a href="/ad/detail/{{ ad._id }}"
+                      >{{ ad.brand }} {{ ad.model }} {{ ad.version }}</a
+                    >
+                  </h3>
+                </div>
+              </div>
+
+              <div class="text-box">
+                <h5
+                  style="color: var(--bs-green); text-align: right"
+                  class="mb-0 text-md-primary"
+                >
+                  {{ ad.price | number : "1.0-0" }} {{ currency }}
+                </h5>
+                <ul>
+                  <li>{{ ad.fuel_type }}</li>
+                  <li>Année: {{ ad.first_registration.year }}</li>
+                  <li>Km: {{ ad.mileage | number : "1.0-0" }}</li>
+                </ul>
+              </div>
+            </div>
+          </swiper-slide>
+        </swiper-container>
+      </div>
+    </div>
+  </div>
+</section>
