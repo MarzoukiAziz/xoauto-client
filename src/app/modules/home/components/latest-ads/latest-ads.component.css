@@ -1,0 +1,122 @@
+.img-box-inner img {
+  height: 500px;
+  object-fit: cover;
+}
+
+.single-latest-ad-box {
+  position: relative;
+  display: block;
+  padding-right: 10px;
+  margin-left: 10px;
+}
+
+.single-latest-ad-box .img-box {
+  position: relative;
+  display: block;
+}
+
+.single-latest-ad-box .img-box-inner {
+  position: relative;
+  display: block;
+  overflow: hidden;
+}
+
+.single-latest-ad-box .img-box img {
+  width: 100%;
+  mix-blend-mode: luminosity;
+}
+
+.single-latest-ad-box:hover .img-box img {
+  mix-blend-mode: normal;
+}
+
+.single-latest-ad-box .inner-title {
+  position: absolute;
+  left: 30px;
+  bottom: 30px;
+  right: -30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 17px 30px 17px;
+  box-shadow: 0px 20px 20px 0px rgba(0, 0, 0, 0.1);
+  background-image: -moz-linear-gradient(
+    180deg,
+    rgb(138, 15, 61) 0%,
+    rgb(207, 23, 60) 100%
+  );
+  background-image: -webkit-linear-gradient(
+    180deg,
+    rgb(138, 15, 61) 0%,
+    rgb(207, 23, 60) 100%
+  );
+  background-image: -ms-linear-gradient(
+    180deg,
+    rgb(138, 15, 61) 0%,
+    rgb(207, 23, 60) 100%
+  );
+}
+.single-latest-ad-box:hover .inner-title {
+  justify-content: flex-start;
+  transition: all 200ms linear;
+  transition-delay: 0.1s;
+}
+
+.single-latest-ad-box .inner-title h3 {
+  position: relative;
+  font-size: 22px;
+  line-height: 26px;
+  font-weight: 500;
+  z-index: 1;
+}
+
+.single-latest-ad-box .inner-title h3 a {
+  color: #ffffff;
+}
+
+.single-latest-ad-box .text-box {
+  position: relative;
+  display: block;
+  background-color: #ffffff;
+  padding: 23px 30px 23px;
+  box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.12);
+}
+
+.latest-ads-area {
+  position: relative;
+  display: block;
+  background-color: #f5f8f7;
+  padding: 100px 0 100px;
+  border-bottom: 1px solid #e1e6e5;
+  z-index: 10;
+}
+
+.single-latest-ad-box .text-box ul {
+  position: relative;
+  display: block;
+  padding-top: 14px;
+}
+
+.single-latest-ad-box .text-box ul li {
+  position: relative;
+  display: block;
+  padding-left: 25px;
+  color: #797c7f;
+  line-height: 30px;
+  margin-bottom: 2px;
+}
+
+.single-latest-ad-box .text-box ul li:last-child {
+  margin-bottom: 0;
+}
+
+.single-latest-ad-box .text-box ul li:before {
+  font-family: "icomoon" !important;
+  position: absolute;
+  top: 10px;
+  left: 0;
+  content: "\ea06";
+  font-size: 12px;
+  line-height: 12px;
+  color: #abacaf;
+}

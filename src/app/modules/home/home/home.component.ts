@@ -7,7 +7,7 @@ import { LeatestNewsComponent } from '../components/leatest-news/leatest-news.co
 import { Article } from '../../blog/blog.types';
 import { MobileAppAdComponent } from '../components/mobile-app-ad/mobile-app-ad.component';
 import { Ad } from '../../ad/ad.types';
-import { LeatestAdsComponent } from '../components/leatest-ads/leatest-ads.component';
+import { LatestAdsComponent } from '../components/latest-ads/latest-ads.component';
 
 register();
 @Component({
@@ -17,7 +17,7 @@ register();
     BrandLogosComponent,
     LeatestNewsComponent,
     MobileAppAdComponent,
-    LeatestAdsComponent,
+    LatestAdsComponent,
   ],
   templateUrl: './home.component.html',
 })
