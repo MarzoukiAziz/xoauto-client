@@ -27,7 +27,6 @@ export class AdService {
   private _count: BehaviorSubject<number> = new BehaviorSubject(0);
   private _settings: BehaviorSubject<Settings> = new BehaviorSubject(null);
 
-  comparator = '';
   currentPage = 1;
 
   // filters:
@@ -54,12 +53,9 @@ export class AdService {
 
   constructor(
     private _httpClient: HttpClient,
-    private cookieService: CookieService,
     private _auth: AuthService,
     private cloud: CloudinaryUploadService
-  ) {
-    this.comparator = this.cookieService.get('comparator-used');
-  }
+  ) {}
 
   // Accessors
   get ads$(): Observable<Ad[]> {
@@ -80,6 +76,10 @@ export class AdService {
 
   get settings$(): Observable<Settings> {
     return this._settings.asObservable();
+  }
+
+  get comparator(): string {
+    return localStorage.getItem('comparator-used') || '';
   }
 
   // @ Public methods
@@ -202,27 +202,26 @@ export class AdService {
   }
 
   addToCompare(id) {
-    const cookieValue = this.cookieService.get('comparator-used');
-    let arr = cookieValue.split(',');
-    let value = '';
-    if (arr.indexOf(id) == -1) {
-      if (cookieValue == '') {
-        value = id;
-      } else {
-        value = cookieValue + ',' + id;
-      }
-      this.cookieService.set('comparator-used', value);
-      this.comparator = value;
+    let comparatorArray = this.comparator ? this.comparator.split(',') : [];
+
+    if (!comparatorArray.includes(id)) {
+      comparatorArray.push(id);
+      localStorage.setItem('comparator-used', comparatorArray.join(','));
     }
   }
 
-  removeFromCompare(id) {
-    let cookieValue = this.cookieService.get('comparator-used');
-    let arr = cookieValue.split(',');
-    arr = arr.filter((item) => item !== id);
-    const value = arr.join(',');
-    this.cookieService.set('comparator-used', value);
-    this.comparator = value;
+  removeFromCompare(id: string) {
+    let comparatorArray = this.comparator ? this.comparator.split(',') : [];
+
+    // Filter out the id
+    comparatorArray = comparatorArray.filter((item) => item !== id);
+    localStorage.setItem('comparator-used', comparatorArray.join(','));
+
+    // Update _versions subject after filtering
+    const filteredVersions = this._ads
+      .getValue()
+      .filter((version) => version._id !== id);
+    this._ads.next(filteredVersions);
   }
 
   resetFilters() {
