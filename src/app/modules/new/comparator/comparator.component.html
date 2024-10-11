@@ -1,0 +1,257 @@
+<title>Comparateur des voitures</title>
+<breadcrumb
+  title="Comparateur"
+  backgroundImgPath="assets/images/backgrounds/comp.jpg"
+/>
+
+<no-ads
+  message="Ajouter des voitures ici pour faire la comparaison!"
+  *ngIf="versions.length == 0"
+/>
+{{ versions.length }}
+<section>
+  <div *ngIf="versions.length > 0">
+    <div class="container pb-5 mb-2">
+      <div class="comparison-table">
+        <table id="comp-table" class="table table-bordered">
+          <thead class="bg-secondary">
+            <tr>
+              <td class="align-middle"></td>
+              <td *ngFor="let version of versions">
+                <div
+                  class="comparison-item"
+                  [style]="
+                    'background-image:url(' +
+                    version.preview +
+                    ');background-size:cover;'
+                  "
+                >
+                  <img
+                    src="assets/images/icons/delete.png"
+                    (click)="removeFromComparator(version._id)"
+                    class="remove-item"
+                  />
+
+                  <a
+                    routerLink="/new/{{ version.brand }}/{{ version.model }}"
+                    class="comparison-item-title"
+                    >{{ version.brand }} {{ version.model }} <br />
+                    {{ version.version }}</a
+                  >
+                </div>
+              </td>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="price-section">
+              <th>Prix</th>
+              <td *ngFor="let version of versions">
+                {{ version.price | number : "1.0-0" }} {{ currency }}
+              </td>
+            </tr>
+
+            <tr class="section">
+              <th>Caractéristiques</th>
+            </tr>
+            @for (eq of features; track $index) {
+            <tr [class.bg-grey]="$index % 2 == 0">
+              <th>{{ eq }}</th>
+              <td *ngFor="let version of versions">
+                @if( version.technical_sheet.features[eq] === true) {
+                <i class="fa-solid fa-check"></i>
+                } @else if (version.technical_sheet.features[eq]) {
+                {{ version.technical_sheet.features[eq] }}
+                } @else { - }
+              </td>
+            </tr>
+            }
+
+            <tr class="section">
+              <th>Moteur</th>
+            </tr>
+            @for (eq of motor; track $index) {
+            <tr [class.bg-grey]="$index % 2 == 0">
+              <th>{{ eq }}</th>
+              <td *ngFor="let version of versions">
+                @if( version.technical_sheet.motor[eq] === true) {
+                <i class="fa-solid fa-check"></i>
+                } @else if (version.technical_sheet.motor[eq]) {
+                {{ version.technical_sheet.motor[eq] }}
+                } @else { - }
+              </td>
+            </tr>
+            }
+
+            <!-- Transmission Section -->
+            <tr class="section">
+              <th>Transmission</th>
+            </tr>
+            @for (eq of transmission; track $index) {
+            <tr [class.bg-grey]="$index % 2 == 0">
+              <th>{{ eq }}</th>
+              <td *ngFor="let version of versions">
+                @if(version.technical_sheet.transmission[eq] === true) {
+                <i class="fa-solid fa-check"></i>
+                } @else if (version.technical_sheet.transmission[eq]) {
+                {{ version.technical_sheet.transmission[eq] }}
+                } @else { - }
+              </td>
+            </tr>
+            }
+
+            <!-- Dimensions Section -->
+            <tr class="section">
+              <th>Dimensions</th>
+            </tr>
+            @for (eq of dimensions; track $index) {
+            <tr [class.bg-grey]="$index % 2 == 0">
+              <th>{{ eq }}</th>
+              <td *ngFor="let version of versions">
+                @if(version.technical_sheet.dimensions[eq] === true) {
+                <i class="fa-solid fa-check"></i>
+                } @else if (version.technical_sheet.dimensions[eq]) {
+                {{ version.technical_sheet.dimensions[eq] }}
+                } @else { - }
+              </td>
+            </tr>
+            }
+
+            <!-- Performance Section -->
+            <tr class="section">
+              <th>Performances</th>
+            </tr>
+            @for (eq of performance; track $index) {
+            <tr [class.bg-grey]="$index % 2 == 0">
+              <th>{{ eq }}</th>
+              <td *ngFor="let version of versions">
+                @if(version.technical_sheet.performance[eq] === true) {
+                <i class="fa-solid fa-check"></i>
+                } @else if (version.technical_sheet.performance[eq]) {
+                {{ version.technical_sheet.performance[eq] }}
+                } @else { - }
+              </td>
+            </tr>
+            }
+
+            <!-- Consumption Section -->
+            <tr class="section">
+              <th>Consommation</th>
+            </tr>
+            @for (eq of consumption; track $index) {
+            <tr [class.bg-grey]="$index % 2 == 0">
+              <th>{{ eq }}</th>
+              <td *ngFor="let version of versions">
+                @if(version.technical_sheet.consumption[eq] === true) {
+                <i class="fa-solid fa-check"></i>
+                } @else if (version.technical_sheet.consumption[eq]) {
+                {{ version.technical_sheet.consumption[eq] }}
+                } @else { - }
+              </td>
+            </tr>
+            }
+
+            <!-- Safety Equipment Section -->
+            <tr class="section">
+              <th>Equipements de sécurité</th>
+            </tr>
+            @for (eq of safety_equipment; track $index) {
+            <tr [class.bg-grey]="$index % 2 == 0">
+              <th>{{ eq }}</th>
+              <td *ngFor="let version of versions">
+                @if(version.technical_sheet.safety_equipment[eq] === true) {
+                <i class="fa-solid fa-check"></i>
+                } @else if (version.technical_sheet.safety_equipment[eq]) {
+                {{ version.technical_sheet.safety_equipment[eq] }}
+                } @else { - }
+              </td>
+            </tr>
+            }
+
+            <!-- Driving Aids Section -->
+            <tr class="section">
+              <th>Aides à la conduite</th>
+            </tr>
+            @for (eq of driving_aids; track $index) {
+            <tr [class.bg-grey]="$index % 2 == 0">
+              <th>{{ eq }}</th>
+              <td *ngFor="let version of versions">
+                @if(version.technical_sheet.driving_aids[eq] === true) {
+                <i class="fa-solid fa-check"></i>
+                } @else if (version.technical_sheet.driving_aids[eq]) {
+                {{ version.technical_sheet.driving_aids[eq] }}
+                } @else { - }
+              </td>
+            </tr>
+            }
+
+            <!-- Outdoor Equipment Section -->
+            <tr class="section">
+              <th>Equipements extérieurs</th>
+            </tr>
+            @for (eq of outdoor_equipment; track $index) {
+            <tr [class.bg-grey]="$index % 2 == 0">
+              <th>{{ eq }}</th>
+              <td *ngFor="let version of versions">
+                @if(version.technical_sheet.outdoor_equipment[eq] === true) {
+                <i class="fa-solid fa-check"></i>
+                } @else if (version.technical_sheet.outdoor_equipment[eq]) {
+                {{ version.technical_sheet.outdoor_equipment[eq] }}
+                } @else { - }
+              </td>
+            </tr>
+            }
+            <tr class="section">
+              <th>Equipements Intérieurs</th>
+            </tr>
+            @for (eq of indoor; track $index) {
+            <tr [class.bg-grey]="$index % 2 == 0">
+              <th>{{ eq }}</th>
+              <td *ngFor="let version of versions">
+                @if( version.technical_sheet.indoor_equipment[eq]===true){
+
+                <i class="fa-solid fa-check"></i>
+                }@else if(version.technical_sheet.indoor_equipment[eq]){
+                {{ version.technical_sheet.indoor_equipment[eq] }} } @else{-}
+              </td>
+            </tr>
+            }
+
+            <!-- Multimedia Section -->
+            <tr class="section">
+              <th>Multimédia</th>
+            </tr>
+            @for (eq of multimedia; track $index) {
+            <tr [class.bg-grey]="$index % 2 == 0">
+              <th>{{ eq }}</th>
+              <td *ngFor="let version of versions">
+                @if(version.technical_sheet.multimedia[eq] === true) {
+                <i class="fa-solid fa-check"></i>
+                } @else if (version.technical_sheet.multimedia[eq]) {
+                {{ version.technical_sheet.multimedia[eq] }}
+                } @else { - }
+              </td>
+            </tr>
+            }
+
+            <!-- Functional Equipment Section -->
+            <tr class="section">
+              <th>Equipements fonctionnels</th>
+            </tr>
+            @for (eq of functional_equipment; track $index) {
+            <tr [class.bg-grey]="$index % 2 == 0">
+              <th>{{ eq }}</th>
+              <td *ngFor="let version of versions">
+                @if(version.technical_sheet.functional_equipment[eq] === true) {
+                <i class="fa-solid fa-check"></i>
+                } @else if (version.technical_sheet.functional_equipment[eq]) {
+                {{ version.technical_sheet.functional_equipment[eq] }}
+                } @else { - }
+              </td>
+            </tr>
+            }
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>

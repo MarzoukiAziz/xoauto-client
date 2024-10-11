@@ -9,6 +9,7 @@ import { register } from 'swiper/element/bundle';
 import { ModelCommentsComponent } from '../components/model-comments/model-comments.component';
 import { SimilarAdsComponent } from '../../ad/components/similar-ads/similar-ads.component';
 import { SimilarModelsComponent } from '../components/similar-models/similar-models.component';
+import { NewService } from '../new.service';
 register();
 
 @Component({
@@ -35,7 +36,7 @@ export class ModelDetailComponent {
   currency = environment.CURRENCY;
   selected_nav = 'details';
 
-  constructor(private route: ActivatedRoute) {}
+  constructor(private route: ActivatedRoute, public _newService: NewService) {}
 
   ngOnInit(): void {
     this.route.data.subscribe((data) => {

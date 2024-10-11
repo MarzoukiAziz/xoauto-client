@@ -6,13 +6,14 @@ import { Subject, takeUntil } from 'rxjs';
 import { CommonModule } from '@angular/common';
 import { NoAdsComponent } from '../components/no-ads/no-ads.component';
 import { environment } from 'src/environments/environment';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-comparator',
   templateUrl: './comparator.component.html',
   styleUrl: './comparator.component.css',
   standalone: true,
-  imports: [BreadcrumbComponent, CommonModule, NoAdsComponent],
+  imports: [BreadcrumbComponent, CommonModule, NoAdsComponent, RouterLink],
 })
 export class ComparatorComponent {
   ads: Ad[] = [];
@@ -52,12 +53,5 @@ export class ComparatorComponent {
 
   removeFromComparator(id) {
     this._adService.removeFromCompare(id);
-    this._adService
-      .getAdsForComparator()
-      .pipe(takeUntil(this._unsubscribeAll))
-      .subscribe((ads: Ad[]) => {
-        this.ads = ads;
-        this._changeDetectorRef.markForCheck();
-      });
   }
 }

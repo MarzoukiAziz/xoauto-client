@@ -37,20 +37,21 @@
             {{ version.price | number : "1.0-0" }} {{ currency }}</span
           >
         </li>
-        <!-- <button
-            *ngIf="comparateur.indexOf(fin['_id']) === -1"
-            class="add-comp"
-            (click)="addToCompare()"
-          >
-            <img src="/assets/images/icon/compare.png" /> Ajouter Au Comparateur
-          </button> -->
-        <!-- <button
-            *ngIf="comparateur.indexOf(fin['_id']) != -1"
-            class="ret-comp"
-            (click)="removeFromCompare()"
-          >
-            <img src="/assets/images/icon/retirer.png" /> Retirer Du Comparateur
-          </button> -->
+
+        <button
+          *ngIf="_newService.comparator.indexOf(selected_version._id) === -1"
+          class="add-comp"
+          (click)="_newService.addToCompare(selected_version._id)"
+        >
+          <img src="/assets/images/icons/compare.png" /> Ajouter Au Comparateur
+        </button>
+        <button
+          *ngIf="_newService.comparator.indexOf(selected_version._id) != -1"
+          class="ret-comp"
+          (click)="_newService.removeFromCompare(selected_version._id)"
+        >
+          <img src="/assets/images/icons/cancel.png" /> Retirer Du Comparateur
+        </button>
       </ul>
     </div>
   </div>

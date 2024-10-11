@@ -6,6 +6,7 @@ import { BrandsComponent } from './brands/brands.component';
 import { NewService } from './new.service';
 import { ModelsComponent } from './models/models.component';
 import { ModelDetailComponent } from './model-detail/model-detail.component';
+import { ComparatorComponent } from './comparator/comparator.component';
 
 const modelsResolver = (route: ActivatedRouteSnapshot) => {
   const newService = inject(NewService);
@@ -52,6 +53,13 @@ export default [
     path: 'brands',
     component: BrandsComponent,
     resolve: { brands: () => inject(NewService).getSettings() },
+  },
+  {
+    path: 'comparator',
+    component: ComparatorComponent,
+    resolve: {
+      versions: () => inject(NewService).getVersionsForComparator(),
+    },
   },
   {
     path: 'models/:brand',
