@@ -5,7 +5,7 @@ import { MatSliderModule } from '@angular/material/slider';
 import { AdService } from '../../../ad.service';
 
 @Component({
-  selector: 'year-slider',
+  selector: 'ad-year-slider',
   standalone: true,
   imports: [MatSliderModule, FormsModule, CommonModule],
   templateUrl: './year-slider.component.html',

@@ -6,13 +6,13 @@ import { NewService } from '../../../new.service';
 import { Settings } from 'src/app/modules/ad/ad.types';
 
 @Component({
-  selector: 'brand-filter',
+  selector: 'new-brand-filter',
   standalone: true,
   imports: [CommonModule, NgbPopover, FormsModule],
   templateUrl: './brand-filter.component.html',
   styleUrl: '../filter-item.css',
 })
-export class BrandFilterComponent {
+export class NewBrandFilterComponent {
   brands = [];
 
   @ViewChild('popOver1') public popover1!: NgbPopover;

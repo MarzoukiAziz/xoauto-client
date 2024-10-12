@@ -6,7 +6,7 @@ import { FormsModule } from '@angular/forms';
 
 @Component({
   imports: [CommonModule, NgbPopover, FormsModule],
-  selector: 'seats-filter',
+  selector: 'ad-seats-filter',
   standalone: true,
   templateUrl: './seats-filter.component.html',
   styleUrl: '../filter-item.css',

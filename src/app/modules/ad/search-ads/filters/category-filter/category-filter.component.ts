@@ -5,7 +5,7 @@ import { NgbPopover } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
 import { Settings } from '../../../ad.types';
 @Component({
-  selector: 'category-filter',
+  selector: 'ad-category-filter',
   standalone: true,
   imports: [CommonModule, NgbPopover, FormsModule],
   templateUrl: './category-filter.component.html',

@@ -6,7 +6,7 @@ import { FormsModule } from '@angular/forms';
 import { Settings } from '../../../ad.types';
 
 @Component({
-  selector: 'brand-filter',
+  selector: 'ad-brand-filter',
   standalone: true,
   imports: [CommonModule, NgbPopover, FormsModule],
   templateUrl: './brand-filter.component.html',

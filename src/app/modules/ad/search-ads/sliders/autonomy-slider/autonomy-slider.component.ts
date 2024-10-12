@@ -5,7 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'autonomy-slider',
+  selector: 'ad-autonomy-slider',
   standalone: true,
   imports: [MatSliderModule, FormsModule, CommonModule],
   templateUrl: './autonomy-slider.component.html',
