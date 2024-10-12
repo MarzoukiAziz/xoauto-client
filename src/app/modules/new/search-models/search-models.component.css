@@ -1,0 +1,105 @@
+.breadcrumb-area {
+  position: relative;
+  display: block;
+  padding: 50px;
+  padding-top: 0;
+  z-index: 11;
+}
+.breadcrumb-area-bg {
+  position: absolute;
+  top: 0;
+  left: 0px;
+  bottom: 50px;
+  right: 0px;
+  background: #646464;
+  background-attachment: scroll;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: top center;
+  background-blend-mode: luminosity;
+  z-index: -1;
+}
+
+.filters {
+  display: grid;
+  place-content: center;
+  grid-auto-flow: column;
+}
+
+.search-title {
+  text-align: center;
+  margin: 20px;
+  font-family: "Manrope";
+  color: white;
+  letter-spacing: 0.5rem;
+}
+
+.reset {
+  color: white;
+  cursor: pointer;
+  padding: 10px;
+}
+
+.reset:hover {
+  background-color: var(--bs-border-color);
+  border-radius: 11px;
+  color: black;
+}
+
+.btns4 {
+  align-items: center;
+  place-content: end;
+  margin: 10px 0px;
+  display: flex;
+  font-family: "Manrope";
+}
+
+.applay2 {
+  cursor: pointer;
+  margin-left: 10px;
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  --antd-wave-shadow-color: var(--thm-base);
+  --scroll-bar: 0;
+  --swiper-theme-color: #007aff;
+  --swiper-navigation-size: 44px;
+  list-style: none;
+  box-sizing: border-box;
+  overflow: visible;
+  text-transform: none;
+  position: relative;
+  white-space: nowrap;
+  text-align: center;
+  transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+  user-select: none;
+  touch-action: manipulation;
+  background: #fff;
+  outline: 0;
+  padding: 6.4px 15px;
+  text-shadow: none !important;
+  font-size: 14px;
+  line-height: 22px;
+  -webkit-box-align: center;
+  align-items: center;
+  border-radius: 12px;
+  display: flex;
+  height: 42px;
+  -webkit-box-pack: center;
+  justify-content: center;
+  padding-inline: 16px;
+  font-weight: 600 !important;
+  background-color: var(--thm-base);
+  border: 1px solid var(--thm-base);
+  box-shadow: none;
+  color: rgb(255, 255, 255);
+}
+
+.applay2:hover {
+  color: white !important;
+}
+
+.breadcrumb-area-bg {
+  background-blend-mode: multiply !important;
+  background-image: url(/assets/images/backgrounds/search.jpg) !important;
+  bottom: 20px !important;
+}

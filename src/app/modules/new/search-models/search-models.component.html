@@ -1,0 +1,37 @@
+<title>Offre de véhicules d'occasion</title>
+
+<section class="breadcrumb-area">
+  <div class="breadcrumb-area-bg"></div>
+  <div class="container pt-5 search-bar">
+    <h3 class="search-title">Quelle voiture cherchez-vous</h3>
+    <div class="filters">
+      <div class="row">
+        <div class="col-md-6 d-flex justify-content-center pb-2">
+          <brand-filter />
+          <category-filter />
+        </div>
+        <div class="col-md-6 d-flex justify-content-center pb-2">
+          <energy-filter />
+          <seats-filter />
+        </div>
+      </div>
+    </div>
+
+    <div class="sliders">
+      <price-slider />
+      <autonomy-slider />
+      <div>
+        <div class="btns4" role="group" aria-label="Button Group">
+          <a class="reset" (click)="_newService.resetFilters()"
+            >Réinitialiser</a
+          >
+          <a class="applay2" (click)="updateResult()">Appliquer</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<filter-chips />
+<sort-new-ads />
+<search-result />
