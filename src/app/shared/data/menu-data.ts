@@ -3,7 +3,7 @@ export const menuItemsData = [
   {
     label: 'Neuf',
     children: [
-      { label: 'Recherche', link: '/n/search' },
+      { label: 'Recherche', link: '/new/search' },
       { label: 'Marques', link: '/new/brands' },
       { label: 'Comparateur', link: '/new/comparator' },
     ],

@@ -7,12 +7,13 @@ import { NewService } from './new.service';
 import { ModelsComponent } from './models/models.component';
 import { ModelDetailComponent } from './model-detail/model-detail.component';
 import { ComparatorComponent } from './comparator/comparator.component';
+import { SearchModelsComponent } from './search-models/search-models.component';
 
 const modelsResolver = (route: ActivatedRouteSnapshot) => {
   const newService = inject(NewService);
   const router = inject(Router);
 
-  return newService.getModels(route.paramMap.get('brand') ?? '').pipe(
+  return newService.getModelsByBrand(route.paramMap.get('brand') ?? '').pipe(
     catchError((error) => {
       console.error(error);
       router.navigateByUrl('/new/brands');
@@ -53,6 +54,14 @@ export default [
     path: 'brands',
     component: BrandsComponent,
     resolve: { brands: () => inject(NewService).getSettings() },
+  },
+  {
+    path: 'search',
+    component: SearchModelsComponent,
+    resolve: {
+      models: () => inject(NewService).getModels(),
+      settings: () => inject(NewService).getSettings(),
+    },
   },
   {
     path: 'comparator',

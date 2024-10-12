@@ -26,7 +26,7 @@ export class AdService {
   private _ad: BehaviorSubject<Ad> = new BehaviorSubject(null);
   private _count: BehaviorSubject<number> = new BehaviorSubject(0);
   private _settings: BehaviorSubject<Settings> = new BehaviorSubject(null);
-
+  public loading = false;
   currentPage = 1;
 
   // filters:
@@ -92,8 +92,9 @@ export class AdService {
   }
 
   getAds(): Observable<Ad[]> {
+    this.loading = true;
     return this._httpClient
-      .get<Ad[]>(`${this.apiUrl}/ads`, {
+      .get<Ad[]>(`${this.apiUrl}/ads/search`, {
         params: {
           page: this.currentPage,
           brand: this.selectedBrands.map((brand) => brand.name),
@@ -119,6 +120,7 @@ export class AdService {
         tap((response: any) => {
           this._ads.next(response.ads);
           this._count.next(response.count);
+          this.loading = false;
         })
       );
   }
