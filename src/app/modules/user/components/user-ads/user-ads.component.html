@@ -13,7 +13,7 @@
     <div class="category-box-sold" *ngIf="ad.sold">Vendu</div>
 
     <div class="cards-img-box">
-      <div class="inner-title">
+      <div class="inner-title" routerLink="/ad/detail/{{ ad._id }}">
         <h3>{{ ad.brand }} {{ ad.model }} {{ ad.version }}</h3>
       </div>
       <div class="inner image-container">
@@ -26,13 +26,13 @@
         <a class="btn-one" routerLink="/ad/update/{{ ad._id }}">
           <span class="txt">Modifier</span>
         </a>
-        <a class="btn-one style2">
+        <a class="btn-one style2" (click)="handleDeleteAd(ad._id)">
           <span class="txt">Supprimer</span>
         </a>
       </div>
     </div>
     <div class="cards-text-box">
-      <p routerLink="/ad/detail/{{ ad._id }}">
+      <p>
         {{ ad.createdAt | date : "dd MMM yyyy, hh:mm" }}
       </p>
       <h3>Détails</h3>
@@ -57,7 +57,7 @@
           'btn-success': ad.sold
         }"
         class="btn btn-lg btn-block w-100"
-        (click)="changeAdStatus(ad._id, !ad.sold)"
+        (click)="handleChangeAdStatus(ad._id, !ad.sold)"
       >
         {{ ad.sold ? "Marquer comme disponible" : "Marquer comme vendue" }}
       </button>

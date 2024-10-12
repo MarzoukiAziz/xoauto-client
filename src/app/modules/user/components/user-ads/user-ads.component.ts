@@ -42,13 +42,20 @@ export class UserAdsComponent {
     window.scrollTo(0, 0); // Scroll to top
     this._adService.getUserAds(this.currentPage).subscribe();
   }
-  changeAdStatus(id, status) {
+
+  handleChangeAdStatus(id, status) {
     if (
       window.confirm(
         'Êtes-vous sûr de vouloir changer le statut de cette annonce ?'
       )
     ) {
       this._adService.changeAdStatus(id, status).subscribe();
+    }
+  }
+
+  handleDeleteAd(id, status) {
+    if (window.confirm('Êtes-vous sûr de vouloir supprimer cette annonce ?')) {
+      this._adService.deleteAd(id).subscribe();
     }
   }
 

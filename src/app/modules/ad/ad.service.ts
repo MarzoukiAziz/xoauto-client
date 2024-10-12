@@ -270,6 +270,22 @@ export class AdService {
       );
   }
 
+  deleteAd(id: string): Observable<Ad> {
+    const user = this._auth.getUserInfo();
+    const uid = user.id;
+    return this._httpClient
+      .delete<Ad>(`${this.apiUrl}/ads/user/${id}`, {
+        params: { uid },
+      })
+      .pipe(
+        tap((deleteAd: Ad) => {
+          const currentAds = this._ads.getValue();
+          const updatedAds = currentAds.filter((ad) => ad._id !== deleteAd._id);
+          this._ads.next(updatedAds);
+        })
+      );
+  }
+
   /*************************
    ******* New Ad  **********
    **************************/
