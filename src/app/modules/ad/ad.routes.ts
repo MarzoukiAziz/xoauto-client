@@ -8,6 +8,7 @@ import { catchError, throwError } from 'rxjs';
 import { SearchAdsComponent } from './search-ads/search-ads.component';
 import { CreateAdComponent } from './create-ad/create-ad.component';
 import { AuthGuard } from '../auth/auth.guard';
+import { AuthService } from '../auth/auth.service';
 
 const adResolver = (route: ActivatedRouteSnapshot) => {
   const adService = inject(AdService);
@@ -20,6 +21,21 @@ const adResolver = (route: ActivatedRouteSnapshot) => {
       return throwError(error);
     })
   );
+};
+
+const savedResolver = () => {
+  const adService = inject(AdService);
+  const authService = inject(AuthService);
+  if (authService.isAuthenticated()) {
+    return adService.getSavedAds(authService.getUserInfo().id).pipe(
+      catchError((error) => {
+        console.error(error);
+        return throwError(error);
+      })
+    );
+  } else {
+    return [];
+  }
 };
 
 export default [
@@ -56,6 +72,7 @@ export default [
     component: DetailComponent,
     resolve: {
       ad: adResolver,
+      saved: savedResolver,
     },
   },
 ] as Routes;

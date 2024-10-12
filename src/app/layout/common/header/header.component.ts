@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterLink } from '@angular/router';
 import { AuthService } from 'src/app/modules/auth/auth.service';
-import { menuItemsData } from 'src/app/shared/data/menu-data';
+import { MENU_ITEMS_DATA } from 'src/app/shared/data/menu-data';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -16,7 +16,7 @@ export class HeaderComponent {
   menuItems = {};
 
   constructor(public auth: AuthService) {
-    this.menuItems = menuItemsData;
+    this.menuItems = MENU_ITEMS_DATA;
   }
 
   toggleMobileNav() {

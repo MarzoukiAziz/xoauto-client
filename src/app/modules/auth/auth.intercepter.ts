@@ -24,7 +24,8 @@ export class AuthInterceptor implements HttpInterceptor {
     const showLoader =
       !req.url.includes('comment') &&
       !req.url.includes('similars') &&
-      !req.url.includes('search');
+      !req.url.includes('search') &&
+      !req.url.includes('saved');
 
     if (showLoader) {
       totalRequests++;
