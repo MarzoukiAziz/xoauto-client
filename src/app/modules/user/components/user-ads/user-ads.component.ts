@@ -42,6 +42,15 @@ export class UserAdsComponent {
     window.scrollTo(0, 0); // Scroll to top
     this._adService.getUserAds(this.currentPage).subscribe();
   }
+  changeAdStatus(id, status) {
+    if (
+      window.confirm(
+        'Êtes-vous sûr de vouloir changer le statut de cette annonce ?'
+      )
+    ) {
+      this._adService.changeAdStatus(id, status).subscribe();
+    }
+  }
 
   ngOnInit(): void {
     this.paginator = configurePaginator(this.paginator, 'Annonces');
