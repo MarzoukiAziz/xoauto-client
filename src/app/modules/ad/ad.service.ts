@@ -10,7 +10,6 @@ import {
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment.prod';
 import { Ad, Settings } from './ad.types';
-import { CookieService } from 'ngx-cookie-service';
 import { AuthService } from '../auth/auth.service';
 import { CloudinaryUploadService } from 'src/app/shared/services/cloudinary-upload.service';
 
@@ -173,7 +172,7 @@ export class AdService {
   getUserAds(page: number = 1): Observable<Ad[]> {
     const uid = this._auth.getUserInfo()?.id;
     return this._httpClient
-      .get<Ad[]>(`${this.apiUrl}/ads`, {
+      .get<Ad[]>(`${this.apiUrl}/ads/search`, {
         params: {
           page,
           uid,
@@ -243,6 +242,32 @@ export class AdService {
     this.mileageMax = 500000;
     this.yearMin = 2000;
     this.yearMax = new Date().getFullYear();
+  }
+
+  /*******************
+   **** Update AD ****
+   ******************/
+
+  changeAdStatus(id: string, status: boolean): Observable<Ad> {
+    const user = this._auth.getUserInfo();
+    const uid = user.id;
+    return this._httpClient
+      .put<Ad>(
+        `${this.apiUrl}/ads/change-status/${id}`,
+        {},
+        {
+          params: { uid, status },
+        }
+      )
+      .pipe(
+        tap((updatedAd: Ad) => {
+          const currentAds = this._ads.getValue();
+          const updatedAds = currentAds.map((ad) =>
+            ad._id === id ? updatedAd : ad
+          );
+          this._ads.next(updatedAds);
+        })
+      );
   }
 
   /*************************
