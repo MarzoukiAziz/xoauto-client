@@ -559,7 +559,7 @@
     padding-top: 80px;
   }
 
-  .money-exchange-value-tab__button .right {
+  .search-box-tab-button .right {
     display: none;
   }
 
@@ -1243,19 +1243,19 @@
     padding-top: 80px;
   }
 
-  .money-exchange-value-tab__button .right {
+  .search-box-tab-button .right {
     display: none;
   }
 
-  /* .money-exchange-value-tab__button .tabs-button-box .tab-btn-item {
+  /* .search-box-tab-button .tabs-button-box .tab-btn-item {
         float: none;
     }
 
-    .money-exchange-value-tab__button .tabs-button-box .tab-btn-item {
+    .search-box-tab-button .tabs-button-box .tab-btn-item {
         padding: 14px 20px 14px;
     } */
 
-  /* .money-exchange-value-tab__button .tabs-button-box li+li {
+  /* .search-box-tab-button .tabs-button-box li+li {
         margin-top: 20px;
         margin-left: 0px;
     } */

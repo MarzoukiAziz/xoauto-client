@@ -1,0 +1,102 @@
+<section class="search-box-area">
+  <video [muted]="'muted'" autoplay playsinline loop>
+    <source src="assets/videos/intro.mp4" type="video/mp4" />
+  </video>
+  <div class="container d-flex flex-column align-items-center">
+    <div class="sec-title text-center">
+      <h2>Quelle voiture cherchez-vous</h2>
+      <div class="sub-title">
+        <p>Explorez vos options avec nous</p>
+      </div>
+    </div>
+    <div class="row quick-search">
+      <div class="col-xl-12">
+        <div class="search-box-tab">
+          <div class="search-box-tab-button">
+            <ul class="tabs-button-box">
+              <li
+                class="tab-btn-item"
+                (click)="selected = 'used'"
+                [ngClass]="selected == 'used' ? 'active-btn-item' : ''"
+              >
+                <h3>L'occasion</h3>
+              </li>
+              <li
+                [ngClass]="selected == 'new' ? 'active-btn-item' : ''"
+                (click)="selected = 'new'"
+                class="tab-btn-item"
+              >
+                <h3>Le neuf</h3>
+              </li>
+            </ul>
+          </div>
+
+          <div class="tabs-content-box">
+            <div class="py-3" *ngIf="selected == 'used'">
+              <div class="d-flex flex-wrap">
+                <div
+                  *ngFor="let category of categories"
+                  class="carro"
+                  [class.carro-selected]="isUsedCategorySelected(category)"
+                  (click)="toggleUsedCategory(category)"
+                >
+                  <img
+                    [src]="'/assets/images/categories/' + category.icon"
+                    [alt]="category.name_fr + ' icon'"
+                  />
+
+                  <span>{{ category.name_fr }}</span>
+                </div>
+              </div>
+              <div class="px-3">
+                <ad-price-slider />
+                <div class="plus" *ngIf="moreSliders">
+                  <ad-mileage-slider />
+                  <ad-year-slider />
+                  <ad-autonomy-slider />
+                </div>
+              </div>
+
+              <button
+                class="more-btn pb-3"
+                (click)="moreSliders = !moreSliders"
+              >
+                @if (moreSliders) {
+                <i class="fa fa-angle-up"></i>Voir Moins }@else{
+                <i class="fa fa-angle-down"></i>Voir Plus }
+              </button>
+              <div class="btns4" role="group" aria-label="Button Group">
+                <a class="applay2" routerLink="/ad/search">Rechercher</a>
+              </div>
+            </div>
+
+            <div class="py-3" *ngIf="selected == 'new'">
+              <div class="d-flex flex-wrap">
+                <div
+                  *ngFor="let category of categories"
+                  class="carro"
+                  [class.carro-selected]="isNewCategorySelected(category)"
+                  (click)="toggleNewCategory(category)"
+                >
+                  <img
+                    [src]="'/assets/images/categories/' + category.icon"
+                    [alt]="category.name_fr + ' icon'"
+                  />
+
+                  <span>{{ category.name_fr }}</span>
+                </div>
+              </div>
+              <div class="px-3">
+                <new-price-slider />
+              </div>
+
+              <div class="btns4" role="group" aria-label="Button Group">
+                <a class="applay2" routerLink="/new/search">Rechercher</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

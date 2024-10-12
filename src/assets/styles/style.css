@@ -2865,7 +2865,7 @@ animation: spinner 1s infinite linear;
 /*------------------------------------------
   Money Exchange Value Area
 --------------------------------------------*/
-.money-exchange-value-area {
+.search-box-area {
   position: relative;
   display: block;
   background-color: var(--bs-body-color);
@@ -2873,7 +2873,7 @@ animation: spinner 1s infinite linear;
   z-index: 10;
 }
 
-.money-exchange-value-area-bg {
+.search-box-area-bg {
   position: absolute;
   top: 0;
   left: 0;
@@ -2888,7 +2888,7 @@ animation: spinner 1s infinite linear;
   z-index: -1;
 }
 
-.money-exchange-value-area-bg:before {
+.search-box-area-bg:before {
   content: "";
   position: absolute;
   top: 0;
@@ -2899,20 +2899,20 @@ animation: spinner 1s infinite linear;
   opacity: 0.60; */
 }
 
-.money-exchange-value-area .sec-title h2 {
+.search-box-area .sec-title h2 {
   color: #ffffff;
 }
 
-.money-exchange-value-area .sec-title .sub-title p {
+.search-box-area .sec-title .sub-title p {
   color: #fffaf6;
 }
 
-.money-exchange-value-tab {
+.search-box-tab {
   position: relative;
   display: block;
 }
 
-.money-exchange-value-tab__button {
+.search-box-tab-button {
   position: relative;
   display: flex;
   flex-direction: row;
@@ -2921,13 +2921,13 @@ animation: spinner 1s infinite linear;
   flex-wrap: wrap;
 }
 
-.money-exchange-value-tab__button .tabs-button-box {
+.search-box-tab-button .tabs-button-box {
   position: relative;
   display: block;
   overflow: hidden;
 }
 
-.money-exchange-value-tab__button .tabs-button-box .tab-btn-item {
+.search-box-tab-button .tabs-button-box .tab-btn-item {
   position: relative;
   display: block;
   float: left;
@@ -2937,20 +2937,18 @@ animation: spinner 1s infinite linear;
   transition-delay: 0.1s;
 }
 
-.money-exchange-value-tab__button .tabs-button-box .tab-btn-item:hover,
-.money-exchange-value-tab__button
-  .tabs-button-box
-  .tab-btn-item.active-btn-item {
+.search-box-tab-button .tabs-button-box .tab-btn-item:hover,
+.search-box-tab-button .tabs-button-box .tab-btn-item.active-btn-item {
   border-color: var(--thm-base);
   border-top-color: var(--thm-base);
   border-bottom-color: transparent;
 }
 
-.money-exchange-value-tab__button .tabs-button-box li + li {
+.search-box-tab-button .tabs-button-box li + li {
   margin-left: 10px;
 }
 
-.money-exchange-value-tab__button .tabs-button-box .tab-btn-item h3 {
+.search-box-tab-button .tabs-button-box .tab-btn-item h3 {
   color: #b8b4b1;
   font-size: 18px;
   line-height: 30px;
@@ -2959,28 +2957,25 @@ animation: spinner 1s infinite linear;
   transition-delay: 0.1s;
 }
 
-.money-exchange-value-tab__button .tabs-button-box .tab-btn-item:hover h3,
-.money-exchange-value-tab__button
-  .tabs-button-box
-  .tab-btn-item.active-btn-item
-  h3 {
+.search-box-tab-button .tabs-button-box .tab-btn-item:hover h3,
+.search-box-tab-button .tabs-button-box .tab-btn-item.active-btn-item h3 {
   color: var(--thm-base);
 }
 
-.money-exchange-value-tab__button .right {
+.search-box-tab-button .right {
   position: relative;
   display: block;
   top: 7px;
 }
 
-.money-exchange-value-tab__button .right a {
+.search-box-tab-button .right a {
   color: #ffffff;
   font-size: 18px;
   font-weight: 500;
   font-family: var(--thm-font-2);
 }
 
-.money-exchange-value-tab__button .right a span:before {
+.search-box-tab-button .right a span:before {
   position: relative;
   display: inline-block;
   padding-right: 7px;
@@ -2988,12 +2983,12 @@ animation: spinner 1s infinite linear;
   top: 1px;
 }
 
-.money-exchange-value-tab .tabs-content-box {
+.search-box-tab .tabs-content-box {
   position: relative;
   display: block;
 }
 
-.money-exchange-value-tab .tab-content-box-item {
+.search-box-tab .tab-content-box-item {
   position: absolute;
   left: 0px;
   top: 0px;
@@ -3001,24 +2996,22 @@ animation: spinner 1s infinite linear;
   height: auto;
   visibility: hidden;
 }
-.money-exchange-value-tab .tab-content-box-item.tab-content-box-item-active {
+.search-box-tab .tab-content-box-item.tab-content-box-item-active {
   position: relative;
   visibility: visible;
   z-index: 5;
 }
 
-.money-exchange-value-tab
-  .tab-content-box-item
-  .money-exchange-value-tab-content-box-item {
+.search-box-tab .tab-content-box-item .search-box-tab-content-box-item {
   opacity: 0;
   /* transform: scaleY(1.0) translateY(-10px);
   transition: all 500ms linear;
   transition-delay: 0.1s; */
 }
 
-.money-exchange-value-tab
+.search-box-tab
   .tab-content-box-item.tab-content-box-item-active
-  .money-exchange-value-tab-content-box-item {
+  .search-box-tab-content-box-item {
   opacity: 1;
   /* transform: scaleY(1) translateY(0px); */
 }
