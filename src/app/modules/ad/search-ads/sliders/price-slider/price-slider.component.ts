@@ -5,7 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'price-slider',
+  selector: 'ad-price-slider',
   standalone: true,
   imports: [MatSliderModule, FormsModule, CommonModule],
   templateUrl: './price-slider.component.html',

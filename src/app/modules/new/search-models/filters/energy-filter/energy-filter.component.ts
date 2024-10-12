@@ -6,13 +6,13 @@ import { NewService } from '../../../new.service';
 import { Settings } from 'src/app/modules/ad/ad.types';
 
 @Component({
-  selector: 'energy-filter',
+  selector: 'new-energy-filter',
   standalone: true,
   imports: [CommonModule, NgbPopover, FormsModule],
   templateUrl: './energy-filter.component.html',
   styleUrl: '../filter-item.css',
 })
-export class EnergyFilterComponent {
+export class NewEnergyFilterComponent {
   energies = [];
 
   @ViewChild('popOver1') public popover1!: NgbPopover;

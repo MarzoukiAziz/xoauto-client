@@ -5,7 +5,7 @@ import { MatSliderModule } from '@angular/material/slider';
 import { AdService } from '../../../ad.service';
 
 @Component({
-  selector: 'mileage-slider',
+  selector: 'ad-mileage-slider',
   standalone: true,
   imports: [MatSliderModule, FormsModule, CommonModule],
   templateUrl: './mileage-slider.component.html',

@@ -3,10 +3,9 @@ import { AdService } from '../../../ad.service';
 import { CommonModule } from '@angular/common';
 import { NgbPopover } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
-import { Settings } from '../../../ad.types';
 
 @Component({
-  selector: 'seller-type-filter',
+  selector: 'ad-seller-type-filter',
   templateUrl: './seller-type-filter.component.html',
   standalone: true,
   imports: [CommonModule, NgbPopover, FormsModule],

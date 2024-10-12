@@ -6,7 +6,7 @@ import { FormsModule } from '@angular/forms';
 import { Settings } from '../../../ad.types';
 
 @Component({
-  selector: 'energy-filter',
+  selector: 'ad-energy-filter',
   standalone: true,
   imports: [CommonModule, NgbPopover, FormsModule],
   templateUrl: './energy-filter.component.html',

@@ -1,0 +1,131 @@
+.btns4 {
+  align-items: center;
+  place-content: end;
+  margin: 10px 0px;
+  display: flex;
+  font-family: "Manrope";
+}
+
+.applay2 {
+  cursor: pointer;
+  margin-left: 10px;
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  --antd-wave-shadow-color: var(--thm-base);
+  --scroll-bar: 0;
+  --swiper-theme-color: #007aff;
+  --swiper-navigation-size: 44px;
+  list-style: none;
+  box-sizing: border-box;
+  overflow: visible;
+  text-transform: none;
+  position: relative;
+  white-space: nowrap;
+  text-align: center;
+  transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+  user-select: none;
+  touch-action: manipulation;
+  background: #fff;
+  outline: 0;
+  padding: 6.4px 15px;
+  text-shadow: none !important;
+  font-size: 14px;
+  line-height: 22px;
+  -webkit-box-align: center;
+  align-items: center;
+  border-radius: 12px;
+  display: flex;
+  height: 42px;
+  -webkit-box-pack: center;
+  justify-content: center;
+  padding-inline: 16px;
+  font-weight: 600 !important;
+  background-color: var(--thm-base);
+  border: 1px solid var(--thm-base);
+  box-shadow: none;
+  color: rgb(255, 255, 255);
+}
+
+.applay2:hover {
+  color: white !important;
+}
+
+.quick-search span {
+  color: white;
+}
+
+.carro {
+  text-align: center;
+  border-radius: 14px;
+  margin: 10px auto;
+  flex: 0 0 auto;
+  background-color: var(--thm-);
+
+  padding: 10px 1px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.carro img {
+  width: 100px;
+  height: 50px;
+}
+.carro-selected {
+  background-color: var(--thm-base);
+  color: white !important;
+}
+.row {
+  width: 100%;
+  justify-content: flex-start;
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.tab-btn-item {
+  background-color: var(--bs-dark);
+  font-size: larger;
+}
+
+.tabs-content-box {
+  padding: 10px;
+  background-color: #21252980;
+}
+
+.search-box-area video {
+  width: 100%;
+  height: 1000px;
+  position: absolute;
+  object-fit: cover;
+  top: 0;
+  left: 0;
+  z-index: -100;
+}
+
+.carro img[src$=".svg"] {
+  filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%)
+    contrast(100%);
+}
+.more-btn {
+  color: lightgray;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+}
+
+.more-btn i {
+  margin-right: 10px;
+}
+.plus {
+  animation: slideIn 1s ease-out;
+}
+.search-box-area {
+  padding: 80px 0 70px;
+}
+.sec-title {
+  padding-bottom: 30px;
+}

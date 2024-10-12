@@ -10,7 +10,7 @@ export default [
     path: '',
     component: HomeComponent,
     resolve: {
-      brands: () => inject(NewService).getSettings(),
+      settings: () => inject(NewService).getSettings(),
       articles: () => inject(BlogService).getArticles(),
       ads: () => inject(AdService).getAds(),
     },

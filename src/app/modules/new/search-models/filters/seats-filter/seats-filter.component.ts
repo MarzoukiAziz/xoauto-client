@@ -6,12 +6,12 @@ import { NewService } from '../../../new.service';
 
 @Component({
   imports: [CommonModule, NgbPopover, FormsModule],
-  selector: 'seats-filter',
+  selector: 'new-seats-filter',
   standalone: true,
   templateUrl: './seats-filter.component.html',
   styleUrl: '../filter-item.css',
 })
-export class SeatsFilterComponent {
+export class NewSeatsFilterComponent {
   seats = [2, 3, 4, 5, 6, 7, 8, 9];
 
   @ViewChild('popOver1') public popover1!: NgbPopover;

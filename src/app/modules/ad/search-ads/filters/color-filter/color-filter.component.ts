@@ -6,7 +6,7 @@ import { FormsModule } from '@angular/forms';
 import { Settings } from '../../../ad.types';
 
 @Component({
-  selector: 'color-filter',
+  selector: 'ad-color-filter',
   standalone: true,
   imports: [CommonModule, NgbPopover, FormsModule],
   templateUrl: './color-filter.component.html',

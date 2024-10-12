@@ -6,7 +6,7 @@ import { FormsModule } from '@angular/forms';
 import { Settings } from '../../../ad.types';
 
 @Component({
-  selector: 'region-filter',
+  selector: 'ad-region-filter',
   standalone: true,
   imports: [CommonModule, NgbPopover, FormsModule],
   templateUrl: './region-filter.component.html',

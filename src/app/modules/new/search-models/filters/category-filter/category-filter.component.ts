@@ -5,13 +5,13 @@ import { FormsModule } from '@angular/forms';
 import { NewService } from '../../../new.service';
 import { Settings } from 'src/app/modules/ad/ad.types';
 @Component({
-  selector: 'category-filter',
+  selector: 'new-category-filter',
   standalone: true,
   imports: [CommonModule, NgbPopover, FormsModule],
   templateUrl: './category-filter.component.html',
   styleUrl: '../filter-item.css',
 })
-export class CategoryFilterComponent {
+export class NewCategoryFilterComponent {
   categories = [];
 
   @ViewChild('popOver1') public popover1!: NgbPopover;
