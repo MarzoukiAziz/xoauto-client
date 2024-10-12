@@ -1,0 +1,35 @@
+<button
+  #popOver1="ngbPopover"
+  type="button"
+  class="filter"
+  [autoClose]="'outside'"
+  [ngbPopover]="SeatFilter"
+  placement="bottom-left"
+  popoverClass="ppp"
+>
+  Nombre de Places
+</button>
+
+<ng-template #SeatFilter>
+  <div class="scrollable-container">
+    @for (seat of seats; track $index) {
+    <label class="item-title" [class.selected-item]="isSelected(seat)">
+      >
+      <input
+        type="checkbox"
+        [name]="seat"
+        [value]="seat"
+        [hidden]="true"
+        (click)="toggleSeat(seat)"
+      />
+      {{ seat }}
+    </label>
+    }
+  </div>
+
+  <hr />
+  <div class="btns2" role="group" aria-label="Button Group">
+    <a class="reset" (click)="resetSeats()">Réinitialiser</a>
+    <a class="applay" (click)="updateResult()">Appliquer</a>
+  </div>
+</ng-template>

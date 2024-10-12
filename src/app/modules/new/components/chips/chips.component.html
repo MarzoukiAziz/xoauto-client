@@ -1,0 +1,29 @@
+<section class="container">
+  <div class="d-flex flex-row flex-wrap">
+    @for (brand of _newService.selectedBrands; track $index) {
+    <div class="chip chip-green">
+      {{ brand.name }}
+    </div>
+    } @for (category of _newService.selectedCategories; track $index) {
+    <div class="chip chip-pink">
+      {{ category.name_fr }}
+    </div>
+    } @for (energy of _newService.selectedEnergies; track $index) {
+    <div class="chip chip-bleu">
+      {{ energy.name_fr }}
+    </div>
+    } @for (seats of _newService.selectedSeats; track $index) {
+    <div class="chip chip-bleu">{{ seats }} places</div>
+    } @if(_newService.priceMin>0 || _newService.priceMax<1000000){
+    <div class="chip chip-bleu">
+      Prix: {{ _newService.priceMin | number : "1.0-0" }} -
+      {{ _newService.priceMax | number : "1.0-0" }}
+    </div>
+    }@if(_newService.autonomyMin>0 || _newService.autonomyMax<1200){
+    <div class="chip chip-bleu">
+      Autonomie: {{ _newService.autonomyMin }} -
+      {{ _newService.autonomyMax }}
+    </div>
+    }
+  </div>
+</section>

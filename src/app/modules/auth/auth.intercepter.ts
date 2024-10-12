@@ -20,7 +20,9 @@ export class AuthInterceptor implements HttpInterceptor {
   ): Observable<HttpEvent<any>> {
     const loadingService = inject(LoadingService);
     const showLoader =
-      !req.url.includes('comment') && !req.url.includes('similars');
+      !req.url.includes('comment') &&
+      !req.url.includes('similars') &&
+      !req.url.includes('search');
     if (showLoader) {
       totalRequests++;
       loadingService.setLoading(true);

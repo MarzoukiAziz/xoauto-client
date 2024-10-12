@@ -1,0 +1,20 @@
+<div class="row">
+  <div class="col-l-12 col-xl-12 d-flex align-items-center">
+    <h6 class="slider-title">Prix</h6>
+    <mat-slider
+      [min]="priceMin"
+      step="500"
+      [max]="priceMax"
+      color="accent"
+      discrete="true"
+    >
+      <input matSliderStartThumb [(ngModel)]="_newService.priceMin" />
+      <input matSliderEndThumb [(ngModel)]="_newService.priceMax" />
+    </mat-slider>
+
+    <span class="slider-data"
+      >{{ _newService.priceMin | number : "1.0-0" }} -
+      {{ _newService.priceMax | number : "1.0-0" }}</span
+    >
+  </div>
+</div>

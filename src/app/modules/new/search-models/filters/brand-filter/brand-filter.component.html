@@ -1,0 +1,35 @@
+<button
+  #popOver1="ngbPopover"
+  type="button"
+  class="filter"
+  [autoClose]="'outside'"
+  [ngbPopover]="BrandFilter"
+  placement="bottom-left"
+  popoverClass="ppp"
+>
+  Marque
+</button>
+
+<ng-template #BrandFilter>
+  <div class="scrollable-container">
+    @for (brand of brands; track $index) {
+    <label class="item-title" [class.selected-item]="isSelected(brand)">
+      >
+      <input
+        type="checkbox"
+        [name]="brand.name"
+        [value]="brand"
+        [hidden]="true"
+        (click)="toggleBrand(brand)"
+      />
+      {{ brand.name }}
+    </label>
+    }
+  </div>
+
+  <hr />
+  <div class="btns2" role="group" aria-label="Button Group">
+    <a class="reset" (click)="resetBrands()">Réinitialiser</a>
+    <a class="applay" (click)="updateResult()">Appliquer</a>
+  </div>
+</ng-template>
