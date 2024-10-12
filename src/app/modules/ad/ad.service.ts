@@ -250,7 +250,9 @@ export class AdService {
     this.yearMax = new Date().getFullYear();
   }
 
-  getSavedAds(uid: string): Observable<string[]> {
+  getSavedAds(): Observable<string[]> {
+    const uid = this._auth.getUserInfo()?.id;
+
     return this._httpClient
       .get<string[]>(`${this.apiUrl}/ads/saved/${uid}`)
       .pipe(
@@ -260,14 +262,29 @@ export class AdService {
       );
   }
 
+  getSavedAdsData(page: number = 1): Observable<Ad[]> {
+    const saved = this._auth.getUserInfo()?.id;
+    return this._httpClient
+      .get<Ad[]>(`${this.apiUrl}/ads/search`, {
+        params: {
+          page,
+          saved,
+        },
+      })
+      .pipe(
+        tap((response: any) => {
+          this._ads.next(response.ads);
+          this._count.next(response.count);
+        })
+      );
+  }
+
   updateSavedAds(uid: string, newSavedAds: string[]): Observable<string[]> {
-    console.log(uid, newSavedAds);
     return this._httpClient
       .put<string[]>(`${this.apiUrl}/ads/saved/${uid}`, newSavedAds)
       .pipe(
         tap((response: any) => {
           this._savedAds.next(response);
-          console.log(response);
         })
       );
   }

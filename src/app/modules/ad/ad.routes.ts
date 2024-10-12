@@ -27,7 +27,7 @@ const savedResolver = () => {
   const adService = inject(AdService);
   const authService = inject(AuthService);
   if (authService.isAuthenticated()) {
-    return adService.getSavedAds(authService.getUserInfo().id).pipe(
+    return adService.getSavedAds().pipe(
       catchError((error) => {
         console.error(error);
         return throwError(error);
