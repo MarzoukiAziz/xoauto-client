@@ -7,31 +7,31 @@
     <div class="filters">
       <div class="row">
         <div class="col-md-6 d-flex justify-content-center pb-2">
-          <brand-filter />
-          <model-filter />
-          <category-filter />
+          <ad-brand-filter />
+          <ad-model-filter />
+          <ad-category-filter />
         </div>
         <div class="col-md-6 d-flex justify-content-center pb-2">
-          <energy-filter />
-          <seats-filter />
-          <color-filter />
+          <ad-energy-filter />
+          <ad-seats-filter />
+          <ad-color-filter />
         </div>
       </div>
     </div>
     <div class="filters mb-2">
       <div class="d-flex justify-content-center">
-        <seller-type-filter />
-        <region-filter />
+        <ad-seller-type-filter />
+        <ad-region-filter />
       </div>
     </div>
 
     <div class="sliders">
-      <price-slider />
+      <ad-price-slider />
       @if(moreSliders){
       <div class="plus">
-        <mileage-slider />
-        <year-slider />
-        <autonomy-slider />
+        <ad-mileage-slider />
+        <ad-year-slider />
+        <ad-autonomy-slider />
       </div>
       }
       <button class="more-btn pb-3" (click)="moreSliders = !moreSliders">
