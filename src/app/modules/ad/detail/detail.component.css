@@ -129,6 +129,9 @@ textarea {
 .like {
   cursor: pointer;
 }
+.like i {
+  font-size: 24px;
+}
 
 .linktooltips-container {
   text-align: center !important;

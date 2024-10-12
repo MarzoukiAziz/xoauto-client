@@ -8,6 +8,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { UserAdsComponent } from './components/user-ads/user-ads.component';
 import { AdService } from '../ad/ad.service';
+import { SavedAdsComponent } from './components/saved-ads/saved-ads.component';
 
 const userResolver = () => {
   const userService = inject(UserService);
@@ -34,6 +35,13 @@ export default [
       {
         path: 'profile',
         component: ProfileComponent,
+      },
+      {
+        path: 'saved',
+        component: SavedAdsComponent,
+        resolve: {
+          ads: () => inject(AdService).getSavedAdsData(),
+        },
       },
       {
         path: 'ads',
