@@ -1,11 +1,11 @@
-<title>Mes Annonces</title>
+<title>Annonces Sauvegardées</title>
 
 <div class="cards-content-box">
-  <panel-title [title]="'Mes Annonces (' + count + ')'" />
+  <panel-title [title]="'Mes Annonces Sauvegardées (' + count + ')'" />
 
   <div class="container mt-5">
     @if(count == 0){
-    <no-ads message="Vous n'avez toujours pas publié d'annonce." />
+    <no-ads message="Vous n'avez toujours pas sauvegarder d'annonce." />
     }
   </div>
   <div class="single-card-box" *ngFor="let ad of ads">
@@ -22,11 +22,11 @@
         </div>
       </div>
       <div class="btn-box">
-        <a class="btn-one" routerLink="/ad/update/{{ ad._id }}">
-          <span class="txt">Modifier</span>
+        <a class="btn-one" routerLink="/ad/{{ ad._id }}">
+          <span class="txt">Consulter</span>
         </a>
-        <a class="btn-one style2" (click)="handleDeleteAd(ad._id)">
-          <span class="txt">Supprimer</span>
+        <a class="btn-one style2" (click)="removeFromSavedAds(ad._id)">
+          <span class="txt">Retirer</span>
         </a>
       </div>
     </div>
@@ -49,17 +49,6 @@
           {{ ad.price | number : "1.0-0" }} {{ currency }}
         </h5>
       </ul>
-
-      <button
-        [ngClass]="{
-          'btn-secondary': !ad.sold,
-          'btn-success': ad.sold
-        }"
-        class="btn btn-lg btn-block w-100"
-        (click)="handleChangeAdStatus(ad._id, !ad.sold)"
-      >
-        {{ ad.sold ? "Marquer comme disponible" : "Marquer comme vendue" }}
-      </button>
     </div>
   </div>
   <mat-paginator

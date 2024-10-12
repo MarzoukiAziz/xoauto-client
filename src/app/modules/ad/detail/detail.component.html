@@ -249,56 +249,28 @@
                 </h3>
               </div>
 
-              <!-- <div *ngIf="authService.isLoggedIn && favorites" class="col-2">
+              <div *ngIf="showSaveOption && !owner" class="col-2">
                 <a
-                  *ngIf="!favorites.includes(ad._id)"
-                  (click)="addToFavorite(ad._id)"
+                  *ngIf="!isAdSaved(ad._id)"
+                  (click)="addToSavedAds(ad._id)"
                   class="effect-round like"
                   data-bs-toggle="tooltip"
                   data-bs-placement="left"
-                  title=""
-                  title="Ajouter du favoris"
+                  title="Ajouter au sauvgaredées"
                 >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    class="feather feather-heart"
-                  >
-                    <path
-                      d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"
-                    ></path>
-                  </svg>
+                  <i class="fa-regular fa-heart"></i>
                 </a>
                 <a
-                  *ngIf="favorites.includes(ad._id)"
-                  (click)="removeFromFavorite(ad._id)"
+                  *ngIf="isAdSaved(ad._id)"
+                  (click)="removeFromSavedAds(ad._id)"
                   class="effect-round like"
                   data-bs-toggle="tooltip"
                   data-bs-placement="left"
-                  title=""
-                  title="Retirer du favoris"
+                  title="Retirer du sauvgaredées"
                 >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="var(--thm-base)"
-                    class="feather feather-heart"
-                  >
-                    <path
-                      d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"
-                    ></path>
-                  </svg>
+                  <i class="fa-solid fa-heart"></i>
                 </a>
-              </div> -->
+              </div>
             </div>
             <div class="widget_meta d-flex align-items-center">
               <span class="text-white"

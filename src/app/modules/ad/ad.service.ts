@@ -25,6 +25,8 @@ export class AdService {
   private _ad: BehaviorSubject<Ad> = new BehaviorSubject(null);
   private _count: BehaviorSubject<number> = new BehaviorSubject(0);
   private _settings: BehaviorSubject<Settings> = new BehaviorSubject(null);
+  private _savedAds: BehaviorSubject<string[]> = new BehaviorSubject([]);
+
   public loading = false;
   currentPage = 1;
 
@@ -79,6 +81,10 @@ export class AdService {
 
   get comparator(): string {
     return localStorage.getItem('comparator-used') || '';
+  }
+
+  get savedAds$(): Observable<string[]> {
+    return this._savedAds.asObservable();
   }
 
   // @ Public methods
@@ -242,6 +248,45 @@ export class AdService {
     this.mileageMax = 500000;
     this.yearMin = 2000;
     this.yearMax = new Date().getFullYear();
+  }
+
+  getSavedAds(): Observable<string[]> {
+    const uid = this._auth.getUserInfo()?.id;
+
+    return this._httpClient
+      .get<string[]>(`${this.apiUrl}/ads/saved/${uid}`)
+      .pipe(
+        tap((response: any) => {
+          this._savedAds.next(response);
+        })
+      );
+  }
+
+  getSavedAdsData(page: number = 1): Observable<Ad[]> {
+    const saved = this._auth.getUserInfo()?.id;
+    return this._httpClient
+      .get<Ad[]>(`${this.apiUrl}/ads/search`, {
+        params: {
+          page,
+          saved,
+        },
+      })
+      .pipe(
+        tap((response: any) => {
+          this._ads.next(response.ads);
+          this._count.next(response.count);
+        })
+      );
+  }
+
+  updateSavedAds(uid: string, newSavedAds: string[]): Observable<string[]> {
+    return this._httpClient
+      .put<string[]>(`${this.apiUrl}/ads/saved/${uid}`, newSavedAds)
+      .pipe(
+        tap((response: any) => {
+          this._savedAds.next(response);
+        })
+      );
   }
 
   /*******************

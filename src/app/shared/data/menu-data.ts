@@ -1,4 +1,4 @@
-export const menuItemsData = [
+export const MENU_ITEMS_DATA = [
   { label: 'Acceuil', link: '/' },
   {
     label: 'Neuf',

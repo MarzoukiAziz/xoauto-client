@@ -34,6 +34,9 @@ export class DetailComponent {
   criteriaList = [];
   similars = [];
   currency = environment.CURRENCY;
+  savedAds = [];
+  showSaveOption = false;
+  userId = '';
 
   private _unsubscribeAll: Subject<Ad> = new Subject<Ad>();
 
@@ -44,66 +47,30 @@ export class DetailComponent {
   ) {}
 
   ngOnInit(): void {
+    this.userId = this._auth.getUserInfo().id;
     this._adService.ad$
       .pipe(takeUntil(this._unsubscribeAll))
       .subscribe((ad: Ad) => {
         this.ad = ad;
         this.adName = ad.brand + ' ' + ad.model + ' ' + ad.version;
-        this.owner = this.ad.uid._id == this._auth.getUserInfo().id;
-        this.criteriaList = [
-          {
-            icon: 'drive.svg',
-            criteria: 'Carrosserie',
-            value: this.ad.category,
-          },
-          {
-            icon: 'mileage.svg',
-            criteria: 'Kilométrage',
-            value: this.ad.mileage,
-            unit: 'km',
-            pipe: 'number',
-            pipeArg: '1.0-0',
-          },
-          {
-            icon: 'calendar.svg',
-            criteria: 'Première mise en circulation',
-            value:
-              this.ad.first_registration.month +
-              '/' +
-              this.ad.first_registration.year,
-          },
-          { icon: 'energy.svg', criteria: 'Énergie', value: this.ad.fuel_type },
-          { icon: 'color.svg', criteria: 'Couleur', value: this.ad.color },
-          {
-            icon: 'horse.png',
-            criteria: 'Puissance en chevaux',
-            value: this.ad.horsepower,
-          },
-          {
-            icon: 'kw.png',
-            criteria: 'Puissance en kw',
-            value: this.ad.power_kw,
-          },
-          {
-            icon: 'charging.png',
-            criteria: 'Autonomie WLTP',
-            value: this.ad.autonomy_wltp_km,
-            unit: 'km',
-          },
-          {
-            icon: 'seat.png',
-            criteria: 'Nombre de Places',
-            value: this.ad.seats,
-          },
-        ];
+        this.owner = this.ad.uid._id == this.userId;
+        this.criteriaList = this.getCriteria(ad);
         this._adService
           .getSimilars(ad.category, ad._id, ad.price)
           .subscribe((similars: Ad[]) => {
             this.similars = similars;
           });
-
         this._changeDetectorRef.markForCheck();
       });
+
+    if (this._auth.isAuthenticated()) {
+      this._adService.savedAds$
+        .pipe(takeUntil(this._unsubscribeAll))
+        .subscribe((savedAds: string[]) => {
+          this.savedAds = savedAds;
+          this.showSaveOption = true;
+        });
+    }
   }
 
   ngOnDestroy(): void {
@@ -131,4 +98,62 @@ export class DetailComponent {
     });
   }
   slideChange(swiper: any) {}
+
+  getCriteria(ad: Ad) {
+    return [
+      {
+        icon: 'drive.svg',
+        criteria: 'Carrosserie',
+        value: ad.category,
+      },
+      {
+        icon: 'mileage.svg',
+        criteria: 'Kilométrage',
+        value: ad.mileage,
+        unit: 'km',
+        pipe: 'number',
+        pipeArg: '1.0-0',
+      },
+      {
+        icon: 'calendar.svg',
+        criteria: 'Première mise en circulation',
+        value: ad.first_registration.month + '/' + ad.first_registration.year,
+      },
+      { icon: 'energy.svg', criteria: 'Énergie', value: ad.fuel_type },
+      { icon: 'color.svg', criteria: 'Couleur', value: ad.color },
+      {
+        icon: 'horse.png',
+        criteria: 'Puissance en chevaux',
+        value: ad.horsepower,
+      },
+      {
+        icon: 'kw.png',
+        criteria: 'Puissance en kw',
+        value: ad.power_kw,
+      },
+      {
+        icon: 'charging.png',
+        criteria: 'Autonomie WLTP',
+        value: ad.autonomy_wltp_km,
+        unit: 'km',
+      },
+      {
+        icon: 'seat.png',
+        criteria: 'Nombre de Places',
+        value: ad.seats,
+      },
+    ];
+  }
+
+  addToSavedAds(id: string) {
+    this.savedAds.push(id);
+    this._adService.updateSavedAds(this.userId, this.savedAds).subscribe();
+  }
+  removeFromSavedAds(id: string) {
+    this.savedAds = this.savedAds.filter((item) => item !== id);
+    this._adService.updateSavedAds(this.userId, this.savedAds).subscribe();
+  }
+  isAdSaved(id: string) {
+    return this.savedAds.includes(id);
+  }
 }
