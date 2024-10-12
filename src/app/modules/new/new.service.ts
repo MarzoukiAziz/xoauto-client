@@ -11,12 +11,26 @@ export class NewService {
   private apiUrl = environment.apiserver;
 
   private _settings: BehaviorSubject<NewSettings> = new BehaviorSubject(null);
-  private _models: BehaviorSubject<Model[]> = new BehaviorSubject([]);
   private _versions: BehaviorSubject<Version[]> = new BehaviorSubject([]);
   private _model: BehaviorSubject<Model> = new BehaviorSubject(null);
   private _brand: BehaviorSubject<Brand> = new BehaviorSubject(null);
   private _adComments: BehaviorSubject<AdComment[]> = new BehaviorSubject([]);
   private _similarAds: BehaviorSubject<Model[]> = new BehaviorSubject([]);
+
+  private _models: BehaviorSubject<Model[]> = new BehaviorSubject([]);
+  private _count: BehaviorSubject<number> = new BehaviorSubject(0);
+
+  currentPage = 1;
+  loading = false;
+
+  selectedBrands = [];
+  selectedCategories = [];
+  selectedEnergies = [];
+  selectedSeats = [];
+  priceMin = 0;
+  priceMax = 1000000;
+  autonomyMin = 0;
+  autonomyMax = 1200;
 
   sort = {
     name: 'Prix Ascendant',
@@ -57,6 +71,10 @@ export class NewService {
     return this._similarAds.asObservable();
   }
 
+  get count$(): Observable<number> {
+    return this._count.asObservable();
+  }
+
   getSettings(): Observable<NewSettings> {
     return this._httpClient
       .get<NewSettings>(`${this.apiUrl}/settings/new-details`)
@@ -67,7 +85,33 @@ export class NewService {
       );
   }
 
-  getModels(brand: string): Observable<Model[]> {
+  getModels(): Observable<Model[]> {
+    this.loading = true;
+    return this._httpClient
+      .get<Model[]>(`${this.apiUrl}/new-ads/search`, {
+        params: {
+          page: this.currentPage,
+          brand: this.selectedBrands.map((brand) => brand.name),
+          category: this.selectedCategories.map((category) => category.name_fr),
+          fuel_type: this.selectedEnergies.map((energy) => energy.name_fr),
+          seats: this.selectedSeats,
+          priceMin: this.priceMin,
+          priceMax: this.priceMax,
+          autonomyMin: this.autonomyMin,
+          autonomyMax: this.autonomyMax,
+          sort: this.sort.code,
+        },
+      })
+      .pipe(
+        tap((response: any) => {
+          this._models.next(response.models);
+          this._count.next(response.count);
+          this.loading = false;
+        })
+      );
+  }
+
+  getModelsByBrand(brand: string): Observable<Model[]> {
     return this._httpClient
       .get<Model[]>(`${this.apiUrl}/new-ads/brand`, {
         params: {
@@ -192,5 +236,16 @@ export class NewService {
       .getValue()
       .filter((version) => version._id !== id);
     this._versions.next(filteredVersions);
+  }
+
+  resetFilters() {
+    this.selectedBrands = [];
+    this.selectedCategories = [];
+    this.selectedEnergies = [];
+    this.selectedSeats = [];
+    this.priceMin = 0;
+    this.priceMax = 1000000;
+    this.autonomyMin = 0;
+    this.autonomyMax = 1200;
   }
 }

@@ -37,6 +37,6 @@ export class SortNewAdsComponent {
   updateResult(sortOption) {
     this._newService.sort = sortOption;
 
-    this._newService.getModels(this.brand).subscribe();
+    this._newService.getModelsByBrand(this.brand).subscribe();
   }
 }

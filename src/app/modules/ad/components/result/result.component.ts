@@ -22,7 +22,6 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
   ],
 })
 export class ResultComponent {
-  @Input() loading: boolean = false;
   ads: Ad[] = [];
   count: Number = 0;
   pageSize = 9;
