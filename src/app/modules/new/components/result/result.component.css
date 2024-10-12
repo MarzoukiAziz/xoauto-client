@@ -1,0 +1,96 @@
+.new-ad {
+  width: 15em;
+  position: relative;
+  margin-right: 15px;
+  margin-bottom: 10px;
+  margin-top: 20px;
+  cursor: pointer;
+}
+
+.new-ad:hover {
+  cursor: pointer;
+}
+
+.new-ad .img-car {
+  width: 90%;
+  display: flex;
+  margin: auto;
+  padding-top: 40px;
+}
+
+.new-ad:hover .img-car {
+  width: 95%;
+}
+
+.price {
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+.price p {
+  color: #cf173c;
+  font-size: 17px;
+  text-align: center;
+}
+.price p span {
+  font-size: 10px;
+  color: #4b4b4b;
+}
+
+.ribbon {
+  text-align: right;
+  padding: 1px 4px;
+  color: white;
+  width: fit-content;
+  float: right;
+  border-radius: 0 10px 0 10px;
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 1.5px;
+  position: absolute;
+  right: 10px;
+}
+
+.ribbon-new {
+  background-color: rgb(2, 136, 53);
+}
+
+.ribbon-promo {
+  background-color: #dc3545;
+}
+
+.versions {
+  text-align: center;
+  font-size: 10px;
+}
+
+@media only screen and (max-width: 991px) {
+  .new-ad {
+    width: 11em;
+  }
+  .ribbon {
+    font-size: 11px;
+  }
+  .price p {
+    font-size: 15px;
+  }
+}
+
+@media only screen and (max-width: 420px) {
+  .new-ad {
+    width: 9.5em;
+  }
+
+  .price p {
+    font-size: 10px;
+  }
+
+  .startingfrom {
+    font-size: 9px;
+    color: #4b4b4b;
+    padding-right: 5px;
+  }
+  .icon-text {
+    font-size: 9px;
+  }
+}

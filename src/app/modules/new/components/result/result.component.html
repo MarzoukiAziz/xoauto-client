@@ -1,0 +1,59 @@
+<section>
+  <div class="container my-2">
+    @if(_newService.loading){
+    <div
+      class="d-flex flex-column align-items-center justify-content-center p-5"
+    >
+      <mat-spinner />
+      <span class="mt-2">Chargement ...</span>
+    </div>
+    }@else if(count==0){
+    <no-ads
+      message="Aucune voiture ne correspond à vos critères de recherche."
+    />
+    }@else {
+
+    <mat-grid-list
+      [cols]="breakpoint"
+      [rowHeight]="rowHeight"
+      (window:resize)="onResize($event)"
+    >
+      @for (model of models; track $index) {
+      <mat-grid-tile>
+        <div
+          class="new-ad"
+          routerLink="/new/details/{{ model.brand }}/{{ model.model }}"
+        >
+          <div *ngIf="model.new" class="ribbon ribbon-new">Nouveau</div>
+          <div *ngIf="model.promo" class="ribbon ribbon-promo">Promo</div>
+          <img class="img-car" [src]="model.preview" />
+
+          <h5 class="mt-2 text-center">
+            {{ model.brand | uppercase }}
+            {{ model.model | uppercase }}
+          </h5>
+          <p class="versions" *ngIf="model.versions.length > 1">
+            {{ model.versions.length }} finitions
+          </p>
+          <div class="price">
+            <p>
+              <span>à partir de &nbsp; &nbsp; </span
+              >{{ model.min_price | number : "1.0-0" }} {{ currency }}
+            </p>
+          </div>
+        </div>
+      </mat-grid-tile>
+
+      }
+    </mat-grid-list>
+
+    }
+    <mat-paginator
+      [length]="count"
+      [pageSize]="pageSize"
+      label=""
+      (page)="OnPageChange($event)"
+    >
+    </mat-paginator>
+  </div>
+</section>
