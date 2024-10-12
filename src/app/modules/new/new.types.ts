@@ -1,5 +1,18 @@
 export interface NewSettings {
   brands: Brand[];
+  categories: [
+    {
+      _id: string;
+      name_fr: string;
+      icon: string;
+    }
+  ];
+  energies: [
+    {
+      _id: string;
+      name_fr: string;
+    }
+  ];
 }
 
 export interface Brand {
