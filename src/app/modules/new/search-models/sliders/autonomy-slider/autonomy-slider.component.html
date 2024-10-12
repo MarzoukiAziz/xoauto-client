@@ -1,0 +1,19 @@
+<div class="row">
+  <div class="col-l-12 col-xl-12 d-flex align-items-center">
+    <h6 class="slider-title">Autonomie WLTP</h6>
+    <mat-slider
+      [min]="autonomyMin"
+      step="10"
+      [max]="autonomyMax"
+      color="accent"
+      discrete="true"
+    >
+      <input matSliderStartThumb [(ngModel)]="_newService.autonomyMin" />
+      <input matSliderEndThumb [(ngModel)]="_newService.autonomyMax" />
+    </mat-slider>
+
+    <span class="slider-data"
+      >{{ _newService.autonomyMin }} - {{ _newService.autonomyMax }} km</span
+    >
+  </div>
+</div>
