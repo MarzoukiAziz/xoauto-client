@@ -1,0 +1,35 @@
+<button
+  #popOver1="ngbPopover"
+  type="button"
+  class="filter"
+  [autoClose]="'outside'"
+  [ngbPopover]="CategoryFilter"
+  placement="bottom-left"
+  popoverClass="ppp"
+>
+  Carrosserie
+</button>
+
+<ng-template #CategoryFilter>
+  <div class="d-flex flex-row flex-wrap">
+    @for (category of categories; track $index) {
+    <div
+      class="col-4 carro"
+      [class.carro-selected]="isSelected(category)"
+      (click)="toggleCategory(category)"
+    >
+      <img
+        [src]="'/assets/images/categories/' + category.icon"
+        [alt]="category.name_fr + ' icon'"
+      />
+      <span>{{ category.name_fr }}</span>
+    </div>
+    }
+  </div>
+
+  <hr />
+  <div class="btns2" role="group" aria-label="Button Group">
+    <a class="reset" (click)="resetCategories()">Réinitialiser</a>
+    <a class="applay" (click)="updateResult()">Appliquer</a>
+  </div>
+</ng-template>
