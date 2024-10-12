@@ -74,5 +74,5 @@ export interface AdComment {
   answerTo: string;
   createdAt?: Date;
   updatedAt?: Date;
-  replies: Comment[];
+  replies: AdComment[];
 }
