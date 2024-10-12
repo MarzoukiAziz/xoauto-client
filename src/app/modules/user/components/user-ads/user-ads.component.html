@@ -13,7 +13,7 @@
     <div class="category-box-sold" *ngIf="ad.sold">Vendu</div>
 
     <div class="cards-img-box">
-      <div class="inner-title">
+      <div class="inner-title" routerLink="/ad/detail/{{ ad._id }}">
         <h3>{{ ad.brand }} {{ ad.model }} {{ ad.version }}</h3>
       </div>
       <div class="inner image-container">
@@ -21,28 +21,20 @@
         <div *ngIf="ad.sold" class="image-overlay">
           <span class="sold-text"> Vendu </span>
         </div>
-        <div *ngIf="!ad.active" class="image-overlay">
-          <span class="deleted-text"> Inactive </span>
-        </div>
       </div>
       <div class="btn-box">
-        @if(ad.active){
-        <a class="btn-one style2" routerLink="/ad/detail/{{ ad._id }}">
-          <span class="txt">Consulter</span>
-        </a>
         <a class="btn-one" routerLink="/ad/update/{{ ad._id }}">
           <span class="txt">Modifier</span>
         </a>
-
-        }@else{
-        <a class="btn-one">
-          <span class="txt">Activer</span>
+        <a class="btn-one style2" (click)="handleDeleteAd(ad._id)">
+          <span class="txt">Supprimer</span>
         </a>
-        }
       </div>
     </div>
     <div class="cards-text-box">
-      <p>{{ ad.createdAt | date : "dd MMM yyyy, hh:mm" }}</p>
+      <p>
+        {{ ad.createdAt | date : "dd MMM yyyy, hh:mm" }}
+      </p>
       <h3>Détails</h3>
 
       <ul>
@@ -58,6 +50,17 @@
           {{ ad.price | number : "1.0-0" }} {{ currency }}
         </h5>
       </ul>
+
+      <button
+        [ngClass]="{
+          'btn-secondary': !ad.sold,
+          'btn-success': ad.sold
+        }"
+        class="btn btn-lg btn-block w-100"
+        (click)="handleChangeAdStatus(ad._id, !ad.sold)"
+      >
+        {{ ad.sold ? "Marquer comme disponible" : "Marquer comme vendue" }}
+      </button>
     </div>
   </div>
   <mat-paginator
