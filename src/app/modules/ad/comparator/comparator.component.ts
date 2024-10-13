@@ -52,6 +52,6 @@ export class ComparatorComponent {
   }
 
   removeFromComparator(id) {
-    this._adService.removeFromCompare(id);
+    this._adService.removeFromCompare(id, true);
   }
 }

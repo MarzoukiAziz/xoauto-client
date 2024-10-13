@@ -16,6 +16,7 @@ import { BlogService } from '../blog.service';
 import { CommonModule } from '@angular/common';
 import { NewAdBannerComponent } from '../../../shared/components/new-ad-banner/new-ad-banner.component';
 import { AuthService } from '../../auth/auth.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-article-detail',
@@ -39,7 +40,8 @@ export class ArticleDetailComponent implements OnInit {
     private sanitizer: DomSanitizer,
     private _blogService: BlogService,
     private _changeDetectorRef: ChangeDetectorRef,
-    private _auth: AuthService
+    private _auth: AuthService,
+    private toastr: ToastrService
   ) {
     this.connected = this._auth.isAuthenticated();
   }
@@ -85,6 +87,9 @@ export class ArticleDetailComponent implements OnInit {
     this._blogService.createComment(comment).subscribe(() => {
       commentContent.value = '';
       this.selectedCommentToReply = '';
+      this.toastr.info('Commentaire ajouté!', "C'est fait", {
+        progressBar: true,
+      });
     });
   }
 
