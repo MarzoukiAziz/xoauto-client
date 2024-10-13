@@ -49,8 +49,10 @@
                 <div class="row">
                   <div class="col-md-12">
                     <!-- Loop through Comments -->
-                    @for (comment of comments; track $index) {
-                    <div class="single-comment">
+                    <div
+                      class="single-comment"
+                      *ngFor="let comment of comments"
+                    >
                       <!-- Display Main Comments -->
                       <div *ngIf="!comment.answerTo" class="inner">
                         <!-- Main Comment Box -->
@@ -59,7 +61,7 @@
                           <div class="img-holder">
                             <img
                               [src]="
-                                comment.user?.avatar ??
+                                comment.uid?.avatar ??
                                 'assets/images/icons/user-1.jpg'
                               "
                               alt="User Avatar"
@@ -70,7 +72,7 @@
                             <!-- Comment Author and Date -->
                             <div class="top">
                               <h3>
-                                {{ comment.user?.name ?? "User"
+                                {{ comment.uid.name
                                 }}<span>
                                   {{
                                     comment.createdAt | date : "d MMM, y hh:mm"
@@ -106,7 +108,7 @@
                               <div class="img-reply">
                                 <img
                                   [src]="
-                                    reply.user?.avatar ??
+                                    reply.uid?.avatar ??
                                     'assets/images/icons/user-1.jpg'
                                   "
                                 />
@@ -114,7 +116,7 @@
                               <div class="text-holder">
                                 <div class="top">
                                   <h3>
-                                    {{ reply.user?.name ?? "User"
+                                    {{ reply.uid.name
                                     }}<span>{{
                                       reply.createdAt | date : "d MMM, y hh:mm"
                                     }}</span>
@@ -158,7 +160,6 @@
                         </div>
                       </div>
                     </div>
-                    }
                   </div>
                 </div>
               </div>
