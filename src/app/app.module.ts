@@ -9,10 +9,11 @@ import {
   withInterceptorsFromDi,
 } from '@angular/common/http';
 import { AuthInterceptor } from './modules/auth/auth.intercepter';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, AppRoutingModule, NgbModule],
+  imports: [BrowserModule, AppRoutingModule, NgbModule, ToastrModule.forRoot()],
   providers: [
     {
       provide: HTTP_INTERCEPTORS,

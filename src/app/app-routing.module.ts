@@ -2,8 +2,13 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LayoutComponent } from './layout/layout.component';
 import { AuthCallbackComponent } from './modules/auth/auth-callback/auth-callback.component';
+import { CompleteProfileComponent } from './modules/auth/complete-profile/complete-profile.component';
 
 const routes: Routes = [
+  {
+    path: 'success-login',
+    component: AuthCallbackComponent,
+  },
   {
     path: '',
     component: LayoutComponent,
@@ -25,8 +30,8 @@ const routes: Routes = [
         loadChildren: () => import('./modules/new/new.routes'),
       },
       {
-        path: 'success-login',
-        component: AuthCallbackComponent,
+        path: 'complete-profile',
+        component: CompleteProfileComponent,
       },
       {
         path: '',
