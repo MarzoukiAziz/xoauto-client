@@ -53,7 +53,7 @@ export class AuthService {
       });
   }
 
-  fetchUserInfo(token) {
+  fetchUserInfo(token: string) {
     if (!token) {
       console.error('No access token found');
       return;
@@ -66,11 +66,23 @@ export class AuthService {
 
     this.http.get<CognitoUser>(this.cognitoUserInfoUrl, { headers }).subscribe(
       (userInfo: CognitoUser) => {
-        this.getUserIdFromCid(userInfo.sub).subscribe((id) => {
-          userInfo.id = id;
-          this.saveUserInfo(userInfo);
-          this.router.navigateByUrl('/user/dashboard');
-        });
+        this.getUserIdFromCid(userInfo.sub).subscribe(
+          (id) => {
+            userInfo.id = id;
+            this.saveUserInfo(userInfo);
+            this.router.navigateByUrl('/user/dashboard');
+          },
+          (error) => {
+            if (error && error.error.redirectTo) {
+              this.router.navigate([error.error.redirectTo], {
+                queryParams: {
+                  email: error.error.data.email,
+                  id: error.error.data.id,
+                },
+              });
+            }
+          }
+        );
       },
       (error) => {
         console.error('Error fetching user info:', error);
@@ -86,6 +98,20 @@ export class AuthService {
 
   saveUserInfo(userInfo: CognitoUser) {
     localStorage.setItem('user_info', JSON.stringify(userInfo));
+  }
+
+  finishSignUp(email, username, avatar, cid) {
+    console.log(email, username, avatar, cid);
+    return this.http
+      .post<any>(this.apiUrl + '/cognito/signup-step2/', {
+        email,
+        username,
+        avatar,
+        cid,
+      })
+      .subscribe(() => {
+        this.fetchUserInfo(this.getAccessToken());
+      });
   }
 
   // Sign out method

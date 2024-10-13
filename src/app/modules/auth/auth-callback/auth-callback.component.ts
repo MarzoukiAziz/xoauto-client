@@ -6,7 +6,6 @@ import { AuthService } from '../auth.service';
 @Component({
   selector: 'app-auth-callback',
   templateUrl: './auth-callback.component.html',
-  styleUrl: './auth-callback.component.css',
   imports: [LoaderComponent],
   standalone: true,
 })

@@ -11661,3 +11661,6 @@ li.single-benefits-box-colum:nth-child(6) .single-benefits-box .icon {
   color: #fff;
   border-color: #43c3ea;
 }
+.complete-profile-area {
+  background: linear-gradient(135deg, #23212f 20%, #930824 80%);
+}
