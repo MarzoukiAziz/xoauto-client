@@ -17,12 +17,11 @@ export class CloudinaryUploadService {
   constructor(private http: HttpClient) {}
 
   // Method to upload avatar image to Cloudinary
-  uploadAvatar(timestamp, signature, file, uid): Observable<any> {
+  uploadAvatar(timestamp, signature, file): Observable<any> {
     // Create a FormData object to append image and additional parameters
     const form = new FormData();
     form.append('file', file);
     form.append('folder', 'avatars');
-    form.append('public_id', uid);
 
     // Construct the Cloudinary upload URL with credentials and parameters
     return this.http.post(
@@ -70,8 +69,8 @@ export class CloudinaryUploadService {
   }
 
   // Method to get Cloudinary signature for the specified user ID
-  getSignature(uid): Observable<any> {
+  getSignature(): Observable<any> {
     // Make an HTTP GET request to the server to obtain Cloudinary signature
-    return this.http.get<any>(environment.apiserver + '/api/cloudinary/' + uid);
+    return this.http.get<any>(environment.apiserver + '/cloudinary');
   }
 }
