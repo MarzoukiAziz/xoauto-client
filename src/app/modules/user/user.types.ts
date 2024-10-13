@@ -14,3 +14,8 @@ export interface User {
   updatedAt?: Date;
   lastLogin?: Date;
 }
+
+export interface HighLight {
+  savedCount: number;
+  adsCount: number;
+}
