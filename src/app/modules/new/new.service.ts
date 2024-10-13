@@ -3,6 +3,7 @@ import { BehaviorSubject, Observable, of, tap } from 'rxjs';
 import { AdComment, Brand, Model, Version, NewSettings } from './new.types';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
+import { ToastrService } from 'ngx-toastr';
 
 @Injectable({
   providedIn: 'root',
@@ -37,7 +38,7 @@ export class NewService {
     code: 'price-asc',
   };
 
-  constructor(private _httpClient: HttpClient) {}
+  constructor(private _httpClient: HttpClient, private toastr: ToastrService) {}
 
   get comparator(): string {
     return localStorage.getItem('comparator-new') || '';
@@ -221,6 +222,9 @@ export class NewService {
     if (!comparatorArray.includes(id)) {
       comparatorArray.push(id);
       localStorage.setItem('comparator-new', comparatorArray.join(','));
+      this.toastr.info('La voiture a été ajoutée à la comparaison !', '', {
+        progressBar: true,
+      });
     }
   }
 
@@ -236,6 +240,10 @@ export class NewService {
       .getValue()
       .filter((version) => version._id !== id);
     this._versions.next(filteredVersions);
+
+    this.toastr.info('La voiture a été retirée de la comparaison !', '', {
+      progressBar: true,
+    });
   }
 
   resetFilters() {

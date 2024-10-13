@@ -12,6 +12,7 @@ import { environment } from 'src/environments/environment.prod';
 import { Ad, Settings } from './ad.types';
 import { AuthService } from '../auth/auth.service';
 import { CloudinaryUploadService } from 'src/app/shared/services/cloudinary-upload.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Injectable({
   providedIn: 'root',
@@ -55,7 +56,8 @@ export class AdService {
   constructor(
     private _httpClient: HttpClient,
     private _auth: AuthService,
-    private cloud: CloudinaryUploadService
+    private cloud: CloudinaryUploadService,
+    private toastr: ToastrService
   ) {}
 
   // Accessors
@@ -214,10 +216,13 @@ export class AdService {
     if (!comparatorArray.includes(id)) {
       comparatorArray.push(id);
       localStorage.setItem('comparator-used', comparatorArray.join(','));
+      this.toastr.info("L'annonce a été ajoutée à la comparaison !", '', {
+        progressBar: true,
+      });
     }
   }
 
-  removeFromCompare(id: string) {
+  removeFromCompare(id: string, removeFromAds = false) {
     let comparatorArray = this.comparator ? this.comparator.split(',') : [];
 
     // Filter out the id
@@ -225,10 +230,16 @@ export class AdService {
     localStorage.setItem('comparator-used', comparatorArray.join(','));
 
     // Update _versions subject after filtering
-    const filteredVersions = this._ads
-      .getValue()
-      .filter((version) => version._id !== id);
-    this._ads.next(filteredVersions);
+    if (removeFromAds) {
+      const filteredVersions = this._ads
+        .getValue()
+        .filter((version) => version._id !== id);
+      this._ads.next(filteredVersions);
+    }
+
+    this.toastr.info("L'annonce a été retirée de la comparaison !", '', {
+      progressBar: true,
+    });
   }
 
   resetFilters() {
