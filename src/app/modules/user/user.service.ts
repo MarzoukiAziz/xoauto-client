@@ -34,6 +34,10 @@ export class UserService {
   // Get User
   getCurrentUser(): Observable<User> {
     const id = this.auth.getUserInfo()?.id;
+    if (id == undefined) {
+      this.auth.signOut();
+      return null;
+    }
     return this._httpClient.get<User>(this.apiUrl + '/user/' + id).pipe(
       map((user) => {
         this._user.next(user);
