@@ -12,6 +12,7 @@ import { RouterLink } from '@angular/router';
 import { SimilarAdsComponent } from '../components/similar-ads/similar-ads.component';
 import { environment } from 'src/environments/environment';
 import { ToastrService } from 'ngx-toastr';
+import { ContactButtonsComponent } from '../components/contact-buttons/contact-buttons.component';
 
 @Component({
   selector: 'app-detail',
@@ -25,6 +26,7 @@ import { ToastrService } from 'ngx-toastr';
     PhoneNumberPipe,
     RouterLink,
     SimilarAdsComponent,
+    ContactButtonsComponent,
   ],
 })
 export class DetailComponent {
