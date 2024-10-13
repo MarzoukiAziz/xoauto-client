@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment.prod';
 import { CognitoUser } from './auth.types'; // Import the User model
 import { map, Observable } from 'rxjs';
+import { ToastrService } from 'ngx-toastr';
 
 @Injectable({
   providedIn: 'root',
@@ -21,7 +22,11 @@ export class AuthService {
 
   private cognitoLogoutUrl = environment.cognitoHostedUiUrl + '/logout'; // Cognito Logout URL
 
-  constructor(private http: HttpClient, private router: Router) {}
+  constructor(
+    private http: HttpClient,
+    private router: Router,
+    private toastr: ToastrService
+  ) {}
 
   getAccessToken(): string | null {
     return this.accessToken || localStorage.getItem('access_token');
@@ -71,6 +76,13 @@ export class AuthService {
             userInfo.id = id;
             this.saveUserInfo(userInfo);
             this.router.navigateByUrl('/user/dashboard');
+            this.toastr.success(
+              'Nous sommes ravis de vous accueillir de nouveau !',
+              'Bienvenue',
+              {
+                progressBar: true,
+              }
+            );
           },
           (error) => {
             if (error && error.error.redirectTo) {
@@ -122,9 +134,10 @@ export class AuthService {
     localStorage.removeItem('user_info');
     this.accessToken = null;
 
-    // Redirect to Cognito logout URL and pass redirect URI
-    const logoutUrl = `${this.cognitoLogoutUrl}?client_id=${this.clientId}&logout_uri=${environment.cognitoLogoutUrl}`;
-    window.location.href = logoutUrl;
+    this.toastr.info('Nous espérons vous revoir bientôt !', 'A bientôt!', {
+      progressBar: true,
+    });
+    this.router.navigateByUrl('/');
   }
 
   getUserIdFromCid(cid: string): Observable<string> {

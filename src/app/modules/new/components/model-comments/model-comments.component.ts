@@ -6,6 +6,7 @@ import { AdComment, Version } from '../../new.types';
 import { Subject, takeUntil } from 'rxjs';
 import { CommonModule } from '@angular/common';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'new-model-comments',
@@ -27,7 +28,8 @@ export class ModelCommentsComponent {
   constructor(
     private _newService: NewService,
     private _auth: AuthService,
-    private _changeDetectorRef: ChangeDetectorRef
+    private _changeDetectorRef: ChangeDetectorRef,
+    private toastr: ToastrService
   ) {
     this.connected = this._auth.isAuthenticated();
   }
@@ -62,6 +64,9 @@ export class ModelCommentsComponent {
     this._newService.createComment(comment, this.versionIds).subscribe(() => {
       commentContent.value = '';
       this.selectedCommentToReply = '';
+      this.toastr.info('Commentaire ajouté!', "C'est fait", {
+        progressBar: true,
+      });
       window.scrollTo(0, 0);
     });
   }
