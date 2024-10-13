@@ -11,6 +11,7 @@ import { PhoneNumberPipe } from 'src/app/shared/pipes/phoneNumber.pipe';
 import { RouterLink } from '@angular/router';
 import { SimilarAdsComponent } from '../components/similar-ads/similar-ads.component';
 import { environment } from 'src/environments/environment';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-detail',
@@ -43,7 +44,8 @@ export class DetailComponent {
   constructor(
     private _changeDetectorRef: ChangeDetectorRef,
     private _adService: AdService,
-    private _auth: AuthService
+    private _auth: AuthService,
+    private toastr: ToastrService
   ) {}
 
   ngOnInit(): void {
@@ -147,12 +149,22 @@ export class DetailComponent {
 
   addToSavedAds(id: string) {
     this.savedAds.push(id);
-    this._adService.updateSavedAds(this.userId, this.savedAds).subscribe();
+    this._adService.updateSavedAds(this.userId, this.savedAds).subscribe(() => {
+      this.toastr.info("L'annonce a été sauvegardée!", 'Succès!', {
+        progressBar: true,
+      });
+    });
   }
+
   removeFromSavedAds(id: string) {
     this.savedAds = this.savedAds.filter((item) => item !== id);
-    this._adService.updateSavedAds(this.userId, this.savedAds).subscribe();
+    this._adService.updateSavedAds(this.userId, this.savedAds).subscribe(() => {
+      this.toastr.info("L'annonce a été retirée", 'Succès!', {
+        progressBar: true,
+      });
+    });
   }
+
   isAdSaved(id: string) {
     return this.savedAds.includes(id);
   }
