@@ -1,4 +1,7 @@
-<header class="main-header main-header-style1">
+<header
+  class="main-header main-header-style1"
+  [ngClass]="{ 'sticky-header': isSticky }"
+>
   <nav class="main-menu main-menu-style1">
     <div class="main-menu__wrapper clearfix">
       <div class="container">
@@ -70,13 +73,6 @@
     </div>
   </nav>
 </header>
-
-<div
-  class="stricky-header dark-home stricked-menu main-menu"
-  style="border-bottom: 3px solid #cf173c"
->
-  <div class="sticky-header__content"></div>
-</div>
 
 <div class="mobile-nav__wrapper" [ngClass]="{ expanded: isMobileNavExpanded }">
   <div class="mobile-nav__overlay" (click)="toggleMobileNav()"></div>
