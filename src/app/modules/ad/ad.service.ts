@@ -140,7 +140,7 @@ export class AdService {
 
   getTodayAds(page: number = 1): Observable<Ad[]> {
     return this._httpClient
-      .get<Ad[]>(`${this.apiUrl}/ads`, {
+      .get<Ad[]>(`${this.apiUrl}/ads/search`, {
         params: {
           page,
           period: '1',
