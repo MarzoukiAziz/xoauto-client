@@ -1,0 +1,61 @@
+<title>Compléter Vos Informations</title>
+
+<section class="apply-form-area">
+  <div class="row">
+    <div class="col-xl-12">
+      <div class="apply-form-box clearfix">
+        <div
+          class="apply-form-box-bg"
+          style="background-image: url(assets/images/backgrounds/login.jpg)"
+        ></div>
+
+        <div class="apply-form-box__content complete-profile-area">
+          <div class="sec-title">
+            <h3 class="text-white text-center">Compléter Vos Informations</h3>
+          </div>
+
+          <div id="apply-form" class="default-form2">
+            <div class="form-group">
+              <h6 class="text-white mb-2">Nom :</h6>
+
+              <div class="input-box">
+                <input
+                  type="text"
+                  name="name"
+                  #name
+                  required
+                  placeholder="Nom*"
+                  aria-required="true"
+                />
+                <div class="icon">
+                  <i class="fa-solid fa-user"></i>
+                </div>
+              </div>
+            </div>
+            <h6 class="text-white mb-2">Avatar :</h6>
+            <ngx-dropzone (change)="onSelect($event)" [multiple]="false">
+              <ngx-dropzone-label>Drag & Drop Les images</ngx-dropzone-label>
+              <ngx-dropzone-image-preview
+                *ngIf="file"
+                ngProjectAs="ngx-dropzone-preview"
+                [file]="file"
+                [removable]="true"
+                (removed)="onRemove(file)"
+              >
+              </ngx-dropzone-image-preview>
+            </ngx-dropzone>
+
+            <div class="button-box">
+              <button
+                class="btn-one mt-3 w-100"
+                (click)="updateInfo(name.value)"
+              >
+                <span class="txt"> Valider </span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
