@@ -48,6 +48,18 @@ export class UserService {
     );
   }
 
+  getHighLight(): Observable<Highlight> {
+    const uid = this.auth.getUserInfo()?.id;
+    return this._httpClient.get<Highlight>(
+      this.apiUrl + '/insights/user-highlights',
+      {
+        params: {
+          uid,
+        },
+      }
+    );
+  }
+
   // sign out
   signOut() {
     this.auth.signOut();

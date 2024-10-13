@@ -31,6 +31,9 @@ export default [
       {
         path: 'dashboard',
         component: DashboardComponent,
+        resolve: {
+          highlight: () => inject(UserService).getHighLight(),
+        },
       },
       {
         path: 'profile',
