@@ -1,6 +1,9 @@
 export const environment = {
   production: true,
-  apiserver: 'http://localhost:5000/api/v1',
+  userServiceApi: 'http://localhost:5001/api/v1',
+  adServiceApi: 'http://localhost:5002/api/v1',
+  newAdServiceApi: 'http://localhost:5003/api/v1',
+  blogServiceApi: 'http://localhost:5004/api/v1',
   cognitoUserPoolId: 'eu-west-3_lr5uwqYrJ',
   cognitoAppClientId: 'ehcgpu87ee8qplfi7ob79i13d',
   awsRegion: 'eu-west-3',

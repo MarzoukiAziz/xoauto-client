@@ -65,7 +65,7 @@ export interface TechnicalSheet {
   functional_equipment: { [key: string]: any };
 }
 
-export interface AdComment {
+export interface NewAdComment {
   _id: string;
   uid: string;
   user: any;
@@ -74,5 +74,5 @@ export interface AdComment {
   answerTo: string;
   createdAt?: Date;
   updatedAt?: Date;
-  replies: AdComment[];
+  replies: NewAdComment[];
 }

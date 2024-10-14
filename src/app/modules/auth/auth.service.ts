@@ -11,7 +11,7 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class AuthService {
   private accessToken: string | null = null;
-  private apiUrl = environment.apiserver;
+  private userApiUrl = environment.userServiceApi;
 
   private clientId = environment.cognitoAppClientId;
   private redirectUri = environment.cognitoRedirectUrl;
@@ -115,7 +115,7 @@ export class AuthService {
   finishSignUp(email, username, avatar, cid) {
     console.log(email, username, avatar, cid);
     return this.http
-      .post<any>(this.apiUrl + '/cognito/signup-step2/', {
+      .post<any>(this.userApiUrl + '/cognito/signup-step2/', {
         email,
         username,
         avatar,
@@ -141,7 +141,7 @@ export class AuthService {
   }
 
   getUserIdFromCid(cid: string): Observable<string> {
-    return this.http.get<any>(this.apiUrl + '/user/cid/' + cid).pipe(
+    return this.http.get<any>(this.userApiUrl + '/user/cid/' + cid).pipe(
       map((response) => {
         return response.id;
       })
