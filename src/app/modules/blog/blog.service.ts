@@ -87,7 +87,11 @@ export class BlogService {
   // Get Article By Id
   getArticleById(id: string): Observable<Article> {
     return this._httpClient
-      .get<Article>(this.blogApiUrl + '/article/' + id)
+      .get<Article>(this.blogApiUrl + '/article/' + id, {
+        params: {
+          view: true,
+        },
+      })
       .pipe(
         map((article) => {
           this._article.next(article);
