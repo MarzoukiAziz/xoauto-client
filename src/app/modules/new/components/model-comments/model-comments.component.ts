@@ -2,7 +2,7 @@ import { ChangeDetectorRef, Component, Input } from '@angular/core';
 import { SafeHtml } from '@angular/platform-browser';
 import { NewService } from '../../new.service';
 import { AuthService } from 'src/app/modules/auth/auth.service';
-import { AdComment, Version } from '../../new.types';
+import { NewAdComment, Version } from '../../new.types';
 import { Subject, takeUntil } from 'rxjs';
 import { CommonModule } from '@angular/common';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
@@ -17,7 +17,7 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class ModelCommentsComponent {
   @Input() versions: Version[] = [];
-  comments: AdComment[] = [];
+  comments: NewAdComment[] = [];
   content!: SafeHtml;
   connected: boolean = false;
   selectedCommentToReply: string = '';
@@ -37,11 +37,11 @@ export class ModelCommentsComponent {
   ngOnInit(): void {
     this.versionIds = this.versions.map((version) => version._id);
     this.loading = true;
-    this._newService.getAdComments(this.versionIds).subscribe(() => {
-      this._newService.adComments$
+    this._newService.getNewAdComments(this.versionIds).subscribe(() => {
+      this._newService.newAdComments$
         .pipe(takeUntil(this._unsubscribeAll))
-        .subscribe((adComments: AdComment[]) => {
-          this.comments = adComments;
+        .subscribe((newAdComments: NewAdComment[]) => {
+          this.comments = newAdComments;
           this.loading = false;
           this._changeDetectorRef.markForCheck();
         });

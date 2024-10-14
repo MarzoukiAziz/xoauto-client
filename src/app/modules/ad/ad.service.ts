@@ -18,7 +18,8 @@ import { ToastrService } from 'ngx-toastr';
   providedIn: 'root',
 })
 export class AdService {
-  private apiUrl = environment.apiserver;
+  private adApiUrl = environment.adServiceApi;
+  private userApiUrl = environment.userServiceApi;
 
   // State
   private _ads: BehaviorSubject<Ad[]> = new BehaviorSubject([]);
@@ -91,7 +92,7 @@ export class AdService {
 
   // @ Public methods
   getSettings(): Observable<Settings> {
-    return this._httpClient.get<Settings>(`${this.apiUrl}/settings`).pipe(
+    return this._httpClient.get<Settings>(`${this.adApiUrl}/settings`).pipe(
       tap((response: Settings) => {
         this._settings.next(response);
       })
@@ -101,7 +102,7 @@ export class AdService {
   getAds(): Observable<Ad[]> {
     this.loading = true;
     return this._httpClient
-      .get<Ad[]>(`${this.apiUrl}/ads/search`, {
+      .get<Ad[]>(`${this.adApiUrl}/ads/search`, {
         params: {
           page: this.currentPage,
           brand: this.selectedBrands.map((brand) => brand.name),
@@ -133,7 +134,7 @@ export class AdService {
   }
 
   getAdById(id: string): Observable<Ad> {
-    return this._httpClient.get<Ad>(`${this.apiUrl}/ads/${id}`).pipe(
+    return this._httpClient.get<Ad>(`${this.adApiUrl}/ads/${id}`).pipe(
       tap((ad: Ad) => {
         this._ad.next(ad);
       })
@@ -142,7 +143,7 @@ export class AdService {
 
   getTodayAds(page: number = 1): Observable<Ad[]> {
     return this._httpClient
-      .get<Ad[]>(`${this.apiUrl}/ads/search`, {
+      .get<Ad[]>(`${this.adApiUrl}/ads/search`, {
         params: {
           page,
           period: '1',
@@ -164,7 +165,7 @@ export class AdService {
     }
 
     return this._httpClient
-      .get<Ad[]>(`${this.apiUrl}/ads/selected`, {
+      .get<Ad[]>(`${this.adApiUrl}/ads/selected`, {
         params: {
           adsId: this.comparator,
         },
@@ -180,7 +181,7 @@ export class AdService {
   getUserAds(page: number = 1): Observable<Ad[]> {
     const uid = this._auth.getUserInfo()?.id;
     return this._httpClient
-      .get<Ad[]>(`${this.apiUrl}/ads/search`, {
+      .get<Ad[]>(`${this.adApiUrl}/ads/search`, {
         params: {
           page,
           uid,
@@ -196,7 +197,7 @@ export class AdService {
 
   getSimilars(category, adId, price): Observable<Ad[]> {
     return this._httpClient
-      .get<Ad[]>(`${this.apiUrl}/ads/similars`, {
+      .get<Ad[]>(`${this.adApiUrl}/ads/similars`, {
         params: {
           category,
           adId,
@@ -261,22 +262,10 @@ export class AdService {
     this.yearMax = new Date().getFullYear();
   }
 
-  getSavedAds(): Observable<string[]> {
-    const uid = this._auth.getUserInfo()?.id;
-
-    return this._httpClient
-      .get<string[]>(`${this.apiUrl}/ads/saved/${uid}`)
-      .pipe(
-        tap((response: any) => {
-          this._savedAds.next(response);
-        })
-      );
-  }
-
   getSavedAdsData(page: number = 1): Observable<Ad[]> {
     const saved = this._auth.getUserInfo()?.id;
     return this._httpClient
-      .get<Ad[]>(`${this.apiUrl}/ads/search`, {
+      .get<Ad[]>(`${this.adApiUrl}/ads/search`, {
         params: {
           page,
           saved,
@@ -290,9 +279,21 @@ export class AdService {
       );
   }
 
+  getSavedAds(): Observable<string[]> {
+    const uid = this._auth.getUserInfo()?.id;
+
+    return this._httpClient
+      .get<string[]>(`${this.userApiUrl}/user/saved/${uid}`)
+      .pipe(
+        tap((response: any) => {
+          this._savedAds.next(response);
+        })
+      );
+  }
+
   updateSavedAds(uid: string, newSavedAds: string[]): Observable<string[]> {
     return this._httpClient
-      .put<string[]>(`${this.apiUrl}/ads/saved/${uid}`, newSavedAds)
+      .put<string[]>(`${this.userApiUrl}/user/saved/${uid}`, newSavedAds)
       .pipe(
         tap((response: any) => {
           this._savedAds.next(response);
@@ -309,7 +310,7 @@ export class AdService {
     const uid = user.id;
     return this._httpClient
       .put<Ad>(
-        `${this.apiUrl}/ads/change-status/${id}`,
+        `${this.adApiUrl}/ads/change-status/${id}`,
         {},
         {
           params: { uid, status },
@@ -330,7 +331,7 @@ export class AdService {
     const user = this._auth.getUserInfo();
     const uid = user.id;
     return this._httpClient
-      .delete<Ad>(`${this.apiUrl}/ads/user/${id}`, {
+      .delete<Ad>(`${this.adApiUrl}/ads/user/${id}`, {
         params: { uid },
       })
       .pipe(
@@ -456,7 +457,7 @@ export class AdService {
         forkJoin(videoUploads.length > 0 ? videoUploads : [of(null)]).subscribe(
           () => {
             this._httpClient
-              .post<Ad>(`${this.apiUrl}/ads`, this.newAd)
+              .post<Ad>(`${this.adApiUrl}/ads`, this.newAd)
               .pipe(
                 tap((ad: Ad) => {
                   this._ad.next(ad);

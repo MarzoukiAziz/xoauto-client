@@ -60,17 +60,19 @@ export class CloudinaryUploadService {
 
   getAdPicSignature(): Observable<any> {
     // Make an HTTP GET request to the server to obtain Cloudinary signature
-    return this.http.get<any>(environment.apiserver + '/cloudinary/adpics');
+    return this.http.get<any>(environment.adServiceApi + '/cloudinary/adpics');
   }
 
   getVideoSignature(): Observable<any> {
     // Make an HTTP GET request to the server to obtain Cloudinary signature
-    return this.http.get<any>(environment.apiserver + '/cloudinary/adVids');
+    return this.http.get<any>(environment.adServiceApi + '/cloudinary/adVids');
   }
 
   // Method to get Cloudinary signature for the specified user ID
   getSignature(): Observable<any> {
     // Make an HTTP GET request to the server to obtain Cloudinary signature
-    return this.http.get<any>(environment.apiserver + '/cloudinary');
+    return this.http.get<any>(
+      environment.userServiceApi + '/cloudinary/avatar'
+    );
   }
 }

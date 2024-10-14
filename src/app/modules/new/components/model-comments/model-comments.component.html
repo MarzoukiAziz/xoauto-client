@@ -19,9 +19,7 @@
               <!-- User Avatar -->
               <div class="img-holder">
                 <img
-                  [src]="
-                    comment.user.avatar ?? 'assets/images/icons/user-1.jpg'
-                  "
+                  [src]="comment.uid.avatar ?? 'assets/images/icons/user-1.jpg'"
                   alt="User Avatar"
                 />
               </div>
@@ -30,7 +28,7 @@
                 <!-- Comment Author and Date -->
                 <div class="top">
                   <h3>
-                    {{ comment.user.name
+                    {{ comment.uid.name
                     }}<span>
                       {{ comment.createdAt | date : "d MMM, y hh:mm" }}</span
                     >
@@ -61,14 +59,14 @@
                   <div class="img-reply">
                     <img
                       [src]="
-                        reply.user.avatar ?? 'assets/images/icons/user-1.jpg'
+                        reply.uid.avatar ?? 'assets/images/icons/user-1.jpg'
                       "
                     />
                   </div>
                   <div class="text-holder">
                     <div class="top">
                       <h3>
-                        {{ reply.user.name
+                        {{ reply.uid.name
                         }}<span>{{
                           reply.createdAt | date : "d MMM, y hh:mm"
                         }}</span>

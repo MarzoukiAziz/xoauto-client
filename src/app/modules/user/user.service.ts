@@ -17,7 +17,7 @@ import { AuthService } from '../auth/auth.service';
 })
 export class UserService {
   // API URL
-  private apiUrl = environment.apiserver;
+  private userApiUrl = environment.userServiceApi;
 
   // Private
   private _user: BehaviorSubject<User> = new BehaviorSubject(null);
@@ -38,7 +38,7 @@ export class UserService {
       this.auth.signOut();
       return null;
     }
-    return this._httpClient.get<User>(this.apiUrl + '/user/' + id).pipe(
+    return this._httpClient.get<User>(this.userApiUrl + '/user/' + id).pipe(
       map((user) => {
         this._user.next(user);
         return user;
@@ -55,7 +55,7 @@ export class UserService {
   getHighLight(): Observable<Highlight> {
     const uid = this.auth.getUserInfo()?.id;
     return this._httpClient.get<Highlight>(
-      this.apiUrl + '/insights/user-highlights',
+      this.userApiUrl + '/insights/user-highlights',
       {
         params: {
           uid,

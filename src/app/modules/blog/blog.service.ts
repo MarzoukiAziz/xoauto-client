@@ -16,8 +16,8 @@ import { Article, Comment } from './blog.types';
   providedIn: 'root',
 })
 export class BlogService {
-  // API URL
-  private apiUrl = environment.apiserver;
+  // Blog API URL
+  private blogApiUrl = environment.blogServiceApi;
 
   // Private
   private _articles: BehaviorSubject<Article[]> = new BehaviorSubject([]);
@@ -64,15 +64,18 @@ export class BlogService {
     sort: string = 'desc'
   ): Observable<Article[]> {
     return this._httpClient
-      .get<{ articles: Article[]; count: number }>(this.apiUrl + '/article', {
-        params: {
-          category,
-          keywords,
-          size: 8,
-          page,
-          sort,
-        },
-      })
+      .get<{ articles: Article[]; count: number }>(
+        this.blogApiUrl + '/article',
+        {
+          params: {
+            category,
+            keywords,
+            size: 8,
+            page,
+            sort,
+          },
+        }
+      )
       .pipe(
         tap((response: any) => {
           this._articles.next(response.articles);
@@ -83,25 +86,27 @@ export class BlogService {
 
   // Get Article By Id
   getArticleById(id: string): Observable<Article> {
-    return this._httpClient.get<Article>(this.apiUrl + '/article/' + id).pipe(
-      map((article) => {
-        this._article.next(article);
-        return article;
-      }),
-      switchMap((article) => {
-        if (!article) {
-          return throwError('Could not found article with id of ' + id + '!');
-        }
+    return this._httpClient
+      .get<Article>(this.blogApiUrl + '/article/' + id)
+      .pipe(
+        map((article) => {
+          this._article.next(article);
+          return article;
+        }),
+        switchMap((article) => {
+          if (!article) {
+            return throwError('Could not found article with id of ' + id + '!');
+          }
 
-        return of(article);
-      })
-    );
+          return of(article);
+        })
+      );
   }
 
   // Get Categories
   getCategories(): Observable<string[]> {
     return this._httpClient
-      .get<string[]>(this.apiUrl + '/settings/article-categories/names')
+      .get<string[]>(this.blogApiUrl + '/settings/article-categories/names')
       .pipe(
         tap((response: string[]) => {
           this._categories.next(response);
@@ -112,7 +117,7 @@ export class BlogService {
   // Get Comments
   getComments(id: string): Observable<Comment[]> {
     return this._httpClient
-      .get<Comment[]>(this.apiUrl + '/comment/article/' + id)
+      .get<Comment[]>(this.blogApiUrl + '/comment/article/' + id)
       .pipe(
         tap((response: Comment[]) => {
           this._comments.next(response);
@@ -122,7 +127,7 @@ export class BlogService {
 
   // Create Comment
   createComment(comment): Observable<any> {
-    return this._httpClient.post(this.apiUrl + '/comment', comment).pipe(
+    return this._httpClient.post(this.blogApiUrl + '/comment', comment).pipe(
       tap((response: Comment[]) => {
         this._comments.next(response);
       })
