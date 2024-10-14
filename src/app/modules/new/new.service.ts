@@ -10,6 +10,7 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class NewService {
   private newAdApiUrl = environment.newAdServiceApi;
+  private adApiUrl = environment.adServiceApi;
 
   private _settings: BehaviorSubject<NewSettings> = new BehaviorSubject(null);
   private _versions: BehaviorSubject<Version[]> = new BehaviorSubject([]);
@@ -146,7 +147,7 @@ export class NewService {
 
   getBrand(brand: string): Observable<Brand> {
     return this._httpClient
-      .get<Brand>(`${this.newAdApiUrl}/settings/brands/${brand}`)
+      .get<Brand>(`${this.adApiUrl}/settings/brands/${brand}`)
       .pipe(
         tap((response: Brand) => {
           this._brand.next(response);
