@@ -24,7 +24,7 @@ export const formatModelToPreview = (model: Model) => {
   // Construct the Model object
   const newModel: Model = {
     brand: model.brand,
-    model: model.model,
+    modele: model.modele,
     min_price,
     top_acceleration: top_acceleration > 0 ? top_acceleration + 's' : 'NaN',
     top_autonomy: top_autonomy > 0 ? top_autonomy + 'km' : 'NaN',

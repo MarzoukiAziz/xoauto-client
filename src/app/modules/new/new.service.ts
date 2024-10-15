@@ -185,12 +185,12 @@ export class NewService {
       );
   }
 
-  getSimilars(category, model, price): Observable<Model[]> {
+  getSimilars(category, modele, price): Observable<Model[]> {
     return this._httpClient
       .get<Model[]>(`${this.newAdApiUrl}/new-ads/similars`, {
         params: {
           category,
-          model,
+          modele,
           price,
         },
       })

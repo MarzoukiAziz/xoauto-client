@@ -22,7 +22,7 @@ export interface Brand {
 
 export interface Model {
   brand: string;
-  model: string;
+  modele: string;
   preview?: string;
   min_price?: number;
   top_acceleration?: string;

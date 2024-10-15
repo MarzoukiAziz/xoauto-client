@@ -22,7 +22,7 @@
       <mat-grid-tile>
         <div
           class="new-ad"
-          routerLink="/new/details/{{ model.brand }}/{{ model.model }}"
+          [routerLink]="'/new/' + model.brand + '/' + model.modele"
         >
           <div *ngIf="model.new" class="ribbon ribbon-new">Nouveau</div>
           <div *ngIf="model.promo" class="ribbon ribbon-promo">Promo</div>
@@ -30,7 +30,7 @@
 
           <h5 class="mt-2 text-center">
             {{ model.brand | uppercase }}
-            {{ model.model | uppercase }}
+            {{ model.modele | uppercase }}
           </h5>
           <p class="versions" *ngIf="model.versions.length > 1">
             {{ model.versions.length }} finitions

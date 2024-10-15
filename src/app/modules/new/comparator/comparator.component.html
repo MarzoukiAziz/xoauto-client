@@ -33,9 +33,11 @@
                   />
 
                   <a
-                    routerLink="/new/{{ version.brand }}/{{ version.model }}"
+                    [routerLink]="
+                      '/new/' + version.brand + '/' + version.modele
+                    "
                     class="comparison-item-title"
-                    >{{ version.brand }} {{ version.model }} <br />
+                    >{{ version.brand }} {{ version.modele }} <br />
                     {{ version.version }}</a
                   >
                 </div>

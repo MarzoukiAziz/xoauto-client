@@ -29,6 +29,6 @@ export class ModelsComponent {
   }
 
   trackByFn(index: number, item: any): any {
-    return item.model || index;
+    return item.modele || index;
   }
 }

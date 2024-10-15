@@ -1,4 +1,4 @@
-<title>Prix {{ model.brand }} {{ model.model }}</title>
+<title>Prix {{ model.brand }} {{ model.modele }}</title>
 
 <section class="container my-3">
   <div class="card">
@@ -13,10 +13,10 @@
       <div class="row">
         <img
           [src]="selected_version.preview"
-          [alt]="model.brand + ' ' + model.model + ' preview'"
+          [alt]="model.brand + ' ' + model.modele + ' preview'"
         />
         <h1 class="model-name title">
-          {{ model.brand | uppercase }} {{ model.model | uppercase }}
+          {{ model.brand | uppercase }} {{ model.modele | uppercase }}
         </h1>
       </div>
     </div>
@@ -106,7 +106,7 @@
   <new-similar-models
     [price]="selected_version.price"
     [category]="selected_version.category"
-    [model]="model.model"
+    [model]="model.modele"
     *ngIf="selected_nav == 'similar_models'"
   />
 </section>

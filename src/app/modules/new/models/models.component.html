@@ -17,10 +17,10 @@
         }@else if(model.new){
         <div *ngIf="model.new" class="ribbon ribbon-new">Nouveau</div>
         }
-        <a routerLink="/new/{{ model.brand }}/{{ model.model }}">
+        <a [routerLink]="'/new/' + model.brand + '/' + model.modele">
           <div class="model-name">
             <h4 class="model-text">
-              {{ model.brand | uppercase }} {{ model.model | uppercase }}
+              {{ model.brand | uppercase }} {{ model.modele | uppercase }}
             </h4>
             <hr class="line1" />
             <hr class="line2" />

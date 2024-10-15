@@ -5,10 +5,11 @@ import { CommonModule } from '@angular/common';
 import { environment } from 'src/environments/environment';
 import { NewService } from '../../new.service';
 import { Model } from '../../new.types';
+import { RouterLink } from '@angular/router';
 @Component({
   selector: 'new-similar-models',
   standalone: true,
-  imports: [SwiperDirective, CommonModule],
+  imports: [SwiperDirective, CommonModule, RouterLink],
   templateUrl: './similar-models.component.html',
   styleUrl: './similar-models.component.css',
 })
