@@ -134,11 +134,18 @@ export class AdService {
   }
 
   getAdById(id: string): Observable<Ad> {
-    return this._httpClient.get<Ad>(`${this.adApiUrl}/ads/${id}`).pipe(
-      tap((ad: Ad) => {
-        this._ad.next(ad);
+    return this._httpClient
+      .get<Ad>(`${this.adApiUrl}/ads/${id}`, {
+        params: {
+          view: true,
+          includeViews: false,
+        },
       })
-    );
+      .pipe(
+        tap((ad: Ad) => {
+          this._ad.next(ad);
+        })
+      );
   }
 
   getTodayAds(page: number = 1): Observable<Ad[]> {
