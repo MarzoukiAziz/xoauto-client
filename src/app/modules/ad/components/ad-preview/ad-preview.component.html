@@ -66,7 +66,8 @@
       {{ ad.version }}
     </h6>
     <h5 class="mb-0 text-md-primary">
-      {{ ad.price | number : "1.0-0" }} {{ currency }}
+      {{ ad.sold ? "Vendu" : "" }} {{ ad.price | number : "1.0-0" }}
+      {{ currency }}
     </h5>
   </div>
 
