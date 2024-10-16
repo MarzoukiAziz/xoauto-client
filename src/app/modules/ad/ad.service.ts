@@ -345,6 +345,7 @@ export class AdService {
         tap((deleteAd: Ad) => {
           const currentAds = this._ads.getValue();
           const updatedAds = currentAds.filter((ad) => ad._id !== deleteAd._id);
+          this._count.next(this._count.getValue() - 1);
           this._ads.next(updatedAds);
         })
       );
