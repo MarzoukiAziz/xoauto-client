@@ -88,9 +88,9 @@ export class StepOneComponent {
     this._adService.newAd.mileage = parseInt(km);
 
     if (model == 'Autre') {
-      this._adService.newAd.model = otherModel;
+      this._adService.newAd.car_model = otherModel;
     } else {
-      this._adService.newAd.model = model;
+      this._adService.newAd.car_model = model;
     }
 
     this._adService.step = 2;

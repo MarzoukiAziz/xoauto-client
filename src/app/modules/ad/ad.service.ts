@@ -106,7 +106,7 @@ export class AdService {
         params: {
           page: this.currentPage,
           brand: this.selectedBrands.map((brand) => brand.name),
-          model: this.selectedModels.map((model) => model.name),
+          car_model: this.selectedModels.map((model) => model.name),
           category: this.selectedCategories.map((category) => category.name_fr),
           fuel_type: this.selectedEnergies.map((energy) => energy.name_fr),
           seats: this.selectedSeats,
@@ -365,7 +365,7 @@ export class AdService {
     price: 0,
     type: 'used',
     brand: '',
-    model: '',
+    car_model: '',
     version: '',
     category: '',
     mileage: 0,

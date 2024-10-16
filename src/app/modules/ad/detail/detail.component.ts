@@ -56,7 +56,7 @@ export class DetailComponent {
       .pipe(takeUntil(this._unsubscribeAll))
       .subscribe((ad: Ad) => {
         this.ad = ad;
-        this.adName = ad.brand + ' ' + ad.model + ' ' + ad.version;
+        this.adName = ad.brand + ' ' + ad.car_model + ' ' + ad.version;
         this.owner = this.ad.uid._id == this.userId;
         this.criteriaList = this.getCriteria(ad);
         this._adService

@@ -6,7 +6,7 @@ export interface Ad {
   price: number;
   type: 'new' | 'used';
   brand: string;
-  model: string;
+  car_model: string;
   version?: string;
   category: string;
   mileage: number;
