@@ -39,6 +39,7 @@ export class ArticleListComponent {
   count: Number = 0;
   currentPage: number = 1;
   pageSize = 8;
+  resetPaginator = true;
 
   private _unsubscribeAll: Subject<any> = new Subject<any>();
 
@@ -50,8 +51,10 @@ export class ArticleListComponent {
 
   OnPageChange(event: PageEvent) {
     this.currentPage = event.pageIndex + 1;
-    window.scrollTo(0, 0); // Scroll to top
-    this._blogService.getArticles(this.currentPage).subscribe();
+    this.resetPaginator = false;
+    this._blogService.getArticles(this.currentPage).subscribe((_) => {
+      window.scrollTo(0, 0); // Scroll to top
+    });
   }
 
   ngOnInit(): void {
@@ -61,6 +64,11 @@ export class ArticleListComponent {
       .pipe(takeUntil(this._unsubscribeAll))
       .subscribe((articles: Article[]) => {
         this.articles = articles;
+        if (this.resetPaginator) {
+          this.paginator.pageIndex = 0;
+        }
+        this.resetPaginator = true;
+
         this._changeDetectorRef.markForCheck();
       });
     this._blogService.count$

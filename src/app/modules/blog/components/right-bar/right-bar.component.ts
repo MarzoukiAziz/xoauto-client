@@ -1,10 +1,8 @@
 import { ChangeDetectorRef, Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
 import { BlogService } from '../../blog.service';
 import { Subject, takeUntil } from 'rxjs';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { ArticleListComponent } from '../../list/article-list.component';
 import { NewAdBannerComponent } from 'src/app/shared/components/new-ad-banner/new-ad-banner.component';
 
 @Component({
@@ -19,12 +17,11 @@ export class RightBarComponent {
   selectedCategory: string = '';
   keywords: string = '';
 
-  private _unsubscribeAll: Subject<any> = new Subject<any>();
+  private _unsubscribeAll: Subject<void> = new Subject<void>();
 
   constructor(
     private _changeDetectorRef: ChangeDetectorRef,
-    private _blogService: BlogService,
-    private _blogListing: ArticleListComponent
+    private _blogService: BlogService
   ) {}
 
   ngOnInit(): void {
@@ -50,6 +47,5 @@ export class RightBarComponent {
     this._blogService
       .getArticles(1, this.keywords, this.selectedCategory)
       .subscribe();
-    this._blogListing.paginator.pageIndex = 0;
   }
 }
