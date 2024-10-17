@@ -62,7 +62,7 @@ export class BlogService {
     keywords: string = '',
     category: string = '',
     sort: string = 'desc'
-  ): Observable<Article[]> {
+  ): Observable<{ articles: Article[]; count: number }> {
     return this._httpClient
       .get<{ articles: Article[]; count: number }>(
         this.blogApiUrl + '/article',
@@ -77,7 +77,7 @@ export class BlogService {
         }
       )
       .pipe(
-        tap((response: any) => {
+        tap((response: { articles: Article[]; count: number }) => {
           this._articles.next(response.articles);
           this._count.next(response.count);
         })
@@ -130,7 +130,7 @@ export class BlogService {
   }
 
   // Create Comment
-  createComment(comment): Observable<any> {
+  createComment(comment): Observable<Comment[]> {
     return this._httpClient.post(this.blogApiUrl + '/comment', comment).pipe(
       tap((response: Comment[]) => {
         this._comments.next(response);

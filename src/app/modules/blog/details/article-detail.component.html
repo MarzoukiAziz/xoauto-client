@@ -72,7 +72,7 @@
                             <!-- Comment Author and Date -->
                             <div class="top">
                               <h3>
-                                {{ comment.uid.name
+                                {{ comment.uid?.name ?? "User"
                                 }}<span>
                                   {{
                                     comment.createdAt | date : "d MMM, y hh:mm"
@@ -116,7 +116,7 @@
                               <div class="text-holder">
                                 <div class="top">
                                   <h3>
-                                    {{ reply.uid.name
+                                    {{ reply.uid?.name ?? "User"
                                     }}<span>{{
                                       reply.createdAt | date : "d MMM, y hh:mm"
                                     }}</span>
